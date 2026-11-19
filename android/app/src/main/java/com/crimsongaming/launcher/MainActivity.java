@@ -1,4 +1,4 @@
-package com.crimsongaming.launcher;
+package com.ultragaming.launcher;
 
 import android.app.Activity;
 import android.content.Intent;
