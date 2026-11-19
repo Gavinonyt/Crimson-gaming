@@ -329,8 +329,18 @@ drawDrive();
 async function loadDriveLeaderboard(){
  const status=document.getElementById("leaderboardStatus"),rows=document.getElementById("leaderboardRows");
  status.textContent="Loading leaderboard…";
- const {data,error}=await client.from("crimson_sprint_leaderboard").select("player_name,score").order("score",{ascending:false}).limit(10);
- if(error){status.textContent="Leaderboard setup is not finished yet. Ask the site owner to run the SQL setup shown with this update.";rows.innerHTML="";return}
+ let data,error;
+ try{
+  if(!client)throw new Error("The sign-in service did not load. Refresh the page and try again.");
+  const result=await client.from("crimson_sprint_leaderboard").select("player_name,score").order("score",{ascending:false}).limit(10);
+  data=result.data;error=result.error;
+ }catch(err){error=err}
+ if(error){
+  const detail=String(error.message||"Database request failed");
+  status.textContent=detail.includes("crimson_sprint_leaderboard")||detail.includes("schema cache")?"Leaderboard database table is missing. The site owner must run the setup SQL in Supabase.": "Leaderboard error: "+detail;
+  rows.innerHTML="";
+  return;
+ }
  status.textContent=data.length? "TOP 10 PLAYERS":"No scores yet. Be the first!";
  rows.innerHTML=data.length?data.map((r,i)=>'<div class="leaderboard-row"><span class="leaderboard-rank">#'+(i+1)+'</span><div><strong>'+escapeLeaderboardText(r.player_name||"Crimson Player")+'</strong><small>Crimson Sprint</small></div><span class="leaderboard-score">'+Number(r.score||0).toLocaleString()+' m</span></div>').join(""):'<p class="drive-note">No scores posted yet. Start driving and post your best run!</p>';
 }
