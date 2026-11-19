@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090812">
-<title>Crimson Gaming 2.5.0 — Crimson Originals Beta Arcade</title><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<title>Crimson Gaming 2.5.0 — Crimson Originals Beta Arcade</title><script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root{color-scheme:dark;--bg:#090812;--line:#2c2640;--purple:#9b5cff;--muted:#a7a0b8;--white:#f8f5ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 80% 10%,#291447 0,transparent 38%),radial-gradient(ellipse at 10% 85%,#1a1030 0,transparent 35%),var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--white)}button,input{font:inherit}.topbar{height:76px;padding:0 6vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12;background:#090812b8;backdrop-filter:blur(14px)}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:1.6px}.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(140deg,#c16bff,#6429c8);display:grid;place-items:center;box-shadow:0 0 28px #9b5cff66;font-size:20px}.brand span{color:#bd8aff}.top-note{font-size:12px;color:var(--muted)}main{max-width:1120px;margin:0 auto;padding:58px 24px 70px}.auth-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;min-height:570px}.intro .eyebrow{color:#c69aff;font-size:12px;letter-spacing:3px;font-weight:800}.intro h1{font-size:clamp(38px,5vw,62px);line-height:1.02;margin:18px 0;background:linear-gradient(100deg,#fff 15%,#c9a2ff 72%,#9d5aff);background-clip:text;color:transparent}.intro p{color:var(--muted);font-size:16px;line-height:1.7;max-width:460px}.feature-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.feature{border:1px solid var(--line);background:#ffffff08;padding:11px 14px;border-radius:12px;color:#d8cbea;font-size:12px}.auth-card{background:linear-gradient(145deg,#1a1628f2,#100e19f5);border:1px solid #ffffff19;border-radius:22px;padding:30px;box-shadow:0 25px 90px #0008,0 0 50px #8b42db18}.tabs{display:flex;background:#0b0912;padding:5px;border-radius:12px;margin-bottom:26px}.tabs button{width:50%;padding:11px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-weight:700;cursor:pointer}.tabs button.active{background:#32204b;color:#fff;box-shadow:inset 0 0 0 1px #a86bff44}.auth-card h2{font-size:24px;margin:0 0 7px}.sub{color:var(--muted);font-size:13px;margin:0 0 23px}.field{margin:17px 0}.field label{display:block;font-size:11px;letter-spacing:1.2px;color:#c4b9d5;font-weight:800;margin-bottom:9px}.field input{width:100%;background:#0c0a13;border:1px solid #393149;border-radius:10px;padding:14px 15px;color:white;outline:none}.field input:focus{border-color:var(--purple);box-shadow:0 0 0 3px #9b5cff20}.primary{width:100%;border:0;border-radius:10px;padding:15px;background:linear-gradient(100deg,#7438c8,#a451e8);color:white;font-weight:900;letter-spacing:.7px;cursor:pointer;box-shadow:0 8px 25px #7438c844}.primary:hover{filter:brightness(1.12)}.primary:disabled{opacity:.55;cursor:wait}.quiet{width:100%;border:0;background:transparent;color:#c69aff;padding:14px 8px;cursor:pointer;font-size:13px}.status{min-height:22px;color:#d6b7ff;font-size:13px;line-height:1.5;margin-top:12px}.status.error{color:#ff9aaa}.divider{height:1px;background:#ffffff13;margin:22px 0}.qr-panel{margin-top:22px;border:1px solid #ffffff16;border-radius:14px;padding:17px;display:flex;gap:15px;align-items:center;background:#ffffff05}.qr-icon{width:54px;height:54px;flex:0 0 54px;border-radius:12px;background:#2b1d40;display:grid;place-items:center;font-size:25px}.qr-panel strong{font-size:13px}.qr-panel p{font-size:12px;color:var(--muted);line-height:1.5;margin:5px 0 0}.dashboard{display:none;min-height:70vh}.dash-layout{display:grid;grid-template-columns:210px 1fr;gap:28px}.sidebar{background:#120f1d;border:1px solid var(--line);border-radius:18px;padding:20px;height:max-content}.side-label{font-size:10px;color:#8d829f;letter-spacing:2px;font-weight:800;margin:6px 10px 14px}.nav{display:block;width:100%;text-align:left;border:0;background:transparent;color:#bcb4ca;padding:12px 11px;border-radius:9px;margin:3px 0;cursor:pointer}.nav.active,.nav:hover{background:#34204c;color:#fff}.dash-main{min-width:0}.welcome{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:25px}.welcome h1{margin:0 0 6px;font-size:30px}.welcome p{margin:0;color:var(--muted);font-size:13px}.signout{border:1px solid var(--line);background:#171322;color:#ddd0ef;border-radius:9px;padding:10px 14px;cursor:pointer}.hero{border:1px solid #ffffff1a;border-radius:18px;padding:30px;background:linear-gradient(110deg,#3b1c61,#211334 60%,#15101f);margin-bottom:30px}.hero small{color:#d8b9ff;letter-spacing:2px;font-weight:800}.hero h2{font-size:30px;margin:12px 0 8px}.hero p{color:#d0c3dd;margin:0;font-size:14px}.section-title{font-size:18px;margin:0 0 16px}.games{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.game{min-height:145px;border:1px solid #ffffff18;border-radius:15px;padding:18px;background:linear-gradient(145deg,#241b34,#15111f);display:flex;flex-direction:column;justify-content:space-between}.game .emoji{font-size:27px}.game strong{font-size:14px}.game span{font-size:11px;color:var(--muted);margin-top:5px}.footer{text-align:center;color:#746c81;font-size:11px;padding:28px}@media(max-width:800px){main{padding-top:35px}.auth-layout{grid-template-columns:1fr;gap:26px}.intro{text-align:center}.intro p{margin-left:auto;margin-right:auto}.feature-row{justify-content:center}.dash-layout{grid-template-columns:1fr}.sidebar{display:flex;gap:5px;overflow:auto;padding:9px}.side-label{display:none}.nav{white-space:nowrap;width:auto}.games{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.topbar{padding:0 18px}.top-note{display:none}.auth-card{padding:22px}.games{grid-template-columns:1fr 1fr}.game{min-height:125px}.welcome h1{font-size:24px}}
 
@@ -102,7 +102,7 @@
 .game-hud small{font-size:9px;letter-spacing:1.5px;color:#a99ab9;font-weight:900}
 .game-hud strong{font-size:19px;color:#fff;font-variant-numeric:tabular-nums}
 .drive-frame{position:relative;border:1px solid #8c5ac455;border-radius:12px;overflow:hidden;background:#080b12}
-#driveCanvas{display:block;width:100%;height:auto;aspect-ratio:15/8;touch-action:none}
+#driveCanvas{display:none}.drive3d-canvas{display:block;position:absolute;inset:0;width:100%;height:100%;touch-action:none}
 .drive-overlay{position:absolute;inset:0;display:grid;place-items:center;background:#080711bb;backdrop-filter:blur(5px)}
 .drive-overlay.hidden{display:none}
 .drive-overlay-card{text-align:center;background:#171020ed;border:1px solid #a46be077;border-radius:13px;padding:25px;max-width:90%}
@@ -546,8 +546,90 @@ const driveCars={chevrolet:{name:"Chevrolet Corvette",short:"CORVETTE",color:"#c
 };const drive={x:450,speed:0,distance:0,best:Number(localStorage.getItem("crimson_drive_best")||0),car:"chevrolet",cash:Number(localStorage.getItem("crimson_drive_cash")||250000),owned:JSON.parse(localStorage.getItem("crimson_drive_owned")||'["chevrolet"]'),running:false,paused:false,keys:{},touch:{},last:0,scroll:0};
 drive.owned=[...new Set(drive.owned.map(id=>id==="dodge-purple-torch"?"dodge-demon-170":id))];localStorage.setItem("crimson_drive_owned",JSON.stringify(drive.owned));if(drive.car==="dodge-purple-torch")drive.car="dodge-demon-170";
 document.getElementById("driveBest").textContent=Math.floor(drive.best)+" m";function saveDriveGarage(){const accountId=activeUser&&activeUser.id||"guest";localStorage.setItem("crimson_drive_cash_"+accountId,String(drive.cash));localStorage.setItem("crimson_drive_owned_"+accountId,JSON.stringify(drive.owned))}function loadDriveGarage(user){const cashKey="crimson_drive_cash_"+user.id,ownedKey="crimson_drive_owned_"+user.id,savedCash=localStorage.getItem(cashKey),legacyCashValue=localStorage.getItem("crimson_drive_cash"),legacyCash=legacyCashValue===null?NaN:Number(legacyCashValue);drive.cash=savedCash===null?(Number.isFinite(legacyCash)?legacyCash:250000):Number(savedCash);if(!Number.isFinite(drive.cash))drive.cash=250000;let savedOwned=localStorage.getItem(ownedKey);if(savedOwned===null)savedOwned=localStorage.getItem("crimson_drive_owned");try{const parsed=JSON.parse(savedOwned||'["chevrolet"]');drive.owned=Array.isArray(parsed)?parsed:["chevrolet"]}catch(e){drive.owned=["chevrolet"]}drive.owned=[...new Set(drive.owned.map(id=>id==="dodge-purple-torch"?"dodge-demon-170":id).filter(id=>driveCars[id]))];if(!drive.owned.includes("chevrolet"))drive.owned.unshift("chevrolet");if(drive.car==="dodge-purple-torch")drive.car="dodge-demon-170";if(!drive.owned.includes(drive.car))drive.car=drive.owned[0];saveDriveGarage()}function renderDriveGarage(){const select=document.getElementById("driveCarSelect"),grid=document.getElementById("driveDealerGrid");select.innerHTML="";drive.owned.forEach(id=>{const car=driveCars[id];if(!car)return;const op=document.createElement("option");op.value=id;op.textContent=car.name;select.appendChild(op)});if(!drive.owned.includes(drive.car))drive.car=drive.owned[0]||"chevrolet";select.value=drive.car;document.getElementById("driveCash").textContent=drive.isOwner?"CRIMSON CASH: UNLIMITED (OWNER)":"CRIMSON CASH: $"+drive.cash.toLocaleString("en-US");grid.innerHTML="";Object.entries(driveCars).filter(([id])=>id!=="chevrolet").forEach(([id,car])=>{const owned=drive.owned.includes(id),card=document.createElement("div");card.style.cssText="background:#100d19;border:1px solid #ffffff20;border-radius:10px;padding:12px";const name=document.createElement("strong");name.textContent=car.name;name.style.cssText="display:block;font-size:12px;margin-bottom:6px";const price=document.createElement("p");price.textContent=owned?"OWNED":drive.isOwner?"OWNER ACCESS — FREE":"$"+car.price.toLocaleString("en-US");price.style.cssText="font-size:12px;color:#c8a5ff;margin:0 0 9px";const btn=document.createElement("button");btn.type="button";btn.className="settings-action";btn.textContent=owned?"SELECTED / OWNED":"BUY CAR";btn.disabled=owned||drive.cash<car.price;btn.addEventListener("click",()=>{if(drive.cash<car.price)return;drive.cash-=car.price;drive.owned.push(id);drive.car=id;saveDriveGarage();renderDriveGarage();drawDrive()});card.append(name,price,btn);grid.appendChild(card)})}renderDriveGarage();
+let drive3D=null,drive3DReady=false,drive3DWheel=null,drive3DRoad=null,drive3DRenderer=null;
+function setupDrive3D(){
+ const frame=document.querySelector(".drive-frame");
+ if(!frame||!window.THREE){const note=document.createElement("div");note.className="drive-note";note.textContent="3D renderer could not load. Check your internet connection and refresh.";frame?.appendChild(note);return}
+ const T=THREE,canvas=document.createElement("canvas");canvas.className="drive3d-canvas";canvas.setAttribute("aria-label","3D first-person vehicle cockpit");frame.appendChild(canvas);
+ try{drive3DRenderer=new T.WebGLRenderer({canvas,antialias:true,alpha:false});drive3DRenderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.6));drive3DRenderer.setSize(900,480,false);drive3DRenderer.outputColorSpace=T.SRGBColorSpace;drive3DRenderer.toneMapping=T.ACESFilmicToneMapping;drive3DRenderer.toneMappingExposure=1.05;
+ const scene=new T.Scene();scene.background=new T.Color(0x8799ad);scene.fog=new T.Fog(0x8799ad,22,95);
+ const camera=new T.PerspectiveCamera(70,900/480,.1,180);camera.position.set(0,1.56,4.25);camera.lookAt(0,1.45,-5);
+ scene.add(new T.HemisphereLight(0xddeaff,0x25202a,2.0));const sun=new T.DirectionalLight(0xffe2c0,2.1);sun.position.set(-4,8,5);scene.add(sun);
+ const mat=(color,roughness=.65,metalness=.05)=>new T.MeshStandardMaterial({color,roughness,metalness});
+ const dark=mat(0x111319),soft=mat(0x242630),rubber=mat(0x08090c),glass= new T.MeshStandardMaterial({color:0x8eb9d1,roughness:.16,metalness:.15,transparent:true,opacity:.18}),metal=mat(0x9aa4b0,.28,.8);
+ const box=(parent,x,y,z,w,h,d,material,rx=0,ry=0,rz=0)=>{const m=new T.Mesh(new T.BoxGeometry(w,h,d),material);m.position.set(x,y,z);m.rotation.set(rx,ry,rz);parent.add(m);return m};
+ const cabin=new T.Group();scene.add(cabin);
+ // Exterior shell, roof frame and windshield pillars
+ box(cabin,0,2.55,-.2,3.25,.18,3.9,dark);
+ box(cabin,-1.48,1.9,-1.45,.12,1.35,.14,soft,0,0,-.17);box(cabin,1.48,1.9,-1.45,.12,1.35,.14,soft,0,0,.17);
+ box(cabin,-1.48,1.85,1.4,.12,1.35,.14,soft,0,0,.17);box(cabin,1.48,1.85,1.4,.12,1.35,.14,soft,0,0,-.17);
+ box(cabin,0,2.5,-1.42,3.05,.08,.12,metal);
+ // Dashboard upper pad and fascia
+ box(cabin,0,1.22,-.55,3.05,.42,.82,soft);
+ box(cabin,0,1.02,-.22,2.95,.12,.72,dark);
+ box(cabin,0,1.30,-.99,2.92,.13,.16,mat(0x30323a));
+ // center screen and instrument binnacle
+ box(cabin,.32,1.47,-.97,.78,.46,.075,rubber);
+ box(cabin,.32,1.47,-.925,.70,.37,.025,mat(0x102633,.25,.2));
+ box(cabin,-.86,1.47,-.92,.82,.42,.12,dark);
+ box(cabin,-.86,1.47,-.845,.70,.29,.025,mat(0x07131d,.22,.1));
+ // Center tunnel, gear lever and cupholders
+ box(cabin,.22,.62,.65,.78,.35,2.2,soft);
+ box(cabin,.22,.84,.25,.30,.43,.34,dark,0,0,-.12);
+ const gear=new T.Mesh(new T.SphereGeometry(.12,18,14),metal);gear.position.set(.22,1.08,.23);cabin.add(gear);
+ for(let x of [-.02,.42]){const cup=new T.Mesh(new T.CylinderGeometry(.105,.105,.035,20),rubber);cup.position.set(x,.84,1.02);cabin.add(cup)}
+ // steering column and wheel, visible from driver seat
+ box(cabin,-.82,1.04,-.18,.18,.18,.58,dark,-.25,0,0);
+ const wheelGroup=new T.Group();wheelGroup.position.set(-.82,1.35,-.18);cabin.add(wheelGroup);drive3DWheel=wheelGroup;
+ const ring=new T.Mesh(new T.TorusGeometry(.39,.055,12,48),rubber);wheelGroup.add(ring);
+ box(wheelGroup,0,-.03,0,.075,.55,.09,soft);box(wheelGroup,0,-.05,0,.62,.075,.09,soft);
+ const hub=new T.Mesh(new T.CylinderGeometry(.13,.13,.09,24),metal);hub.rotation.x=Math.PI/2;wheelGroup.add(hub);
+ // Seats with cushions, backs, headrests and bolsters
+ for(const x of [-.88,.9]){
+  box(cabin,x,.48,1.52,.82,.28,1.05,soft);
+  box(cabin,x,.99,1.88,.82,1.05,.28,dark,-.12,0,0);
+  box(cabin,x-.32,.95,1.83,.12,.82,.34,soft,-.12,0,0);box(cabin,x+.32,.95,1.83,.12,.82,.34,soft,-.12,0,0);
+  box(cabin,x,1.62,1.98,.46,.34,.24,soft);
+  box(cabin,x,.34,1.53,.58,.04,.72,mat(0x34343b));
+ }
+ // Door cards, armrests, handles and speaker grilles
+ for(const side of [-1,1]){
+  box(cabin,side*1.48,1.02,.25,.16,.82,2.45,soft);
+  box(cabin,side*1.39,.82,.45,.18,.12,1.15,dark);
+  box(cabin,side*1.38,1.15,-.25,.12,.06,.48,metal);
+  const speaker=new T.Mesh(new T.CylinderGeometry(.20,.20,.035,28),rubber);speaker.rotation.z=Math.PI/2;speaker.position.set(side*1.38,.72,1.12);cabin.add(speaker);
+ }
+ // pedals
+ for(let x of [-1.02,-.72])box(cabin,x,.28,-.12,.16,.055,.27,metal,-.25,0,0);
+ // rear-view mirror
+ box(cabin,0,2.20,-1.28,.48,.13,.12,dark);
+ // windshield view: road, lane markings, horizon and low skyline
+ const world=new T.Group();scene.add(world);drive3DRoad=world;
+ box(world,0,-.02,-27,22,.08,65,mat(0x34383d));
+ for(let x of [-5.3,5.3])box(world,x,.025,-27,.12,.03,65,mat(0xe6dfbf));
+ for(let z=-2;z>-58;z-=5)box(world,0,.03,z,.16,.035,2.2,mat(0xf2e8c8));
+ const ground=box(world,0,-.11,-28,180,.08,90,mat(0x344638));
+ for(let side of [-1,1])for(let n=0;n<15;n++){const z=-5-n*3.5,x=side*(9+(n%4)*2),height=2+(n%5)*1.25;box(world,x,height/2,z,1.8,height,1.8,mat(n%2?0x53616a:0x68716e));}
+ drive3D={scene,camera,cabin,world,materials:{dark,soft,rubber,glass,metal},box,mat};
+ drive3DReady=true;renderDrive3D();
+ }catch(err){console.error("Crimson 3D renderer:",err);drive3DReady=false;const note=document.createElement("div");note.className="drive-note";note.textContent="3D mode failed to initialize on this device. Refresh and try again.";frame.appendChild(note)}
+}
+function renderDrive3D(){
+ if(!drive3DReady||!drive3DRenderer)return;
+ const d=drive3D,steer=(drive.x-450)/245;
+ d.camera.position.x=steer*.16;d.camera.lookAt(steer*.30,1.42,-6);
+ if(drive3DWheel)drive3DWheel.rotation.z=-steer*.55;
+ if(drive3DRoad)drive3DRoad.position.z=(drive.scroll*.025)%5;
+ drive3DRenderer.render(d.scene,d.camera);
+}
+function resizeDrive3D(){
+ if(!drive3DReady)return;const frame=document.querySelector(".drive-frame"),w=frame.clientWidth,h=w*8/15;
+ drive3DRenderer.setSize(w,h,false);drive3D.camera.aspect=w/h;drive3D.camera.updateProjectionMatrix();renderDrive3D();
+}
+window.addEventListener("resize",resizeDrive3D);
 function roundedRect(c,x,y,w,h,r){c.beginPath();c.roundRect(x,y,w,h,r);c.fill()}
 function drawDrive(){
+ if(drive3DReady){renderDrive3D();document.getElementById("driveDistance").textContent=Math.floor(drive.distance)+" m";document.getElementById("driveSpeed").textContent=Math.round(drive.speed)+" MPH";document.getElementById("driveBest").textContent=Math.floor(drive.best)+" m";return}
  const c=driveCtx,w=driveCanvas.width,h=driveCanvas.height,car=driveCars[drive.car]||driveCars.chevrolet,id=drive.car||"chevrolet";
  const profiles={
   corvette:{dash:"#171b20",trim:"#c4cbd2",wheel:"#080a0d",screen:"#101a22",shape:"sport",cluster:"digital",badge:"CORVETTE"},
@@ -673,7 +755,7 @@ document.getElementById("driveCarSelect").addEventListener("change",e=>{drive.ca
 document.getElementById("drivePause").addEventListener("click",()=>{if(!drive.running)return;drive.paused=!drive.paused;document.getElementById("drivePause").textContent=drive.paused?"RESUME":"PAUSE";if(drive.paused)drawDrive();else{drive.last=performance.now();requestAnimationFrame(driveFrame)}});
 window.addEventListener("keydown",e=>{if(["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"].includes(e.key)){e.preventDefault();drive.keys[e.key]=true}else if(["a","d","w","s"].includes(e.key.toLowerCase()))drive.keys[e.key.toLowerCase()]=true});window.addEventListener("keyup",e=>{drive.keys[e.key]=false;drive.keys[e.key.toLowerCase()]=false});
 document.querySelectorAll("[data-drive]").forEach(b=>{const key=b.dataset.drive,down=e=>{e.preventDefault();drive.touch[key]=true},up=e=>{e.preventDefault();drive.touch[key]=false};b.addEventListener("pointerdown",down);b.addEventListener("pointerup",up);b.addEventListener("pointercancel",up);b.addEventListener("pointerleave",up)});
-drawDrive();
+setupDrive3D();drawDrive();resizeDrive3D();
 /* Crimson 2.4.0 leaderboard + isolated local HTML game player */
 async function loadDriveLeaderboard(){
  const status=document.getElementById("leaderboardStatus"),rows=document.getElementById("leaderboardRows");
