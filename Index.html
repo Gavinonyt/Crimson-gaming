@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crimson Gaming - Sign In</title>
+
+<!-- QR code library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ min-height:100vh;
+ background:#101116;
+ color:white;
+ font-family:Arial,sans-serif;
+}
+
+header{
+ height:75px;
+ background:#191a21;
+ border-bottom:2px solid #c90035;
+ display:flex;
+ align-items:center;
+ padding:0 25px;
+}
+
+.logo{
+ font-size:25px;
+ font-weight:900;
+ color:#ff1744;
+ letter-spacing:1px;
+}
+
+.logo span{color:white}
+
+.container{
+ max-width:1000px;
+ margin:55px auto;
+ padding:15px;
+}
+
+.heading{
+ text-align:center;
+ margin-bottom:35px;
+}
+
+.heading h1{
+ color:#ff1744;
+ font-size:32px;
+}
+
+.heading p{color:#999}
+
+.signin{
+ display:grid;
+ grid-template-columns:1.2fr 1fr;
+ background:#191b24;
+ border:1px solid #30313d;
+ border-radius:12px;
+ overflow:hidden;
+ box-shadow:0 15px 50px #0008;
+}
+
+.login{
+ padding:35px;
+}
+
+.qr{
+ background:#20232d;
+ padding:35px;
+ text-align:center;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+}
+
+h2{margin-top:0}
+
+label{
+ display:block;
+ color:#aaa;
+ font-size:13px;
+ margin:18px 0 8px;
+}
+
+input[type=text],
+input[type=password]{
+ width:100%;
+ padding:14px;
+ background:#0e1016;
+ border:1px solid #3b3d49;
+ border-radius:6px;
+ color:white;
+ outline:none;
+}
+
+input:focus{
+ border-color:#ed1749;
+}
+
+.password-wrap{
+ display:flex;
+ gap:7px;
+}
+
+.password-wrap input{flex:1;min-width:0}
+
+.small-button{
+ background:#343642;
+ color:white;
+ border:0;
+ border-radius:6px;
+ padding:0 12px;
+}
+
+.remember{
+ display:flex;
+ gap:9px;
+ align-items:center;
+ color:#aaa;
+ font-size:13px;
+ margin:18px 0;
+}
+
+.red-button{
+ width:100%;
+ padding:14px;
+ background:#d00039;
+ color:white;
+ border:0;
+ border-radius:6px;
+ font-weight:bold;
+ cursor:pointer;
+ margin-top:8px;
+}
+
+.red-button:hover{background:#ff1744}
+
+.secondary{
+ background:#343642;
+}
+
+.secondary:hover{background:#494b59}
+
+.message{
+ min-height:25px;
+ color:#ff718e;
+ font-size:13px;
+ margin-top:13px;
+}
+
+#qrcode{
+ background:white;
+ padding:12px;
+ width:196px;
+ min-height:196px;
+ border-radius:8px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+
+#qrcode img,#qrcode canvas{
+ max-width:100%;
+ height:auto;
+}
+
+.qr p{
+ color:#aaa;
+ font-size:13px;
+ line-height:1.5;
+}
+
+.qr strong{color:#ff5578}
+
+footer{
+ text-align:center;
+ color:#666;
+ padding:30px;
+}
+
+@media(max-width:700px){
+ .container{margin:20px auto}
+ .signin{grid-template-columns:1fr}
+ .login,.qr{padding:25px}
+ .heading h1{font-size:26px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">CRIMSON <span>GAMING</span></div>
+</header>
+
+<div class="container">
+
+ <div class="heading">
+  <h1>WELCOME BACK</h1>
+  <p>Sign in to your Crimson Gaming account.</p>
+ </div>
+
+ <div class="signin">
+
+  <section class="login">
+   <h2>Sign in</h2>
+
+   <form id="loginForm">
+    <label for="username">ACCOUNT NAME</label>
+    <input id="username" type="text"
+      placeholder="Enter your username" required>
+
+    <label for="password">PASSWORD</label>
+    <div class="password-wrap">
+     <input id="password" type="password"
+       placeholder="Enter your password" required>
+     <button type="button" class="small-button"
+       onclick="togglePassword()">SHOW</button>
+    </div>
+
+    <label class="remember">
+     <input type="checkbox" id="remember">
+     Remember me
+    </label>
+
+    <button class="red-button" type="submit">
+     SIGN IN
+    </button>
+   </form>
+
+   <button class="red-button secondary"
+     onclick="createAccount()">
+     CREATE ACCOUNT
+   </button>
+
+   <div class="message" id="loginMessage"></div>
+  </section>
+
+  <section class="qr">
+   <h2>Sign in with QR</h2>
+   <p>Scan this demo QR code with another device.</p>
+
+   <div id="qrcode"></div>
+
+   <p><strong>DEMO QR SIGN-IN</strong></p>
+   <p id="qrStatus">Waiting for demo scan...</p>
+
+   <button class="red-button" onclick="refreshQR()">
+    REFRESH QR CODE
+   </button>
+
+   <button class="red-button secondary"
+     onclick="simulateScan()">
+     SIMULATE QR SIGN-IN
+   </button>
+  </section>
+
+ </div>
+</div>
+
+<footer>
+ CRIMSON GAMING © 2026
+</footer>
+
+<script>
+const qrBox=document.getElementById("qrcode");
+let currentToken="";
+
+function newToken(){
+ const array=new Uint8Array(16);
+ crypto.getRandomValues(array);
+ return Array.from(array)
+  .map(b=>b.toString(16).padStart(2,"0"))
+  .join("");
+}
+
+function refreshQR(){
+ qrBox.innerHTML="";
+ currentToken=newToken();
+
+ const demoData={
+  app:"Crimson Gaming",
+  mode:"DEMO_ONLY",
+  token:currentToken
+ };
+
+ if(typeof QRCode==="undefined"){
+  qrBox.textContent="QR library unavailable. Connect to internet and reload.";
+  return;
+ }
+
+ new QRCode(qrBox,{
+  text:JSON.stringify(demoData),
+  width:170,
+  height:170,
+  colorDark:"#171117",
+  colorLight:"#ffffff",
+  correctLevel:QRCode.CorrectLevel.H
+ });
+
+ document.getElementById("qrStatus").textContent=
+  "Demo code ready. Refreshes when requested.";
+}
+
+function togglePassword(){
+ const field=document.getElementById("password");
+ field.type=field.type==="password"?"text":"password";
+}
+
+document.getElementById("loginForm")
+.addEventListener("submit",function(e){
+ e.preventDefault();
+
+ const username=document.getElementById("username").value.trim();
+ const password=document.getElementById("password").value;
+
+ if(!username||!password)return;
+
+ document.getElementById("loginMessage").textContent=
+  "Demo only: sign-in is not connected to an account server yet.";
+});
+
+function createAccount(){
+ document.getElementById("loginMessage").textContent=
+  "Account creation will be added when the secure account system is built.";
+}
+
+function simulateScan(){
+ document.getElementById("qrStatus").textContent=
+  "Demo scan simulated! Real account authentication is not connected.";
+}
+
+refreshQR();
+</script>
+
+</body>
+</html>
