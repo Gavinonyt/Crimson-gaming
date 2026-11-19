@@ -564,12 +564,12 @@ function drawDrive(){
   lucid:{dash:"#29272a",trim:"#c7bba8",wheel:"#121114",screen:"#171a20",shape:"luxury",cluster:"wide",badge:"LUCID"}
  };
  let type="dodge";
- if(/corvette|viper|ford-gt/i.test(id))type="corvette";
+ if(/ford-gt/i.test(id))type="fordgt";
+ else if(/corvette|viper/i.test(id))type="corvette";
  else if(/camaro/i.test(id))type="camaro";
  else if(/cadillac/i.test(id))type="cadillac";
- else if(/gmc|sierra|silverado|ram-|f150|f-150|tundra|tacoma|truck/i.test(id))type="truck";
+ else if(/gmc|sierra|silverado|ram-|1500|2500|3500|f150|f-150|f250|f-250|tundra|tacoma|cybertruck|rivian-r1t|truck/i.test(id))type="truck";
  else if(/mustang/i.test(id))type="mustang";
- else if(/ford-gt/i.test(id))type="fordgt";
  else if(/lincoln|continental/i.test(id))type="lincoln";
  else if(/jeep|wrangler/i.test(id))type="jeep";
  else if(/tesla/i.test(id))type="tesla";
@@ -622,6 +622,47 @@ function drawDrive(){
  c.fillStyle="#15171d";c.beginPath();c.moveTo(wx-wr*.83,wy-4);c.lineTo(wx-wr*.53,wy+28);c.lineTo(wx+wr*.53,wy+28);c.lineTo(wx+wr*.83,wy-4);c.closePath();c.fill();
  c.strokeStyle="#08090c";c.lineWidth=11;c.beginPath();c.moveTo(wx,wy-3);c.lineTo(wx,wy-56);c.moveTo(wx-4,wy+4);c.lineTo(wx-48,wy-25);c.moveTo(wx+4,wy+4);c.lineTo(wx+48,wy-25);c.stroke();
  c.fillStyle=cabin.trim;c.beginPath();c.arc(wx,wy,19,0,Math.PI*2);c.fill();c.fillStyle="#15161b";c.beginPath();c.arc(wx,wy,14,0,Math.PI*2);c.fill();c.fillStyle=car.color;c.beginPath();c.arc(wx,wy,5,0,Math.PI*2);c.fill();
+ // Extra cabin geometry: layered door cards, handles, armrests and window switches
+ const doorTop=cabin.shape==="truck"||cabin.shape==="upright"?h*.605:h*.635;
+ c.fillStyle="#090a0f";c.beginPath();c.moveTo(0,doorTop);c.quadraticCurveTo(w*.10,h*.67,w*.20,h*.70);c.lineTo(w*.22,h);c.lineTo(0,h);c.closePath();c.fill();
+ c.beginPath();c.moveTo(w,doorTop);c.quadraticCurveTo(w*.90,h*.67,w*.80,h*.70);c.lineTo(w*.78,h);c.lineTo(w,h);c.closePath();c.fill();
+ const doorGrad=c.createLinearGradient(0,h*.68,0,h);doorGrad.addColorStop(0,cabin.dash);doorGrad.addColorStop(1,"#08090d");c.fillStyle=doorGrad;
+ c.beginPath();c.moveTo(0,h*.72);c.quadraticCurveTo(w*.12,h*.69,w*.205,h*.755);c.lineTo(w*.22,h);c.lineTo(0,h);c.fill();
+ c.beginPath();c.moveTo(w,h*.72);c.quadraticCurveTo(w*.88,h*.69,w*.795,h*.755);c.lineTo(w*.78,h);c.lineTo(w,h);c.fill();
+ c.strokeStyle=cabin.trim;c.globalAlpha=.7;c.lineWidth=2;c.beginPath();c.moveTo(w*.035,h*.79);c.quadraticCurveTo(w*.12,h*.755,w*.19,h*.80);c.moveTo(w*.965,h*.79);c.quadraticCurveTo(w*.88,h*.755,w*.81,h*.80);c.stroke();c.globalAlpha=1;
+ // Door pulls and window switches
+ for(const side of [0,1]){const dx=side?w*.835:w*.085;c.fillStyle="#050609";roundedRect(c,dx,h*.81,w*.075,h*.035,7);c.strokeStyle=cabin.trim;c.lineWidth=2;c.beginPath();c.moveTo(dx+8,h*.827);c.lineTo(dx+w*.055,h*.827);c.stroke();c.fillStyle="#20232a";roundedRect(c,dx+5,h*.865,w*.055,h*.022,4);for(let q=0;q<3;q++){c.fillStyle="#07090c";roundedRect(c,dx+8+q*10,h*.87,7,5,2)}}
+ // Sculpted front seats with bolsters and headrests; truck/SUV seats sit taller
+ const seatY=(cabin.shape==="truck"||cabin.shape==="upright")?.685:.735;
+ for(const side of [0,1]){
+  const x=side?w*.80:w*.075,sw=w*.15;
+  c.fillStyle="#050609";c.beginPath();c.moveTo(x+sw*.12,h);c.lineTo(x+sw*.08,seatY*h);c.quadraticCurveTo(x+sw*.08,seatY*h-22,x+sw*.5,seatY*h-25);c.quadraticCurveTo(x+sw*.92,seatY*h-22,x+sw*.92,seatY*h);c.closePath();c.fill();
+  c.fillStyle=cabin.dash;c.beginPath();c.moveTo(x+sw*.19,h);c.lineTo(x+sw*.17,seatY*h+18);c.quadraticCurveTo(x+sw*.5,seatY*h-5,x+sw*.83,seatY*h+18);c.lineTo(x+sw*.82,h);c.closePath();c.fill();
+  c.strokeStyle=cabin.trim;c.globalAlpha=.6;c.lineWidth=2;c.beginPath();c.moveTo(x+sw*.28,seatY*h+18);c.lineTo(x+sw*.30,h-8);c.moveTo(x+sw*.72,seatY*h+18);c.lineTo(x+sw*.70,h-8);c.stroke();c.globalAlpha=1;
+  c.fillStyle="#090a0e";roundedRect(c,x+sw*.30,seatY*h-38,sw*.40,25,9);c.strokeStyle=cabin.trim;c.lineWidth=2;c.strokeRect(x+sw*.34,seatY*h-34,sw*.32,16);
+ }
+ // Center tunnel, gear selector, cupholders and parking controls
+ const tunnelTop=cabin.shape==="truck"||cabin.shape==="upright"?.82:.855;
+ c.fillStyle="#08090d";c.beginPath();c.moveTo(w*.455,h*.84);c.lineTo(w*.70,h*.84);c.lineTo(w*.84,h);c.lineTo(w*.34,h);c.closePath();c.fill();
+ c.strokeStyle=cabin.trim;c.globalAlpha=.55;c.lineWidth=2;c.beginPath();c.moveTo(w*.47,h*tunnelTop);c.lineTo(w*.365,h);c.moveTo(w*.68,h*tunnelTop);c.lineTo(w*.835,h);c.stroke();c.globalAlpha=1;
+ if(cabin.shape!=="minimal"){
+  c.fillStyle="#171a20";roundedRect(c,w*.50,h*.86,w*.075,h*.075,9);c.fillStyle=cabin.trim;roundedRect(c,w*.526,h*.872,w*.022,h*.042,5);
+  for(let k=0;k<2;k++){c.fillStyle="#050609";c.beginPath();c.ellipse(w*(.62+k*.075),h*.91,13,8,0,0,Math.PI*2);c.fill();c.strokeStyle=cabin.trim;c.lineWidth=2;c.stroke()}
+ }else{
+  c.fillStyle="#090b10";roundedRect(c,w*.51,h*.875,w*.19,h*.045,12);c.fillStyle="#303640";roundedRect(c,w*.535,h*.884,w*.14,h*.022,7);
+ }
+ // Vehicle-family dashboard details: sport-car hood, upright truck dash, or clean EV fascia
+ if(cabin.shape==="sport"||cabin.shape==="muscle"){
+  c.fillStyle="#08090d";roundedRect(c,w*.245,h*.665,w*.25,h*.035,8);c.fillStyle=cabin.trim;c.globalAlpha=.7;c.fillRect(w*.27,h*.676,w*.20,2);c.globalAlpha=1;
+ }else if(cabin.shape==="truck"||cabin.shape==="upright"){
+  c.fillStyle="#0a0b0e";roundedRect(c,w*.08,h*.70,w*.13,h*.075,8);c.strokeStyle=cabin.trim;c.lineWidth=2;c.strokeRect(w*.09,h*.715,w*.11,h*.045);
+  c.fillStyle="#090a0d";roundedRect(c,w*.73,h*.67,w*.15,h*.04,7);c.fillStyle=cabin.trim;c.fillRect(w*.75,h*.685,w*.11,2);
+ }else if(cabin.shape==="luxury"){
+  c.strokeStyle=cabin.trim;c.globalAlpha=.65;c.lineWidth=3;c.beginPath();c.moveTo(w*.08,h*.70);c.quadraticCurveTo(w*.5,h*.65,w*.91,h*.70);c.stroke();c.globalAlpha=1;
+ }
+ // Small pedal set in the driver's footwell
+ c.fillStyle="#252830";roundedRect(c,w*.25,h*.94,w*.035,h*.045,4);roundedRect(c,w*.295,h*.935,w*.035,h*.05,4);
+ c.strokeStyle="#777d87";c.lineWidth=1;for(let p=0;p<2;p++)for(let q=0;q<3;q++){c.beginPath();c.moveTo(w*(.257+p*.045),h*(.95+q*.01));c.lineTo(w*(.277+p*.045),h*(.95+q*.01));c.stroke()}
  // Stitching and subtle material seams
  c.strokeStyle=cabin.trim;c.globalAlpha=.55;c.setLineDash([5,7]);c.lineWidth=1.5;c.beginPath();c.moveTo(w*.05,h*.755);c.quadraticCurveTo(w*.5,h*.675,w*.95,h*.755);c.stroke();c.setLineDash([]);c.globalAlpha=1;
  c.fillStyle="#d9d1dc";c.font="11px system-ui";c.textAlign="left";c.fillText("DIST "+Math.floor(drive.distance)+" m",18,h-13);c.textAlign="right";c.fillText("BEST "+Math.floor(drive.best)+" m",w-18,h-13);
