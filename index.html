@@ -911,7 +911,7 @@ document.getElementById("passwordResetForm").addEventListener("submit",async e=>
  try{
   const {data,error}=await client.auth.updateUser({password});
   if(error)throw error;
-  passwordRecoveryMode=false;resetPanel.hidden=true;
+  passwordRecoveryMode=false;resetPanel.hidden=true;form.hidden=false;document.getElementById("loginTab").hidden=false;document.getElementById("signupTab").hidden=false;document.getElementById("forgotBtn").hidden=false;
   showStatus("Your password has been updated successfully.");
   if(data.user)showDashboard(data.user);
  }catch(err){showStatus(err.message||"Could not update your password. Request a new reset link and try again.",true)}
