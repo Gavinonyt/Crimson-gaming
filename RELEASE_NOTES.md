@@ -1,33 +1,27 @@
-# Crimson Gaming — Release Notes
-**Release date:** November 19, 2026  
-**Repository:** https://github.com/Gavinonyt/Crimson-gaming
+# Crimson Gaming 2.2.0
+**Release date:** November 19, 2026
 
-## What's New
+## What's new
 
-### Driving and vehicles
-- Added a first-person cockpit driving view.
-- Added car-specific cockpit styling.
-- Increased acceleration across the vehicle lineup, including a dedicated acceleration update for the Demon 170 Purple Torch Charger.
+### Crimson City refresh
+- Expanded the original city map with a coastal waterfront, marina docks, downtown streets, a park, storefronts, a hotel quarter, and a garage district.
+- Added parked vehicles, street details, crosswalks, building signs, and district names.
+- Improved walking movement, including smoother diagonal movement and updated district labels as you explore.
+- Kept Crimson City an original experience rather than copying another game's map, characters, or missions.
 
-### Accounts and profiles
-- Improved the mobile sign-in form.
-- Added clearer authentication startup error reporting to help diagnose sign-in problems.
-- Fixed a startup issue that was blocking sign-in.
-- Added profile photo uploads.
-- Updated OWNER display-name handling and owner-only Crimson Cash behavior.
+### New appearance themes
+- Added **Vice Sunset**, a neon pink-and-blue, Miami-inspired theme inspired by the broad visual mood of GTA VI.
+- Added **Ocean Drive**, **Emerald Night**, and **Midnight Gold**.
+- Kept Crimson Purple, Crimson Red, and Electric Blue.
+- Theme choices continue to save through the existing appearance preferences.
 
-### Themes and interface
-- Improved color-theme functionality so theme selections work.
-- Added the latest vehicle cockpit and profile interface refinements.
+### Game hub additions
+- Added official destination links for Roblox, Minecraft, Fortnite, Grand Theft Auto V, and Grand Theft Auto VI.
+- Added GTA V and GTA VI to the Crimson Store, with Library and Favorites support.
+- Official publisher pages open in a separate tab. Commercial games are not copied, hosted, streamed, or embedded by Crimson; browser play is only possible where a publisher explicitly supports it.
 
-### Leaderboard and diagnostics
-- Improved Crimson Sprint leaderboard database diagnostics to make leaderboard issues easier to investigate.
+### Platform update
+- Updated the website version to **2.2.0**.
 
-## Fixes and improvements
-- Resolved an application startup problem affecting sign-in.
-- Improved visibility into authentication initialization errors.
-- Hardened the mobile sign-in form.
-- Improved diagnostics for the Crimson Sprint leaderboard database.
-
-## Notes
-These notes summarize the latest changes recorded in the repository's commit history. They do not claim that every deployment or production environment has been independently tested.
+## Important publishing note
+These changes have been committed to the repository's `main` branch. GitHub Pages should publish the updated static website according to the repository's Pages configuration. This commit is not itself an official GitHub Release entry; an official Release entry/tag still needs to be created in GitHub Releases.
