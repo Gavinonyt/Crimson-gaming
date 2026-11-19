@@ -586,9 +586,15 @@ function launchArcadeGame(id){
  if(g.kind==="life")renderLifeGame();
  if(g.kind==="quest")renderQuestGame();
  if(g.kind==="blocks")renderBlocksGame();
- if(g.kind==="launcher")renderArcadeHome();
+ if(g.kind==="launcher")renderLauncherGame();
 }
 function arcadeBack(){if(arcadeTimer){clearInterval(arcadeTimer);arcadeTimer=null}showPage("store")}
+function renderLauncherGame(){
+ const stage=document.getElementById("arcadeStage");
+ document.getElementById("arcadeTitle").textContent="Crimson Launcher";
+ document.getElementById("arcadeSubtitle").textContent="Your home base for Crimson originals. Pick a title and launch its browser beta.";
+ stage.innerHTML='<div class="arcade-welcome"><div class="arcade-logo">C<span>+</span></div><h3>Welcome to Crimson Launcher</h3><p>One hub. All your Crimson originals. Choose a game below to start playing.</p></div><div class="arcade-card-grid">'+Object.entries(arcadeGames).filter(([id])=>id!=="crimson launcher").map(([id,g])=>'<button type="button" class="arcade-card" data-launch-game="'+id+'"><span class="emoji">'+g.emoji+'</span><strong>'+g.title+'</strong><small>'+g.desc+'</small><span class="arcade-btn">LAUNCH ↗</span></button>').join("")+'</div>';
+}
 function renderLifeGame(){
  const stage=document.getElementById("arcadeStage");arcadeState={kind:"life",room:"🏠",avatar:"🧑",items:["🛋️","🪴","🖼️"],coins:100};
  stage.innerHTML='<div class="arcade-toolbar"><strong>Your Crimson home</strong><span class="arcade-score" id="lifeCoins">100 HOME COINS</span></div><div class="arcade-room" id="lifeRoom"><span class="arcade-room-item">🧑</span><span class="arcade-room-item">🛋️</span><span class="arcade-room-item">🪴</span><span class="arcade-room-item">🖼️</span></div><div class="arcade-toolbar"><strong>Customize your space</strong><span class="arcade-muted">Choose a room style or add decor</span></div><div class="arcade-choice-row"><button class="arcade-btn alt" data-arcade-action="room-blue">🌊 Ocean room</button><button class="arcade-btn alt" data-arcade-action="room-pink">🌸 Sunset room</button><button class="arcade-btn alt" data-arcade-action="room-green">🌿 Garden room</button></div><div class="arcade-choice-row"><button class="arcade-btn" data-arcade-action="decor-sofa">＋ Sofa · 20</button><button class="arcade-btn" data-arcade-action="decor-plant">＋ Plant · 10</button><button class="arcade-btn" data-arcade-action="decor-art">＋ Wall art · 15</button><button class="arcade-btn alt" data-arcade-action="life-reset">RESET ROOM</button></div><p class="arcade-muted" id="lifeMessage">Welcome home! Decorate your room.</p>';
@@ -635,6 +641,7 @@ function startArcadeDrive(id){
  frame();
 }
 function arcadeDriveSteer(dir){if(arcadeState&&arcadeState.kind==="drive")arcadeState.lane=Math.max(0,Math.min(2,arcadeState.lane+dir))}
+document.getElementById("storePage").addEventListener("click",e=>{const launch=e.target.closest("[data-launch-game]");if(launch){const id=launch.dataset.launchGame;showPage("arcade");launchArcadeGame(id)}});
 document.getElementById("arcadePage").addEventListener("click",e=>{
  const launch=e.target.closest("[data-launch-game]");if(launch){launchArcadeGame(launch.dataset.launchGame);return}
  if(e.target.closest("[data-arcade-back]")){arcadeBack();return}
