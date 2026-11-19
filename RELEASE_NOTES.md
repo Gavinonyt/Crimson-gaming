@@ -18,3 +18,9 @@
 - Website and release notes have been committed to the repository's `main` branch.
 - GitHub Pages deployment follows the repository's Pages configuration and may take a few minutes to update.
 - This repository integration can commit the release notes, but does not expose a GitHub Releases creation action. An official GitHub Release page/tag has therefore not been created by this update.
+
+
+## 2.4.0 — American Legends Update
+- Expanded the Crimson Sprint dealership with additional American marques and specialist manufacturers, including Willys, Pierce-Arrow, Marmon, Stutz, Franklin, Crosley, Graham, Hupmobile, Panoz, Vector, Mosler, Rezvani, Karma, Aptera, Faraday Future, Mullen, and Elio.
+- Added new selectable vehicle entries with individual names, colors, and dealership prices.
+- Preserved existing vehicles, garage ownership, and the Miami-inspired Crimson City map.
