@@ -307,30 +307,87 @@ const cityCanvas=document.getElementById("cityCanvas"),cityCtx=cityCanvas.getCon
 const cityPlayer={x:480,y:270,keys:{},touch:{}};
 function drawCity(){
  const c=cityCtx,w=cityCanvas.width,h=cityCanvas.height;
- c.fillStyle="#18352f";c.fillRect(0,0,w,h);
- c.fillStyle="#123d50";c.fillRect(790,0,170, h);c.fillStyle="#2c6570";c.fillRect(775,0,8,h);
- for(let y=15;y<h;y+=28){c.fillStyle="#3c8290";c.fillRect(810+(y%3)*7,y,42,2)}
- c.fillStyle="#c7ad82";c.fillRect(785,0,7,h);
- c.fillStyle="#30313a";c.fillRect(0,190,w,150);c.fillRect(380,0,150,h);c.fillRect(0,420,w,78);
- c.fillStyle="#9d9a94";c.fillRect(0,190,w,4);c.fillRect(0,336,w,4);c.fillRect(380,0,4,h);c.fillRect(526,0,4,h);
- c.fillStyle="#e7d28b";for(let x=8;x<w;x+=58)c.fillRect(x,262,28,4);for(let y=8;y<h;y+=58)c.fillRect(451,y,4,28);
- c.fillStyle="#d8d5c9";for(let i=0;i<7;i++){c.fillRect(355+i*5,198,3,24);c.fillRect(535+i*5,310,3,24)}
- c.fillStyle="#24543e";c.fillRect(35,365,290,145);c.fillStyle="#39734e";c.fillRect(48,378,264,119);
- c.strokeStyle="#b7c99a";c.lineWidth=7;c.beginPath();c.moveTo(65,465);c.lineTo(150,400);c.lineTo(280,470);c.stroke();
- for(const [x,y] of [[82,405],[125,465],[250,405],[285,480],[65,480]]){c.fillStyle="#17402e";c.beginPath();c.arc(x,y,13,0,Math.PI*2);c.fill();c.fillStyle="#4d9560";c.beginPath();c.arc(x,y-4,9,0,Math.PI*2);c.fill()}
- const blocks=[[35,35,135,120,"#34465a","CITY HALL"],[205,35,135,120,"#4b354c","ARCADE"],[570,35,150,120,"#354a57","HOTEL"],[35,365,135,120,"#3d3b50","MARKET"],[205,365,120,120,"#344b42","PARK CAFE"],[570,365,150,120,"#51404a","GARAGE"]];
- blocks.forEach(b=>{const [x,y,bw,bh,col,label]=b;c.fillStyle="#111923";c.fillRect(x+5,y+7,bw,bh);c.fillStyle=col;c.fillRect(x,y,bw,bh);c.fillStyle="#ff9d83";c.fillRect(x+10,y+10,bw-20,6);c.fillStyle="#a9d8dc";for(let wx=x+16;wx<x+bw-10;wx+=30){c.fillRect(wx,y+32,13,17);c.fillRect(wx,y+62,13,17)}c.fillStyle="#171c28";c.fillRect(x+bw/2-15,y+bh-25,30,25);c.fillStyle="#fff0c0";c.font="bold 9px system-ui";c.textAlign="center";c.fillText(label,x+bw/2,y+bh-31)});
- c.fillStyle="#9b795e";c.fillRect(835,70,90,9);c.fillRect(850,70,8,95);c.fillRect(900,70,8,95);c.fillStyle="#f0e0c2";c.fillRect(842,61,30,12);c.fillRect(884,61,30,12);
- const car=(x,y,color,vertical=false)=>{c.save();c.translate(x,y);if(vertical)c.rotate(Math.PI/2);c.fillStyle="#10141c";c.fillRect(-17,-9,38,22);c.fillStyle=color;c.fillRect(-15,-8,34,18);c.fillStyle="#b7d8dc";c.fillRect(-8,-6,15,14);c.fillStyle="#f8e3a1";c.fillRect(15,-5,3,4);c.restore()};
- car(115,252,"#e95d6f");car(680,294,"#e6bd64");car(455,105,"#5da6d8",true);car(455,390,"#d9e0e5",true);
- c.fillStyle="#f4d4ff";c.font="900 14px system-ui";c.textAlign="left";c.fillText("CRIMSON CITY",18,22);
- c.font="bold 10px system-ui";c.fillStyle="#c8d6d3";c.fillText("DOWNTOWN",545,177);c.fillText("WATERFRONT",800,185);c.fillText("SUNSET PARK",40,528);
+ // Miami-inspired coastal layout: turquoise bay, white-sand beach, causeways and pastel Art Deco blocks.
+ c.fillStyle="#d8cba7";c.fillRect(0,0,w,h);
+ // Biscayne Bay and Atlantic water
+ c.fillStyle="#147f91";c.fillRect(0,0,178,h);
+ c.fillStyle="#20a6b0";c.fillRect(8,0,158,h);
+ for(let y=12;y<h;y+=24){c.strokeStyle="rgba(220,250,238,.22)";c.lineWidth=2;c.beginPath();c.moveTo(12+(y%5)*3,y);c.quadraticCurveTo(65,y-7,155,y+2);c.stroke()}
+ // Beach and palm-lined oceanfront
+ c.fillStyle="#f4dfaa";c.fillRect(178,0,46,h);
+ c.fillStyle="#fff0c9";c.fillRect(184,0,18,h);
+ c.fillStyle="#b7a77c";c.fillRect(224,0,w-224,h);
+ // Street grid with boulevard medians
+ c.fillStyle="#3c4147";
+ for(const y of [82,210,345,470])c.fillRect(224,y,w-224,36);
+ for(const x of [300,468,650,825])c.fillRect(x,0,34,h);
+ c.fillStyle="#777b7b";
+ for(const y of [82,210,345,470]){c.fillRect(224,y,736,3);c.fillRect(224,y+33,736,3)}
+ for(const x of [300,468,650,825]){c.fillRect(x,0,3,h);c.fillRect(x+31,0,3,h)}
+ c.strokeStyle="#f5d77d";c.lineWidth=3;c.setLineDash([18,15]);
+ for(const y of [100,228,363,488]){c.beginPath();c.moveTo(224,y);c.lineTo(w,y);c.stroke()}
+ for(const x of [317,485,667,842]){c.beginPath();c.moveTo(x,0);c.lineTo(x,h);c.stroke()}
+ c.setLineDash([]);
+ // Causeway bridges crossing the bay
+ c.fillStyle="#555c60";c.fillRect(0,154,224,29);c.fillRect(0,405,224,29);
+ c.fillStyle="#c9c4b5";c.fillRect(0,154,224,4);c.fillRect(0,179,224,4);c.fillRect(0,405,224,4);c.fillRect(0,430,224,4);
+ for(let x=18;x<220;x+=34){c.fillStyle="#f4e4b9";c.fillRect(x,167,18,3);c.fillRect(x,418,18,3)}
+ // South Beach green spaces
+ c.fillStyle="#3b8058";c.fillRect(230,18,60,53);c.fillRect(505,18,135,53);c.fillRect(680,382,125,77);
+ c.fillStyle="#64a66d";c.fillRect(238,25,44,39);c.fillRect(515,27,115,35);c.fillRect(690,391,105,58);
+ // pastel Art Deco hotels, downtown towers, shops and marina buildings
+ const blocks=[
+ [235,18,52,50,"#f2a7a0","OCEAN DR"],[350,18,104,50,"#f4d8b0","HOTEL"],[515,18,115,50,"#e9a9b9","ART DECO"],
+ [350,125,104,70,"#f1b7a8","SOUTH BEACH"],[505,125,128,70,"#f6d7a0","LINCOLN RD"],[690,125,115,70,"#b7d7dc","BAYSIDE"],
+ [235,245,110,86,"#f0b0a4","MIAMI DESIGN"],[350,245,104,86,"#e8d4a4","CAFÉ"],[505,245,128,86,"#b8cbdc","DOWNTOWN"],[690,245,115,86,"#e4a9b7","BRICKELL"],
+ [235,382,110,77,"#e9c2a0","LITTLE HAVANA"],[350,382,104,77,"#d5b4d7","MARKET"],[835,382,105,77,"#b8c9d4","GARAGE"]
+ ];
+ blocks.forEach(([x,y,bw,bh,col,label])=>{
+   c.fillStyle="rgba(15,25,34,.35)";c.fillRect(x+5,y+6,bw,bh);
+   c.fillStyle=col;c.fillRect(x,y,bw,bh);
+   c.fillStyle="rgba(255,255,255,.48)";c.fillRect(x+5,y+5,bw-10,5);
+   c.fillStyle="#9fd5dc";
+   for(let wx=x+10;wx<x+bw-8;wx+=22){c.fillRect(wx,y+17,11,13);if(bh>60)c.fillRect(wx,y+39,11,13)}
+   c.fillStyle="#514b50";c.fillRect(x+bw/2-9,y+bh-18,18,18);
+   c.fillStyle="#4c3e43";c.font="bold 8px system-ui";c.textAlign="center";c.fillText(label,x+bw/2,y+bh-4);
+ });
+ // Downtown skyline rising behind the central blocks
+ for(const [x,y,bw,bh,col] of [[735,20,48,45,"#9db7c5"],[785,20,36,52,"#b7c7ce"],[855,20,75,46,"#a7bbc4"],[735,225,48,18,"#c6d3d2"],[855,225,75,18,"#b7c6ce"]]){
+   c.fillStyle=col;c.fillRect(x,y,bw,bh);c.fillStyle="#e6f1ec";for(let wx=x+7;wx<x+bw-4;wx+=12)c.fillRect(wx,y+7,5,8);
+ }
+ // Marina slips and boats in the bay
+ c.fillStyle="#d5c6a4";c.fillRect(20,260,145,105);
+ c.fillStyle="#806e55";for(let x=35;x<160;x+=28)c.fillRect(x,270,3,82);
+ const boat=(x,y,col)=>{c.fillStyle=col;c.beginPath();c.moveTo(x-13,y-5);c.lineTo(x+15,y-5);c.lineTo(x+8,y+5);c.lineTo(x-8,y+5);c.closePath();c.fill();c.fillStyle="#fff";c.fillRect(x-2,y-12,5,8)};
+ boat(55,292,"#f4f0df");boat(112,330,"#f5d5d5");boat(151,285,"#d8e5e6");
+ // Palm trees with curved trunks and layered fronds
+ const palm=(x,y,scale=1)=>{
+   c.strokeStyle="#876448";c.lineWidth=5*scale;c.beginPath();c.moveTo(x,y+13*scale);c.quadraticCurveTo(x-5*scale,y-2*scale,x,y-17*scale);c.stroke();
+   c.fillStyle="#246b4b";for(let a=0;a<7;a++){const ang=(-Math.PI*.95)+(a*Math.PI*1.9/6);c.save();c.translate(x,y-17*scale);c.rotate(ang);c.beginPath();c.ellipse(13*scale,0,15*scale,4*scale,0,0,Math.PI*2);c.fill();c.restore()}
+   c.fillStyle="#55a66a";c.beginPath();c.arc(x,y-17*scale,4*scale,0,Math.PI*2);c.fill();
+ };
+ for(const [x,y,z] of [[190,38,.8],[190,112,.8],[190,235,.8],[190,325,.8],[190,470,.8],[270,100,.75],[445,100,.75],[610,100,.75],[790,100,.75],[910,330,.8],[760,485,.8],[535,485,.8]])palm(x,y,z);
+ // parked cars on city streets
+ const car=(x,y,color,vertical=false)=>{
+   c.save();c.translate(x,y);if(vertical)c.rotate(Math.PI/2);
+   c.fillStyle="#22262a";c.fillRect(-13,-7,28,16);c.fillStyle=color;c.fillRect(-12,-6,26,14);
+   c.fillStyle="#b8d9df";c.fillRect(-6,-5,12,12);c.fillStyle="#fff1c0";c.fillRect(12,-4,2,3);
+   c.restore();
+ };
+ car(260,101,"#f5f0e7");car(420,101,"#e65e68");car(575,229,"#f0c45d");car(760,363,"#f2f0e8");car(900,489,"#59a5b9");car(485,300,"#bdc8d0",true);car(842,300,"#d65d70",true);
+ // district labels and title
+ c.fillStyle="#f9e8cf";c.font="900 15px system-ui";c.textAlign="left";c.fillText("CRIMSON CITY · MIAMI COAST",14,22);
+ c.font="bold 10px system-ui";c.fillStyle="#f7f0df";
+ c.fillText("BISCAYNE BAY",25,245);c.fillText("SOUTH BEACH",228,116);c.fillText("OCEAN DRIVE",228,475);
+ c.fillText("DOWNTOWN",690,215);c.fillText("BRICKELL",710,365);c.fillText("LITTLE HAVANA",232,373);
+ // player marker
  c.fillStyle="#0008";c.beginPath();c.ellipse(cityPlayer.x,cityPlayer.y+12,13,6,0,0,Math.PI*2);c.fill();
- c.fillStyle="#fff0d7";c.beginPath();c.arc(cityPlayer.x,cityPlayer.y,11,0,Math.PI*2);c.fill();c.fillStyle="#ff6384";c.fillRect(cityPlayer.x-7,cityPlayer.y-2,14,13);c.fillStyle="#fff";c.fillRect(cityPlayer.x-3,cityPlayer.y-10,6,5);
- const area=cityPlayer.x>760?"Waterfront":cityPlayer.x<370&&cityPlayer.y<180?"Market District":cityPlayer.x<370&&cityPlayer.y>350?"Sunset Park":cityPlayer.x>550&&cityPlayer.y>350?"Garage Row":cityPlayer.x>550?"Hotel Quarter":"Downtown";
+ c.fillStyle="#fff0d7";c.beginPath();c.arc(cityPlayer.x,cityPlayer.y,11,0,Math.PI*2);c.fill();
+ c.fillStyle="#ff6384";c.fillRect(cityPlayer.x-7,cityPlayer.y-2,14,13);
+ c.fillStyle="#fff";c.fillRect(cityPlayer.x-3,cityPlayer.y-10,6,5);
+ const area=cityPlayer.x<220?"Biscayne Bay":cityPlayer.x<345&&cityPlayer.y<200?"South Beach":cityPlayer.x>680&&cityPlayer.y<220?"Downtown":cityPlayer.x>680&&cityPlayer.y>340?"Brickell":cityPlayer.x<350&&cityPlayer.y>350?"Little Havana":cityPlayer.x<470?"Ocean Drive":cityPlayer.x>800?"City Garage":"Miami District";
  const areaEl=document.getElementById("cityArea");if(areaEl)areaEl.textContent=area;
-}
-function cityStep(){const k=cityPlayer.keys,t=cityPlayer.touch;let dx=(k.ArrowRight||k.d||t.right?1:0)-(k.ArrowLeft||k.a||t.left?1:0),dy=(k.ArrowDown||k.s||t.down?1:0)-(k.ArrowUp||k.w||t.up?1:0);if(dx&&dy){dx*=.707;dy*=.707}cityPlayer.x=Math.max(18,Math.min(770,cityPlayer.x+dx*4));cityPlayer.y=Math.max(38,Math.min(522,cityPlayer.y+dy*4));drawCity()}
+}function cityStep(){const k=cityPlayer.keys,t=cityPlayer.touch;let dx=(k.ArrowRight||k.d||t.right?1:0)-(k.ArrowLeft||k.a||t.left?1:0),dy=(k.ArrowDown||k.s||t.down?1:0)-(k.ArrowUp||k.w||t.up?1:0);if(dx&&dy){dx*=.707;dy*=.707}cityPlayer.x=Math.max(18,Math.min(940,cityPlayer.x+dx*4));cityPlayer.y=Math.max(38,Math.min(522,cityPlayer.y+dy*4));drawCity()}
 setInterval(()=>{const k=cityPlayer.keys,t=cityPlayer.touch;if(pageSections.city.style.display==="block"&&(k.ArrowRight||k.d||k.ArrowLeft||k.a||k.ArrowDown||k.s||k.ArrowUp||k.w||t.right||t.left||t.down||t.up))cityStep()},30);
 window.addEventListener("keydown",e=>{const key=e.key.toLowerCase();if(["arrowup","arrowdown","arrowleft","arrowright"].includes(key)){e.preventDefault();cityPlayer.keys[e.key]=true}else if(["w","a","s","d"].includes(key))cityPlayer.keys[key]=true;if(pageSections.city.style.display==="block")cityStep()});
 window.addEventListener("keyup",e=>{cityPlayer.keys[e.key]=false;cityPlayer.keys[e.key.toLowerCase()]=false});
