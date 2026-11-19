@@ -993,7 +993,7 @@ document.getElementById("arcadePage").addEventListener("click",e=>{
 document.addEventListener("keydown",e=>{if(pageSections.arcade.style.display!=="block")return;if(e.key==="ArrowLeft")arcadeDriveSteer(-1);if(e.key==="ArrowRight")arcadeDriveSteer(1);if(arcadeState&&arcadeState.kind==="quest"){if(e.key==="ArrowUp")moveQuest(0,-1);if(e.key==="ArrowDown")moveQuest(0,1);if(e.key==="ArrowLeft")moveQuest(-1,0);if(e.key==="ArrowRight")moveQuest(1,0)}});
 
 function friendNode(tag,className,textValue){const el=document.createElement(tag);if(className)el.className=className;if(textValue!==undefined)el.textContent=textValue;return el}
-function friendPersonCard(profile){const wrap=friendNode("div","friend-person"),avatar=friendNode("div","friend-avatar",(profile.display_name||"C").trim().slice(0,1).toUpperCase()),details=friendNode("div"),name=friendNode("strong", "",profile.display_name||"Ultra Player"),id=friendNode("small","",profile.crimson_id||"");details.append(name,id);wrap.append(avatar,details);return wrap}
+function friendPersonCard(profile){const wrap=friendNode("div","friend-person"),avatar=friendNode("div","friend-avatar",(profile.display_name||"U").trim().slice(0,1).toUpperCase()),details=friendNode("div"),name=friendNode("strong", "",profile.display_name||"Ultra Player"),id=friendNode("small","",profile.crimson_id||"");details.append(name,id);wrap.append(avatar,details);return wrap}
 function friendAction(label,action,userId,extraClass=""){const b=friendNode("button","friend-action "+extraClass,label);b.type="button";b.dataset.friendAction=action;if(userId)b.dataset.userId=userId;return b}
 async function loadFriends(){
  const status=document.getElementById("friendStatus"),idBox=document.getElementById("myUltraId");
