@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.crimsongaming.launcher'
+    namespace 'com.ultragaming.launcher'
     compileSdk 35
 
     defaultConfig {
