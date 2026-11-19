@@ -149,6 +149,7 @@ button.nav.active,.hero-button,.update-chip,.drive-logo b{border-color:var(--acc
 :root[data-theme="gold"] body{background:radial-gradient(ellipse at 82% 8%,#59421d 0,transparent 42%),radial-gradient(ellipse at 12% 90%,#3a2818 0,transparent 40%),#120f0a}
 .store-card .store-action[href]{text-decoration:none}
 .city-stage{box-shadow:0 12px 35px #0005}
+.update-release{margin:0 0 16px;padding:23px}.update-release-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.update-version{font-size:10px;letter-spacing:1.8px;font-weight:900;color:#c69aff}.update-release h3{font-size:20px;margin:7px 0 5px}.update-release-top p{font-size:12px;color:var(--muted);margin:0}.update-pill{border:1px solid #6e4a9c;background:#35204d;color:#e7d3ff;border-radius:999px;padding:6px 10px;font-size:10px;font-weight:900;letter-spacing:1px}.update-list{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:13px}.update-list li{display:flex;align-items:flex-start;gap:12px;color:#ddd5e9;font-size:13px;line-height:1.6}.update-type{flex:0 0 auto;min-width:76px;text-align:center;border-radius:6px;padding:3px 7px;font-size:9px;font-weight:900;letter-spacing:.8px}.update-type.new{background:#244632;color:#a7f0c1}.update-type.improved{background:#292448;color:#cbb7ff}.update-footnote{font-size:12px;color:var(--muted);text-align:center;margin:22px 0 5px}
 </style></head>
 <body>
 <header class="topbar"><div class="brand"><div class="brand-mark">C</div><div>CRIMSON <span>GAMING</span></div></div><div class="top-note">YOUR GAMES. YOUR SPACE.</div></header>
@@ -165,6 +166,7 @@ button.nav.active,.hero-button,.update-chip,.drive-logo b{border-color:var(--acc
       <div class="side-label side-space">DISCOVER</div>
       <button class="nav" data-page="store">▣ <span>Store</span></button>
       <button class="nav" data-page="play">▶ <span>Play</span></button>
+      <button class="nav" data-page="updates">✦ <span>What’s New</span><span class="nav-count">2.4.1</span></button>
       <div class="side-label side-space">YOUR COLLECTION</div>
       <button class="nav" data-page="library">▦ <span>Library</span><span class="nav-count" id="libraryCount">0</span></button>
       <button class="nav" data-page="favorites">♡ <span>Favorites</span><span class="nav-count" id="favoriteCount">0</span></button>
@@ -176,7 +178,7 @@ button.nav.active,.hero-button,.update-chip,.drive-logo b{border-color:var(--acc
       <div class="sidebar-bottom"><span class="online-dot"></span> Crimson Gaming account</div>
     </aside>
     <div class="dash-main">
-      <div class="birthday-banner">🎂 CRIMSON GAMING 2.3.0 · PLAY & COMPETE <span class="update-chip">NEW ERA</span></div>
+      <div class="birthday-banner">🎂 CRIMSON GAMING 2.4.1 · WHAT’S NEW <span class="update-chip">NEW ERA</span></div>
       <div class="workspace-bar">
         <div><div class="workspace-kicker" id="pageKicker">PLAYER HOME</div><div class="workspace-title" id="pageHeading">Welcome back</div></div>
         <div class="workspace-user"><span id="userEmail"></span><button class="signout" id="signoutBtn">SIGN OUT</button></div>
@@ -275,6 +277,23 @@ button.nav.active,.hero-button,.update-chip,.drive-logo b{border-color:var(--acc
         <div class="settings-card"><h3>Account actions</h3><p>Sign out of your Crimson Gaming account on this device.</p><button class="settings-action" type="button" id="profileSignout">SIGN OUT</button></div>
       </section>
 
+      <section class="dash-page" id="updatesPage">
+        <div class="store-head"><div><div class="store-tag">CRIMSON CHANGELOG</div><h2>What’s New</h2><p>See what’s new, what’s improved, and what changed across Crimson Gaming.</p></div><span class="collection-total">LATEST · 2.4.1</span></div>
+        <div class="settings-card update-release">
+          <div class="update-release-top"><div><span class="update-version">VERSION 2.4.1</span><h3>Real American Brands</h3><p>Dealership lineup cleanup</p></div><span class="update-pill">LATEST</span></div>
+          <ul class="update-list"><li><span class="update-type new">NEW</span><span>Dealership lineup focused on recognizable, real American automakers.</span></li><li><span class="update-type improved">UPDATED</span><span>Removed obscure and lesser-known marques from the expanded roster.</span></li><li><span class="update-type improved">KEPT</span><span>Core brands include Chevrolet, Ford, Cadillac, GMC, Lincoln, Dodge, Ram, Jeep, Chrysler, Buick, Tesla, Rivian, and Lucid, plus classic American makes and truck manufacturers.</span></li></ul>
+        </div>
+        <div class="settings-card update-release">
+          <div class="update-release-top"><div><span class="update-version">VERSION 2.4.0</span><h3>American Legends Update</h3><p>Expanded American vehicle collection</p></div></div>
+          <ul class="update-list"><li><span class="update-type new">NEW</span><span>Added 17 additional American vehicle marques and models to broaden the collection.</span></li><li><span class="update-type improved">UPDATED</span><span>Updated the game version label and release notes.</span></li></ul>
+        </div>
+        <div class="settings-card update-release">
+          <div class="update-release-top"><div><span class="update-version">VERSION 2.2.0</span><h3>City & Themes Update</h3><p>More ways to explore Crimson City</p></div></div>
+          <ul class="update-list"><li><span class="update-type improved">UPDATED</span><span>Expanded the original Crimson City map.</span></li><li><span class="update-type new">NEW</span><span>Added Vice Sunset, Ocean Drive, Emerald Night, and Midnight Gold themes.</span></li><li><span class="update-type improved">UPDATED</span><span>Added official game links and refreshed release notes.</span></li></ul>
+        </div>
+        <p class="update-footnote">More updates will appear here as Crimson Gaming changes.</p>
+      </section>
+
       <section class="dash-page" id="settingsPage">
         <div class="store-head"><div><div class="store-tag">PREFERENCES</div><h2>Settings</h2><p>Make Crimson Gaming feel like your space.</p></div></div>
         <div class="settings-card"><div class="settings-card-heading"><div><h3>Player profile</h3><p>Change the display name shown in your Crimson hub.</p></div></div><form id="profileForm" class="settings-form"><label for="settingsDisplayName">DISPLAY NAME</label><input id="settingsDisplayName" maxlength="32" type="text" placeholder="Your player name"><button class="settings-action" type="submit">SAVE PROFILE</button><span class="settings-message" id="profileSaveStatus" aria-live="polite"></span></form></div>
@@ -283,7 +302,7 @@ button.nav.active,.hero-button,.update-chip,.drive-logo b{border-color:var(--acc
       </section>
     </div>
   </div>
-</section></main><div class="footer">CRIMSON GAMING 2.3.0 · BIRTHDAY EDITION · MARCH 1, 2027</div>
+</section></main><div class="footer">CRIMSON GAMING 2.4.1 · REAL AMERICAN BRANDS</div>
 <script>
 window.addEventListener("error",()=>{const box=document.getElementById("status");if(box&&!box.textContent){box.textContent="Crimson sign-in could not start. Refresh this page and try again.";box.classList.add("error")}});
 const SUPABASE_URL="https://qmgpiczgjbtxxgfiekys.supabase.co";
@@ -292,8 +311,8 @@ const client=window.supabase&&window.supabase.createClient?window.supabase.creat
 const authView=document.getElementById("authView"),dashboardView=document.getElementById("dashboardView"),statusBox=document.getElementById("status"),form=document.getElementById("authForm");let mode="login",activeUser=null;
 function showStatus(message,isError=false){statusBox.textContent=message;statusBox.classList.toggle("error",isError)}
 function setMode(next){mode=next;const signup=mode==="signup";document.getElementById("loginTab").classList.toggle("active",!signup);document.getElementById("signupTab").classList.toggle("active",signup);document.getElementById("formTitle").textContent=signup?"Create your account":"Welcome back";document.getElementById("formSub").textContent=signup?"Create a Crimson Gaming account with your email.":"Sign in with the email linked to your account.";document.getElementById("nameField").hidden=!signup;document.getElementById("submitBtn").textContent=signup?"CREATE ACCOUNT":"SIGN IN";document.getElementById("forgotBtn").hidden=signup;document.getElementById("password").autocomplete=signup?"new-password":"current-password";showStatus("")}
-const pageSections={home:document.getElementById("homePage"),store:document.getElementById("storePage"),play:document.getElementById("playPage"),city:document.getElementById("cityPage"),friends:document.getElementById("friendsPage"),library:document.getElementById("libraryPage"),favorites:document.getElementById("favoritesPage"),profile:document.getElementById("profilePage"),settings:document.getElementById("settingsPage")};
-const pageNames={home:"PLAYER HOME",store:"CRIMSON STORE",play:"PLAY CRIMSON ORIGINALS",city:"EXPLORE CRIMSON CITY",friends:"CRIMSON COMMUNITY",library:"YOUR LIBRARY",favorites:"YOUR FAVORITES",profile:"PLAYER PROFILE",settings:"PREFERENCES"};
+const pageSections={updates:document.getElementById("updatesPage"),home:document.getElementById("homePage"),store:document.getElementById("storePage"),play:document.getElementById("playPage"),city:document.getElementById("cityPage"),friends:document.getElementById("friendsPage"),library:document.getElementById("libraryPage"),favorites:document.getElementById("favoritesPage"),profile:document.getElementById("profilePage"),settings:document.getElementById("settingsPage")};
+const pageNames={updates:"WHAT’S NEW",home:"PLAYER HOME",store:"CRIMSON STORE",play:"PLAY CRIMSON ORIGINALS",city:"EXPLORE CRIMSON CITY",friends:"CRIMSON COMMUNITY",library:"YOUR LIBRARY",favorites:"YOUR FAVORITES",profile:"PLAYER PROFILE",settings:"PREFERENCES"};
 function savedKey(kind){return "crimson_"+kind+"_"+(activeUser&&activeUser.id||"guest")}
 function readSaved(kind){try{const v=JSON.parse(localStorage.getItem(savedKey(kind))||"[]");return Array.isArray(v)?v:[]}catch{return []}}
 function writeSaved(kind,items){try{localStorage.setItem(savedKey(kind),JSON.stringify(items))}catch(e){console.error("Could not save collection",e)}}
