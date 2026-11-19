@@ -386,6 +386,18 @@ const SUPABASE_PUBLISHABLE_KEY="sb_publishable__fK6MUmQPIhP9A4kk6ybdw_3V24SlCm";
 const client=window.supabase&&window.supabase.createClient?window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY):null;
 const authView=document.getElementById("authView"),dashboardView=document.getElementById("dashboardView"),statusBox=document.getElementById("status"),form=document.getElementById("authForm"),resetPanel=document.getElementById("passwordResetPanel");let mode="login",activeUser=null,passwordRecoveryMode=false;
 function showStatus(message,isError=false){statusBox.textContent=message;statusBox.classList.toggle("error",isError)}
+let resetCooldownUntil=0,resetCooldownTimer=null;
+function startResetCooldown(seconds){
+ resetCooldownUntil=Date.now()+Math.max(1,seconds)*1000;
+ const btn=document.getElementById("forgotBtn");
+ if(resetCooldownTimer)clearInterval(resetCooldownTimer);
+ const update=()=>{
+  const remaining=Math.max(0,Math.ceil((resetCooldownUntil-Date.now())/1000));
+  if(remaining>0){btn.disabled=true;btn.textContent="TRY AGAIN IN "+remaining+"s"}
+  else{clearInterval(resetCooldownTimer);resetCooldownTimer=null;btn.disabled=false;btn.textContent="Forgot your password?"}
+ };
+ update();resetCooldownTimer=setInterval(update,1000);
+}
 function showPasswordRecovery(){
  passwordRecoveryMode=true;
  authView.style.display="grid";dashboardView.style.display="none";
@@ -890,16 +902,28 @@ document.getElementById("loginTab").addEventListener("click",()=>setMode("login"
 form.addEventListener("submit",async e=>{e.preventDefault();const btn=document.getElementById("submitBtn"),email=document.getElementById("email").value.trim(),password=document.getElementById("password").value;btn.disabled=true;btn.textContent=mode==="signup"?"CREATING...":"SIGNING IN...";showStatus("");try{if(!client)throw new Error("The sign-in service did not load. Refresh the page and try again.");if(mode==="signup"){const displayName=document.getElementById("displayName").value.trim();const {data,error}=await client.auth.signUp({email,password,options:{data:{display_name:displayName},emailRedirectTo:window.location.origin+window.location.pathname}});if(error)throw error;if(data.session){showDashboard(data.user)}else{showStatus("Account created! Check your email for a confirmation link, then come back and sign in.")}}else{const {data,error}=await client.auth.signInWithPassword({email,password});if(error)throw error;showDashboard(data.user)}}catch(err){showStatus(err.message||"Something went wrong. Please try again.",true)}finally{btn.disabled=false;btn.textContent=mode==="signup"?"CREATE ACCOUNT":"SIGN IN"}});
 document.getElementById("forgotBtn").addEventListener("click",async()=>{
  if(!client){showStatus("The sign-in service did not load. Refresh the page and try again.",true);return}
+ if(Date.now()<resetCooldownUntil){showStatus("Please wait for the countdown before requesting another reset email.",true);return}
  const email=document.getElementById("email").value.trim();
  if(!email){showStatus("Enter your email address first.",true);document.getElementById("email").focus();return}
- const btn=document.getElementById("forgotBtn");btn.disabled=true;showStatus("Sending password reset email...");
+ const btn=document.getElementById("forgotBtn");btn.disabled=true;btn.textContent="SENDING...";showStatus("Sending password reset email...");
  try{
   const redirectTo=window.location.origin+window.location.pathname+"?password-reset=1";
   const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo});
   if(error)throw error;
   showStatus("If an account exists for that email, a password reset link will be sent. Check your inbox and spam folder.");
- }catch(err){showStatus(err.message||"Could not send the reset email. Please try again.",true)}
- finally{btn.disabled=false}
+  startResetCooldown(60);
+ }catch(err){
+  const message=err.message||"Could not send the reset email. Please try again.";
+  const limited=/rate.?limit|too many|security purposes|after \\d+ seconds|429/i.test(message);
+  if(limited){
+   const match=message.match(/(\\d+)\\s*seconds?/i);
+   startResetCooldown(match?Number(match[1]):60);
+   showStatus("Supabase is temporarily limiting reset emails. Wait for the countdown, then try again. To raise this limit, configure a custom SMTP email provider in Supabase.",true);
+  }else{
+   btn.disabled=false;btn.textContent="Forgot your password?";
+   showStatus(message,true);
+  }
+ }
 });
 document.getElementById("passwordResetForm").addEventListener("submit",async e=>{
  e.preventDefault();
