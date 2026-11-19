@@ -218,10 +218,10 @@
           <div id="leaderboardRows" class="leaderboard-rows"><p class="drive-note">Leaderboard will appear here.</p></div>
         </section>
         <section class="settings-card" id="uploadGamePanel">
-          <div class="store-tag">YOUR HTML GAME FILE</div><h3>📂 Add a game to Crimson</h3>
-          <p>Choose or drop one <b>.html</b> game file and play it right here. This runs locally in your browser; it does not upload the file for other players. Single-file HTML games only—no .exe, installers, or separate asset folders.</p>
-          <label class="game-upload-drop" id="gameDropZone" for="gameFileInput">Drop your HTML game here or <u>choose a file</u><small>Maximum file size: 5 MB</small></label>
-          <input id="gameFileInput" type="file" accept=".html,text/html" hidden>
+          <div class="store-tag">GAME FILE UPLOAD</div><h3>📂 Add a game file to Crimson</h3>
+          <p>Choose or drop a game file of any type. Crimson will identify it and launch it only if your browser supports that format. Web games such as HTML can run here; Windows programs, console game files, and many archives need a compatible emulator or game engine. Files currently stay on this device and are not shared with other players.</p>
+          <label class="game-upload-drop" id="gameDropZone" for="gameFileInput">Drop any game file here or <u>choose a file</u><small>Maximum file size: 100 MB · Any file type accepted</small></label>
+          <input id="gameFileInput" type="file" hidden>
           <div class="settings-message" id="gameUploadStatus" aria-live="polite"></div>
           <div id="uploadedGameWrap" hidden><div class="uploaded-game-title"><strong id="uploadedGameName">Your game</strong><button class="settings-action" id="closeUploadedGame" type="button">CLOSE GAME</button></div><iframe id="uploadedGameFrame" title="Uploaded HTML game" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe></div>
         </section>
@@ -349,16 +349,24 @@ dropZone.addEventListener("drop",e=>loadLocalGame(e.dataTransfer.files&&e.dataTr
 function loadLocalGame(file){
  const status=document.getElementById("gameUploadStatus");
  if(!file)return;
- if(!/\.html?$/i.test(file.name)||file.type&&file.type!=="text/html"){status.textContent="Please choose a single .html file.";return}
- if(file.size>5*1024*1024){status.textContent="That file is over the 5 MB limit.";return}
- const reader=new FileReader();
- reader.onload=()=>{const html=String(reader.result||"");if(!html.trim()){status.textContent="That HTML file appears to be empty.";return}
-  document.getElementById("uploadedGameName").textContent=file.name;
-  document.getElementById("uploadedGameFrame").srcdoc=html;
-  document.getElementById("uploadedGameWrap").hidden=false;
-  status.textContent="Loaded in an isolated browser frame. This file stays on this device and is not published to the community.";
- };
- reader.onerror=()=>{status.textContent="Could not read that file."};reader.readAsText(file);
+ if(file.size>100*1024*1024){status.textContent="That file is over the 100 MB limit.";return}
+ const ext=(file.name.split(".").pop()||"").toLowerCase();
+ document.getElementById("uploadedGameName").textContent=file.name;
+ document.getElementById("uploadedGameWrap").hidden=true;
+ const frame=document.getElementById("uploadedGameFrame");frame.srcdoc="";
+ if(ext==="html"||ext==="htm"||file.type==="text/html"){
+  const reader=new FileReader();
+  reader.onload=()=>{const html=String(reader.result||"");if(!html.trim()){status.textContent="That HTML file appears to be empty.";return}
+   frame.srcdoc=html;document.getElementById("uploadedGameWrap").hidden=false;
+   status.textContent="HTML game opened in an isolated browser frame. File stays on this device.";
+  };
+  reader.onerror=()=>{status.textContent="Could not read that file."};reader.readAsText(file);return;
+ }
+ if(file.type.startsWith("image/")||file.type.startsWith("audio/")||file.type.startsWith("video/")){
+  const url=URL.createObjectURL(file);frame.src=url;document.getElementById("uploadedGameWrap").hidden=false;
+  status.textContent="File loaded. This media format can be previewed, but it is not a playable game by itself.";return;
+ }
+ status.textContent="File accepted: "+file.name+" ("+(file.type||"unknown format")+", "+(file.size/1024/1024).toFixed(2)+" MB). This format cannot run directly in a browser. It needs a compatible web build, engine, or emulator. The file has not been uploaded to the server." ;
 }
 document.getElementById("closeUploadedGame").addEventListener("click",()=>{const frame=document.getElementById("uploadedGameFrame");frame.srcdoc="";document.getElementById("uploadedGameWrap").hidden=true});
 function showPage(page){if(!pageSections[page])page="home";Object.entries(pageSections).forEach(([key,el])=>{el.style.display=key===page?"block":"none"});document.querySelectorAll(".nav[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));document.getElementById("pageKicker").textContent=pageNames[page];document.getElementById("pageHeading").textContent=page==="home"?"Welcome back":page[0].toUpperCase()+page.slice(1);if(page==="library"||page==="favorites")renderSaved(page);if(page==="play"){drawDrive();loadDriveLeaderboard();}if(page==="city")drawCity();if(page==="profile"&&activeUser){document.getElementById("profileName").textContent=(activeUser.user_metadata&&activeUser.user_metadata.display_name)||"Crimson Player";document.getElementById("profileEmail").textContent=activeUser.email||""}if(page==="settings"&&activeUser){document.getElementById("settingsDisplayName").value=(activeUser.user_metadata&&activeUser.user_metadata.display_name)||"";document.getElementById("accentSelect").value=localStorage.getItem("crimson_accent_"+activeUser.id)||"purple";document.getElementById("startPageSelect").value=localStorage.getItem("crimson_start_"+activeUser.id)||"home";applyAccent(document.getElementById("accentSelect").value)}syncStoreButtons()}
