@@ -101,7 +101,7 @@
 .game-hud>div{background:#1b1525;border:1px solid #ffffff19;border-radius:9px;padding:12px 14px;display:flex;flex-direction:column;gap:5px}
 .game-hud small{font-size:9px;letter-spacing:1.5px;color:#a99ab9;font-weight:900}
 .game-hud strong{font-size:19px;color:#fff;font-variant-numeric:tabular-nums}
-.drive-frame{position:relative;border:1px solid #8c5ac455;border-radius:12px;overflow:hidden;background:#080b12}
+.drive-frame{position:relative;aspect-ratio:15/8;width:100%;border:1px solid #8c5ac455;border-radius:12px;overflow:hidden;background:#080b12}
 #driveCanvas{display:none}.drive3d-canvas{display:block;position:absolute;inset:0;width:100%;height:100%;touch-action:none}
 .drive-overlay{position:absolute;inset:0;display:grid;place-items:center;background:#080711bb;backdrop-filter:blur(5px)}
 .drive-overlay.hidden{display:none}
@@ -617,6 +617,11 @@ function setupDrive3D(){
 function renderDrive3D(){
  if(!drive3DReady||!drive3DRenderer)return;
  const d=drive3D,steer=(drive.x-450)/245;
+ if(d.lastCar!==drive.car){
+  d.lastCar=drive.car;const id=(drive.car||"").toLowerCase();
+  const palette=/gmc|sierra|silverado|ram-|1500|2500|3500|f150|f-150|f250|tundra|tacoma|truck|durango|wrangler|jeep/.test(id)?[0x292720,0x4b4438,0x171714]:/cadillac|lincoln|lucid/.test(id)?[0x202127,0x34353b,0x111216]:/tesla|rivian/.test(id)?[0x24272b,0x45494d,0x101317]:/mustang|camaro|challenger|charger|dodge|viper/.test(id)?[0x191a20,0x343640,0x090a0d]:[0x171b20,0x30363e,0x090b0f];
+  d.materials.soft.color.setHex(palette[0]);d.materials.dark.color.setHex(palette[1]);d.materials.rubber.color.setHex(palette[2]);
+ }
  d.camera.position.x=steer*.16;d.camera.lookAt(steer*.30,1.42,-6);
  if(drive3DWheel)drive3DWheel.rotation.z=-steer*.55;
  if(drive3DRoad)drive3DRoad.position.z=(drive.scroll*.025)%5;
