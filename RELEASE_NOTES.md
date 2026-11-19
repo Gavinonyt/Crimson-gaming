@@ -24,3 +24,8 @@
 - Expanded the Crimson Sprint dealership with additional American marques and specialist manufacturers, including Willys, Pierce-Arrow, Marmon, Stutz, Franklin, Crosley, Graham, Hupmobile, Panoz, Vector, Mosler, Rezvani, Karma, Aptera, Faraday Future, Mullen, and Elio.
 - Added new selectable vehicle entries with individual names, colors, and dealership prices.
 - Preserved existing vehicles, garage ownership, and the Miami-inspired Crimson City map.
+
+
+## 2.4.1 — Real American Brands
+- Refined the dealership to focus on recognizable real American automakers and established specialty brands.
+- Removed obscure and lesser-known marques from the previous expanded list while keeping the core American lineup, including Chevrolet, Cadillac, GMC, Ford, Lincoln, Dodge, Ram, Buick, Jeep, Chrysler, Tesla, Rivian, Lucid, Pontiac, Plymouth, Oldsmobile, Mercury, AMC, and established American truck makers.
