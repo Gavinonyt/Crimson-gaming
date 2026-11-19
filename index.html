@@ -192,6 +192,10 @@ button.nav.active,.hero-button,.update-chip,.drive-logo b{border-color:var(--acc
 .arcade-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:12px}.arcade-card{border:1px solid #ffffff20;border-radius:14px;padding:16px;background:#ffffff08;text-align:left;color:#fff;cursor:pointer;display:grid;gap:8px}.arcade-card:hover{border-color:#b58aff;background:#a56cff15}.arcade-card .emoji{font-size:30px}.arcade-card strong{font-size:14px}.arcade-card small{color:#b9adc9;line-height:1.5}
 .arcade-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.arcade-toolbar strong{font-size:15px}.arcade-muted{font-size:11px;color:#b7a9c8}.arcade-btn{border:1px solid #a56cff66;border-radius:9px;padding:10px 14px;background:#6e39a9;color:white;font-weight:900;font-size:10px;cursor:pointer}.arcade-btn.alt{background:#211a30;border-color:#ffffff26;color:#e4d8f5}.arcade-grid{display:grid;gap:6px;max-width:440px;width:100%;margin:0 auto}.arcade-cell{aspect-ratio:1;border:1px solid #ffffff1a;border-radius:8px;background:#171222;color:white;font-size:20px;cursor:pointer}.arcade-cell.active{background:#7b48b5;border-color:#d0aaff;box-shadow:inset 0 0 18px #c99aff55}.arcade-maze{display:grid;grid-template-columns:repeat(9,minmax(22px,1fr));gap:4px;max-width:420px;margin:auto;width:100%}.arcade-tile{aspect-ratio:1;border-radius:5px;display:grid;place-items:center;background:#241c32;font-size:16px}.arcade-tile.wall{background:#51416b}.arcade-tile.goal{background:#22563f}.arcade-controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.arcade-score{font-size:12px;color:#d6c2f3;font-weight:800}.arcade-room{min-height:180px;border:1px solid #ffffff20;border-radius:14px;background:linear-gradient(#332447 0 62%,#684d43 62%);display:flex;align-items:center;justify-content:center;gap:15px;flex-wrap:wrap;padding:18px}.arcade-room-item{font-size:48px;filter:drop-shadow(0 8px 6px #0008)}.arcade-choice-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.arcade-footnote{margin:12px 2px}
 @media(max-width:600px){.arcade-stage{padding:14px;min-height:340px}.arcade-card-grid{grid-template-columns:1fr 1fr}.arcade-card{padding:12px}.arcade-maze{gap:3px}.arcade-tile{font-size:13px}}
+#passwordResetPanel[hidden]{display:none!important}
+#passwordResetPanel{margin-top:18px;padding-top:16px;border-top:1px solid #ffffff18}
+.reset-heading{font-size:16px;letter-spacing:1px;margin:0 0 8px;color:var(--accent,#ec4768)}
+#passwordResetForm{display:grid;gap:12px}
 </style></head>
 <body>
 <header class="topbar"><div class="brand"><div class="brand-mark">C</div><div>CRIMSON <span>GAMING</span></div></div><div class="top-note">YOUR GAMES. YOUR SPACE.</div></header>
@@ -199,7 +203,18 @@ button.nav.active,.hero-button,.update-chip,.drive-logo b{border-color:var(--acc
 <section class="auth-layout" id="authView"><div class="intro"><div class="eyebrow">WELCOME TO THE NEXT LEVEL</div><h1>PLAY YOUR WAY.</h1><p>One account for your Crimson Gaming experience. Sign in to reach your library, keep your profile together, and get ready for what's next.</p><div class="feature-row"><div class="feature">✦ Secure account sign-in</div><div class="feature">◈ Personal game library</div><div class="feature">⌁ Built for players</div></div></div>
 <div class="auth-card"><div class="tabs"><button id="loginTab" class="active" type="button">SIGN IN</button><button id="signupTab" type="button">CREATE ACCOUNT</button></div><h2 id="formTitle">Welcome back</h2><p class="sub" id="formSub">Sign in with the email linked to your account.</p>
 <form id="authForm" onsubmit="return false;"><div class="field" id="nameField" hidden><label for="displayName">PLAYER NAME</label><input id="displayName" type="text" maxlength="32" placeholder="What should we call you?"></div><div class="field"><label for="email">EMAIL ADDRESS</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com" required></div><div class="field"><label for="password">PASSWORD</label><input id="password" type="password" autocomplete="current-password" minlength="6" placeholder="Enter your password" required></div><button class="primary" id="submitBtn" type="submit">SIGN IN</button></form>
-<button class="quiet" id="forgotBtn" type="button">Forgot your password?</button><div class="status" id="status" role="status" aria-live="polite"></div><div class="divider"></div><div class="qr-panel"><div class="qr-icon">▦</div><div><strong>PHONE QR APPROVAL</strong><p>Secure QR sign-in is being set up. Scanning a code will never sign you in without your approval.</p></div></div></div></div></section>
+<button class="quiet" id="forgotBtn" type="button">Forgot your password?</button>
+<div id="passwordResetPanel" hidden>
+  <h3 class="reset-heading">SET A NEW PASSWORD</h3>
+  <p class="sub">Choose a new password for your Crimson Gaming account.</p>
+  <form id="passwordResetForm" novalidate>
+    <div class="field"><label for="newPassword">NEW PASSWORD</label><input id="newPassword" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required></div>
+    <div class="field"><label for="confirmNewPassword">CONFIRM NEW PASSWORD</label><input id="confirmNewPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Enter it again" required></div>
+    <button class="primary" id="saveNewPasswordBtn" type="submit">UPDATE PASSWORD</button>
+  </form>
+  <button class="quiet" id="cancelPasswordReset" type="button">Back to sign in</button>
+</div>
+<div class="status" id="status" role="status" aria-live="polite"></div><div class="divider"></div><div class="qr-panel"><div class="qr-icon">▦</div><div><strong>PHONE QR APPROVAL</strong><p>Secure QR sign-in is being set up. Scanning a code will never sign you in without your approval.</p></div></div></div></div></section>
 <section class="dashboard" id="dashboardView">
   <div class="dash-layout">
     <aside class="sidebar">
@@ -369,8 +384,24 @@ window.addEventListener("error",()=>{const box=document.getElementById("status")
 const SUPABASE_URL="https://qmgpiczgjbtxxgfiekys.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable__fK6MUmQPIhP9A4kk6ybdw_3V24SlCm";
 const client=window.supabase&&window.supabase.createClient?window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY):null;
-const authView=document.getElementById("authView"),dashboardView=document.getElementById("dashboardView"),statusBox=document.getElementById("status"),form=document.getElementById("authForm");let mode="login",activeUser=null;
+const authView=document.getElementById("authView"),dashboardView=document.getElementById("dashboardView"),statusBox=document.getElementById("status"),form=document.getElementById("authForm"),resetPanel=document.getElementById("passwordResetPanel");let mode="login",activeUser=null,passwordRecoveryMode=false;
 function showStatus(message,isError=false){statusBox.textContent=message;statusBox.classList.toggle("error",isError)}
+function showPasswordRecovery(){
+ passwordRecoveryMode=true;
+ authView.style.display="grid";dashboardView.style.display="none";
+ document.getElementById("loginTab").hidden=true;document.getElementById("signupTab").hidden=true;
+ form.hidden=true;document.getElementById("forgotBtn").hidden=true;resetPanel.hidden=false;
+ document.getElementById("formTitle").textContent="Reset your password";
+ document.getElementById("formSub").textContent="Create a new password to get back into Crimson Gaming.";
+ document.getElementById("newPassword").value="";document.getElementById("confirmNewPassword").value="";
+ showStatus("Reset link verified. Choose a new password.");
+ window.scrollTo(0,0);
+}
+function leavePasswordRecovery(){
+ passwordRecoveryMode=false;resetPanel.hidden=true;form.hidden=false;
+ document.getElementById("loginTab").hidden=false;document.getElementById("signupTab").hidden=false;
+ document.getElementById("forgotBtn").hidden=false;setMode("login");showLogin();
+}
 function setMode(next){mode=next;const signup=mode==="signup";document.getElementById("loginTab").classList.toggle("active",!signup);document.getElementById("signupTab").classList.toggle("active",signup);document.getElementById("formTitle").textContent=signup?"Create your account":"Welcome back";document.getElementById("formSub").textContent=signup?"Create a Crimson Gaming account with your email.":"Sign in with the email linked to your account.";document.getElementById("nameField").hidden=!signup;document.getElementById("submitBtn").textContent=signup?"CREATE ACCOUNT":"SIGN IN";document.getElementById("forgotBtn").hidden=signup;document.getElementById("password").autocomplete=signup?"new-password":"current-password";showStatus("")}
 const pageSections={updates:document.getElementById("updatesPage"),home:document.getElementById("homePage"),store:document.getElementById("storePage"),play:document.getElementById("playPage"),arcade:document.getElementById("arcadePage"),city:document.getElementById("cityPage"),friends:document.getElementById("friendsPage"),library:document.getElementById("libraryPage"),favorites:document.getElementById("favoritesPage"),profile:document.getElementById("profilePage"),settings:document.getElementById("settingsPage")};
 const pageNames={updates:"WHAT’S NEW",home:"PLAYER HOME",store:"CRIMSON STORE",play:"PLAY CRIMSON ORIGINALS",arcade:"CRIMSON ARCADE",city:"EXPLORE CRIMSON CITY",friends:"CRIMSON COMMUNITY",library:"YOUR LIBRARY",favorites:"YOUR FAVORITES",profile:"PLAYER PROFILE",settings:"PREFERENCES"};
@@ -857,6 +888,46 @@ document.getElementById("savePreferences").addEventListener("click",()=>{localSt
 document.getElementById("clearSaved").addEventListener("click",()=>{writeSaved("library",[]);writeSaved("favorites",[]);syncStoreButtons();renderSaved("library");renderSaved("favorites");document.getElementById("settingsStatus").textContent="Your Library and Favorites have been cleared."});
 document.getElementById("loginTab").addEventListener("click",()=>setMode("login"));document.getElementById("signupTab").addEventListener("click",()=>setMode("signup"));
 form.addEventListener("submit",async e=>{e.preventDefault();const btn=document.getElementById("submitBtn"),email=document.getElementById("email").value.trim(),password=document.getElementById("password").value;btn.disabled=true;btn.textContent=mode==="signup"?"CREATING...":"SIGNING IN...";showStatus("");try{if(!client)throw new Error("The sign-in service did not load. Refresh the page and try again.");if(mode==="signup"){const displayName=document.getElementById("displayName").value.trim();const {data,error}=await client.auth.signUp({email,password,options:{data:{display_name:displayName},emailRedirectTo:window.location.origin+window.location.pathname}});if(error)throw error;if(data.session){showDashboard(data.user)}else{showStatus("Account created! Check your email for a confirmation link, then come back and sign in.")}}else{const {data,error}=await client.auth.signInWithPassword({email,password});if(error)throw error;showDashboard(data.user)}}catch(err){showStatus(err.message||"Something went wrong. Please try again.",true)}finally{btn.disabled=false;btn.textContent=mode==="signup"?"CREATE ACCOUNT":"SIGN IN"}});
-document.getElementById("forgotBtn").addEventListener("click",async()=>{if(!client){showStatus("The sign-in service did not load. Refresh the page and try again.",true);return}const email=document.getElementById("email").value.trim();if(!email){showStatus("Enter your email address first.",true);return}showStatus("Sending password reset email...");const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin});showStatus(error?error.message:"If an account exists for that email, a password reset link will be sent.")});
-if(client){client.auth.onAuthStateChange((_event,session)=>{if(session&&session.user)showDashboard(session.user)});client.auth.getSession().then(({data})=>{if(data.session&&data.session.user)showDashboard(data.session.user)}).catch(()=>showStatus("Could not check your saved session. Refresh the page and try again.",true))}
+document.getElementById("forgotBtn").addEventListener("click",async()=>{
+ if(!client){showStatus("The sign-in service did not load. Refresh the page and try again.",true);return}
+ const email=document.getElementById("email").value.trim();
+ if(!email){showStatus("Enter your email address first.",true);document.getElementById("email").focus();return}
+ const btn=document.getElementById("forgotBtn");btn.disabled=true;showStatus("Sending password reset email...");
+ try{
+  const redirectTo=window.location.origin+window.location.pathname+"?password-reset=1";
+  const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo});
+  if(error)throw error;
+  showStatus("If an account exists for that email, a password reset link will be sent. Check your inbox and spam folder.");
+ }catch(err){showStatus(err.message||"Could not send the reset email. Please try again.",true)}
+ finally{btn.disabled=false}
+});
+document.getElementById("passwordResetForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ if(!client){showStatus("The password service did not load. Refresh this page and reopen your reset link.",true);return}
+ const password=document.getElementById("newPassword").value,confirm=document.getElementById("confirmNewPassword").value,btn=document.getElementById("saveNewPasswordBtn");
+ if(password.length<8){showStatus("Use a password with at least 8 characters.",true);return}
+ if(password!==confirm){showStatus("The passwords do not match. Check both fields.",true);document.getElementById("confirmNewPassword").focus();return}
+ btn.disabled=true;btn.textContent="UPDATING...";
+ try{
+  const {data,error}=await client.auth.updateUser({password});
+  if(error)throw error;
+  passwordRecoveryMode=false;resetPanel.hidden=true;
+  showStatus("Your password has been updated successfully.");
+  if(data.user)showDashboard(data.user);
+ }catch(err){showStatus(err.message||"Could not update your password. Request a new reset link and try again.",true)}
+ finally{btn.disabled=false;btn.textContent="UPDATE PASSWORD"}
+});
+document.getElementById("cancelPasswordReset").addEventListener("click",leavePasswordRecovery);
+if(client){
+ client.auth.onAuthStateChange((event,session)=>{
+  if(event==="PASSWORD_RECOVERY"){showPasswordRecovery();return}
+  if(session&&session.user&&!passwordRecoveryMode)showDashboard(session.user);
+ });
+ client.auth.getSession().then(({data})=>{
+  if(new URLSearchParams(window.location.search).has("password-reset")&&data.session){
+   showPasswordRecovery();return;
+  }
+  if(data.session&&data.session.user&&!passwordRecoveryMode)showDashboard(data.session.user);
+ }).catch(()=>showStatus("Could not check your saved session. Refresh the page and try again.",true))
+}
 </script></body></html>
