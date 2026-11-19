@@ -29,3 +29,10 @@
 ## 2.4.1 — Real American Brands
 - Refined the dealership to focus on recognizable real American automakers and established specialty brands.
 - Removed obscure and lesser-known marques from the previous expanded list while keeping the core American lineup, including Chevrolet, Cadillac, GMC, Ford, Lincoln, Dodge, Ram, Buick, Jeep, Chrysler, Tesla, Rivian, Lucid, Pontiac, Plymouth, Oldsmobile, Mercury, AMC, and established American truck makers.
+
+## 2.5.0 — Crimson Originals Beta Arcade
+- Added browser-playable beta versions of Crimson Drift, Crimson Life, Crimson Quest, Crimson Blocks, and Crimson Racing.
+- Added Crimson Launcher as an in-site hub for launching Crimson originals.
+- Added a dedicated Arcade page and Store launch actions for each title.
+- Updated Store status labels to reflect playable beta builds rather than Coming Soon or In Development.
+- These are first playable browser builds, not full-scale downloadable desktop releases.
