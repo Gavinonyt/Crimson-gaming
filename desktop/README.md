@@ -31,3 +31,8 @@ The installer is written to `dist/Ultra-Launcher-Setup-1.0.0.exe`.
 - Ultra's built-in games report their current activity to the companion. Other PC games are not automatically detected by this initial version.
 - The existing server invite and server widget in Ultra Social are separate from Rich Presence. They let players join/view the community server; they do not sign a user into Discord.
 - The website and companion do not request Discord passwords, bot tokens, or private account credentials.
+
+
+## Build without a Windows PC
+
+The Windows installer is built on GitHub Actions. Open the repository's Actions tab, select **Build Ultra Launcher Windows Companion**, choose **Run workflow**, and wait for the `Ultra-Launcher-Windows-Installer` artifact. You can download the artifact ZIP from an Android phone and extract the `.exe`; installing or running that Windows `.exe` still requires a Windows device.
