@@ -1,5 +1,14 @@
-# Ultra Gaming 2.5.0
+# Ultra Gaming 2.6.0
 **Release date:** November 19, 2026
+
+## 2.6.0 — Ultra Launcher Hub Update
+
+### Ultra Launcher game hubs
+- Added All, Racing, Creative, Adventure, and Community filters to the launcher dashboard and game library.
+- Game cards now match category filters and search terms together.
+- The signed-in player's display name appears in the launcher profile area.
+- Fixed the launcher settings page heading so its selected view title updates correctly.
+
 
 ## 2.5.0 — Ultra Originals & Cockpit Update
 
