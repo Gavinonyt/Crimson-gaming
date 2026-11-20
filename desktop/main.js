@@ -4,6 +4,7 @@ const fs = require("fs");
 const RPC = require("discord-rpc");
 
 const SITE_URL = "https://gavinonyt.github.io/Crimson-gaming/";
+const DEFAULT_DISCORD_APPLICATION_ID = "1573485471944675418";
 const CONFIG_PATH = () => path.join(app.getPath("userData"), "config.json");
 let mainWindow = null;
 let settingsWindow = null;
@@ -143,10 +144,10 @@ ipcMain.handle("ultra-presence:open-external", async (_event, url) => {
 });
 app.whenReady().then(() => {
   const cfg = readConfig();
-  rpcClientId = cfg.discordApplicationId || "";
+  rpcClientId = cfg.discordApplicationId || DEFAULT_DISCORD_APPLICATION_ID;
   createMainWindow();
-  if (!rpcClientId) createSettingsWindow();
-  else connectRPC(rpcClientId).then(sendStatus);
+  if (!cfg.discordApplicationId) writeConfig({ ...cfg, discordApplicationId: DEFAULT_DISCORD_APPLICATION_ID });
+  connectRPC(rpcClientId).then(sendStatus);
   app.on("activate", () => { if (BrowserWindow.getAllWindows().length === 0) createMainWindow(); });
 });
 app.on("before-quit", disconnectRPC);
