@@ -1077,6 +1077,56 @@ html[data-show-boot="off"] .ultra-boot{display:none!important}
   #dashboardView.ultra-home-active .bottom-dock .nav{ -webkit-tap-highlight-color:transparent}
 }
 </style>
+
+<style id="ultra-cineos-inspired-layout">
+/* Ultra's CINE-OS-inspired home: clock, glance widgets, pinned apps and quick system access */
+#dashboardView.ultra-home-active #homePage .ultra-cine-topline{position:absolute!important;z-index:5!important;top:22px!important;left:clamp(18px,3vw,48px)!important;right:clamp(18px,3vw,48px)!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px!important}
+.ultra-cine-brand{display:flex;align-items:center;gap:10px;color:#f3f5fb;font-size:12px;font-weight:950;letter-spacing:.19em;text-shadow:0 2px 18px #000}
+.ultra-cine-brand i{font-style:normal;color:rgba(215,226,245,.48);font-size:9px}
+.ultra-cine-mark{display:grid;place-items:center;width:29px;height:29px;border:1px solid rgba(205,220,255,.38);border-radius:9px;background:linear-gradient(145deg,rgba(107,149,218,.42),rgba(20,28,44,.62));box-shadow:0 0 22px #6d9bd52b}
+.ultra-cine-top-actions{display:flex;align-items:center;gap:7px}
+.ultra-cine-top-actions button{border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:8px 11px;background:rgba(8,12,19,.55);color:rgba(236,242,252,.8);font-size:8px;font-weight:900;letter-spacing:.12em;backdrop-filter:blur(14px);cursor:pointer}
+.ultra-cine-top-actions button:hover{background:rgba(70,105,157,.36);border-color:#a8caff77;color:white}
+#dashboardView.ultra-home-active #homePage .os-welcome{top:clamp(70px,10vh,112px)!important}
+#dashboardView.ultra-home-active #homePage .ultra-home-widgets{top:clamp(185px,25vh,260px)!important;right:clamp(22px,4vw,70px)!important;width:clamp(225px,22vw,310px)!important}
+#dashboardView.ultra-home-active #homePage>.os-app-grid{position:absolute!important;display:grid!important;left:clamp(18px,4vw,68px)!important;bottom:clamp(88px,12vh,128px)!important;width:min(47vw,650px)!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important;margin:0!important}
+#dashboardView.ultra-home-active #homePage>.ultra-cine-app-tools{position:absolute!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;left:clamp(18px,4vw,68px)!important;bottom:calc(clamp(88px,12vh,128px) + 100px)!important;width:min(47vw,650px)!important;color:rgba(229,237,250,.62)!important;font-size:8px!important;font-weight:900!important;letter-spacing:.2em!important}
+.ultra-cine-app-tools input{width:min(190px,45%);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px 10px;background:rgba(7,10,16,.62);color:#f4f6fc;font-size:10px;letter-spacing:0;outline:none;backdrop-filter:blur(14px)}
+.ultra-cine-app-tools input:focus{border-color:#9fc4ff99}
+#dashboardView.ultra-home-active .os-app-tile{min-height:74px;align-items:center;justify-content:center;gap:5px;padding:9px 7px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:linear-gradient(145deg,rgba(18,23,33,.76),rgba(7,10,16,.78));box-shadow:0 9px 25px #0003;backdrop-filter:blur(15px);text-align:center}
+#dashboardView.ultra-home-active .os-app-tile:hover{transform:translateY(-3px);border-color:rgba(167,201,255,.48);background:rgba(31,44,63,.88)}
+#dashboardView.ultra-home-active .os-app-icon{width:31px;height:31px;border-radius:9px;font-size:16px}
+#dashboardView.ultra-home-active .os-app-tile strong{font-size:9px}
+#dashboardView.ultra-home-active .os-app-tile small{font-size:7px;color:rgba(227,235,248,.5)}
+#dashboardView.ultra-home-active #homePage>.os-bottom-grid{position:absolute!important;display:grid!important;grid-template-columns:1fr!important;gap:8px!important;right:clamp(22px,4vw,70px)!important;left:auto!important;bottom:clamp(88px,12vh,128px)!important;width:clamp(225px,22vw,310px)!important;margin:0!important}
+#dashboardView.ultra-home-active .os-bottom-grid .os-widget{padding:12px 14px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(7,10,16,.68);backdrop-filter:blur(18px);box-shadow:0 10px 28px #0003}
+#dashboardView.ultra-home-active .os-bottom-grid .os-widget-head{margin-bottom:8px}
+#dashboardView.ultra-home-active .os-bottom-grid .os-widget-head h3{font-size:11px}
+#dashboardView.ultra-home-active .os-bottom-grid .os-status-row{padding:5px 0;font-size:9px}
+#dashboardView.ultra-home-active .os-bottom-grid .os-status-row strong{font-size:9px}
+#dashboardView.ultra-home-active .os-wallpaper-options{gap:6px}
+#dashboardView.ultra-home-active .os-wallpaper-swatch{height:25px;border-radius:6px}
+#dashboardView.ultra-home-active .os-wallpaper-widget p{font-size:8px;margin-top:7px}
+#dashboardView.ultra-home-active #homePage>.os-section-head{display:none!important}
+@media(max-width:900px) and (min-width:651px){
+ #dashboardView.ultra-home-active #homePage>.os-app-grid{width:45vw!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;bottom:88px!important}
+ #dashboardView.ultra-home-active #homePage>.ultra-cine-app-tools{width:45vw!important;bottom:175px!important}
+ #dashboardView.ultra-home-active #homePage>.os-bottom-grid{width:235px!important;bottom:88px!important}
+ #dashboardView.ultra-home-active #homePage .ultra-home-widgets{top:190px!important;width:235px!important}
+ #dashboardView.ultra-home-active .os-app-tile{min-height:62px!important}
+}
+@media(max-width:650px){
+ #dashboardView.ultra-home-active #homePage .ultra-cine-topline{top:10px!important;left:10px!important;right:10px!important}
+ .ultra-cine-brand{font-size:9px;letter-spacing:.12em}
+ .ultra-cine-mark{width:25px;height:25px}
+ .ultra-cine-top-actions{gap:4px}
+ .ultra-cine-top-actions button{padding:7px 6px;font-size:7px}
+ #dashboardView.ultra-home-active #homePage>.os-app-grid,#dashboardView.ultra-home-active #homePage>.ultra-cine-app-tools,#dashboardView.ultra-home-active #homePage>.os-bottom-grid{display:none!important}
+ #dashboardView.ultra-home-active #homePage .os-welcome{top:clamp(75px,13vh,118px)!important}
+ #dashboardView.ultra-home-active #homePage .ultra-home-widgets{top:43svh!important;left:12px!important;right:12px!important;width:auto!important}
+}
+@media(prefers-reduced-motion:reduce){.ultra-cine-top-actions button,#dashboardView.ultra-home-active .os-app-tile{transition:none!important}}
+</style>
 </head>
 <body>
 <div class="ultra-boot" id="ultraBootScreen" hidden aria-label="Starting Ultra OS">
@@ -1110,6 +1160,7 @@ html[data-show-boot="off"] .ultra-boot{display:none!important}
       </div>
 
       <section class="dash-page ultra-home" id="homePage">
+  <div class="ultra-cine-topline"><div class="ultra-cine-brand"><span class="ultra-cine-mark">U</span><span>ULTRA <i>// HUB</i></span></div><div class="ultra-cine-top-actions"><button type="button" data-home-action="apps">APPS</button><button type="button" data-home-action="control">CONTROL</button><button type="button" data-home-action="command">SEARCH</button><button type="button" data-home-action="signout">EXIT</button></div></div>
   <div class="os-welcome ultra-home-welcome">
     <div class="ultra-home-welcome-copy"><div class="os-eyebrow"><span class="os-live-dot"></span> ULTRA OS / PLAYER SPACE</div><h1 id="welcomeTitle">Welcome to your world.</h1><p>Your games, apps, and community — all in one place.</p></div>
     <div class="ultra-home-date" aria-label="Current date and time"><div class="ultra-day-label" id="ultraDayLabel">FRIDAY</div><strong id="osTime">--:--</strong><span id="osDate">LOADING DATE</span></div>
@@ -1136,6 +1187,7 @@ html[data-show-boot="off"] .ultra-boot{display:none!important}
     </div>
   </div>
   <div class="os-section-head"><div><span class="os-eyebrow">YOUR WORKSPACE</span><h2>Pinned apps</h2></div><button type="button" class="os-view-all" id="osAllApps">VIEW ALL APPS ↗</button></div>
+  <div class="ultra-cine-app-tools"><span>PINNED APPLICATIONS</span><input id="ultraHomeAppSearch" type="search" placeholder="Search apps..." aria-label="Search pinned apps"></div>
   <div class="os-app-grid" id="osAppGrid">
     <button class="os-app-tile" type="button" data-go-page="store" data-app-search="store games discover"><span class="os-app-icon os-icon-store">▣</span><strong>Store</strong><small>Discover games</small></button>
     <button class="os-app-tile" type="button" data-go-page="play" data-app-search="ultra sprint play racing"><span class="os-app-icon os-icon-race">🏁</span><strong>Ultra Sprint</strong><small>Play now</small></button>
@@ -2183,5 +2235,19 @@ function updateUltraPersonal(key,value){const p=readUltraPersonal();p[key]=value
 function downloadUltraPrefs(){const data={format:"ultra-os-preferences",version:1,preferences:readUltraPersonal()};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="ultra-os-settings.json";document.body.append(a);a.click();a.remove();URL.revokeObjectURL(url);const status=document.getElementById("ultraPersonalStatus");if(status)status.textContent="Settings backup exported."}
 function importUltraPrefsFile(file){if(!file)return;const status=document.getElementById("ultraPersonalStatus");if(file.size>128*1024){if(status)status.textContent="That settings file is too large.";return}const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(String(reader.result));if(data.format!=="ultra-os-preferences"||!data.preferences||typeof data.preferences!=="object")throw new Error("This is not an Ultra OS settings backup.");const p={...ultraPersonalDefaults};Object.keys(p).forEach(k=>{if(Object.prototype.hasOwnProperty.call(data.preferences,k))p[k]=data.preferences[k]});p.scale=Math.max(85,Math.min(115,Number(p.scale)||100));p.round=Math.max(6,Math.min(30,Number(p.round)||18));p.dockSize=Math.max(75,Math.min(125,Number(p.dockSize)||100));p.font=["system","modern","mono"].includes(p.font)?p.font:"system";p.dock=["bottom","left","right"].includes(p.dock)?p.dock:"bottom";p.icons=["rounded","circle","square"].includes(p.icons)?p.icons:"rounded";p.wallpaper=["midnight","vice","ocean","emerald","gold","mono"].includes(p.wallpaper)?p.wallpaper:"midnight";p.clock=!!p.clock;p.reducedMotion=!!p.reducedMotion;p.contrast=!!p.contrast;p.widgets=["right","left","hidden"].includes(p.widgets)?p.widgets:"right";p.dockStyle=["glass","solid","minimal"].includes(p.dockStyle)?p.dockStyle:"glass";p.wallpaperMotion=p.wallpaperMotion!==false;p.clockSize=Math.max(75,Math.min(140,Number(p.clockSize)||100));p.boot=p.boot!==false;p.notifications=p.notifications!==false;ultraSave("personalization",JSON.stringify(p));applyUltraPersonal();if(status)status.textContent="Settings imported successfully."}catch(err){if(status)status.textContent=err.message||"Could not import that file."}};reader.onerror=()=>{if(status)status.textContent="Could not read that file."};reader.readAsText(file)}
 document.getElementById("ultraFontChoice")?.addEventListener("change",e=>updateUltraPersonal("font",e.target.value));document.getElementById("ultraDockChoice")?.addEventListener("change",e=>updateUltraPersonal("dock",e.target.value));document.getElementById("ultraIconChoice")?.addEventListener("change",e=>updateUltraPersonal("icons",e.target.value));document.getElementById("ultraWallpaperChoice")?.addEventListener("change",e=>updateUltraPersonal("wallpaper",e.target.value));document.getElementById("ultraScaleChoice")?.addEventListener("input",e=>updateUltraPersonal("scale",Number(e.target.value)));document.getElementById("ultraRoundChoice")?.addEventListener("input",e=>updateUltraPersonal("round",Number(e.target.value)));document.getElementById("ultraDockSizeChoice")?.addEventListener("input",e=>updateUltraPersonal("dockSize",Number(e.target.value)));document.getElementById("ultraClockSize")?.addEventListener("input",e=>updateUltraPersonal("clockSize",Number(e.target.value)));document.getElementById("ultraWidgetPosition")?.addEventListener("change",e=>updateUltraPersonal("widgets",e.target.value));document.getElementById("ultraDockStyle")?.addEventListener("change",e=>updateUltraPersonal("dockStyle",e.target.value));document.getElementById("ultraWallpaperMotion")?.addEventListener("change",e=>updateUltraPersonal("wallpaperMotion",e.target.value==="on"));document.getElementById("ultraShowClock")?.addEventListener("change",e=>updateUltraPersonal("clock",e.target.checked));document.getElementById("ultraReduceMotion")?.addEventListener("change",e=>updateUltraPersonal("reducedMotion",e.target.checked));document.getElementById("ultraHighContrast")?.addEventListener("change",e=>updateUltraPersonal("contrast",e.target.checked));document.getElementById("ultraShowBoot")?.addEventListener("change",e=>updateUltraPersonal("boot",e.target.checked));document.getElementById("ultraShowNotifications")?.addEventListener("change",e=>updateUltraPersonal("notifications",e.target.checked));document.getElementById("ultraExportPrefs")?.addEventListener("click",downloadUltraPrefs);document.getElementById("ultraImportPrefs")?.addEventListener("click",()=>document.getElementById("ultraImportPrefsFile")?.click());document.getElementById("ultraImportPrefsFile")?.addEventListener("change",e=>{importUltraPrefsFile(e.target.files?.[0]);e.target.value=""});document.getElementById("ultraResetPrefs")?.addEventListener("click",()=>{ultraSave("personalization",JSON.stringify(ultraPersonalDefaults));applyUltraPersonal();const status=document.getElementById("ultraPersonalStatus");if(status)status.textContent="Personalization reset to Ultra defaults."});applyUltraPersonal();
+
+/* CINE-inspired home controls and pinned-app search */
+document.querySelectorAll("[data-home-action]").forEach(button=>button.addEventListener("click",()=>{
+ const action=button.dataset.homeAction;
+ const target={apps:"appLibraryOpen",control:"controlCenterOpen",command:"commandLauncher",signout:"signoutBtn"}[action];
+ document.getElementById(target)?.click();
+}));
+document.getElementById("ultraHomeAppSearch")?.addEventListener("input",event=>{
+ const query=event.target.value.trim().toLowerCase();
+ document.querySelectorAll("#osAppGrid .os-app-tile").forEach(tile=>{
+  const haystack=(tile.textContent+" "+(tile.dataset.appSearch||"")).toLowerCase();
+  tile.hidden=!!query&&!haystack.includes(query);
+ });
+});
 </script><div class="ultra-system-toast" id="ultraWelcomeToast" role="status" aria-live="polite"><span class="ultra-toast-mark">U</span><span><small>ULTRA SYSTEM</small><strong>Welcome to Ultra OS</strong><em>Your workspace is ready</em></span><button type="button" aria-label="Dismiss notification" id="ultraToastDismiss">×</button></div>
 </body></html>
