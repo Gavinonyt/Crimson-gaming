@@ -2165,6 +2165,7 @@ const authView=document.getElementById("authView"),dashboardView=document.getEle
 function showStatus(message,isError=false){statusBox.textContent=message;statusBox.classList.toggle("error",isError)}
 /* Early, capture-phase auth handler: keeps sign-in responsive even if a later dashboard feature fails during page setup. */
 form.addEventListener("submit",async e=>{
+ if(mode!=="login")return;
  e.preventDefault();e.stopImmediatePropagation();
  const btn=document.getElementById("submitBtn"),email=document.getElementById("email").value.trim(),password=document.getElementById("password").value;
  btn.disabled=true;btn.textContent="SIGNING IN…";showStatus("Connecting to Ultra account services…");
