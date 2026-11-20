@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ultra Launcher — Discord Setup</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:30px;background:radial-gradient(circle at 90% 0,#35205d 0,transparent 42%),#090812;color:#f5f2ff;font:14px Inter,Segoe UI,system-ui,sans-serif}
+.panel{max-width:460px;margin:10px auto;padding:26px;border:1px solid #ffffff20;border-radius:20px;background:#171323;box-shadow:0 20px 70px #0008}
+.logo{font-size:12px;font-weight:900;letter-spacing:.18em;color:#b69aff}.orb{width:48px;height:48px;display:grid;place-items:center;margin:18px 0;border-radius:15px;background:#5865f2;font-size:25px}
+h1{margin:0 0 8px;font-size:25px}p{color:#aaa5ba;line-height:1.6}.step{margin:18px 0;padding:14px;border:1px solid #ffffff16;border-radius:12px;background:#ffffff06}.step strong{display:block;margin-bottom:6px}.step a{color:#b8a1ff}.step small{color:#a9a2b9;line-height:1.5}
+label{display:block;margin:20px 0 7px;font-size:10px;font-weight:900;letter-spacing:.1em;color:#c9c1db}input{width:100%;padding:13px;border:1px solid #ffffff25;border-radius:10px;background:#0e0b17;color:#fff;font:inherit;outline:none}input:focus{border-color:#a78bfa}button{width:100%;margin-top:12px;padding:13px;border:0;border-radius:10px;background:#7560d9;color:white;font-weight:900;cursor:pointer}#status{min-height:40px;margin-top:14px;color:#b9e9ca;font-size:12px;line-height:1.5}.note{font-size:11px}
+</style>
+</head>
+<body><main class="panel">
+<div class="logo">ULTRA LAUNCHER</div><div class="orb">◉</div>
+<h1>Connect Discord Rich Presence</h1>
+<p>Show your friends when you're using Ultra Launcher and which Ultra game you're playing.</p>
+<div class="step"><strong>1. Create your Discord application</strong><small>Open the <a href="https://discord.com/developers/applications" id="developerLink">Discord Developer Portal</a>, choose New Application, and give it a name such as Ultra Launcher.</small></div>
+<div class="step"><strong>2. Copy its Application ID</strong><small>In your application, open General Information and copy the Application ID. Do not paste a bot token or secret here.</small></div>
+<label for="clientId">DISCORD APPLICATION ID</label>
+<input id="clientId" inputmode="numeric" maxlength="22" placeholder="17–22 digit Application ID" autocomplete="off">
+<button id="connect">SAVE & CONNECT DISCORD</button>
+<div id="status" role="status" aria-live="polite">Keep the Discord desktop app running. This companion uses Discord's local Rich Presence connection.</div>
+<p class="note">Your Application ID is stored locally on this PC. Ultra Launcher does not need your Discord password, bot token, or account secret.</p>
+</main>
+<script>
+const field=document.getElementById("clientId"),status=document.getElementById("status"),button=document.getElementById("connect");
+document.getElementById("developerLink").addEventListener("click",e=>{e.preventDefault();window.open("https://discord.com/developers/applications")});
+async function load(){try{const s=await window.ultraPresence.getStatus();if(s.clientIdConfigured)status.textContent=s.message}catch{}}
+button.addEventListener("click",async()=>{const id=field.value.trim();if(!/^\d{17,22}$/.test(id)){status.textContent="Enter the 17–22 digit Application ID from General Information.";return}button.disabled=true;button.textContent="CONNECTING…";status.textContent="Connecting to the Discord desktop app…";try{const r=await window.ultraPresence.saveClientId(id);status.textContent=r.message;status.style.color=r.ok?"#b9e9ca":"#ffabb5"}catch{status.textContent="Could not save the ID. Restart the companion and try again.";status.style.color="#ffabb5"}finally{button.disabled=false;button.textContent="SAVE & CONNECT DISCORD"}});
+window.ultraPresence.getStatus().then(s=>{if(s.clientIdConfigured)status.textContent=s.message}).catch(()=>{});
+</script></body></html>
