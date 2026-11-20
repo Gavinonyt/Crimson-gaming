@@ -2163,6 +2163,28 @@ const SUPABASE_PUBLISHABLE_KEY="sb_publishable__fK6MUmQPIhP9A4kk6ybdw_3V24SlCm";
 const client=window.supabase&&window.supabase.createClient?window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY):null;
 const authView=document.getElementById("authView"),dashboardView=document.getElementById("dashboardView"),statusBox=document.getElementById("status"),form=document.getElementById("authForm"),resetPanel=document.getElementById("passwordResetPanel");let mode="login",activeUser=null,passwordRecoveryMode=false;
 function showStatus(message,isError=false){statusBox.textContent=message;statusBox.classList.toggle("error",isError)}
+/* Early, capture-phase auth handler: keeps sign-in responsive even if a later dashboard feature fails during page setup. */
+form.addEventListener("submit",async e=>{
+ e.preventDefault();e.stopImmediatePropagation();
+ const btn=document.getElementById("submitBtn"),email=document.getElementById("email").value.trim(),password=document.getElementById("password").value;
+ btn.disabled=true;btn.textContent="SIGNING IN…";showStatus("Connecting to Ultra account services…");
+ try{
+  if(!client)throw new Error("Ultra account services did not load. Refresh the page and try again.");
+  if(!navigator.onLine)throw new Error("Your device is offline. Reconnect and try again.");
+  const result=await Promise.race([
+   client.auth.signInWithPassword({email,password}),
+   new Promise((_,reject)=>setTimeout(()=>reject(new Error("The sign-in service timed out. Check your connection and try again.")),15000))
+  ]);
+  if(result.error)throw result.error;
+  if(!result.data?.session||!result.data?.user)throw new Error("No active login session was returned. Check your email and password, or use Forgot your password.");
+  activeUser=result.data.user;
+  try{showDashboard(result.data.user);showStatus("Welcome back. Your dashboard is ready.");}
+  catch(dashboardError){console.error("Ultra dashboard startup failed:",dashboardError);authView.style.display="grid";dashboardView.style.display="none";showStatus("Your account signed in, but the dashboard hit an error while opening. Refresh the page and try again.",true);}
+ }catch(err){console.error("Ultra sign-in failed:",err);showStatus(err?.message||"Sign-in failed. Refresh and try again.",true);}
+ finally{btn.disabled=false;btn.textContent=mode==="signup"?"CREATE ACCOUNT":"SIGN IN";}
+},true);
+window.addEventListener("unhandledrejection",e=>{console.error("Ultra unhandled promise rejection:",e.reason);if(statusBox&&!statusBox.textContent)showStatus(e.reason?.message||"Ultra hit an unexpected startup error. Refresh the page and try again.",true);});
+
 let resetCooldownUntil=0,resetCooldownTimer=null;
 function startResetCooldown(seconds){
  resetCooldownUntil=Date.now()+Math.max(1,seconds)*1000;
