@@ -1378,6 +1378,7 @@ html[data-show-boot="off"] .ultra-boot{display:none!important}
     <button class="os-app-tile" type="button" data-go-page="city" data-app-search="ultra city open world"><span class="os-app-icon os-icon-city">🌆</span><strong>Ultra City</strong><small>Explore world</small></button>
     <button class="os-app-tile" type="button" data-go-page="library" data-app-search="library collection saved games"><span class="os-app-icon os-icon-library">▦</span><strong>Library</strong><small>Your collection</small></button>
     <button class="os-app-tile" type="button" data-go-page="friends" data-app-search="friends community players"><span class="os-app-icon os-icon-friends">♧</span><strong>Community</strong><small>Find players</small></button>
+    <button class="os-app-tile" type="button" data-go-page="social" data-app-search="social chat messages channels"><span class="os-app-icon os-icon-friends">▤</span><strong>Social</strong><small>Community chat</small></button>
     <button class="os-app-tile" type="button" data-go-page="hubs" data-app-search="hubs groups interests"><span class="os-app-icon os-icon-hubs">⬡</span><strong>Hubs</strong><small>Game spaces</small></button>
     <button class="os-app-tile" type="button" data-go-page="settings" data-app-search="settings customize preferences"><span class="os-app-icon os-icon-settings">⚙</span><strong>Settings</strong><small>Make it yours</small></button>
   </div>
@@ -2404,6 +2405,7 @@ function updateUltraOSHome(){
  const homeClock=document.getElementById("ultraHomeClock");if(homeClock)homeClock.textContent=new Intl.DateTimeFormat(undefined,{hour:"numeric",minute:"2-digit"}).format(now);
  const connection=document.getElementById("osConnectionState");if(connection)connection.textContent=navigator.onLine?"Connected":"Offline";
  const networkCard=document.getElementById("ultraNetworkState");if(networkCard)networkCard.textContent=navigator.onLine?"ONLINE":"OFFLINE";
+ const onlineFriends=document.getElementById("ultraOnlineFriends"),friendCount=document.getElementById("friendCount");if(onlineFriends)onlineFriends.textContent=friendCount?friendCount.textContent:"0";
  const lib=document.getElementById("osLibraryState"),fav=document.getElementById("osFavoritesState");
  if(lib)lib.textContent=readSaved("library").length+" saved";
  if(fav)fav.textContent=readSaved("favorites").length+" saved";
