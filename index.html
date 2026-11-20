@@ -720,6 +720,42 @@ body[data-ultra-focus=on] .birthday-banner{display:none!important}
 @media(max-width:600px){body:has(#dashboardView[style*="display: block"]) main{padding:9px}#dashboardView .dash-layout{gap:9px}#dashboardView .sidebar{border-radius:13px}#dashboardView .sidebar:before{display:none}#dashboardView .nav{font-size:11px;padding:10px}#dashboardView .workspace-bar{align-items:flex-start;flex-direction:column;gap:9px}#dashboardView .workspace-user{width:100%;justify-content:space-between}#dashboardView #userEmail{display:none}#dashboardView .workspace-actions{width:100%;justify-content:flex-end;flex-wrap:wrap}.os-welcome{align-items:flex-start}.os-date-card{min-width:92px;padding:10px}.os-date-card strong{font-size:19px}.os-date-card span{font-size:7px}.os-feature-grid{grid-template-columns:1fr}.os-feature-main{min-height:230px}.os-feature-stack{grid-template-columns:1fr 1fr}.os-feature-stack .os-feature-card{min-height:145px}.os-feature-stack .os-feature-art{font-size:40px}.os-feature-stack .os-feature-title{font-size:15px}.os-app-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.os-app-tile{padding:10px 8px}.os-app-icon{height:34px;width:34px}.os-app-tile strong{font-size:10px}.os-app-tile small{font-size:8px}.os-bottom-grid{grid-template-columns:1fr}.os-wallpaper-swatch{height:42px}}
 @media(max-width:380px){.os-app-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.os-feature-stack{grid-template-columns:1fr}}
 
+
+/* Ultra OS polish: Windows 11-inspired sign-in + smoother motion */
+html{scroll-behavior:smooth}
+button,.nav,.os-app-tile,.os-feature-card,.uh-primary,.uh-secondary,.uh-game-card,.store-card,.launcher-game-card,.launcher-side-item,.launcher-theme-button,.arcade-card,.quick-card,.settings-card,.wallpaper-card,.auth-card,.field input,.tabs button{transition:transform .22s cubic-bezier(.2,.8,.2,1),background-color .22s ease,border-color .22s ease,box-shadow .22s ease,filter .22s ease,color .22s ease}
+button:active,.os-app-tile:active,.os-feature-card:active,.uh-game-card:active,.store-card:active,.launcher-game-card:active,.arcade-card:active{transform:scale(.985)}
+button:focus-visible,.nav:focus-visible,.field input:focus-visible{outline:2px solid #60a5fa;outline-offset:3px}
+main:has(#authView:not([style*="display: none"])){max-width:none;min-height:calc(100svh - 76px);padding:30px 20px 54px;display:grid;place-items:center}
+#authView{width:min(100%,500px);min-height:0;display:grid;grid-template-columns:1fr;gap:0;align-items:center}
+#authView .intro{display:none}
+body:has(#authView:not([style*="display: none"])){background:radial-gradient(ellipse at 18% 18%,#255da866 0,transparent 34%),radial-gradient(ellipse at 82% 78%,#5a3da966 0,transparent 36%),linear-gradient(135deg,#081321 0%,#101a2c 48%,#17152c 100%)}
+body:has(#authView:not([style*="display: none"])) .topbar{position:relative;background:#07111dbb;border-bottom:1px solid #ffffff1b;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+body:has(#authView:not([style*="display: none"])) .brand-mark{background:linear-gradient(145deg,#60a5fa,#2563eb);box-shadow:0 8px 28px #2563eb55}
+body:has(#authView:not([style*="display: none"])) .brand span{color:#93c5fd}
+#authView .auth-card{width:100%;padding:38px 36px 30px;border:1px solid #ffffff2c;border-radius:18px;background:linear-gradient(145deg,#ffffff20,#ffffff0b);box-shadow:0 30px 90px #0006,inset 0 1px #ffffff24;backdrop-filter:blur(32px) saturate(145%);-webkit-backdrop-filter:blur(32px) saturate(145%);color:#f8fbff}
+#authView .auth-card:before{content:"ULTRA OS";display:block;color:#bfdbfe;font-size:10px;font-weight:900;letter-spacing:3px;margin-bottom:24px}
+#authView .tabs{background:#07132177;border:1px solid #ffffff19;border-radius:10px;padding:4px;margin-bottom:27px}
+#authView .tabs button{border-radius:7px;color:#c4d1e3;font-size:11px;letter-spacing:.5px}
+#authView .tabs button.active{background:#2563eb;color:white;box-shadow:0 3px 12px #2563eb55}
+#authView .auth-card h2{font-size:28px;letter-spacing:-.8px;font-weight:650;color:#fff}
+#authView .sub{color:#c4d1e3;line-height:1.6}
+#authView .field label{color:#dce8f7;letter-spacing:.35px;font-size:11px}
+#authView .field input{background:#07132188;border:1px solid #ffffff30;border-radius:8px;padding:14px 15px;color:#fff}
+#authView .field input::placeholder{color:#9aabc1}
+#authView .field input:focus{border-color:#60a5fa;box-shadow:0 0 0 3px #3b82f633}
+#authView .primary{border-radius:8px;background:#2563eb;box-shadow:0 7px 20px #2563eb44;letter-spacing:.2px}
+#authView .primary:hover{background:#3478f6;filter:none;transform:translateY(-1px)}
+#authView .quiet{color:#bfdbfe}
+#authView .divider{background:#ffffff22}
+#authView .qr-panel{background:#07132155;border:1px solid #ffffff20;border-radius:10px}
+#authView .qr-icon{background:#1d3d69;color:#dbeafe}
+#authView .qr-panel strong{color:#eaf3ff;font-size:11px;letter-spacing:.5px}
+#authView .qr-panel p{color:#b8c8dc}
+#authView .status{color:#bfdbfe}
+@media(max-width:600px){main:has(#authView:not([style*="display: none"])){padding:22px 14px 36px;min-height:calc(100svh - 66px)}#authView .auth-card{padding:28px 22px 24px;border-radius:15px}#authView .auth-card h2{font-size:25px}.topbar{height:66px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
 </style></head>
 <body>
 <header class="topbar"><div class="brand"><div class="brand-mark">U</div><div>ULTRA <span>GAMING</span></div></div><div class="top-note">YOUR GAMES. YOUR SPACE.</div></header>
