@@ -25,7 +25,7 @@ label{display:block;margin:20px 0 7px;font-size:10px;font-weight:900;letter-spac
 </main>
 <script>
 const field=document.getElementById("clientId"),status=document.getElementById("status"),button=document.getElementById("connect");
-document.getElementById("developerLink").addEventListener("click",e=>{e.preventDefault();window.open("https://discord.com/developers/applications")});
+document.getElementById("developerLink").addEventListener("click",e=>{e.preventDefault();window.ultraPresence.openExternal("https://discord.com/developers/applications")});
 async function load(){try{const s=await window.ultraPresence.getStatus();if(s.clientIdConfigured)status.textContent=s.message}catch{}}
 button.addEventListener("click",async()=>{const id=field.value.trim();if(!/^\d{17,22}$/.test(id)){status.textContent="Enter the 17–22 digit Application ID from General Information.";return}button.disabled=true;button.textContent="CONNECTING…";status.textContent="Connecting to the Discord desktop app…";try{const r=await window.ultraPresence.saveClientId(id);status.textContent=r.message;status.style.color=r.ok?"#b9e9ca":"#ffabb5"}catch{status.textContent="Could not save the ID. Restart the companion and try again.";status.style.color="#ffabb5"}finally{button.disabled=false;button.textContent="SAVE & CONNECT DISCORD"}});
 window.ultraPresence.getStatus().then(s=>{if(s.clientIdConfigured)status.textContent=s.message}).catch(()=>{});
