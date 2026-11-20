@@ -1,3 +1,14 @@
+# Ultra Launcher 4.0.0
+**Release date:** November 20, 2026
+
+## 4.0.0 — Platform Theme Experience
+- Expanded the platform theme system with a Nintendo Switch-inspired theme alongside Ultra, PlayStation 5-inspired, Xbox-inspired, Wii-inspired, and Windows 11-inspired modes.
+- Refined Wii mode with a bright channel-style navigation rail and tile-focused game library.
+- Added a Switch-inspired red/blue console presentation with horizontal navigation and square game tiles.
+- Improved Windows 11 mode with a redesigned Start panel, searchable pinned destinations, centered taskbar controls, network indicator, and live clock.
+- Persisted the selected launcher theme across sessions and kept the existing library, favorites, category filters, profiles, and game launch actions intact.
+- Themes use original Ultra assets and interface styling inspired by each platform's visual language; they are not official platform software or exact reproductions.
+
 # Ultra Gaming 2.6.0
 **Release date:** November 19, 2026
 
