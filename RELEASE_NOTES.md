@@ -48,3 +48,10 @@
 - Redesigned the full launcher visual system with a premium dark gaming workspace, violet accent palette, refined navigation, cleaner game cards, and consistent controls across pages.
 - Improved responsive layouts, focus states, and reduced-motion accessibility.
 - Keeps the Ultra Launcher name and DC branding. This is an original design inspired by modern gaming community platforms, not a copy of another product.
+
+
+## Ultra Launcher 2.8.0 — Desktop workspace & customization
+- Tuned the launcher for wide desktop displays with a dedicated sidebar, wider content canvas, and responsive tablet/mobile layouts.
+- Added live custom accent color, compact/comfortable spacing, and solid/glass panel styles.
+- Added per-account browser preference saving and a one-click reset to the default Ultra appearance.
+- Refined the visual language with quieter surfaces, sharper typography, and restrained highlights for a more intentional custom desktop feel.
