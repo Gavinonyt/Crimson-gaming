@@ -575,6 +575,9 @@ main{width:min(100% - 64px,var(--workspace-width));max-width:none;padding:28px 0
   .sidebar .nav span{font-size:11px;white-space:nowrap}
   .nav-count{margin-left:2px;font-size:9px}
 }
+
+/* Ultra City full-region desktop experience */
+.city-world-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:16px;align-items:start;margin-top:15px}.city-world-main{min-width:0}.city-map-toolbar{display:flex;justify-content:space-between;gap:12px;padding:11px 14px;background:#111c25;border:1px solid #ffffff18;border-bottom:0;border-radius:12px 12px 0 0;color:#b6dce0;font-size:9px;font-weight:900;letter-spacing:1.4px}.city-stage{border-radius:0 0 12px 12px}.city-stage canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#0d5360}.city-world-side{display:grid;gap:12px}.city-side-card{padding:17px;border:1px solid #ffffff1c;border-radius:12px;background:linear-gradient(145deg,#1a2330,#121923)}.city-side-kicker{font-size:9px;font-weight:900;letter-spacing:1.7px;color:#f4b477}.city-side-card h3{font-size:18px;line-height:1.2;margin:9px 0}.city-side-card p{font-size:11px;line-height:1.65;color:#aab7c2;margin:0}.city-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:17px}.city-stat-row span{display:flex;flex-direction:column;gap:3px}.city-stat-row b{font-size:18px;color:#fff}.city-stat-row small{font-size:8px;letter-spacing:1px;color:#91a8b5}.city-venue{display:flex;align-items:center;gap:9px;padding:10px 0;border-top:1px solid #ffffff12}.city-venue>i{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#e26b9850;color:#ffc0d4;font-style:normal}.city-venue span{display:flex;flex:1;min-width:0;flex-direction:column;gap:3px}.city-venue b{font-size:11px;color:#fff}.city-venue small{font-size:9px;color:#9eacb8}.city-venue em{font-size:8px;font-style:normal;color:#75d7ad;font-weight:900}.city-vehicle-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}.city-vehicle-tags span{padding:6px 8px;border:1px solid #ffffff1b;border-radius:5px;color:#d9e4eb;font-size:8px;font-weight:900;letter-spacing:.6px}.city-controls{display:none}@media(max-width:1000px){.city-world-layout{grid-template-columns:1fr}.city-world-side{grid-template-columns:repeat(2,minmax(0,1fr))}.city-side-card:first-child{grid-column:1/-1}.city-controls{display:grid}}@media(max-width:620px){.city-world-side{grid-template-columns:1fr}.city-side-card:first-child{grid-column:auto}.city-map-toolbar{font-size:8px;letter-spacing:.6px;padding:9px}.city-world-layout{gap:10px}}
 </style></head>
 <body>
 <header class="topbar"><div class="brand"><div class="brand-mark">U</div><div>ULTRA <span>GAMING</span></div></div><div class="top-note">YOUR GAMES. YOUR SPACE.</div></header>
@@ -752,11 +755,26 @@ main{width:min(100% - 64px,var(--workspace-width));max-width:none;padding:28px 0
         </section>
       </section>
       <section class="dash-page" id="cityPage">
-        <div class="store-head"><div><div class="store-tag">ULTRA ORIGINAL · BROWSER DEMO</div><h2>Ultra City</h2><p>Explore a bigger neon coastal city with districts, parks, a marina, storefronts, and streets. Use WASD, arrow keys, or the touch pad.</p></div></div>
-        <div class="game-hud"><div><small>AREA</small><strong id="cityArea">Downtown</strong></div><div><small>PLAYER</small><strong>Explorer</strong></div><div><small>MODE</small><strong>Free roam</strong></div></div>
-        <div class="city-stage"><canvas id="cityCanvas" width="960" height="540" aria-label="Ultra City top-down exploration game"></canvas></div>
-        <div class="city-controls"><button type="button" data-city="up">▲</button><button type="button" data-city="left">◀</button><button type="button" data-city="down">▼</button><button type="button" data-city="right">▶</button></div>
-        <p class="drive-note">Ultra City is an original free-roam map with its own districts and landmarks. Vice Sunset is a color-style tribute only, not a copy of another game map, characters, or missions.</p>
+        <div class="store-head"><div><div class="store-tag">ULTRA ORIGINAL · OPEN WORLD</div><h2>Ultra City: State of Sun</h2><p>A huge Florida-inspired world built for desktop and mobile. Explore the coast, downtown, suburbs, wetlands, highways, port, airport and nightlife.</p></div></div>
+        <div class="game-hud city-hud"><div><small>REGION</small><strong id="cityArea">Vice Coast</strong></div><div><small>WORLD</small><strong>Sun State</strong></div><div><small>MODE</small><strong>Free roam</strong></div></div>
+        <div class="city-world-layout">
+          <div class="city-world-main">
+            <div class="city-map-toolbar"><span>WORLD MAP · FULL REGION</span><span>WASD / ARROWS TO EXPLORE</span></div>
+            <div class="city-stage"><canvas id="cityCanvas" width="1600" height="900" aria-label="Ultra City full region map"></canvas></div>
+            <div class="city-controls"><button type="button" data-city="up" aria-label="Move up">▲</button><button type="button" data-city="left" aria-label="Move left">◀</button><button type="button" data-city="down" aria-label="Move down">▼</button><button type="button" data-city="right" aria-label="Move right">▶</button></div>
+          </div>
+          <aside class="city-world-side">
+            <div class="city-side-card"><span class="city-side-kicker">THE SUN STATE</span><h3>One big world.<br>Many ways to roll.</h3><p>From Art Deco beachfront streets to glass towers, red-dirt backroads, wetlands and a busy freight port.</p><div class="city-stat-row"><span><b>10</b><small>REGIONS</small></span><span><b>4</b><small>ROAD TYPES</small></span><span><b>24/7</b><small>FREE ROAM</small></span></div></div>
+            <div class="city-side-card"><span class="city-side-kicker">NIGHTLIFE DISTRICT</span><h3>Clubs & venues</h3>
+              <div class="city-venue"><i>✦</i><span><b>Neon Palm</b><small>South Beach · beachfront club</small></span><em>OPEN</em></div>
+              <div class="city-venue"><i>◈</i><span><b>Ocean Room</b><small>Vice Coast · rooftop lounge</small></span><em>OPEN</em></div>
+              <div class="city-venue"><i>♫</i><span><b>Ultra Club</b><small>Downtown · live music venue</small></span><em>OPEN</em></div>
+              <div class="city-venue"><i>◆</i><span><b>Last Light</b><small>Marina Mile · waterfront</small></span><em>OPEN</em></div>
+            </div>
+            <div class="city-side-card"><span class="city-side-kicker">TRAFFIC & GARAGES</span><h3>Live in the lanes</h3><p>City cars, sports coupes, SUVs, pickups, delivery vans, box trucks, buses, heavy-duty haulers and long semi-trailers populate the roads and industrial routes.</p><div class="city-vehicle-tags"><span>SPORTS CARS</span><span>4×4 PICKUPS</span><span>SEMI TRUCKS</span><span>BOX TRUCKS</span><span>CLASSICS</span><span>UTILITY</span></div></div>
+          </aside>
+        </div>
+        <p class="drive-note">Ultra City is an original fictional world inspired by Florida's coastal geography and city architecture. Vehicle designs are original game assets, not licensed manufacturer models. Desktop: use WASD or arrow keys. Mobile: use the directional pad.</p>
       </section>
       <section class="dash-page" id="friendsPage">
         <div class="store-head"><div><div class="store-tag">ULTRA COMMUNITY · BETA</div><h2>Friends</h2><p>Find players by Ultra ID or display name, send requests, and manage your connections.</p></div></div>
@@ -868,94 +886,101 @@ function refreshCounts(){const library=readSaved("library").length,favorites=rea
 function syncStoreButtons(){document.querySelectorAll("[data-add]").forEach(b=>{const saved=readSaved("library").includes(b.dataset.add);b.classList.toggle("saved",saved);b.textContent=saved?"✓ IN LIBRARY":"＋ ADD TO LIBRARY"});document.querySelectorAll("[data-fav]").forEach(b=>{const saved=readSaved("favorites").includes(b.dataset.fav);b.classList.toggle("saved",saved);b.textContent=saved?"♥ FAVORITED":"♡ FAVORITE"});refreshCounts()}
 function filterGrid(inputId,gridId){const input=document.getElementById(inputId),grid=document.getElementById(gridId);if(!input||!grid)return;const q=input.value.trim().toLowerCase();grid.querySelectorAll(".store-card").forEach(card=>{card.hidden=!card.dataset.name.includes(q)})}
 function renderSaved(page){const kind=page==="library"?"library":"favorites",grid=document.getElementById(page==="library"?"libraryGrid":"favoritesGrid"),ids=readSaved(kind),libraryIds=readSaved("library"),favoriteIds=readSaved("favorites");grid.innerHTML="";ids.forEach(id=>{const original=[...document.querySelectorAll("#storeGrid .store-card")].find(card=>card.dataset.name===id);if(original){const clone=original.cloneNode(true);clone.querySelectorAll(".store-actions").forEach(row=>{row.querySelectorAll("button").forEach(btn=>{if(btn.hasAttribute("data-add")){const saved=libraryIds.includes(btn.dataset.add);btn.textContent=saved?"✓ IN LIBRARY":"＋ ADD TO LIBRARY"}if(btn.hasAttribute("data-fav")){const saved=favoriteIds.includes(btn.dataset.fav);btn.textContent=saved?"♥ FAVORITED":"♡ FAVORITE"}})});grid.appendChild(clone)}});if(!grid.children.length){grid.innerHTML='<div class="library-empty"><strong>'+(kind==="library"?"Your library is empty":"No favorites yet")+'</strong><p>'+(kind==="library"?"Add games from the Store and they will show up here.":"Tap the heart on any Store game to save it here.")+'</p><button class="empty-action" type="button" data-go-page="store">BROWSE STORE</button></div>'}filterGrid(page==="library"?"librarySearch":"favoritesSearch",page==="library"?"libraryGrid":"favoritesGrid");refreshCounts()}
-/* Ultra City: original top-down walking demo */
+/* Ultra City 4.0 — full fictional Florida region, desktop + mobile exploration */
 const cityCanvas=document.getElementById("cityCanvas"),cityCtx=cityCanvas.getContext("2d");
-const cityPlayer={x:480,y:270,keys:{},touch:{}};
+const cityPlayer={x:820,y:450,keys:{},touch:{}};
+const cityRand=n=>{const v=Math.sin(n*127.1+311.7)*43758.5453;return v-Math.floor(v)};
 function drawCity(){
  const c=cityCtx,w=cityCanvas.width,h=cityCanvas.height;
- // Miami-inspired coastal layout: turquoise bay, white-sand beach, causeways and pastel Art Deco blocks.
- c.fillStyle="#d8cba7";c.fillRect(0,0,w,h);
- // Biscayne Bay and Atlantic water
- c.fillStyle="#147f91";c.fillRect(0,0,178,h);
- c.fillStyle="#20a6b0";c.fillRect(8,0,158,h);
- for(let y=12;y<h;y+=24){c.strokeStyle="rgba(220,250,238,.22)";c.lineWidth=2;c.beginPath();c.moveTo(12+(y%5)*3,y);c.quadraticCurveTo(65,y-7,155,y+2);c.stroke()}
- // Beach and palm-lined oceanfront
- c.fillStyle="#f4dfaa";c.fillRect(178,0,46,h);
- c.fillStyle="#fff0c9";c.fillRect(184,0,18,h);
- c.fillStyle="#b7a77c";c.fillRect(224,0,w-224,h);
- // Street grid with boulevard medians
- c.fillStyle="#3c4147";
- for(const y of [82,210,345,470])c.fillRect(224,y,w-224,36);
- for(const x of [300,468,650,825])c.fillRect(x,0,34,h);
- c.fillStyle="#777b7b";
- for(const y of [82,210,345,470]){c.fillRect(224,y,736,3);c.fillRect(224,y+33,736,3)}
- for(const x of [300,468,650,825]){c.fillRect(x,0,3,h);c.fillRect(x+31,0,3,h)}
- c.strokeStyle="#f5d77d";c.lineWidth=3;c.setLineDash([18,15]);
- for(const y of [100,228,363,488]){c.beginPath();c.moveTo(224,y);c.lineTo(w,y);c.stroke()}
- for(const x of [317,485,667,842]){c.beginPath();c.moveTo(x,0);c.lineTo(x,h);c.stroke()}
- c.setLineDash([]);
- // Causeway bridges crossing the bay
- c.fillStyle="#555c60";c.fillRect(0,154,224,29);c.fillRect(0,405,224,29);
- c.fillStyle="#c9c4b5";c.fillRect(0,154,224,4);c.fillRect(0,179,224,4);c.fillRect(0,405,224,4);c.fillRect(0,430,224,4);
- for(let x=18;x<220;x+=34){c.fillStyle="#f4e4b9";c.fillRect(x,167,18,3);c.fillRect(x,418,18,3)}
- // South Beach green spaces
- c.fillStyle="#3b8058";c.fillRect(230,18,60,53);c.fillRect(505,18,135,53);c.fillRect(680,382,125,77);
- c.fillStyle="#64a66d";c.fillRect(238,25,44,39);c.fillRect(515,27,115,35);c.fillRect(690,391,105,58);
- // pastel Art Deco hotels, downtown towers, shops and marina buildings
- const blocks=[
- [235,18,52,50,"#f2a7a0","OCEAN DR"],[350,18,104,50,"#f4d8b0","HOTEL"],[515,18,115,50,"#e9a9b9","ART DECO"],
- [350,125,104,70,"#f1b7a8","SOUTH BEACH"],[505,125,128,70,"#f6d7a0","LINCOLN RD"],[690,125,115,70,"#b7d7dc","BAYSIDE"],
- [235,245,110,86,"#f0b0a4","MIAMI DESIGN"],[350,245,104,86,"#e8d4a4","CAFÉ"],[505,245,128,86,"#b8cbdc","DOWNTOWN"],[690,245,115,86,"#e4a9b7","BRICKELL"],
- [235,382,110,77,"#e9c2a0","LITTLE HAVANA"],[350,382,104,77,"#d5b4d7","MARKET"],[835,382,105,77,"#b8c9d4","GARAGE"]
+ c.clearRect(0,0,w,h);
+ // Ocean base and Florida-like mainland peninsula.
+ c.fillStyle="#167f91";c.fillRect(0,0,w,h);
+ for(let y=10;y<h;y+=35){c.strokeStyle="rgba(218,250,241,.12)";c.lineWidth=2;c.beginPath();c.moveTo(0,y);c.quadraticCurveTo(120,y-13,260,y+2);c.stroke()}
+ c.fillStyle="#d2c49b";c.beginPath();c.moveTo(120,0);c.lineTo(1510,0);c.lineTo(1550,110);c.lineTo(1470,205);c.lineTo(1540,330);c.lineTo(1440,450);c.lineTo(1510,585);c.lineTo(1400,760);c.lineTo(1260,900);c.lineTo(0,900);c.lineTo(0,120);c.closePath();c.fill();
+ // Barrier islands and pale beaches along the Atlantic edge.
+ c.fillStyle="#f1dda9";c.beginPath();c.moveTo(1460,0);c.lineTo(1510,0);c.lineTo(1560,160);c.lineTo(1500,340);c.lineTo(1540,500);c.lineTo(1470,700);c.lineTo(1390,900);c.lineTo(1345,900);c.lineTo(1435,700);c.lineTo(1495,500);c.lineTo(1455,340);c.lineTo(1510,160);c.closePath();c.fill();
+ c.fillStyle="#fff0c8";c.fillRect(1478,0,13,900);
+ // Southern wetlands and inland lakes.
+ c.fillStyle="#477c58";
+ for(let i=0;i<32;i++){const x=80+cityRand(i+1)*1200,y=560+cityRand(i+90)*310;c.beginPath();c.ellipse(x,y,30+cityRand(i+22)*70,14+cityRand(i+33)*35,cityRand(i+44)*2,0,Math.PI*2);c.fill()}
+ c.fillStyle="#198d94";for(let i=0;i<13;i++){const x=120+cityRand(i+150)*1220,y=610+cityRand(i+180)*250;c.beginPath();c.ellipse(x,y,18+cityRand(i+200)*45,9+cityRand(i+230)*20,0,0,Math.PI*2);c.fill()}
+ // Northern farmland, pine forests and small inland towns.
+ c.fillStyle="#8b9a60";c.fillRect(80,40,1280,170);
+ for(let i=0;i<120;i++){const x=90+cityRand(i+300)*1250,y=45+cityRand(i+450)*155;c.fillStyle=i%3?"#527b50":"#a3a76a";c.beginPath();c.arc(x,y,4+cityRand(i+500)*8,0,Math.PI*2);c.fill()}
+ // Urban zones with road grids.
+ const districts=[
+  {x:100,y:260,w:300,h:220,name:"EVERGLADE EDGE",color:"#d6c69d",kind:"suburb"},
+  {x:440,y:245,w:320,h:230,name:"VICE COAST",color:"#d5c49d",kind:"coast"},
+  {x:800,y:220,w:260,h:270,name:"DOWNTOWN",color:"#c8bfa5",kind:"city"},
+  {x:1080,y:250,w:260,h:220,name:"PALM BAY",color:"#d6c69d",kind:"coast"},
+  {x:430,y:535,w:310,h:180,name:"LITTLE HAVANA",color:"#c7b68d",kind:"suburb"},
+  {x:790,y:535,w:300,h:190,name:"INDUSTRIAL PORT",color:"#b4aa91",kind:"port"},
+  {x:1090,y:540,w:250,h:170,name:"MARINA MILE",color:"#cdbb91",kind:"coast"},
+  {x:160,y:65,w:260,h:130,name:"CYPRESS COUNTY",color:"#a6a879",kind:"rural"}
  ];
- blocks.forEach(([x,y,bw,bh,col,label])=>{
-   c.fillStyle="rgba(15,25,34,.35)";c.fillRect(x+5,y+6,bw,bh);
-   c.fillStyle=col;c.fillRect(x,y,bw,bh);
-   c.fillStyle="rgba(255,255,255,.48)";c.fillRect(x+5,y+5,bw-10,5);
-   c.fillStyle="#9fd5dc";
-   for(let wx=x+10;wx<x+bw-8;wx+=22){c.fillRect(wx,y+17,11,13);if(bh>60)c.fillRect(wx,y+39,11,13)}
-   c.fillStyle="#514b50";c.fillRect(x+bw/2-9,y+bh-18,18,18);
-   c.fillStyle="#4c3e43";c.font="bold 8px system-ui";c.textAlign="center";c.fillText(label,x+bw/2,y+bh-4);
+ // Road network: interstates, coastal highway and local streets.
+ c.strokeStyle="#41484b";c.lineCap="round";c.lineJoin="round";
+ const road=(pts,width)=>{c.lineWidth=width;c.beginPath();pts.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));c.stroke()};
+ [[[-10,235],[350,235],[520,230],[800,215],[1120,220],[1500,175]],[[50,505],[350,500],[650,500],[900,500],[1200,490],[1490,450]],[[360,-10],[360,210],[390,450],[420,700],[480,920]],[[770,-10],[770,220],[770,470],[760,700],[730,920]],[[1090,-10],[1090,230],[1090,480],[1110,700],[1170,920]],[[1370,-10],[1370,220],[1390,450],[1370,700],[1300,920]],[[0,760],[300,740],[620,760],[930,790],[1220,820]]].forEach(p=>road(p,30));
+ c.strokeStyle="#d7c47d";c.lineWidth=2;c.setLineDash([20,16]);
+ [[-10,235,1500,175],[50,505,1490,450],[360,-10,480,920],[770,-10,730,920],[1090,-10,1170,920],[1370,-10,1300,920],[0,760,1220,820]].forEach(a=>{c.beginPath();c.moveTo(a[0],a[1]);c.lineTo(a[2],a[3]);c.stroke()});c.setLineDash([]);
+ // Causeways across the bay, bridges and marina channels.
+ c.strokeStyle="#555e61";c.lineWidth=25;road([[180,360],[440,350],[650,335]],25);road([[700,430],[1010,420],[1280,395]],25);
+ c.strokeStyle="#e5d6b5";c.lineWidth=2;road([[180,360],[440,350],[650,335]],2);road([[700,430],[1010,420],[1280,395]],2);
+ // Neighborhood building clusters with varied architecture and parking.
+ districts.forEach((d,di)=>{
+  c.fillStyle=d.color;c.fillRect(d.x,d.y,d.w,d.h);
+  const cols=d.kind==="city"?7:5,rows=d.kind==="city"?5:4;
+  for(let ry=0;ry<rows;ry++)for(let rx=0;rx<cols;rx++){
+   const bx=d.x+12+rx*(d.w-25)/cols,by=d.y+12+ry*(d.h-25)/rows,bw=(d.w-42)/cols-7,bh=(d.h-42)/rows-7;
+   const tall=d.kind==="city"?(cityRand(di*99+ry*cols+rx)>0.45):false;
+   const colors=d.kind==="coast"?["#efaa9e","#f0d3a4","#d7a9bd","#b9d1d5"]:d.kind==="port"?["#8c9894","#a6a69a","#d19b68"]:["#d9c7a5","#d9b59b","#b6c6b8","#c6b5c9"];
+   c.fillStyle="rgba(25,30,32,.25)";c.fillRect(bx+4,by+5,bw,bh);
+   c.fillStyle=colors[Math.floor(cityRand(di*200+rx*7+ry)*colors.length)];c.fillRect(bx,by,bw,bh);
+   if(tall){c.fillStyle="#a6c5cc";for(let wx=bx+5;wx<bx+bw-3;wx+=12)for(let wy=by+7;wy<by+bh-3;wy+=13)c.fillRect(wx,wy,5,7)}
+   else {c.fillStyle="#9bcbd1";c.fillRect(bx+5,by+5,Math.max(4,bw-10),Math.max(4,bh*.25));c.fillStyle="#544d48";c.fillRect(bx+bw/2-5,by+bh-10,10,10)}
+  }
+  c.fillStyle="#29383d";c.font="900 16px system-ui";c.textAlign="left";c.fillText(d.name,d.x+10,d.y+d.h-7);
  });
- // Downtown skyline rising behind the central blocks
- for(const [x,y,bw,bh,col] of [[735,20,48,45,"#9db7c5"],[785,20,36,52,"#b7c7ce"],[855,20,75,46,"#a7bbc4"],[735,225,48,18,"#c6d3d2"],[855,225,75,18,"#b7c6ce"]]){
-   c.fillStyle=col;c.fillRect(x,y,bw,bh);c.fillStyle="#e6f1ec";for(let wx=x+7;wx<x+bw-4;wx+=12)c.fillRect(wx,y+7,5,8);
- }
- // Marina slips and boats in the bay
- c.fillStyle="#d5c6a4";c.fillRect(20,260,145,105);
- c.fillStyle="#806e55";for(let x=35;x<160;x+=28)c.fillRect(x,270,3,82);
- const boat=(x,y,col)=>{c.fillStyle=col;c.beginPath();c.moveTo(x-13,y-5);c.lineTo(x+15,y-5);c.lineTo(x+8,y+5);c.lineTo(x-8,y+5);c.closePath();c.fill();c.fillStyle="#fff";c.fillRect(x-2,y-12,5,8)};
- boat(55,292,"#f4f0df");boat(112,330,"#f5d5d5");boat(151,285,"#d8e5e6");
- // Palm trees with curved trunks and layered fronds
- const palm=(x,y,scale=1)=>{
-   c.strokeStyle="#876448";c.lineWidth=5*scale;c.beginPath();c.moveTo(x,y+13*scale);c.quadraticCurveTo(x-5*scale,y-2*scale,x,y-17*scale);c.stroke();
-   c.fillStyle="#246b4b";for(let a=0;a<7;a++){const ang=(-Math.PI*.95)+(a*Math.PI*1.9/6);c.save();c.translate(x,y-17*scale);c.rotate(ang);c.beginPath();c.ellipse(13*scale,0,15*scale,4*scale,0,0,Math.PI*2);c.fill();c.restore()}
-   c.fillStyle="#55a66a";c.beginPath();c.arc(x,y-17*scale,4*scale,0,Math.PI*2);c.fill();
- };
- for(const [x,y,z] of [[190,38,.8],[190,112,.8],[190,235,.8],[190,325,.8],[190,470,.8],[270,100,.75],[445,100,.75],[610,100,.75],[790,100,.75],[910,330,.8],[760,485,.8],[535,485,.8]])palm(x,y,z);
- // parked cars on city streets
- const car=(x,y,color,vertical=false)=>{
-   c.save();c.translate(x,y);if(vertical)c.rotate(Math.PI/2);
-   c.fillStyle="#22262a";c.fillRect(-13,-7,28,16);c.fillStyle=color;c.fillRect(-12,-6,26,14);
-   c.fillStyle="#b8d9df";c.fillRect(-6,-5,12,12);c.fillStyle="#fff1c0";c.fillRect(12,-4,2,3);
-   c.restore();
- };
- car(260,101,"#f5f0e7");car(420,101,"#e65e68");car(575,229,"#f0c45d");car(760,363,"#f2f0e8");car(900,489,"#59a5b9");car(485,300,"#bdc8d0",true);car(842,300,"#d65d70",true);
- // district labels and title
- c.fillStyle="#f9e8cf";c.font="900 15px system-ui";c.textAlign="left";c.fillText("ULTRA CITY · MIAMI COAST",14,22);
- c.font="bold 10px system-ui";c.fillStyle="#f7f0df";
- c.fillText("BISCAYNE BAY",25,245);c.fillText("SOUTH BEACH",228,116);c.fillText("OCEAN DRIVE",228,475);
- c.fillText("DOWNTOWN",690,215);c.fillText("BRICKELL",710,365);c.fillText("LITTLE HAVANA",232,373);
- // player marker
- c.fillStyle="#0008";c.beginPath();c.ellipse(cityPlayer.x,cityPlayer.y+12,13,6,0,0,Math.PI*2);c.fill();
- c.fillStyle="#fff0d7";c.beginPath();c.arc(cityPlayer.x,cityPlayer.y,11,0,Math.PI*2);c.fill();
- c.fillStyle="#ff6384";c.fillRect(cityPlayer.x-7,cityPlayer.y-2,14,13);
- c.fillStyle="#fff";c.fillRect(cityPlayer.x-3,cityPlayer.y-10,6,5);
- const area=cityPlayer.x<220?"Biscayne Bay":cityPlayer.x<345&&cityPlayer.y<200?"South Beach":cityPlayer.x>680&&cityPlayer.y<220?"Downtown":cityPlayer.x>680&&cityPlayer.y>340?"Brickell":cityPlayer.x<350&&cityPlayer.y>350?"Little Havana":cityPlayer.x<470?"Ocean Drive":cityPlayer.x>800?"City Garage":"Miami District";
- const areaEl=document.getElementById("cityArea");if(areaEl)areaEl.textContent=area;
-}function cityStep(){const k=cityPlayer.keys,t=cityPlayer.touch;let dx=(k.ArrowRight||k.d||t.right?1:0)-(k.ArrowLeft||k.a||t.left?1:0),dy=(k.ArrowDown||k.s||t.down?1:0)-(k.ArrowUp||k.w||t.up?1:0);if(dx&&dy){dx*=.707;dy*=.707}cityPlayer.x=Math.max(18,Math.min(940,cityPlayer.x+dx*4));cityPlayer.y=Math.max(38,Math.min(522,cityPlayer.y+dy*4));drawCity()}
-setInterval(()=>{const k=cityPlayer.keys,t=cityPlayer.touch;if(pageSections.city.style.display==="block"&&(k.ArrowRight||k.d||k.ArrowLeft||k.a||k.ArrowDown||k.s||k.ArrowUp||k.w||t.right||t.left||t.down||t.up))cityStep()},30);
-window.addEventListener("keydown",e=>{const key=e.key.toLowerCase();if(["arrowup","arrowdown","arrowleft","arrowright"].includes(key)){e.preventDefault();cityPlayer.keys[e.key]=true}else if(["w","a","s","d"].includes(key))cityPlayer.keys[key]=true;if(pageSections.city.style.display==="block")cityStep()});
+ // Downtown high-rise core, hotels and stadium.
+ for(let i=0;i<24;i++){const x=820+(i%6)*37,y=260+Math.floor(i/6)*47,bh=22+cityRand(i+700)*35;c.fillStyle=["#94b7c1","#c5d2d1","#9eabbc","#e5c8a8"][i%4];c.fillRect(x,y,25,bh);c.fillStyle="#eaf2e9";for(let wy=y+5;wy<y+bh-3;wy+=10)c.fillRect(x+5,wy,4,4)}
+ c.fillStyle="#59646a";c.fillRect(900,410,95,38);c.fillStyle="#d3dbe0";c.fillRect(910,417,75,23);c.fillStyle="#edc56c";c.font="bold 9px system-ui";c.fillText("SUN STATE ARENA",913,432);
+ // Airport runways and terminal.
+ c.fillStyle="#a4a69c";c.fillRect(60,45,250,135);c.fillStyle="#343b40";c.fillRect(80,75,210,30);c.fillRect(80,125,210,25);c.strokeStyle="#eee";c.lineWidth=2;c.setLineDash([12,10]);c.beginPath();c.moveTo(90,90);c.lineTo(280,90);c.stroke();c.setLineDash([]);c.fillStyle="#d4e0df";c.fillRect(155,155,95,18);c.fillStyle="#29343a";c.font="900 11px system-ui";c.fillText("SUN STATE AIRPORT",95,66);
+ // Freight port with stacked containers and cranes.
+ c.fillStyle="#7d9695";c.fillRect(810,735,300,125);
+ for(let i=0;i<7;i++)for(let j=0;j<3;j++){c.fillStyle=["#d06c4d","#d8b44d","#4f89a6","#d0d0c2"][((i+j)%4)];c.fillRect(820+i*39,745+j*31,34,25);c.strokeStyle="#344b55";c.lineWidth=1;c.strokeRect(820+i*39,745+j*31,34,25)}
+ c.strokeStyle="#e9d7ae";c.lineWidth=6;for(const x of [840,960,1060]){c.beginPath();c.moveTo(x,738);c.lineTo(x,700);c.lineTo(x+48,700);c.lineTo(x+48,738);c.stroke()}
+ // Swamp park boardwalks, pine groves and rural farms.
+ c.strokeStyle="#c6b38a";c.lineWidth=8;road([[70,600],[190,625],[270,690],[340,735]],8);road([[60,820],[220,790],[350,820]],8);
+ for(let i=0;i<90;i++){const x=40+cityRand(i+900)*390,y=550+cityRand(i+1000)*300;c.fillStyle=i%2?"#285c45":"#39724d";c.beginPath();c.arc(x,y,4+cityRand(i+1100)*9,0,Math.PI*2);c.fill()}
+ // Palm-lined beach promenade, piers, clubs and waterfront venues.
+ c.fillStyle="#f4dba7";c.fillRect(1430,20,40,840);
+ for(let y=40;y<850;y+=90){c.fillStyle="#236a4b";c.beginPath();c.arc(1418,y,13,0,Math.PI*2);c.fill();c.fillStyle="#a1b77a";c.beginPath();c.arc(1418,y,5,0,Math.PI*2);c.fill()}
+ const label=(x,y,t,col="#fff1d8")=>{c.fillStyle=col;c.font="900 18px system-ui";c.textAlign="left";c.fillText(t,x,y)};
+ label(480,285,"VICE COAST");label(820,205,"DOWNTOWN");label(1110,238,"PALM BAY");label(440,525,"LITTLE HAVANA");label(800,725,"FREIGHT PORT");label(1110,530,"MARINA MILE");label(90,565,"EVERGLADE PARK");label(160,35,"CYPRESS COUNTY");label(1420,25,"ATLANTIC BEACH");
+ const club=(x,y,name,color)=>{c.save();c.shadowColor=color;c.shadowBlur=16;c.fillStyle="#191528";c.fillRect(x,y,88,36);c.strokeStyle=color;c.lineWidth=3;c.strokeRect(x,y,88,36);c.shadowBlur=0;c.fillStyle=color;c.font="900 11px system-ui";c.textAlign="center";c.fillText(name,x+44,y+22);c.restore()};
+ club(520,275,"NEON PALM","#ff6ea9");club(1190,285,"OCEAN ROOM","#64e5ed");club(900,365,"ULTRA CLUB","#bd8aff");club(1160,600,"LAST LIGHT","#ffc36f");
+ // Original mixed traffic silhouettes: sedans, supercars, SUVs, pickups, vans, box trucks and semis.
+ const vehicle=(x,y,type,color,vertical=false,tag="")=>{c.save();c.translate(x,y);if(vertical)c.rotate(Math.PI/2);c.fillStyle="#20262b";
+  const sizes={car:[30,14],sport:[32,13],suv:[34,17],pickup:[39,17],van:[38,18],box:[55,22],semi:[92,24],bus:[72,23]};const [vw,vh]=sizes[type]||sizes.car;c.fillRect(-vw/2,-vh/2,vw,vh);c.fillStyle=color;c.fillRect(-vw/2+2,-vh/2+2,vw-4,vh-4);
+  if(type==="semi"){c.fillStyle="#d9e1e3";c.fillRect(2,-vh/2+1,vw/2-3,vh-2);c.fillStyle="#9bbac5";c.fillRect(-vw/2+2,-vh/2+2,18,vh-4)}
+  else if(type==="box"||type==="bus"){c.fillStyle="#d9e1e3";c.fillRect(-vw/2+2,-vh/2+2,vw*.58,vh-4);c.fillStyle="#96c8d1";c.fillRect(vw*.2,-vh/2+3,vw*.24,vh-6)}
+  else{c.fillStyle="#9fd4df";c.fillRect(-vw*.2,-vh/2+2,vw*.42,vh-4)}
+  c.fillStyle="#f7e8b7";c.fillRect(vw/2-3,-vh/2+2,3,3);c.fillRect(vw/2-3,vh/2-5,3,3);c.restore()};
+ const traffic=[[250,235,"car","#e8e5db"],[540,235,"sport","#e25d65"],[700,235,"suv","#467c9a"],[980,235,"pickup","#d9b65d"],[1250,220,"van","#ece8db"],[370,500,"semi","#d9e0e2"],[600,500,"box","#4e8ca5"],[900,500,"bus","#d6a64e"],[1200,500,"sport","#c55e7a"],[770,620,"pickup","#596c51"],[1000,620,"semi","#e5e0d3"],[1370,430,"suv","#8b9ca7"],[360,700,"car","#e1e1d9"],[700,760,"box","#d1a15e"],[1120,780,"semi","#cbd5d9"],[770,130,"sport","#e3c36e"],[1080,330,"pickup","#5e8c7b"],[450,360,"van","#d6d7d2"]];
+ traffic.forEach(v=>vehicle(...v));
+ // Highway shields and route names.
+ const shield=(x,y,t)=>{c.fillStyle="#234c72";c.beginPath();c.roundRect(x,y,42,28,7);c.fill();c.fillStyle="#fff";c.font="900 12px system-ui";c.textAlign="center";c.fillText(t,x+21,y+18)};
+ shield(670,480,"I-8");shield(1050,470,"SR-1");shield(350,245,"A1A");
+ // Player marker and current region label.
+ c.fillStyle="#00101988";c.beginPath();c.ellipse(cityPlayer.x,cityPlayer.y+15,16,7,0,0,Math.PI*2);c.fill();c.fillStyle="#fff";c.beginPath();c.arc(cityPlayer.x,cityPlayer.y,13,0,Math.PI*2);c.fill();c.fillStyle="#ed5d83";c.fillRect(cityPlayer.x-8,cityPlayer.y-3,16,15);c.fillStyle="#fff";c.fillRect(cityPlayer.x-4,cityPlayer.y-12,8,7);
+ const regions=[["Cypress County",60,0,420,220],["Everglade Park",0,520,420,380],["Vice Coast",420,220,380,300],["Downtown",800,180,280,350],["Palm Bay",1080,200,320,300],["Little Havana",420,520,370,220],["Freight Port",790,700,340,200],["Marina Mile",1080,520,300,200],["Atlantic Beach",1400,0,200,900]];
+ const current=regions.find(r=>cityPlayer.x>=r[1]&&cityPlayer.x<r[1]+r[3]&&cityPlayer.y>=r[2]&&cityPlayer.y<r[2]+r[4]);const areaEl=document.getElementById("cityArea");if(areaEl)areaEl.textContent=current?current[0]:"Sun State";
+}
+function cityStep(){const k=cityPlayer.keys,t=cityPlayer.touch;let dx=(k.ArrowRight||k.d||t.right?1:0)-(k.ArrowLeft||k.a||t.left?1:0),dy=(k.ArrowDown||k.s||t.down?1:0)-(k.ArrowUp||k.w||t.up?1:0);if(dx&&dy){dx*=.707;dy*=.707}cityPlayer.x=Math.max(15,Math.min(1585,cityPlayer.x+dx*5));cityPlayer.y=Math.max(15,Math.min(885,cityPlayer.y+dy*5));drawCity()}
+setInterval(()=>{const k=cityPlayer.keys,t=cityPlayer.touch;if(document.getElementById("cityPage")?.classList.contains("active")&&(k.ArrowRight||k.d||k.ArrowLeft||k.a||k.ArrowDown||k.s||k.ArrowUp||k.w||t.right||t.left||t.down||t.up))cityStep()},30);
+window.addEventListener("keydown",e=>{const key=e.key.toLowerCase();if(["arrowup","arrowdown","arrowleft","arrowright"].includes(key)){e.preventDefault();cityPlayer.keys[e.key]=true}else if(["w","a","s","d"].includes(key))cityPlayer.keys[key]=true;if(document.getElementById("cityPage")?.classList.contains("active"))cityStep()});
 window.addEventListener("keyup",e=>{cityPlayer.keys[e.key]=false;cityPlayer.keys[e.key.toLowerCase()]=false});
 document.querySelectorAll("[data-city]").forEach(b=>{const key=b.dataset.city,down=e=>{e.preventDefault();cityPlayer.touch[key]=true;cityStep()},up=e=>{e.preventDefault();cityPlayer.touch[key]=false};b.addEventListener("pointerdown",down);b.addEventListener("pointerup",up);b.addEventListener("pointercancel",up);b.addEventListener("pointerleave",up)});
 drawCity();
