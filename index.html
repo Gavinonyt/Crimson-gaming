@@ -1709,6 +1709,24 @@ html,body{background:#07090e!important;color:#f4f6fb}
 .arcade-shell[data-console-theme="xbox"] .launcher-game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .arcade-shell[data-console-theme="wii"] .launcher-game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+.arcade-shell .launcher-console-chrome{display:flex;align-items:center;gap:22px;min-width:0;padding:12px 16px;margin:0 0 14px;border:1px solid #ffffff14;border-radius:13px;background:#090a1199;backdrop-filter:blur(18px)}
+.launcher-console-brand{display:flex;align-items:center;gap:9px;white-space:nowrap;font-size:10px;letter-spacing:1.5px;font-weight:950}
+.launcher-console-dot{width:8px;height:8px;border-radius:50%;background:var(--launcher-accent);box-shadow:0 0 14px var(--launcher-accent)}
+.launcher-console-tabs{display:flex;align-items:center;gap:6px;min-width:0;overflow-x:auto}
+.launcher-console-tab{white-space:nowrap;border:1px solid transparent;border-radius:8px;background:transparent;color:inherit;opacity:.72;padding:9px 13px;font-size:10px;font-weight:900;cursor:pointer}
+.launcher-console-tab.active{opacity:1;background:color-mix(in srgb,var(--launcher-accent) 18%,transparent);border-color:color-mix(in srgb,var(--launcher-accent) 45%,transparent)}
+.launcher-console-sub{margin-left:auto;white-space:nowrap;font-size:8px;letter-spacing:1.2px;opacity:.6;font-weight:900}
+.arcade-shell[data-console-theme="ps5"] .launcher-console-chrome{border:0;border-bottom:1px solid #ffffff26;border-radius:0;background:linear-gradient(90deg,#102c4b,#0a1728);padding:14px 20px}
+.arcade-shell[data-console-theme="ps5"] .launcher-console-tab{border-radius:999px}
+.arcade-shell[data-console-theme="ps5"] .launcher-console-tab.active{background:#e8f4ff;color:#07529a}
+.arcade-shell[data-console-theme="xbox"] .launcher-console-chrome{border-radius:5px;background:#101c13;border-color:#35553a}
+.arcade-shell[data-console-theme="xbox"] .launcher-console-tab{border-radius:3px}
+.arcade-shell[data-console-theme="xbox"] .launcher-console-tab.active{background:#107c10;color:white}
+.arcade-shell[data-console-theme="wii"] .launcher-console-chrome{border-radius:999px;background:#ffffffdf;border-color:#a7dff0;color:#24617a;box-shadow:0 5px 18px #3a9fca20}
+.arcade-shell[data-console-theme="wii"] .launcher-console-tab{border-radius:999px}
+.arcade-shell[data-console-theme="wii"] .launcher-console-tab.active{background:#c9efff;color:#075b85}
+@media(max-width:700px){.arcade-shell .launcher-console-chrome{gap:8px;padding:9px;flex-wrap:wrap}.launcher-console-brand{font-size:9px}.launcher-console-tabs{order:3;flex-basis:100%}.launcher-console-tab{padding:8px 11px}.launcher-console-sub{font-size:7px}}
 </style>
 
 </head>
@@ -2555,7 +2573,15 @@ function getLauncherFavorites(){try{const v=JSON.parse(localStorage.getItem("ult
 function getLauncherRecent(){try{const v=JSON.parse(localStorage.getItem("ultra_launcher_recent")||"[]");return Array.isArray(v)?v:[]}catch(e){return []}}
 let launcherCategory="All";
 function setLauncherCategory(category){const allowed=["All","Racing","Creative","Adventure","Community"];launcherCategory=allowed.includes(category)?category:"All";document.querySelectorAll("[data-launcher-category]").forEach(b=>b.classList.toggle("active",b.dataset.launcherCategory===launcherCategory));const active=document.querySelector(".launcher-view:not([hidden])")?.dataset.view||"home";renderLauncherCards(active==="favorites"?"favorites":active==="library"?"library":"home");}
-function applyLauncherTheme(theme){if(!["crimson","ps5","xbox","wii"].includes(theme))theme="crimson";localStorage.setItem("ultra_launcher_theme",theme);const shell=document.querySelector("#arcadePage .arcade-shell");if(shell)shell.dataset.consoleTheme=theme;document.querySelectorAll("[data-launcher-theme]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.launcherTheme===theme)));const label=document.getElementById("arcadeModeLabel");if(label&&document.getElementById("arcadeTitle").textContent==="Ultra Launcher")label.textContent="ULTRA LAUNCHER · "+(theme==="crimson"?"ULTRA":theme.toUpperCase())+" THEME"}
+function renderLauncherConsoleChrome(theme){
+ const layout=document.querySelector("#arcadeStage .launcher-layout");if(!layout)return;
+ let chrome=layout.querySelector(".launcher-console-chrome");if(!chrome){chrome=document.createElement("div");chrome.className="launcher-console-chrome";layout.insertBefore(chrome,layout.firstChild)}
+ const configs={crimson:{eyebrow:"DC GAMING NETWORK",tabs:["HOME","LIBRARY","FAVORITES"],sub:"YOUR GAMING SPACE"},ps5:{eyebrow:"ULTRA PLAY",tabs:["GAMES","MEDIA","COLLECTION"],sub:"DISCOVER · PLAY · CONNECT"},xbox:{eyebrow:"ULTRA X",tabs:["HOME","GAME LIBRARY","COMMUNITY"],sub:"YOUR GAMES · YOUR PEOPLE"},wii:{eyebrow:"ULTRA CHANNELS",tabs:["CHANNELS","GAMES","PLAYER"],sub:"WELCOME TO YOUR GAME ROOM"}};
+ const c=configs[theme]||configs.crimson;
+ chrome.innerHTML='<div class="launcher-console-brand"><span class="launcher-console-dot"></span><strong>'+c.eyebrow+'</strong></div><div class="launcher-console-tabs">'+c.tabs.map((t,i)=>'<button type="button" class="launcher-console-tab '+(i===0?'active':'')+'" data-console-tab="'+i+'">'+t+'</button>').join("")+'</div><span class="launcher-console-sub">'+c.sub+'</span>';
+ chrome.querySelectorAll("[data-console-tab]").forEach(b=>b.addEventListener("click",()=>{chrome.querySelectorAll(".launcher-console-tab").forEach(x=>x.classList.toggle("active",x===b));const target=["home","library","favorites"][Number(b.dataset.consoleTab)]||"home";setLauncherView(target)}))
+}
+function applyLauncherTheme(theme){if(!["crimson","ps5","xbox","wii"].includes(theme))theme="crimson";localStorage.setItem("ultra_launcher_theme",theme);const shell=document.querySelector("#arcadePage .arcade-shell");if(shell)shell.dataset.consoleTheme=theme;document.querySelectorAll("[data-launcher-theme]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.launcherTheme===theme)));const label=document.getElementById("arcadeModeLabel");if(label&&document.getElementById("arcadeTitle").textContent==="Ultra Launcher")label.textContent="ULTRA LAUNCHER · "+(theme==="crimson"?"ULTRA":theme.toUpperCase())+" THEME";renderLauncherConsoleChrome(theme)}
 function setLauncherView(view){
  const allowed=["home","library","favorites","settings"];if(!allowed.includes(view))view="home";
  document.querySelectorAll("[data-launcher-view]").forEach(b=>b.classList.toggle("active",b.dataset.launcherView===view));
