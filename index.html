@@ -867,6 +867,10 @@ body:has(#authView:not([style*="display: none"])) .brand span{color:#93c5fd}
 .bottom-dock .nav.active .nav-icon{background:#ffffff1b;border-color:#ffffff45}
 @media(max-width:650px){.dash-layout{padding-bottom:88px!important}.bottom-dock{bottom:max(10px,env(safe-area-inset-bottom));gap:5px;padding:8px 9px;border-radius:22px}.bottom-dock .nav{width:38px;height:38px;flex-basis:38px}.bottom-dock .nav-icon{width:23px;height:23px;font-size:13px}}
 @media(prefers-reduced-motion:reduce){.bottom-dock .nav{transition:none}}
+
+/* Keep the icon dock pinned to the viewport during all page scrolling */
+.bottom-dock{position:fixed!important;inset-inline-start:50%!important;inset-block-end:calc(12px + env(safe-area-inset-bottom, 0px))!important;transform:translate3d(-50%,0,0)!important;z-index:2147483000!important;visibility:visible!important;opacity:1!important;}
+@media(max-width:650px){.bottom-dock{inset-block-end:calc(8px + env(safe-area-inset-bottom, 0px))!important;}}
 </style></head>
 <body>
 <header class="topbar"><div class="brand"><div class="brand-mark">U</div><div>ULTRA <span>GAMING</span></div></div><div class="top-note">YOUR GAMES. YOUR SPACE.</div></header>
