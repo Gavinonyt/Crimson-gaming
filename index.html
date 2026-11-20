@@ -2160,7 +2160,11 @@ html,body{background:#07090e!important;color:#f4f6fb}
 window.addEventListener("error",()=>{const box=document.getElementById("status");if(box&&!box.textContent){box.textContent="Ultra sign-in could not start. Refresh this page and try again.";box.classList.add("error")}});
 const SUPABASE_URL="https://qmgpiczgjbtxxgfiekys.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable__fK6MUmQPIhP9A4kk6ybdw_3V24SlCm";
-const client=window.supabase&&window.supabase.createClient?window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY):null;
+let client=null,clientInitError=null;
+try{
+ if(window.supabase&&window.supabase.createClient)client=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+ else clientInitError=new Error("The Supabase sign-in library did not load.");
+}catch(initError){clientInitError=initError;console.error("Ultra auth client could not initialize:",initError);}
 const authView=document.getElementById("authView"),dashboardView=document.getElementById("dashboardView"),statusBox=document.getElementById("status"),form=document.getElementById("authForm"),resetPanel=document.getElementById("passwordResetPanel");let mode="login",activeUser=null,passwordRecoveryMode=false;
 function showStatus(message,isError=false){statusBox.textContent=message;statusBox.classList.toggle("error",isError)}
 /* Sign-in is triggered directly by the button as well as keyboard form submission.
@@ -2171,7 +2175,7 @@ async function runUltraLogin(){
  btn.disabled=true;btn.textContent="SIGNING IN…";showStatus("Connecting to Ultra account services…");
  try{
   if(!email||!password)throw new Error("Enter your email address and password first.");
-  if(!client)throw new Error("Ultra account services did not load. Check your connection and refresh the page.");
+  if(!client)throw new Error(clientInitError?.message||"Ultra account services did not load. Check your connection and refresh the page.");
   if(!navigator.onLine)throw new Error("Your device is offline. Reconnect and try again.");
   const result=await Promise.race([
    client.auth.signInWithPassword({email,password}),
