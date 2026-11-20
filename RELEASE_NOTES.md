@@ -42,3 +42,9 @@
 - The website source and release notes are committed to the repository's `main` branch.
 - The live website changes only after the connected hosting service successfully deploys the updated source.
 - These repository updates do not by themselves confirm that a production deployment has completed.
+
+
+## Ultra Launcher 2.7.0 — ValorsHub-inspired interface refresh
+- Redesigned the full launcher visual system with a premium dark gaming workspace, violet accent palette, refined navigation, cleaner game cards, and consistent controls across pages.
+- Improved responsive layouts, focus states, and reduced-motion accessibility.
+- Keeps the Ultra Launcher name and DC branding. This is an original design inspired by modern gaming community platforms, not a copy of another product.
