@@ -825,6 +825,23 @@ body:has(#authView:not([style*="display: none"])) .brand span{color:#93c5fd}
 @media(max-width:760px){.uh-hub-directory{grid-template-columns:1fr}.dash-page .store-head{padding:18px}.store-grid{gap:10px}.store-card{min-height:250px}.store-art{height:100px}}
 @media(prefers-reduced-motion:reduce){.dash-page,.store-card,.uh-directory-card,.sidebar .nav{animation:none!important;transition:none!important}}
 
+
+/* Ultra sidebar: circular app glyphs + clearly divided navigation groups */
+.sidebar{padding:18px 13px 14px;gap:5px}
+.sidebar .side-label{display:flex;align-items:center;gap:9px;margin:8px 5px 7px;padding:11px 2px 7px;color:#9889aa;font-size:9px;font-weight:850;letter-spacing:2.1px;line-height:1}
+.sidebar .side-label:before{content:"";width:5px;height:5px;flex:0 0 5px;border-radius:50%;background:#a979ef;box-shadow:0 0 10px #a979ef88}
+.sidebar .side-label:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,#ffffff22,transparent)}
+.sidebar .side-label:first-child{margin-top:1px;padding-top:3px}
+.sidebar .nav{display:flex;align-items:center;gap:11px;min-height:43px;padding:5px 10px;border:1px solid transparent;border-radius:10px;text-align:left;color:#c5b9d2;background:transparent;font-size:12px;font-weight:650;transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.sidebar .nav-icon{display:grid;place-items:center;width:29px;height:29px;flex:0 0 29px;border-radius:50%;border:1px solid #ffffff20;background:radial-gradient(circle at 35% 25%,#ffffff18,#ffffff06 65%);color:#d9c3f5;font-size:14px;line-height:1;box-shadow:inset 0 1px 0 #ffffff12}
+.sidebar .nav:hover{background:#ffffff0a;border-color:#ffffff12;transform:translateX(2px)}
+.sidebar .nav.active{background:linear-gradient(100deg,#8e51d52c,#ffffff08);border-color:#a879e744;color:#fff;box-shadow:inset 2px 0 #b78af4}
+.sidebar .nav.active .nav-icon{background:linear-gradient(145deg,#a66ae8,#6540a5);border-color:#d8baff88;color:#fff;box-shadow:0 0 16px #9c5de955}
+.sidebar .nav-count{margin-left:auto;padding:3px 7px;border-radius:20px;border:1px solid #ffffff18;background:#ffffff0a;color:#bda9d5;font-size:9px;font-weight:800;letter-spacing:.3px}
+.sidebar .side-space{margin-top:10px}
+.sidebar .sidebar-bottom{margin-top:auto;padding:13px 8px 3px;border-top:1px solid #ffffff15;color:#a99bb8;font-size:10px}
+@media(max-width:760px){.sidebar{padding:9px}.sidebar .nav{gap:8px;min-height:40px;padding:5px 8px}.sidebar .nav-icon{width:27px;height:27px;flex-basis:27px}.sidebar .side-label{padding-top:9px}}
+
 </style></head>
 <body>
 <header class="topbar"><div class="brand"><div class="brand-mark">U</div><div>ULTRA <span>GAMING</span></div></div><div class="top-note">YOUR GAMES. YOUR SPACE.</div></header>
@@ -848,21 +865,21 @@ body:has(#authView:not([style*="display: none"])) .brand span{color:#93c5fd}
   <div class="dash-layout">
     <aside class="sidebar">
       <div class="side-label">ULTRA HUB</div>
-      <button class="nav active" data-page="home">⌂ <span>Home</span></button>
+      <button class="nav active" data-page="home"><span class="nav-icon" aria-hidden="true">⌂</span> <span>Home</span></button>
       <div class="side-label side-space">DISCOVER</div>
-      <button class="nav" data-page="store">▣ <span>Store</span></button>
-      <button class="nav" data-page="play">▶ <span>Play</span></button>
-      <button class="nav" data-page="arcade">✦ <span>Arcade</span><span class="nav-count">BETA</span></button>
-      <button class="nav" data-page="hubs">⬡ <span>Hubs</span><span class="nav-count">4</span></button>
-      <button class="nav" data-page="updates">✦ <span>What’s New</span><span class="nav-count">2.5.0</span></button>
+      <button class="nav" data-page="store"><span class="nav-icon" aria-hidden="true">▣</span> <span>Store</span></button>
+      <button class="nav" data-page="play"><span class="nav-icon" aria-hidden="true">▶</span> <span>Play</span></button>
+      <button class="nav" data-page="arcade"><span class="nav-icon" aria-hidden="true">✦</span> <span>Arcade</span><span class="nav-count">BETA</span></button>
+      <button class="nav" data-page="hubs"><span class="nav-icon" aria-hidden="true">⬡</span> <span>Hubs</span><span class="nav-count">4</span></button>
+      <button class="nav" data-page="updates"><span class="nav-icon" aria-hidden="true">✦</span> <span>What’s New</span><span class="nav-count">2.5.0</span></button>
       <div class="side-label side-space">YOUR COLLECTION</div>
-      <button class="nav" data-page="library">▦ <span>Library</span><span class="nav-count" id="libraryCount">0</span></button>
-      <button class="nav" data-page="favorites">♡ <span>Favorites</span><span class="nav-count" id="favoriteCount">0</span></button>
+      <button class="nav" data-page="library"><span class="nav-icon" aria-hidden="true">▦</span> <span>Library</span><span class="nav-count" id="libraryCount">0</span></button>
+      <button class="nav" data-page="favorites"><span class="nav-icon" aria-hidden="true">♡</span> <span>Favorites</span><span class="nav-count" id="favoriteCount">0</span></button>
       <div class="side-label side-space">COMMUNITY</div>
-      <button class="nav" data-page="friends">♧ <span>Friends</span><span class="nav-count">BETA</span></button>
+      <button class="nav" data-page="friends"><span class="nav-icon" aria-hidden="true">♧</span> <span>Friends</span><span class="nav-count">BETA</span></button>
       <div class="side-label side-space">ACCOUNT</div>
-      <button class="nav" data-page="profile">◉ <span>Profile</span></button>
-      <button class="nav" data-page="settings">⚙ <span>Settings</span></button>
+      <button class="nav" data-page="profile"><span class="nav-icon" aria-hidden="true">◉</span> <span>Profile</span></button>
+      <button class="nav" data-page="settings"><span class="nav-icon" aria-hidden="true">⚙</span> <span>Settings</span></button>
       <div class="sidebar-bottom"><span class="online-dot"></span> Ultra Gaming account</div>
     </aside>
     <div class="dash-main">
