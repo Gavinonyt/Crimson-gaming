@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090812">
-<title>Ultra Gaming 2.5.0 — Ultra Originals Beta Arcade</title><script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<title>Ultra Launcher 2.7.0 — DC Gaming Network</title><script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root{color-scheme:dark;--bg:#090812;--line:#2c2640;--purple:#9b5cff;--muted:#a7a0b8;--white:#f8f5ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 80% 10%,#291447 0,transparent 38%),radial-gradient(ellipse at 10% 85%,#1a1030 0,transparent 35%),var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--white)}button,input{font:inherit}.topbar{height:76px;padding:0 6vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12;background:#090812b8;backdrop-filter:blur(14px)}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:1.6px}.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(140deg,#c16bff,#6429c8);display:grid;place-items:center;box-shadow:0 0 28px #9b5cff66;font-size:20px}.brand span{color:#bd8aff}.top-note{font-size:12px;color:var(--muted)}main{max-width:1120px;margin:0 auto;padding:58px 24px 70px}.auth-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;min-height:570px}.intro .eyebrow{color:#c69aff;font-size:12px;letter-spacing:3px;font-weight:800}.intro h1{font-size:clamp(38px,5vw,62px);line-height:1.02;margin:18px 0;background:linear-gradient(100deg,#fff 15%,#c9a2ff 72%,#9d5aff);background-clip:text;color:transparent}.intro p{color:var(--muted);font-size:16px;line-height:1.7;max-width:460px}.feature-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.feature{border:1px solid var(--line);background:#ffffff08;padding:11px 14px;border-radius:12px;color:#d8cbea;font-size:12px}.auth-card{background:linear-gradient(145deg,#1a1628f2,#100e19f5);border:1px solid #ffffff19;border-radius:22px;padding:30px;box-shadow:0 25px 90px #0008,0 0 50px #8b42db18}.tabs{display:flex;background:#0b0912;padding:5px;border-radius:12px;margin-bottom:26px}.tabs button{width:50%;padding:11px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-weight:700;cursor:pointer}.tabs button.active{background:#32204b;color:#fff;box-shadow:inset 0 0 0 1px #a86bff44}.auth-card h2{font-size:24px;margin:0 0 7px}.sub{color:var(--muted);font-size:13px;margin:0 0 23px}.field{margin:17px 0}.field label{display:block;font-size:11px;letter-spacing:1.2px;color:#c4b9d5;font-weight:800;margin-bottom:9px}.field input{width:100%;background:#0c0a13;border:1px solid #393149;border-radius:10px;padding:14px 15px;color:white;outline:none}.field input:focus{border-color:var(--purple);box-shadow:0 0 0 3px #9b5cff20}.primary{width:100%;border:0;border-radius:10px;padding:15px;background:linear-gradient(100deg,#7438c8,#a451e8);color:white;font-weight:900;letter-spacing:.7px;cursor:pointer;box-shadow:0 8px 25px #7438c844}.primary:hover{filter:brightness(1.12)}.primary:disabled{opacity:.55;cursor:wait}.quiet{width:100%;border:0;background:transparent;color:#c69aff;padding:14px 8px;cursor:pointer;font-size:13px}.status{min-height:22px;color:#d6b7ff;font-size:13px;line-height:1.5;margin-top:12px}.status.error{color:#ff9aaa}.divider{height:1px;background:#ffffff13;margin:22px 0}.qr-panel{margin-top:22px;border:1px solid #ffffff16;border-radius:14px;padding:17px;display:flex;gap:15px;align-items:center;background:#ffffff05}.qr-icon{width:54px;height:54px;flex:0 0 54px;border-radius:12px;background:#2b1d40;display:grid;place-items:center;font-size:25px}.qr-panel strong{font-size:13px}.qr-panel p{font-size:12px;color:var(--muted);line-height:1.5;margin:5px 0 0}.dashboard{display:none;min-height:70vh}.dash-layout{display:grid;grid-template-columns:210px 1fr;gap:28px}.sidebar{background:#120f1d;border:1px solid var(--line);border-radius:18px;padding:20px;height:max-content}.side-label{font-size:10px;color:#8d829f;letter-spacing:2px;font-weight:800;margin:6px 10px 14px}.nav{display:block;width:100%;text-align:left;border:0;background:transparent;color:#bcb4ca;padding:12px 11px;border-radius:9px;margin:3px 0;cursor:pointer}.nav.active,.nav:hover{background:#34204c;color:#fff}.dash-main{min-width:0}.welcome{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:25px}.welcome h1{margin:0 0 6px;font-size:30px}.welcome p{margin:0;color:var(--muted);font-size:13px}.signout{border:1px solid var(--line);background:#171322;color:#ddd0ef;border-radius:9px;padding:10px 14px;cursor:pointer}.hero{border:1px solid #ffffff1a;border-radius:18px;padding:30px;background:linear-gradient(110deg,#3b1c61,#211334 60%,#15101f);margin-bottom:30px}.hero small{color:#d8b9ff;letter-spacing:2px;font-weight:800}.hero h2{font-size:30px;margin:12px 0 8px}.hero p{color:#d0c3dd;margin:0;font-size:14px}.section-title{font-size:18px;margin:0 0 16px}.games{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.game{min-height:145px;border:1px solid #ffffff18;border-radius:15px;padding:18px;background:linear-gradient(145deg,#241b34,#15111f);display:flex;flex-direction:column;justify-content:space-between}.game .emoji{font-size:27px}.game strong{font-size:14px}.game span{font-size:11px;color:var(--muted);margin-top:5px}.footer{text-align:center;color:#746c81;font-size:11px;padding:28px}@media(max-width:800px){main{padding-top:35px}.auth-layout{grid-template-columns:1fr;gap:26px}.intro{text-align:center}.intro p{margin-left:auto;margin-right:auto}.feature-row{justify-content:center}.dash-layout{grid-template-columns:1fr}.sidebar{display:flex;gap:5px;overflow:auto;padding:9px}.side-label{display:none}.nav{white-space:nowrap;width:auto}.games{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.topbar{padding:0 18px}.top-note{display:none}.auth-card{padding:22px}.games{grid-template-columns:1fr 1fr}.game{min-height:125px}.welcome h1{font-size:24px}}
 
@@ -337,6 +337,154 @@ main{max-width:1540px;padding:30px clamp(12px,2.7vw,42px) 64px}
 .launcher-category-button:hover,.launcher-category-button.active{background:color-mix(in srgb,var(--launcher-accent) 19%,#171222);border-color:var(--launcher-accent);color:#fff;box-shadow:0 0 16px color-mix(in srgb,var(--launcher-accent) 15%,transparent)}
 .launcher-game-copy em{display:inline-block;margin-top:8px;font-style:normal;color:var(--launcher-accent);font-size:8px;font-weight:1000;letter-spacing:1px}
 @media(max-width:520px){.launcher-category-switch{gap:5px}.launcher-category-button{padding:8px 10px;font-size:8px}.launcher-game-grid{grid-template-columns:1fr}}
+
+/* ULTRA LAUNCHER 2.7.0 — ValorsHub-inspired full interface refresh
+   Original Ultra styling: dark gaming workspace, compact navigation, vivid violet accents. */
+:root{
+ --bg:#08090d;--line:#292b36;--purple:#a78bfa;--muted:#a4a6b3;--white:#f7f7fb;
+ --accent:#a78bfa;--launcher-accent:#a78bfa;
+}
+body{
+ background:radial-gradient(ellipse at 78% 0%,#241b3c 0,transparent 34%),
+ radial-gradient(ellipse at 0% 70%,#171426 0,transparent 36%),#08090d;
+ color:#f7f7fb;letter-spacing:.01em;
+}
+.topbar,.workspace-bar{background:#0b0c12;border-color:#292b36}
+.dash-layout{grid-template-columns:230px minmax(0,1fr);gap:18px;max-width:1500px}
+.sidebar{
+ top:12px;min-height:calc(100vh - 24px);padding:18px 13px;
+ background:linear-gradient(180deg,#11121a,#0d0e14);
+ border:1px solid #292b36;border-radius:17px;box-shadow:0 18px 55px #0005;
+}
+.side-label{color:#777b8b;font-size:9px;letter-spacing:2.1px}
+.sidebar .nav{
+ padding:12px 12px;margin:3px 0;border-radius:9px;
+ color:#aeb0bd;font-size:12px;transition:background .18s,border-color .18s,transform .18s;
+}
+.sidebar .nav:hover{background:#1d1b2a;color:#fff;transform:translateX(2px)}
+.sidebar .nav.active{
+ background:linear-gradient(100deg,#35284f,#211b30);border-color:#a78bfa3d;
+ box-shadow:inset 3px 0 #b69aff,0 5px 18px #0003;color:#fff;
+}
+.nav-count{background:#282334;color:#cbb8ff;border:1px solid #a78bfa2c}
+.sidebar-bottom{border-color:#292b36;color:#8c8f9e}
+.dash-main{
+ padding:25px;background:linear-gradient(180deg,#11121a,#0d0e14);
+ border:1px solid #292b36;border-radius:17px;box-shadow:0 20px 65px #0005;
+}
+.birthday-banner{
+ background:linear-gradient(90deg,#211a31,#171522);border:1px solid #a78bfa38;
+ color:#d9ccff;border-radius:9px;padding:10px 14px;font-size:9px;letter-spacing:1.3px;
+}
+.update-chip{background:#6d55a6;border:1px solid #c4b5fd55}
+.workspace-bar{background:transparent;border-bottom:1px solid #292b36;padding:8px 0 19px}
+.workspace-kicker{color:#b9a2ff;font-size:9px;letter-spacing:2.2px}
+.workspace-title{font-size:19px;letter-spacing:-.3px}
+.workspace-user #userEmail{color:#85899a}
+.signout,.friend-secondary{
+ background:#1b1c26;border:1px solid #343644;color:#d6d7e0;border-radius:8px;
+ transition:.18s;
+}
+.signout:hover,.friend-secondary:hover{background:#292438;border-color:#a78bfa88;color:white}
+.uh-hero,.home-hero{
+ border:1px solid #a78bfa45;border-radius:14px;
+ background:radial-gradient(ellipse at 83% 45%,#7353b344 0,transparent 39%),
+ linear-gradient(115deg,#242034,#171722 65%,#211a31);
+ box-shadow:0 18px 50px #0004;
+}
+.uh-hero h1,.home-hero h1{letter-spacing:-1.1px}
+.uh-eyebrow,.uh-overline,.uh-stat-label,.section-overline{color:#c5b1ff}
+.uh-hero-emblem,.uh-eyebrow-mark{box-shadow:0 0 35px #a78bfa35}
+.uh-primary,.hero-button,.primary{
+ background:linear-gradient(105deg,#8062d6,#b08aff);color:#100d18;
+ border:1px solid #d2c2ff66;border-radius:8px;font-weight:1000;
+ box-shadow:0 8px 25px #9474dc30;transition:transform .18s,filter .18s;
+}
+.uh-primary:hover,.hero-button:hover,.primary:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.uh-secondary{
+ background:#1a1925;border:1px solid #494057;color:#e2d9f5;border-radius:8px;
+}
+.uh-stat,.uh-hub-card,.uh-game-card,.uh-directory-card,.uh-community-panel,
+.settings-card,.account-panel,.game,.store-card,.featured-tile,.quick-card{
+ background:linear-gradient(145deg,#1a1b26,#13141c);
+ border:1px solid #30313d;border-radius:12px;box-shadow:0 8px 24px #0002;
+ transition:transform .18s,border-color .18s,background .18s;
+}
+.uh-stat:hover,.uh-hub-card:hover,.uh-game-card:hover,.uh-directory-card:hover,
+.store-card:hover,.quick-card:hover,.featured-tile:hover{
+ transform:translateY(-3px);border-color:#a78bfa88;
+}
+.uh-stat strong,.uh-hub-card h3,.uh-game-card strong{color:#f7f5ff}
+.uh-stat small,.uh-hub-card p,.uh-game-card p{color:#9b9eae}
+.uh-section-heading h2,.store-head h2,.section-title{letter-spacing:-.45px}
+.store-head{padding-bottom:4px}
+.store-tag,.store-overline{color:#bda8ff;letter-spacing:1.7px}
+.store-tools,.collection-toolbar{gap:9px}
+.store-search,.settings-form input,.settings-form select{
+ background:#0d0e15;border:1px solid #363744;border-radius:8px;color:#f5f3fa;
+}
+.store-search:focus,.settings-form input:focus,.settings-form select:focus{
+ outline:none;border-color:#a78bfa;box-shadow:0 0 0 3px #a78bfa20;
+}
+.store-filter{
+ background:#191a24;border:1px solid #343542;color:#b9bbc8;border-radius:8px;
+}
+.store-filter:hover,.store-filter.active{
+ background:#332947;border-color:#a78bfa;color:#fff;
+}
+.store-grid{gap:14px}
+.store-card{overflow:hidden}
+.store-art{
+ background:radial-gradient(circle at 50% 75%,#7151a855,transparent 58%),
+ linear-gradient(135deg,#282238,#15151e);border-bottom:1px solid #34313f;
+}
+.store-info{gap:3px}
+.store-info strong{font-size:14px}
+.store-info p{color:#a2a4b2}
+.store-action{
+ background:linear-gradient(100deg,#7356bd,#9c7add);border:1px solid #c9b5ff55;
+ color:#fff;border-radius:7px;transition:filter .18s,transform .18s;
+}
+.store-action:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.store-actions button,.settings-action{
+ background:#252032;border:1px solid #59477c;color:#e7ddff;border-radius:7px;
+}
+.store-actions button:hover,.settings-action:hover{background:#352949}
+.collection-total{background:#211b2e;border-color:#6c568f;color:#d9caff}
+.library-empty{background:#151620;border-color:#454050;color:#9fa1b0;border-radius:12px}
+.settings-card h3,.account-panel h3{color:#f1eff8}
+.settings-card p,.account-panel p{color:#a2a4b2}
+.profile-avatar{background:linear-gradient(140deg,#b99aff,#6845a7);box-shadow:0 0 26px #a78bfa45}
+.game-hud>div{background:#171821;border:1px solid #343541}
+.drive-frame,.city-stage{border-color:#8c70c777}
+.friend-row,.friend-person{border-color:#30313d}
+.friend-action{border-radius:7px}
+.arcade-shell{border-color:#393448;background:#11121a}
+.arcade-topline{background:#191a25}
+.arcade-stage{background:#0b0c12}
+#arcadeTitle,.arcade-welcome h3{letter-spacing:-.5px}
+.footer{color:#707382}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
+ outline:2px solid #c4b5fd;outline-offset:3px;
+}
+@media(max-width:900px){
+ .dash-layout{grid-template-columns:185px minmax(0,1fr);gap:12px}
+ .dash-main{padding:18px}
+}
+@media(max-width:650px){
+ .dash-layout{gap:10px}
+ .sidebar{background:#11121a;border:1px solid #30313d;border-radius:12px}
+ .sidebar .nav{font-size:10px;border-radius:7px}
+ .sidebar .nav.active{box-shadow:inset 0 -2px #b69aff}
+ .dash-main{padding:13px;border-radius:12px}
+ .birthday-banner{font-size:8px;letter-spacing:.8px}
+ .workspace-title{font-size:16px}
+ .uh-hero,.home-hero{border-radius:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+
 </style></head>
 <body>
 <header class="topbar"><div class="brand"><div class="brand-mark">U</div><div>ULTRA <span>GAMING</span></div></div><div class="top-note">YOUR GAMES. YOUR SPACE.</div></header>
