@@ -922,8 +922,106 @@ html[data-dock-position="right"] .bottom-dock{left:auto!important;right:14px!imp
 html[data-dock-position="bottom"] .bottom-dock{left:50%!important;right:auto!important;bottom:calc(12px + env(safe-area-inset-bottom,0px))!important;transform:translateX(-50%)!important;flex-direction:row!important}.bottom-dock{zoom:var(--ultra-dock-scale)}
 .ultra-personal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}.ultra-personal-grid>div{display:grid;gap:8px;min-width:0}.ultra-personal-grid select{width:100%;min-width:0}.ultra-range-setting label{display:flex;justify-content:space-between;gap:8px}.ultra-range-setting output{color:var(--accent);font-variant-numeric:tabular-nums}.ultra-range-setting input{width:100%;accent-color:var(--accent)}.ultra-personal-check{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:14px}.ultra-personal-check label{display:flex;align-items:center;gap:7px}.ultra-personal-check input{accent-color:var(--accent)}.ultra-personal-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
 @media(max-width:650px){.ultra-personal-grid{grid-template-columns:1fr}.ultra-personal-check{display:grid;grid-template-columns:1fr}.ultra-personal-actions .settings-action{flex:1 1 100%}html[data-dock-position="left"] .bottom-dock{left:6px!important}html[data-dock-position="right"] .bottom-dock{right:6px!important}}
-</style></head>
+</style><style id="ultra-cinematic-desktop">
+/* Ultra OS cinematic desktop — inspired by the supplied mobile OS reference */
+body.ultra-desktop-session{overflow-x:hidden;background:#030407}
+body.ultra-desktop-session .topbar{display:none!important}
+body.ultra-desktop-session main{width:100%;max-width:none;margin:0;padding:0!important}
+#dashboardView.ultra-home-active{position:fixed!important;inset:0!important;z-index:20;width:100vw;height:100vh;height:100dvh;min-height:100vh;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;overflow:hidden!important;background:#030407!important;box-shadow:none!important}
+#dashboardView.ultra-home-active .dash-layout{display:flex!important;width:100%;height:100%;min-height:100%;padding:0!important;margin:0!important;gap:0!important;overflow:hidden}
+#dashboardView.ultra-home-active .dash-main{position:relative;width:100%;height:100%;min-height:100%;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;overflow:hidden}
+#dashboardView.ultra-home-active .birthday-banner,#dashboardView.ultra-home-active .workspace-bar{display:none!important}
+#dashboardView.ultra-home-active #homePage{position:absolute!important;inset:0!important;display:block!important;width:100%;height:100%;min-height:100%;margin:0!important;padding:0!important;overflow:hidden!important;border:0!important;border-radius:0!important;background:transparent!important;isolation:isolate}
+#dashboardView.ultra-home-active #homePage:before{content:"";position:absolute;inset:-3%;z-index:0;background:linear-gradient(180deg,rgba(2,4,8,.48),rgba(2,4,8,.28) 48%,rgba(2,4,8,.68)),var(--ultra-wallpaper,linear-gradient(140deg,#03050a,#101a22 55%,#030407));background-position:center;background-size:cover;filter:saturate(.9);transform:scale(1.03);animation:ultraWallpaperDrift 38s ease-in-out infinite alternate}
+#dashboardView.ultra-home-active #homePage:after{content:"";position:absolute;inset:-15%;z-index:0;pointer-events:none;opacity:.64;background:repeating-radial-gradient(ellipse at 51% 47%,transparent 0 28px,rgba(178,198,231,.09) 29px 30px,transparent 32px 49px),repeating-conic-gradient(from 22deg at 50% 49%,transparent 0 5deg,rgba(118,157,202,.045) 5.2deg 5.45deg,transparent 5.7deg 11deg);mask-image:radial-gradient(ellipse at 50% 48%,#000 8%,transparent 72%);animation:ultraOrbitDrift 60s linear infinite}
+#dashboardView.ultra-home-active #homePage>*{position:relative;z-index:1}
+#dashboardView.ultra-home-active #homePage .os-welcome{position:absolute!important;top:clamp(72px,14vh,160px)!important;left:50%!important;transform:translateX(-50%)!important;display:block!important;width:min(90vw,760px)!important;margin:0!important;text-align:center!important}
+#dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.ultra-home-date{display:flex;flex-direction:column;align-items:center;gap:7px;color:#f7f8ff;text-shadow:0 4px 24px rgba(0,0,0,.55)}
+.ultra-day-label{font-size:clamp(25px,4.6vw,42px);font-weight:300;letter-spacing:.2em;line-height:1.1}
+.ultra-home-date strong{font-size:13px;font-weight:650;letter-spacing:.18em;color:rgba(240,245,255,.82)}
+.ultra-home-date span{font-size:10px;letter-spacing:.28em;color:rgba(230,239,255,.62)}
+.ultra-home-widgets{position:absolute!important;top:clamp(155px,16vh,205px)!important;right:clamp(16px,3.2vw,58px)!important;width:clamp(220px,22vw,310px)!important;display:flex!important;flex-direction:column;gap:16px;margin:0!important}
+.ultra-widget-group{display:flex;flex-direction:column;gap:7px}
+.ultra-widget-caption{padding-left:3px;color:rgba(222,230,246,.52);font-size:8px;font-weight:900;letter-spacing:.22em}
+.ultra-desktop-card{display:grid;grid-template-columns:36px minmax(0,1fr) 15px;align-items:center;gap:10px;width:100%;min-height:56px;padding:9px 11px;border:1px solid rgba(255,255,255,.11);border-radius:12px;background:linear-gradient(145deg,rgba(17,20,28,.82),rgba(6,8,13,.82));color:#f5f6fb;text-align:left;box-shadow:0 12px 32px rgba(0,0,0,.22);backdrop-filter:blur(18px);cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.ultra-desktop-card:hover{transform:translateY(-2px);background:rgba(27,34,48,.9);border-color:rgba(171,199,255,.38)}
+.ultra-desktop-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;font-size:17px;background:linear-gradient(145deg,#36394a,#171b26);color:#f5f7ff}
+.ultra-icon-gem{color:#ffe18a;text-shadow:0 0 14px #ffc74d88}
+.ultra-icon-arcade{color:#9de7ff;background:linear-gradient(145deg,#203b55,#142331)}
+.ultra-icon-update{color:#b8c7ff;background:linear-gradient(145deg,#37334f,#1e1d30)}
+.ultra-desktop-copy{display:flex;min-width:0;flex-direction:column;gap:4px}
+.ultra-desktop-copy strong{font-size:11px;font-weight:800;letter-spacing:.01em}
+.ultra-desktop-copy small{font-size:8px;color:rgba(225,232,246,.56);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ultra-desktop-arrow{font-size:19px;color:rgba(231,237,250,.48);text-align:right}
+#dashboardView.ultra-home-active #homePage>.os-feature-grid,#dashboardView.ultra-home-active #homePage>.os-section-head,#dashboardView.ultra-home-active #homePage>.os-app-grid,#dashboardView.ultra-home-active #homePage>.os-bottom-grid,#dashboardView.ultra-home-active #homePage>.os-hidden-stats{display:none!important}
+#dashboardView.ultra-home-active .bottom-dock{position:fixed!important;left:50%!important;right:auto!important;bottom:calc(15px + env(safe-area-inset-bottom,0px))!important;transform:translateX(-50%)!important;z-index:2147483000!important;display:flex!important;align-items:center;justify-content:center;gap:4px!important;width:max-content;max-width:calc(100vw - 22px);padding:7px 9px!important;border:1px solid rgba(255,255,255,.18)!important;border-radius:16px!important;background:rgba(8,10,15,.78)!important;box-shadow:0 14px 42px rgba(0,0,0,.42)!important;backdrop-filter:blur(24px) saturate(145%)!important;overflow-x:auto;scrollbar-width:none}
+#dashboardView.ultra-home-active .bottom-dock::-webkit-scrollbar{display:none}
+#dashboardView.ultra-home-active .bottom-dock .nav{display:grid!important;place-items:center;width:34px!important;height:34px!important;flex:0 0 34px!important;margin:0!important;padding:0!important;border:1px solid transparent!important;border-radius:9px!important;background:transparent!important;color:rgba(232,238,250,.68)!important;box-shadow:none!important;transform:none!important}
+#dashboardView.ultra-home-active .bottom-dock .nav:hover{background:rgba(255,255,255,.1)!important;color:#fff!important}
+#dashboardView.ultra-home-active .bottom-dock .nav.active{background:rgba(80,143,255,.2)!important;border-color:rgba(116,169,255,.34)!important;color:#c5ddff!important}
+#dashboardView.ultra-home-active .bottom-dock .nav-icon{width:24px;height:24px;font-size:17px;line-height:1}
+#dashboardView.ultra-home-active .bottom-dock .nav:nth-child(4),#dashboardView.ultra-home-active .bottom-dock .nav:nth-child(8){border-left:1px solid rgba(255,255,255,.13)!important;border-radius:0!important;margin-left:2px!important;padding-left:5px!important}
+.ultra-boot{position:fixed;inset:0;z-index:2147483640;display:grid;place-items:center;background:#f5f6f8;color:#090a0d;opacity:1;transition:opacity .42s ease}
+.ultra-boot[hidden]{display:none!important}
+.ultra-boot.is-leaving{opacity:0;pointer-events:none}
+.ultra-boot-content{display:flex;flex-direction:column;align-items:center;gap:11px}
+.ultra-boot-mark{width:62px;height:62px;display:grid;grid-template-columns:1fr 1fr;gap:5px;transform:perspective(150px) rotateY(-8deg);animation:ultraBootMark .8s ease both}
+.ultra-boot-mark span{background:#111827;border-radius:2px;animation:ultraBootTile .7s ease both}
+.ultra-boot-mark span:nth-child(2){animation-delay:.08s}.ultra-boot-mark span:nth-child(3){animation-delay:.16s}.ultra-boot-mark span:nth-child(4){animation-delay:.24s}
+.ultra-boot-content>strong{margin-top:10px;font-size:13px;letter-spacing:.36em}
+.ultra-boot-content>small{font-size:8px;letter-spacing:.24em;color:#697080}
+.ultra-boot-track{width:100px;height:2px;margin-top:8px;overflow:hidden;background:#d8dce3}
+.ultra-boot-track i{display:block;width:42%;height:100%;background:#202c42;animation:ultraBootProgress 1s ease-in-out infinite}
+.ultra-system-toast{position:fixed;right:22px;bottom:78px;z-index:2147483001;display:flex;align-items:center;gap:11px;width:min(290px,calc(100vw - 28px));padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(12,15,21,.86);box-shadow:0 12px 36px rgba(0,0,0,.38);backdrop-filter:blur(22px);color:#f3f5fa;opacity:0;transform:translateY(9px);pointer-events:none;transition:opacity .24s,transform .24s}
+.ultra-system-toast.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.ultra-toast-mark{display:grid;place-items:center;flex:0 0 30px;height:30px;border-radius:9px;background:linear-gradient(145deg,#78a9ff,#3c69bd);font-weight:950;color:#07101f}
+.ultra-system-toast>span:nth-child(2){display:flex;flex-direction:column;gap:3px;min-width:0}
+.ultra-system-toast small{font-size:7px;letter-spacing:.2em;color:#9db8e4;font-weight:900}
+.ultra-system-toast strong{font-size:10px}
+.ultra-system-toast em{font-size:8px;color:#9aa4b5;font-style:normal}
+.ultra-system-toast button{align-self:flex-start;margin-left:auto;padding:0 3px;border:0;background:transparent;color:#8791a1;font-size:16px;cursor:pointer}
+@keyframes ultraWallpaperDrift{from{transform:scale(1.02) translate3d(-.5%,0,0)}to{transform:scale(1.08) translate3d(.5%,-.5%,0)}}
+@keyframes ultraOrbitDrift{from{transform:rotate(0deg) scale(1)}to{transform:rotate(18deg) scale(1.06)}}
+@keyframes ultraBootMark{from{opacity:0;transform:perspective(150px) rotateY(-26deg) scale(.82)}to{opacity:1;transform:perspective(150px) rotateY(-8deg) scale(1)}}
+@keyframes ultraBootTile{from{opacity:.15;transform:scale(.75)}to{opacity:1;transform:scale(1)}}
+@keyframes ultraBootProgress{0%{transform:translateX(-110%)}100%{transform:translateX(250%)}}
+@media(max-width:650px){
+ #dashboardView.ultra-home-active #homePage .os-welcome{top:clamp(95px,16vh,160px)!important;width:96vw!important}
+ .ultra-day-label{font-size:clamp(22px,6vw,32px);letter-spacing:.17em}
+ .ultra-home-date{gap:6px}
+ .ultra-home-date strong{font-size:11px}
+ .ultra-home-date span{font-size:8px}
+ .ultra-home-widgets{top:clamp(200px,25vh,300px)!important;right:10px!important;width:clamp(146px,43vw,220px)!important;gap:10px}
+ .ultra-widget-group{gap:5px}
+ .ultra-widget-caption{font-size:7px}
+ .ultra-desktop-card{grid-template-columns:29px minmax(0,1fr) 10px;gap:7px;min-height:47px;padding:7px}
+ .ultra-desktop-icon{width:28px;height:28px;border-radius:8px;font-size:14px}
+ .ultra-desktop-copy strong{font-size:9px}
+ .ultra-desktop-copy small{font-size:7px}
+ .ultra-desktop-arrow{font-size:16px}
+ #dashboardView.ultra-home-active .bottom-dock{bottom:calc(8px + env(safe-area-inset-bottom,0px))!important;gap:1px!important;padding:5px 6px!important;border-radius:13px!important;max-width:calc(100vw - 14px)}
+ #dashboardView.ultra-home-active .bottom-dock .nav{width:29px!important;height:30px!important;flex-basis:29px!important;border-radius:7px!important}
+ #dashboardView.ultra-home-active .bottom-dock .nav-icon{width:22px;height:22px;font-size:15px}
+ .ultra-system-toast{right:10px;bottom:58px;width:min(245px,calc(100vw - 20px));padding:9px}
+}
+@media(max-width:390px){
+ .ultra-home-widgets{top:235px!important;width:clamp(136px,44vw,175px)!important}
+ .ultra-desktop-copy small{max-width:95px}
+ #dashboardView.ultra-home-active .bottom-dock .nav{width:26px!important;flex-basis:26px!important}
+ #dashboardView.ultra-home-active .bottom-dock .nav-icon{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){
+ #dashboardView.ultra-home-active #homePage:before,#dashboardView.ultra-home-active #homePage:after,.ultra-boot-mark,.ultra-boot-mark span,.ultra-boot-track i{animation:none!important}
+ .ultra-boot,.ultra-system-toast{transition:none!important}
+ .ultra-desktop-card{transition:none!important}
+}
+</style>
+</head>
 <body>
+<div class="ultra-boot" id="ultraBootScreen" hidden aria-label="Starting Ultra OS">
+  <div class="ultra-boot-content"><div class="ultra-boot-mark"><span></span><span></span><span></span><span></span></div><strong>ULTRA OS</strong><small>DC GAMING NETWORK</small><div class="ultra-boot-track"><i></i></div></div>
+</div>
 <header class="topbar"><div class="brand"><div class="brand-mark">U</div><div>ULTRA <span>GAMING</span></div></div><div class="top-note">YOUR GAMES. YOUR SPACE.</div></header>
 <main>
 <section class="auth-layout" id="authView"><div class="intro"><div class="eyebrow">WELCOME TO THE NEXT LEVEL</div><h1>PLAY YOUR WAY.</h1><p>One account for your Ultra Gaming experience. Sign in to reach your library, keep your profile together, and get ready for what's next.</p><div class="feature-row"><div class="feature">✦ Secure account sign-in</div><div class="feature">◈ Personal game library</div><div class="feature">⌁ Built for players</div></div></div>
@@ -952,10 +1050,24 @@ html[data-dock-position="bottom"] .bottom-dock{left:50%!important;right:auto!imp
       </div>
 
       <section class="dash-page ultra-home" id="homePage">
-  <div class="os-welcome">
-    <div><div class="os-eyebrow"><span class="os-live-dot"></span> ULTRA OS / PLAYER SPACE</div><h1 id="welcomeTitle">Welcome to your world.</h1><p>Your games, apps, and community — all in one place.</p></div>
-    <div class="os-date-card"><strong id="osTime">--:--</strong><span id="osDate">LOADING DATE</span></div>
+  <div class="os-welcome ultra-home-welcome">
+    <div class="ultra-home-welcome-copy"><div class="os-eyebrow"><span class="os-live-dot"></span> ULTRA OS / PLAYER SPACE</div><h1 id="welcomeTitle">Welcome to your world.</h1><p>Your games, apps, and community — all in one place.</p></div>
+    <div class="ultra-home-date" aria-label="Current date and time"><div class="ultra-day-label" id="ultraDayLabel">FRIDAY</div><strong id="osTime">--:--</strong><span id="osDate">LOADING DATE</span></div>
   </div>
+  <aside class="ultra-home-widgets" aria-label="Desktop widgets">
+    <div class="ultra-widget-group">
+      <div class="ultra-widget-caption">JUMP BACK IN</div>
+      <button class="ultra-desktop-card" type="button" data-go-page="play"><span class="ultra-desktop-icon ultra-icon-gem">◆</span><span class="ultra-desktop-copy"><strong>Ultra Sprint</strong><small>Continue your last game</small></span><span class="ultra-desktop-arrow">›</span></button>
+    </div>
+    <div class="ultra-widget-group">
+      <div class="ultra-widget-caption">QUICK PLAY</div>
+      <button class="ultra-desktop-card" type="button" data-go-page="arcade"><span class="ultra-desktop-icon ultra-icon-arcade">✦</span><span class="ultra-desktop-copy"><strong>Ultra Arcade</strong><small>Find something to play</small></span><span class="ultra-desktop-arrow">›</span></button>
+    </div>
+    <div class="ultra-widget-group">
+      <div class="ultra-widget-caption">SYSTEM STATUS</div>
+      <button class="ultra-desktop-card" type="button" data-go-page="updates"><span class="ultra-desktop-icon ultra-icon-update">↗</span><span class="ultra-desktop-copy"><strong>Update Log</strong><small>View the latest patches</small></span><span class="ultra-desktop-arrow">›</span></button>
+    </div>
+  </aside>
   <div class="os-feature-grid">
     <button class="os-feature-card os-feature-main" type="button" data-go-page="play"><span class="os-card-label">PICK UP WHERE YOU LEFT OFF</span><span class="os-feature-art">🏎️</span><span class="os-feature-title">ULTRA SPRINT</span><span class="os-feature-sub">Your next run starts here</span><span class="os-card-cta">CONTINUE PLAYING ↗</span></button>
     <div class="os-feature-stack">
@@ -1610,12 +1722,21 @@ function loadLocalGame(file){
  status.textContent="File accepted: "+file.name+" ("+(file.type||"unknown format")+", "+(file.size/1024/1024).toFixed(2)+" MB). This format cannot run directly in a browser. It needs a compatible web build, engine, or emulator. The file has not been uploaded to the server." ;
 }
 document.getElementById("closeUploadedGame").addEventListener("click",()=>{const frame=document.getElementById("uploadedGameFrame");frame.srcdoc="";document.getElementById("uploadedGameWrap").hidden=true});
-function showPage(page){if(!pageSections[page])page="home";if(page!=="play"&&drive.running&&!drive.paused){drive.paused=true;if(drive.rafId)cancelAnimationFrame(drive.rafId);drive.rafId=0;const pauseControl=document.getElementById("drivePause");if(pauseControl)pauseControl.textContent="RESUME"}if(page!=="arcade"&&arcadeTimer){clearTimeout(arcadeTimer);arcadeTimer=null}if(page!=="arcade")arcadeState=null;Object.entries(pageSections).forEach(([key,el])=>{el.style.display=key===page?"block":"none"});document.querySelectorAll(".nav[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));document.getElementById("pageKicker").textContent=pageNames[page];document.getElementById("pageHeading").textContent=page==="home"?"Welcome back":page[0].toUpperCase()+page.slice(1);if(page==="library"||page==="favorites")renderSaved(page);if(page==="play"){drawDrive();requestAnimationFrame(()=>resizeDrive3D());loadDriveLeaderboard();}if(page==="city")drawCity();if(page==="friends")loadFriends();if(page==="arcade")renderArcadeHome();if(page==="profile"&&activeUser){renderProfileAvatar();document.getElementById("profileName").textContent=(activeUser.user_metadata&&activeUser.user_metadata.display_name)||"Ultra Player";document.getElementById("profileEmail").textContent=activeUser.email||""}if(page==="settings"&&activeUser){document.getElementById("settingsDisplayName").value=(activeUser.user_metadata&&activeUser.user_metadata.display_name)||"";document.getElementById("accentSelect").value=localStorage.getItem("crimson_accent_"+activeUser.id)||"purple";document.getElementById("startPageSelect").value=localStorage.getItem("crimson_start_"+activeUser.id)||"home";applyAccent(document.getElementById("accentSelect").value);applyWorkspacePrefs()}syncStoreButtons()}
+function showPage(page){if(!pageSections[page])page="home";dashboardView.classList.toggle("ultra-home-active",page==="home");if(page!=="play"&&drive.running&&!drive.paused){drive.paused=true;if(drive.rafId)cancelAnimationFrame(drive.rafId);drive.rafId=0;const pauseControl=document.getElementById("drivePause");if(pauseControl)pauseControl.textContent="RESUME"}if(page!=="arcade"&&arcadeTimer){clearTimeout(arcadeTimer);arcadeTimer=null}if(page!=="arcade")arcadeState=null;Object.entries(pageSections).forEach(([key,el])=>{el.style.display=key===page?"block":"none"});document.querySelectorAll(".nav[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));document.getElementById("pageKicker").textContent=pageNames[page];document.getElementById("pageHeading").textContent=page==="home"?"Welcome back":page[0].toUpperCase()+page.slice(1);if(page==="library"||page==="favorites")renderSaved(page);if(page==="play"){drawDrive();requestAnimationFrame(()=>resizeDrive3D());loadDriveLeaderboard();}if(page==="city")drawCity();if(page==="friends")loadFriends();if(page==="arcade")renderArcadeHome();if(page==="profile"&&activeUser){renderProfileAvatar();document.getElementById("profileName").textContent=(activeUser.user_metadata&&activeUser.user_metadata.display_name)||"Ultra Player";document.getElementById("profileEmail").textContent=activeUser.email||""}if(page==="settings"&&activeUser){document.getElementById("settingsDisplayName").value=(activeUser.user_metadata&&activeUser.user_metadata.display_name)||"";document.getElementById("accentSelect").value=localStorage.getItem("crimson_accent_"+activeUser.id)||"purple";document.getElementById("startPageSelect").value=localStorage.getItem("crimson_start_"+activeUser.id)||"home";applyAccent(document.getElementById("accentSelect").value);applyWorkspacePrefs()}syncStoreButtons()}
 function avatarKey(user){return "crimson_avatar_"+user.id}
 function renderProfileAvatar(){const el=document.getElementById("profileAvatar");if(!el||!activeUser)return;const saved=localStorage.getItem(avatarKey(activeUser));if(saved){el.classList.add("has-photo");el.innerHTML="";const img=document.createElement("img");img.alt="Your profile picture";img.src=saved;el.appendChild(img)}else{el.classList.remove("has-photo");el.textContent="U"}}
 function saveProfileImage(file){if(!activeUser||!file)return;const status=document.getElementById("avatarStatus");if(!file.type.startsWith("image/")){status.textContent="Please choose an image file.";return}if(file.size>8*1024*1024){status.textContent="Choose an image smaller than 8 MB.";return}const reader=new FileReader();reader.onload=()=>{const img=new Image();img.onload=()=>{const canvas=document.createElement("canvas");canvas.width=320;canvas.height=320;const ctx=canvas.getContext("2d");const scale=Math.max(320/img.width,320/img.height),sw=320/scale,sh=320/scale,sx=(img.width-sw)/2,sy=(img.height-sh)/2;ctx.drawImage(img,sx,sy,sw,sh,0,0,320,320);try{localStorage.setItem(avatarKey(activeUser),canvas.toDataURL("image/jpeg",.82));renderProfileAvatar();status.textContent="Profile picture saved on this device."}catch(e){status.textContent="This image could not be saved. Try a smaller picture."}};img.onerror=()=>status.textContent="That image could not be opened.";img.src=reader.result};reader.onerror=()=>status.textContent="Could not read that image.";reader.readAsDataURL(file)}
-function showDashboard(user){activeUser=user;loadUltraControls();const savedTheme=localStorage.getItem("crimson_accent_"+user.id)||"purple";applyAccent(savedTheme);const themeSelect=document.getElementById("accentSelect");if(themeSelect)themeSelect.value=savedTheme;applyWorkspacePrefs();applyUltraPersonal();renderProfileAvatar();loadDriveGarage(user);const ownerEmail=["lilmabu377@gmail.com","33604@dadecs.org"].includes(String(user.email||"").trim().toLowerCase());drive.isOwner=ownerEmail;if(drive.isOwner){drive.cash=Infinity;saveDriveGarage()}authView.style.display="none";dashboardView.style.display="block";const start=localStorage.getItem("crimson_start_"+user.id)||"home";showPage(pageSections[start]?start:"home");const name=user.user_metadata&&user.user_metadata.display_name;document.getElementById("welcomeTitle").textContent=name?"Welcome, "+name+"!":"Your next adventure starts here.";document.getElementById("userEmail").textContent=user.email||"";const homePlayer=document.getElementById("homePlayerName");if(homePlayer)homePlayer.textContent=name||"Ultra Player";const themeLabel=document.getElementById("homeThemeStat");if(themeLabel){const themeNames={gta6:"VICE CITY NIGHTS",purple:"PURPLE",red:"RED",blue:"BLUE",vice:"VICE",ocean:"OCEAN",emerald:"EMERALD",gold:"GOLD"};themeLabel.textContent=themeNames[savedTheme]||"PURPLE"}refreshCounts();window.scrollTo(0,0)}
-function showLogin(){dashboardView.style.display="none";authView.style.display="grid";window.scrollTo(0,0)}
+function runUltraBootSequence(){
+ const boot=document.getElementById("ultraBootScreen"),toast=document.getElementById("ultraWelcomeToast");
+ if(toast)toast.classList.remove("is-visible");
+ if(!boot){if(toast)toast.classList.add("is-visible");return}
+ if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){boot.hidden=true;if(toast)toast.classList.add("is-visible");return}
+ boot.hidden=false;boot.classList.remove("is-leaving");
+ window.setTimeout(()=>{boot.classList.add("is-leaving");window.setTimeout(()=>{boot.hidden=true;boot.classList.remove("is-leaving");if(toast)toast.classList.add("is-visible")},420)},1050);
+}
+document.getElementById("ultraToastDismiss")?.addEventListener("click",()=>document.getElementById("ultraWelcomeToast")?.classList.remove("is-visible"));
+function showDashboard(user){activeUser=user;loadUltraControls();const savedTheme=localStorage.getItem("crimson_accent_"+user.id)||"purple";applyAccent(savedTheme);const themeSelect=document.getElementById("accentSelect");if(themeSelect)themeSelect.value=savedTheme;applyWorkspacePrefs();applyUltraPersonal();renderProfileAvatar();loadDriveGarage(user);const ownerEmail=["lilmabu377@gmail.com","33604@dadecs.org"].includes(String(user.email||"").trim().toLowerCase());drive.isOwner=ownerEmail;if(drive.isOwner){drive.cash=Infinity;saveDriveGarage()}authView.style.display="none";dashboardView.style.display="block";document.body.classList.add("ultra-desktop-session");runUltraBootSequence();const start=localStorage.getItem("crimson_start_"+user.id)||"home";showPage(pageSections[start]?start:"home");const name=user.user_metadata&&user.user_metadata.display_name;document.getElementById("welcomeTitle").textContent=name?"Welcome, "+name+"!":"Your next adventure starts here.";document.getElementById("userEmail").textContent=user.email||"";const homePlayer=document.getElementById("homePlayerName");if(homePlayer)homePlayer.textContent=name||"Ultra Player";const themeLabel=document.getElementById("homeThemeStat");if(themeLabel){const themeNames={gta6:"VICE CITY NIGHTS",purple:"PURPLE",red:"RED",blue:"BLUE",vice:"VICE",ocean:"OCEAN",emerald:"EMERALD",gold:"GOLD"};themeLabel.textContent=themeNames[savedTheme]||"PURPLE"}refreshCounts();window.scrollTo(0,0)}
+function showLogin(){document.body.classList.remove("ultra-desktop-session");dashboardView.classList.remove("ultra-home-active");dashboardView.style.display="none";authView.style.display="grid";window.scrollTo(0,0)}
 document.querySelectorAll(".nav[data-page]").forEach(b=>b.addEventListener("click",()=>{if(b.dataset.page==="store"){activeHubFilter="all";filterStore()}showPage(b.dataset.page)}));
 dashboardView.addEventListener("click",e=>{const hub=e.target.closest("[data-open-hub]");if(hub){activeHubFilter=hub.dataset.openHub;document.getElementById("storeSearch").value="";document.querySelectorAll(".store-filter").forEach(x=>x.classList.toggle("active",x.dataset.filter==="all"));showPage("store");filterStore();return}const go=e.target.closest("[data-go-page]");if(go){if(go.dataset.goPage==="store"){activeHubFilter="all";filterStore()}showPage(go.dataset.goPage);return}const b=e.target.closest("button[data-add],button[data-fav]");if(!b)return;const kind=b.dataset.add?"library":"favorites",id=b.dataset.add||b.dataset.fav,items=readSaved(kind),exists=items.includes(id);writeSaved(kind,exists?items.filter(x=>x!==id):[...items,id]);syncStoreButtons();if(pageSections.library.style.display==="block")renderSaved("library");if(pageSections.favorites.style.display==="block")renderSaved("favorites")});
 document.querySelectorAll(".store-filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".store-filter").forEach(x=>x.classList.toggle("active",x===b));filterStore()}));
@@ -1940,9 +2061,10 @@ if(client){
 
 /* Ultra OS home widgets */
 function updateUltraOSHome(){
- const now=new Date(),time=document.getElementById("osTime"),date=document.getElementById("osDate");
+ const now=new Date(),time=document.getElementById("osTime"),date=document.getElementById("osDate"),day=document.getElementById("ultraDayLabel");
  if(time)time.textContent=new Intl.DateTimeFormat(undefined,{hour:"numeric",minute:"2-digit"}).format(now);
- if(date)date.textContent=new Intl.DateTimeFormat(undefined,{weekday:"long",month:"long",day:"numeric"}).format(now).toUpperCase();
+ if(date)date.textContent=new Intl.DateTimeFormat(undefined,{month:"long",day:"numeric",year:"numeric"}).format(now).toUpperCase();
+ if(day)day.textContent=new Intl.DateTimeFormat(undefined,{weekday:"long"}).format(now).toUpperCase();
  const connection=document.getElementById("osConnectionState");if(connection)connection.textContent=navigator.onLine?"Connected":"Offline";
  const lib=document.getElementById("osLibraryState"),fav=document.getElementById("osFavoritesState");
  if(lib)lib.textContent=readSaved("library").length+" saved";
@@ -1997,4 +2119,5 @@ function updateUltraPersonal(key,value){const p=readUltraPersonal();p[key]=value
 function downloadUltraPrefs(){const data={format:"ultra-os-preferences",version:1,preferences:readUltraPersonal()};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="ultra-os-settings.json";document.body.append(a);a.click();a.remove();URL.revokeObjectURL(url);const status=document.getElementById("ultraPersonalStatus");if(status)status.textContent="Settings backup exported."}
 function importUltraPrefsFile(file){if(!file)return;const status=document.getElementById("ultraPersonalStatus");if(file.size>128*1024){if(status)status.textContent="That settings file is too large.";return}const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(String(reader.result));if(data.format!=="ultra-os-preferences"||!data.preferences||typeof data.preferences!=="object")throw new Error("This is not an Ultra OS settings backup.");const p={...ultraPersonalDefaults};Object.keys(p).forEach(k=>{if(Object.prototype.hasOwnProperty.call(data.preferences,k))p[k]=data.preferences[k]});p.scale=Math.max(85,Math.min(115,Number(p.scale)||100));p.round=Math.max(6,Math.min(30,Number(p.round)||18));p.dockSize=Math.max(75,Math.min(125,Number(p.dockSize)||100));p.font=["system","modern","mono"].includes(p.font)?p.font:"system";p.dock=["bottom","left","right"].includes(p.dock)?p.dock:"bottom";p.icons=["rounded","circle","square"].includes(p.icons)?p.icons:"rounded";p.wallpaper=["midnight","vice","ocean","emerald","gold","mono"].includes(p.wallpaper)?p.wallpaper:"midnight";p.clock=!!p.clock;p.reducedMotion=!!p.reducedMotion;p.contrast=!!p.contrast;ultraSave("personalization",JSON.stringify(p));applyUltraPersonal();if(status)status.textContent="Settings imported successfully."}catch(err){if(status)status.textContent=err.message||"Could not import that file."}};reader.onerror=()=>{if(status)status.textContent="Could not read that file."};reader.readAsText(file)}
 document.getElementById("ultraFontChoice")?.addEventListener("change",e=>updateUltraPersonal("font",e.target.value));document.getElementById("ultraDockChoice")?.addEventListener("change",e=>updateUltraPersonal("dock",e.target.value));document.getElementById("ultraIconChoice")?.addEventListener("change",e=>updateUltraPersonal("icons",e.target.value));document.getElementById("ultraWallpaperChoice")?.addEventListener("change",e=>updateUltraPersonal("wallpaper",e.target.value));document.getElementById("ultraScaleChoice")?.addEventListener("input",e=>updateUltraPersonal("scale",Number(e.target.value)));document.getElementById("ultraRoundChoice")?.addEventListener("input",e=>updateUltraPersonal("round",Number(e.target.value)));document.getElementById("ultraDockSizeChoice")?.addEventListener("input",e=>updateUltraPersonal("dockSize",Number(e.target.value)));document.getElementById("ultraShowClock")?.addEventListener("change",e=>updateUltraPersonal("clock",e.target.checked));document.getElementById("ultraReduceMotion")?.addEventListener("change",e=>updateUltraPersonal("reducedMotion",e.target.checked));document.getElementById("ultraHighContrast")?.addEventListener("change",e=>updateUltraPersonal("contrast",e.target.checked));document.getElementById("ultraExportPrefs")?.addEventListener("click",downloadUltraPrefs);document.getElementById("ultraImportPrefs")?.addEventListener("click",()=>document.getElementById("ultraImportPrefsFile")?.click());document.getElementById("ultraImportPrefsFile")?.addEventListener("change",e=>{importUltraPrefsFile(e.target.files?.[0]);e.target.value=""});document.getElementById("ultraResetPrefs")?.addEventListener("click",()=>{ultraSave("personalization",JSON.stringify(ultraPersonalDefaults));applyUltraPersonal();const status=document.getElementById("ultraPersonalStatus");if(status)status.textContent="Personalization reset to Ultra defaults."});applyUltraPersonal();
-</script></body></html>
+</script><div class="ultra-system-toast" id="ultraWelcomeToast" role="status" aria-live="polite"><span class="ultra-toast-mark">U</span><span><small>ULTRA SYSTEM</small><strong>Welcome to Ultra OS</strong><em>Your workspace is ready</em></span><button type="button" aria-label="Dismiss notification" id="ultraToastDismiss">×</button></div>
+</body></html>
