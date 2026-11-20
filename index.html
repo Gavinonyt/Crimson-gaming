@@ -1027,7 +1027,57 @@ html[data-home-dock-style="minimal"] #dashboardView.ultra-home-active .bottom-do
 html[data-wallpaper-motion="off"] #dashboardView.ultra-home-active #homePage:before,html[data-wallpaper-motion="off"] #dashboardView.ultra-home-active #homePage:after{animation:none!important}
 html[data-show-boot="off"] .ultra-boot{display:none!important}
 @media(max-width:650px){html[data-home-widgets="left"] #dashboardView.ultra-home-active .ultra-home-widgets{left:10px!important;right:auto!important}}
-</style></head>
+</style>
+<style id="ultra-phone-desktop-layout">
+/* Device-specific layouts: full desktop workspace on wide screens, compact touch-first home on phones */
+#dashboardView.ultra-home-active .ultra-home-widgets{z-index:3}
+#dashboardView.ultra-home-active .bottom-dock{touch-action:pan-x}
+@media (max-width:650px) and (orientation:portrait){
+  #dashboardView.ultra-home-active #homePage .os-welcome{top:clamp(54px,10svh,92px)!important;width:calc(100vw - 24px)!important}
+  .ultra-home-date{gap:8px}
+  .ultra-day-label{font-size:clamp(24px,7vw,34px);letter-spacing:.14em}
+  .ultra-home-date strong{font-size:clamp(14px,4vw,18px);letter-spacing:.16em}
+  .ultra-home-date span{font-size:9px;letter-spacing:.2em}
+  .ultra-home-widgets{top:43svh!important;left:12px!important;right:12px!important;width:auto!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px!important}
+  .ultra-widget-group{min-width:0;gap:6px}
+  .ultra-widget-caption{text-align:center;padding:0;font-size:7px;letter-spacing:.12em;white-space:nowrap}
+  .ultra-desktop-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:7px;min-width:0;min-height:92px;padding:10px 5px;text-align:center;border-radius:12px}
+  .ultra-desktop-icon{width:32px;height:32px;flex:0 0 32px}
+  .ultra-desktop-copy{align-items:center;width:100%;gap:4px}
+  .ultra-desktop-copy strong{font-size:9px;white-space:nowrap}
+  .ultra-desktop-copy small{display:none}
+  .ultra-desktop-arrow{display:none}
+  #dashboardView.ultra-home-active .bottom-dock{gap:3px!important;padding:6px 7px!important;max-width:calc(100vw - 12px);bottom:calc(7px + env(safe-area-inset-bottom,0px))!important}
+  #dashboardView.ultra-home-active .bottom-dock .nav{width:32px!important;height:34px!important;flex-basis:32px!important;min-height:34px!important}
+  #dashboardView.ultra-home-active .bottom-dock .nav-icon{font-size:16px}
+  .ultra-system-toast{bottom:calc(58px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:380px) and (orientation:portrait){
+  .ultra-home-widgets{top:41svh!important;left:8px!important;right:8px!important;gap:6px!important}
+  .ultra-desktop-card{min-height:82px;padding:8px 3px}
+  .ultra-widget-caption{font-size:6px}
+  #dashboardView.ultra-home-active .bottom-dock .nav{width:29px!important;flex-basis:29px!important}
+}
+@media (max-height:520px) and (orientation:landscape) and (max-width:900px){
+  #dashboardView.ultra-home-active #homePage .os-welcome{top:12px!important;left:8%!important;transform:none!important;width:42vw!important;text-align:left!important}
+  .ultra-home-date{align-items:flex-start}
+  .ultra-day-label{font-size:clamp(20px,4vw,30px)}
+  .ultra-home-widgets{top:12px!important;right:14px!important;left:auto!important;width:min(42vw,300px)!important;gap:7px!important}
+  .ultra-widget-caption{font-size:6px}
+  .ultra-desktop-card{min-height:42px;padding:5px 8px}
+  #dashboardView.ultra-home-active .bottom-dock{bottom:calc(5px + env(safe-area-inset-bottom,0px))!important}
+}
+@media (min-width:1200px){
+  #dashboardView.ultra-home-active #homePage .os-welcome{top:clamp(105px,17vh,190px)!important}
+  .ultra-home-widgets{top:clamp(165px,19vh,230px)!important;width:clamp(245px,20vw,330px)!important}
+  #dashboardView.ultra-home-active .bottom-dock .nav{width:38px!important;height:38px!important;flex-basis:38px!important}
+}
+@media (hover:none) and (pointer:coarse){
+  .ultra-desktop-card:hover{transform:none}
+  #dashboardView.ultra-home-active .bottom-dock .nav{ -webkit-tap-highlight-color:transparent}
+}
+</style>
+</head>
 <body>
 <div class="ultra-boot" id="ultraBootScreen" hidden aria-label="Starting Ultra OS">
   <div class="ultra-boot-content"><div class="ultra-boot-mark"><span></span><span></span><span></span><span></span></div><strong>ULTRA OS</strong><small>DC GAMING NETWORK</small><div class="ultra-boot-track"><i></i></div></div>
