@@ -1220,6 +1220,62 @@ html[data-show-boot="off"] .ultra-boot{display:none!important}
  .ultra-social-composer{margin:8px}
 }
 </style>
+
+<style id="ultra-xbox-dashboard-layout">
+#dashboardView.ultra-home-active #homePage{min-height:calc(100vh - 12px)!important;overflow:hidden!important;padding:0!important}
+#dashboardView.ultra-home-active #homePage:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 51% 42%,rgba(125,133,151,.16),transparent 36%),radial-gradient(ellipse at 85% 12%,rgba(86,112,157,.12),transparent 28%),linear-gradient(115deg,rgba(0,0,0,.55),rgba(4,7,14,.18) 48%,rgba(0,0,0,.38));z-index:0}
+#dashboardView.ultra-home-active #homePage>*{z-index:1}
+#dashboardView.ultra-home-active #homePage .ultra-xbox-rail{position:absolute;z-index:8;left:10px;top:48px;bottom:12px;width:254px;padding:12px 10px 10px;border:1px solid #ffffff16;border-radius:13px;background:rgba(35,35,37,.91);box-shadow:0 15px 50px #0008;backdrop-filter:blur(22px);display:flex;flex-direction:column;gap:8px}
+.ultra-xbox-rail-icons{display:flex;align-items:center;justify-content:space-between;gap:5px;padding:2px 3px 10px}
+.ultra-xbox-rail-icons button,.ultra-xbox-rail-bottom button{border:0;background:transparent;color:#e5e7ec;border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:17px}
+.ultra-xbox-rail-icons button.active{color:#70e783;border-bottom:2px solid #30d84a}
+.ultra-xbox-rail-link{display:flex;align-items:center;gap:13px;padding:12px 13px;border:1px solid transparent;border-radius:8px;background:transparent;color:#f0f1f4;text-align:left;font-size:13px;cursor:pointer}
+.ultra-xbox-rail-link.active{border:2px solid #35df48;background:#343436}
+.ultra-xbox-rail-divider{height:1px;background:#ffffff18;margin:8px 4px}
+.ultra-xbox-rail-feature{display:flex;align-items:center;gap:12px;padding:5px 4px;border:0;background:transparent;color:#eee;text-align:left;font-size:13px;cursor:pointer}
+.ultra-xbox-rail-feature b{width:42px;height:42px;display:grid;place-items:center;border-radius:5px;background:#117d1d;color:white;font-size:19px}
+.ultra-xbox-rail-feature:nth-of-type(5) b{background:#12689c}.ultra-xbox-rail-feature:nth-of-type(6) b{background:#a51f2b}
+.ultra-xbox-rail-bottom{display:flex;gap:5px;margin-top:auto}.ultra-xbox-rail-bottom button{flex:1;background:#ffffff12;height:43px}
+#dashboardView.ultra-home-active #homePage .ultra-cine-topline{left:285px!important;right:25px!important;top:12px!important}
+#dashboardView.ultra-home-active #homePage .ultra-cine-top-actions button{font-size:9px}
+#dashboardView.ultra-home-active #homePage .os-welcome{left:285px!important;right:25px!important;top:58px!important;min-height:110px!important}
+#dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy{max-width:65%}
+#dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy h1{font-size:clamp(26px,3vw,44px)!important}
+#dashboardView.ultra-home-active #homePage .ultra-home-date{position:absolute;right:4px;top:4px}
+#dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip{position:absolute;left:285px;right:30px;top:190px;display:flex;align-items:stretch;gap:9px;overflow-x:auto;padding:8px 2px 13px;scrollbar-width:thin}
+.ultra-xbox-app-strip button{flex:0 0 76px;height:76px;border:1px solid #ffffff13;border-radius:9px;background:rgba(25,27,31,.88);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;box-shadow:0 8px 22px #0005}
+.ultra-xbox-app-strip button:hover{border-color:#36df4b;transform:translateY(-2px)}
+.ultra-xbox-app-strip button span{font-size:29px}.ultra-xbox-app-strip button small{font-size:9px;white-space:nowrap}
+#dashboardView.ultra-home-active #homePage .ultra-xbox-card-grid{position:absolute;left:285px;right:30px;top:300px;bottom:18px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,minmax(95px,1fr));gap:10px;overflow:auto}
+.ultra-xbox-card{min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:7px;padding:13px;border:1px solid #ffffff14;border-radius:7px;background:rgba(34,34,35,.94);color:#f5f5f6;text-align:left;cursor:pointer;overflow:hidden}
+.ultra-xbox-card:hover{border-color:#ffffff48;background:rgba(48,49,51,.98)}
+.ultra-xbox-card strong{font-size:12px;font-weight:600}.ultra-xbox-card small{font-size:10px;color:#b8bbc2}
+.ultra-xbox-card-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#ffffff18;color:#fff;font-size:13px}
+.ultra-xbox-game-card{padding:0}.ultra-xbox-thumb{width:100%;height:calc(100% - 33px);min-height:65px;display:flex;align-items:center;justify-content:center;position:relative;background:radial-gradient(circle at 50% 40%,#263449,#090b10 65%);font-size:36px}
+.ultra-xbox-thumb span{position:absolute;left:10px;top:9px;font-size:8px;letter-spacing:.18em;color:#bfc9d9}
+.ultra-xbox-game-card strong{padding:0 12px 11px}
+#dashboardView.ultra-home-active #homePage>.ultra-home-widgets,#dashboardView.ultra-home-active #homePage>.os-feature-grid,#dashboardView.ultra-home-active #homePage>.os-section-head,#dashboardView.ultra-home-active #homePage>.ultra-cine-app-tools,#dashboardView.ultra-home-active #homePage>#osAppGrid,#dashboardView.ultra-home-active #homePage>.os-bottom-grid{display:none!important}
+#dashboardView.ultra-home-active #homePage>.ultra-xbox-card-grid{display:grid!important}
+#dashboardView.ultra-home-active #homePage .ultra-cine-topline .ultra-cine-brand{font-size:11px}
+@media(max-width:900px){
+ #dashboardView.ultra-home-active #homePage .ultra-xbox-rail{width:190px;left:7px}
+ #dashboardView.ultra-home-active #homePage .ultra-cine-topline,#dashboardView.ultra-home-active #homePage .os-welcome{left:210px!important}
+ #dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip{left:210px;gap:6px}
+ #dashboardView.ultra-home-active #homePage .ultra-xbox-card-grid{left:210px;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,minmax(85px,1fr));top:290px}
+}
+@media(max-width:650px){
+ #dashboardView.ultra-home-active #homePage{overflow:visible!important;min-height:100vh!important;padding:0 10px 90px!important}
+ #dashboardView.ultra-home-active #homePage .ultra-xbox-rail{position:relative;left:auto;top:auto;bottom:auto;width:100%;height:auto;margin:48px 0 12px;padding:8px;display:block}
+ .ultra-xbox-rail-icons{justify-content:space-around;padding-bottom:5px}
+ .ultra-xbox-rail-link,.ultra-xbox-rail-feature,.ultra-xbox-rail-divider,.ultra-xbox-rail-bottom{display:none}
+ #dashboardView.ultra-home-active #homePage .ultra-cine-topline{left:10px!important;right:10px!important;top:8px!important}
+ #dashboardView.ultra-home-active #homePage .os-welcome{position:relative!important;left:auto!important;right:auto!important;top:auto!important;margin:12px 0!important;min-height:110px!important}
+ #dashboardView.ultra-home-active #homePage .ultra-home-date{position:static;margin-top:8px}
+ #dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip{position:relative;left:auto;right:auto;top:auto;display:flex;margin:8px 0}
+ #dashboardView.ultra-home-active #homePage .ultra-xbox-card-grid{position:relative;left:auto;right:auto;top:auto;bottom:auto;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;grid-auto-rows:110px;margin-top:8px}
+}
+@media(prefers-reduced-motion:reduce){.ultra-xbox-app-strip button,.ultra-xbox-card{transition:none!important}}
+</style>
 </head>
 <body>
 <div class="ultra-boot" id="ultraBootScreen" hidden aria-label="Starting Ultra OS">
@@ -1253,12 +1309,36 @@ html[data-show-boot="off"] .ultra-boot{display:none!important}
       </div>
 
       <section class="dash-page ultra-home" id="homePage">
+  <aside class="ultra-xbox-rail" aria-label="Ultra navigation">
+ <div class="ultra-xbox-rail-icons">
+  <button type="button" class="active" data-go-page="home" aria-label="Home">⌂</button><button type="button" data-go-page="library" aria-label="Friends and library">♧</button><button type="button" data-go-page="friends" aria-label="Messages and friends">▤</button><button type="button" data-go-page="updates" aria-label="Network">◉</button><button type="button" data-go-page="settings" aria-label="Settings">⚙</button><button type="button" data-home-action="profile" aria-label="Profile">U</button>
+ </div>
+ <button type="button" class="ultra-xbox-rail-link active" data-go-page="home">⌂ <span>Home</span></button>
+ <button type="button" class="ultra-xbox-rail-link" data-go-page="library">▤ <span>My games &amp; apps</span></button>
+ <div class="ultra-xbox-rail-divider"></div>
+ <button type="button" class="ultra-xbox-rail-feature" data-go-page="friends"><b>♧</b><span>Social</span></button>
+ <button type="button" class="ultra-xbox-rail-feature" data-go-page="updates"><b>◉</b><span>Network test</span></button>
+ <button type="button" class="ultra-xbox-rail-feature" data-go-page="settings"><b>⚙</b><span>Settings</span></button>
+ <button type="button" class="ultra-xbox-rail-feature" data-go-page="hubs"><b>⬡</b><span>Hubs</span></button>
+ <div class="ultra-xbox-rail-bottom"><button type="button" data-home-action="control">♧</button><button type="button" data-home-action="apps">▤</button><button type="button" data-home-action="command">⌕</button><button type="button" data-home-action="profile">U</button></div>
+</aside>
   <div class="ultra-cine-topline"><div class="ultra-cine-brand"><span class="ultra-cine-mark">U</span><span>ULTRA</span></div><div class="ultra-cine-top-actions"><button type="button" data-home-page="home">HOME</button><button type="button" data-home-page="library">LIBRARY</button><button type="button" data-home-page="social">SOCIAL</button><button type="button" data-home-page="hubs">NETWORK</button></div><div class="ultra-cine-system-actions"><button type="button" data-home-action="command" aria-label="Search">⌕</button><button type="button" data-home-action="control" aria-label="Control center">⚙</button><button type="button" data-home-action="signout">EXIT</button><span id="ultraHomeClock">--:--</span></div></div>
   <div class="os-welcome ultra-home-welcome">
     <div class="ultra-home-welcome-copy"><div class="os-eyebrow"><span class="os-live-dot"></span> ULTRA OS / PLAYER SPACE</div><h1 id="welcomeTitle">Welcome to your world.</h1><p>Your games, apps, and community — all in one place.</p></div>
     <div class="ultra-home-date" aria-label="Current date and time"><div class="ultra-day-label" id="ultraDayLabel">FRIDAY</div><strong id="osTime">--:--</strong><span id="osDate">LOADING DATE</span></div>
   </div>
-  <aside class="ultra-home-widgets" aria-label="Desktop widgets">
+<div class="ultra-xbox-app-strip" aria-label="Quick launch apps">
+ <button type="button" data-go-page="friends"><span>♧</span><small>Social</small></button>
+ <button type="button" data-go-page="store"><span>🌐</span><small>Store</small></button>
+ <button type="button" data-go-page="play"><span>🏁</span><small>Ultra Sprint</small></button>
+ <button type="button" data-go-page="arcade"><span>✦</span><small>Arcade</small></button>
+ <button type="button" data-go-page="city"><span>🌆</span><small>Ultra City</small></button>
+ <button type="button" data-go-page="library"><span>▤</span><small>Library</small></button>
+ <button type="button" data-go-page="hubs"><span>⬡</span><small>Hubs</small></button>
+ <button type="button" data-go-page="settings"><span>⚙</span><small>Settings</small></button>
+ <button type="button" data-home-action="apps"><span>⊞</span><small>All apps</small></button>
+</div>
+    <aside class="ultra-home-widgets" aria-label="Desktop widgets">
     <div class="ultra-widget-group">
       <div class="ultra-widget-caption">JUMP BACK IN</div>
       <button class="ultra-desktop-card" type="button" data-go-page="play"><span class="ultra-desktop-icon ultra-icon-gem">◆</span><span class="ultra-desktop-copy"><strong>Ultra Sprint</strong><small>Continue your last game</small></span><span class="ultra-desktop-arrow">›</span></button>
@@ -1272,7 +1352,17 @@ html[data-show-boot="off"] .ultra-boot{display:none!important}
       <button class="ultra-desktop-card" type="button" data-go-page="updates"><span class="ultra-desktop-icon ultra-icon-update">↗</span><span class="ultra-desktop-copy"><strong>Update Log</strong><small>View the latest patches</small></span><span class="ultra-desktop-arrow">›</span></button>
     </div>
   </aside>
-  <div class="os-feature-grid">
+<div class="ultra-xbox-card-grid" aria-label="Ultra dashboard">
+ <button type="button" class="ultra-xbox-card ultra-xbox-game-card" data-go-page="library"><div class="ultra-xbox-thumb">🎮<span>ULTRA LIBRARY</span></div><strong>Browse your games</strong></button>
+ <button type="button" class="ultra-xbox-card" data-home-action="control"><div class="ultra-xbox-card-icon">✎</div><strong>Customize your Home</strong></button>
+ <button type="button" class="ultra-xbox-card" data-go-page="friends"><div class="ultra-xbox-card-icon">H</div><strong>Friends · 0 online</strong></button>
+ <button type="button" class="ultra-xbox-card" data-go-page="updates"><div class="ultra-xbox-card-icon">◉</div><strong>Test your connection</strong><small>Connection status: <span id="ultraXboxConnection">Checking…</span></small></button>
+ <button type="button" class="ultra-xbox-card" data-go-page="friends"><div class="ultra-xbox-card-icon">✉</div><strong>Messages</strong><small>Open your community</small></button>
+ <button type="button" class="ultra-xbox-card" data-go-page="hubs"><div class="ultra-xbox-card-icon">V</div><strong>Hubs · 1 joined</strong></button>
+ <button type="button" class="ultra-xbox-card" data-go-page="library"><div class="ultra-xbox-card-icon">14h</div><strong>Play time</strong><small>Your Ultra activity</small></button>
+ <button type="button" class="ultra-xbox-card" data-go-page="settings"><div class="ultra-xbox-card-icon">⚙</div><strong>Console settings</strong><small>Personalize your setup</small></button>
+</div>
+    <div class="os-feature-grid">
     <button class="os-feature-card os-feature-main" type="button" data-go-page="play"><span class="os-card-label">PICK UP WHERE YOU LEFT OFF</span><span class="os-feature-art">🏎️</span><span class="os-feature-title">ULTRA SPRINT</span><span class="os-feature-sub">Your next run starts here</span><span class="os-card-cta">CONTINUE PLAYING ↗</span></button>
     <div class="os-feature-stack">
       <button class="os-feature-card os-feature-arcade" type="button" data-go-page="arcade"><span class="os-card-label">QUICK PLAY</span><span class="os-feature-art">✦</span><span class="os-feature-title">ULTRA ARCADE</span><span class="os-feature-sub">Browse quick browser games</span><span class="os-card-cta">OPEN ARCADE ↗</span></button>
@@ -2406,5 +2496,9 @@ document.getElementById("ultraHomeAppSearch")?.addEventListener("input",event=>{
   tile.hidden=!!query&&!haystack.includes(query);
  });
 });
+
+document.querySelectorAll('[data-home-action="profile"]').forEach(b=>b.addEventListener("click",()=>showPage("profile")));
+function updateUltraXboxDashboard(){const el=document.getElementById("ultraXboxConnection");if(el)el.textContent=navigator.onLine?"Online":"Offline"}
+window.addEventListener("online",updateUltraXboxDashboard);window.addEventListener("offline",updateUltraXboxDashboard);updateUltraXboxDashboard();
 </script><div class="ultra-system-toast" id="ultraWelcomeToast" role="status" aria-live="polite"><span class="ultra-toast-mark">U</span><span><small>ULTRA SYSTEM</small><strong>Welcome to Ultra OS</strong><em>Your workspace is ready</em></span><button type="button" aria-label="Dismiss notification" id="ultraToastDismiss">×</button></div>
 </body></html>
