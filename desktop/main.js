@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, Menu, Tray, nativeImage, shell } = require("electron");
+const { app, BrowserWindow, ipcMain, shell } = require("electron");
 const path = require("path");
 const fs = require("fs");
 const RPC = require("discord-rpc");
@@ -7,7 +7,6 @@ const SITE_URL = "https://gavinonyt.github.io/Crimson-gaming/";
 const CONFIG_PATH = () => path.join(app.getPath("userData"), "config.json");
 let mainWindow = null;
 let settingsWindow = null;
-let tray = null;
 let rpc = null;
 let rpcClientId = "";
 let rpcReady = false;
@@ -123,19 +122,6 @@ function createSettingsWindow() {
   settingsWindow.loadFile(path.join(__dirname, "settings.html"));
   settingsWindow.on("closed", () => { settingsWindow = null; });
 }
-function createTray() {
-  try {
-    tray = new Tray(nativeImage.createEmpty());
-    tray.setToolTip("Ultra Launcher");
-    tray.setContextMenu(Menu.buildFromTemplate([
-      { label: "Open Ultra Launcher", click: () => mainWindow ? mainWindow.show() : createMainWindow() },
-      { label: "Discord Rich Presence Settings", click: createSettingsWindow },
-      { type: "separator" },
-      { label: "Quit Ultra Launcher", click: () => app.quit() }
-    ]));
-    tray.on("double-click", () => mainWindow ? mainWindow.show() : createMainWindow());
-  } catch {}
-}
 ipcMain.handle("ultra-presence:set", (_event, activity) => setActivity(activity));
 ipcMain.handle("ultra-presence:status", () => ({
   connected: rpcReady, message: connectionMessage,
@@ -159,10 +145,9 @@ app.whenReady().then(() => {
   const cfg = readConfig();
   rpcClientId = cfg.discordApplicationId || "";
   createMainWindow();
-  createTray();
   if (!rpcClientId) createSettingsWindow();
   else connectRPC(rpcClientId).then(sendStatus);
   app.on("activate", () => { if (BrowserWindow.getAllWindows().length === 0) createMainWindow(); });
 });
 app.on("before-quit", disconnectRPC);
-app.on("window-all-closed", (event) => { /* Keep the companion alive in the tray on Windows. */ });
+app.on("window-all-closed", () => { if (process.platform !== "darwin") app.quit(); });
