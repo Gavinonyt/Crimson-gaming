@@ -871,6 +871,45 @@ body:has(#authView:not([style*="display: none"])) .brand span{color:#93c5fd}
 /* Keep the icon dock pinned to the viewport during all page scrolling */
 .bottom-dock{position:fixed!important;inset-inline-start:50%!important;inset-block-end:calc(12px + env(safe-area-inset-bottom, 0px))!important;transform:translate3d(-50%,0,0)!important;z-index:2147483000!important;visibility:visible!important;opacity:1!important;}
 @media(max-width:650px){.bottom-dock{inset-block-end:calc(8px + env(safe-area-inset-bottom, 0px))!important;}}
+
+/* ULTRA OS signature refresh — layered desktop surfaces, crisp controls, and command launcher */
+:root{--ultra-glass:rgba(20,15,31,.78);--ultra-stroke:rgba(255,255,255,.11);--ultra-soft-shadow:0 22px 70px rgba(0,0,0,.28)}
+body{background-image:var(--ultra-wallpaper,radial-gradient(ellipse at 78% 10%,#38205b 0,transparent 42%),linear-gradient(135deg,#0b0912,#171020 58%,#0a0c16));background-attachment:fixed}
+#dashboardView{position:relative;isolation:isolate}
+#dashboardView:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+.dash-main{background:linear-gradient(155deg,rgba(22,17,33,.91),rgba(12,10,19,.88));border-color:var(--ultra-stroke);box-shadow:var(--ultra-soft-shadow);backdrop-filter:blur(22px)}
+.workspace-bar{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,rgba(16,12,24,.97),rgba(16,12,24,.78));backdrop-filter:blur(20px);padding:12px 0 16px}
+.workspace-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.workspace-tool{border:1px solid var(--ultra-stroke);background:rgba(255,255,255,.055);color:#e9ddfa;border-radius:9px;padding:9px 11px;font-size:10px;font-weight:850;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.workspace-tool:hover{background:#392452;border-color:#b88aff88;transform:translateY(-1px)}
+.dash-page{animation:ultraPageIn .28s ease both}
+@keyframes ultraPageIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.os-feature-card,.quick-card,.featured-tile,.store-card,.settings-card,.account-panel,.city-stage,.game-hud>div{box-shadow:0 12px 32px rgba(0,0,0,.14);transition:transform .2s,border-color .2s,box-shadow .2s}
+.os-feature-card:hover,.quick-card:hover,.store-card:hover,.settings-card:hover{transform:translateY(-3px);border-color:#b98aff77;box-shadow:0 18px 42px rgba(0,0,0,.25)}
+.bottom-dock{padding:9px 12px;background:rgba(12,9,19,.82);border-color:#ffffff2b;box-shadow:0 15px 55px #000b,0 0 32px #9b5cff24}
+.bottom-dock .nav{position:relative}
+.bottom-dock .nav:focus-visible,.workspace-tool:focus-visible,.nav:focus-visible{outline:2px solid #d4b4ff;outline-offset:3px}
+.bottom-dock .nav.active:after{content:"";position:absolute;bottom:-4px;width:4px;height:4px;border-radius:50%;background:#e8d5ff;box-shadow:0 0 10px #c79aff}
+.ultra-command-panel{width:min(620px,calc(100vw - 28px));max-height:min(680px,calc(100vh - 36px));padding:0;overflow:hidden;border:1px solid #c59cff55;background:linear-gradient(145deg,rgba(28,21,41,.98),rgba(13,10,20,.98));box-shadow:0 35px 110px #000c,0 0 60px #9b5cff22}
+.command-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 12px;border-bottom:1px solid #ffffff14}
+.command-head strong{font-size:12px;letter-spacing:1.4px;color:#d8baff}
+.command-head small{color:#9387a4;font-size:10px}
+.command-search-wrap{padding:15px 18px 10px}
+.command-search{width:100%;padding:16px 17px;border:1px solid #9d70d566;border-radius:12px;background:#0d0a14;color:#fff;font-size:15px;outline:none}
+.command-search:focus{border-color:#c49aff;box-shadow:0 0 0 3px #9b5cff24}
+.command-results{max-height:390px;overflow:auto;padding:4px 10px 14px}
+.command-group-label{padding:10px 10px 6px;color:#8e819f;font-size:9px;font-weight:900;letter-spacing:1.6px}
+.command-result{display:flex;width:100%;align-items:center;gap:12px;text-align:left;padding:11px 12px;border:1px solid transparent;border-radius:10px;background:transparent;color:#f5efff;cursor:pointer}
+.command-result:hover,.command-result:focus-visible{background:#39234f;border-color:#a16be055;outline:none}
+.command-result-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:#ffffff0c;border:1px solid #ffffff18;font-size:17px}
+.command-result-copy{display:flex;flex-direction:column;gap:3px;flex:1}
+.command-result-copy strong{font-size:12px}
+.command-result-copy small{font-size:10px;color:#a99db7}
+.command-result kbd{font:10px ui-monospace,monospace;color:#b8a6ca;border:1px solid #ffffff22;border-radius:5px;padding:4px 6px}
+.command-empty{padding:22px;text-align:center;color:#a99db7;font-size:12px}
+.command-foot{display:flex;justify-content:space-between;gap:10px;padding:11px 18px;border-top:1px solid #ffffff14;color:#8f849d;font-size:9px}
+@media(max-width:650px){.workspace-bar{top:0}.workspace-actions{gap:5px}.workspace-tool{padding:8px 9px;font-size:9px}.ultra-command-panel{width:calc(100vw - 18px)}.command-search{font-size:14px;padding:14px}.command-results{max-height:55vh}}
+@media(prefers-reduced-motion:reduce){.dash-page{animation:none}.os-feature-card,.quick-card,.store-card,.settings-card,.workspace-tool{transition:none}}
 </style></head>
 <body>
 <header class="topbar"><div class="brand"><div class="brand-mark">U</div><div>ULTRA <span>GAMING</span></div></div><div class="top-note">YOUR GAMES. YOUR SPACE.</div></header>
@@ -897,7 +936,7 @@ body:has(#authView:not([style*="display: none"])) .brand span{color:#93c5fd}
       <div class="birthday-banner">🎂 ULTRA GAMING 2.5.0 · BETA ARCADE <span class="update-chip">NEW ERA</span></div>
       <div class="workspace-bar">
         <div><div class="workspace-kicker" id="pageKicker">PLAYER HOME</div><div class="workspace-title" id="pageHeading">Welcome back</div></div>
-        <div class="workspace-user"><span id="userEmail"></span><div class="workspace-actions"><span class="workspace-clock" id="ultraClock">--:--</span><button class="workspace-tool" id="appLibraryOpen" type="button">▦ APPS</button><button class="workspace-tool" id="controlCenterOpen" type="button">☷ CONTROL</button><button class="signout" id="signoutBtn">SIGN OUT</button></div></div>
+        <div class="workspace-user"><span id="userEmail"></span><div class="workspace-actions"><span class="workspace-clock" id="ultraClock">--:--</span><button class="workspace-tool" id="appLibraryOpen" type="button">▦ APPS</button><button class="workspace-tool" id="controlCenterOpen" type="button">☷ CONTROL</button><button class="workspace-tool" id="commandLauncher" type="button" title="Open command palette (Ctrl+K)">⌕ COMMAND</button><button class="signout" id="signoutBtn">SIGN OUT</button></div></div>
       </div>
 
       <section class="dash-page ultra-home" id="homePage">
@@ -1093,7 +1132,7 @@ body:has(#authView:not([style*="display: none"])) .brand span{color:#93c5fd}
 </section></main>
 <div class="ultra-overlay" id="controlCenterOverlay" aria-hidden="true"><section class="ultra-panel" role="dialog" aria-modal="true" aria-labelledby="controlCenterTitle"><div class="ultra-panel-head"><div><h2 id="controlCenterTitle">Control Center</h2><p>Quick controls for your Ultra workspace</p></div><button class="ultra-close" type="button" data-close-overlay="controlCenterOverlay" aria-label="Close">×</button></div><div class="cc-grid"><div class="cc-tile"><button type="button" id="focusToggle" aria-pressed="false"><strong>◉ Focus mode</strong><small>Hide extra dashboard banners</small></button></div><div class="cc-tile"><button type="button" id="motionToggle" aria-pressed="true"><strong>✧ Motion effects</strong><small>Enable or reduce interface movement</small></button></div><div class="cc-tile"><button type="button" id="glowToggle" aria-pressed="true"><strong>✦ Accent glow</strong><small>Toggle decorative interface glow</small></button></div><div class="cc-tile"><button type="button" id="fullscreenToggle"><strong>⛶ Fullscreen</strong><small>Expand Ultra in this browser</small></button></div></div><div class="cc-control"><div class="cc-control-top"><label for="ultraBrightness">Display brightness</label><output id="brightnessValue">100%</output></div><input id="ultraBrightness" type="range" min="55" max="120" value="100"></div><div class="cc-control"><div class="cc-control-top"><label for="ultraVolume">Browser media volume</label><output id="volumeValue">100%</output></div><input id="ultraVolume" type="range" min="0" max="100" value="100"><div class="cc-status">Adjusts audio/video playing inside this webpage. It cannot change your device's system volume.</div><div class="workspace-actions" style="margin-top:10px"><button class="workspace-tool" id="mediaPlayPause" type="button">▶ PLAY / PAUSE MEDIA</button><span class="cc-status" id="mediaStatus" aria-live="polite">No media controls active</span></div></div><div class="cc-control"><div class="cc-control-top"><strong>Wallpaper Studio</strong><span class="cc-status">Saved on this device</span></div><div class="cc-wallpapers" id="wallpaperChoices"><button class="cc-wallpaper" type="button" data-wallpaper="midnight" aria-pressed="true"><span>Midnight</span></button><button class="cc-wallpaper" type="button" data-wallpaper="vice" aria-pressed="false"><span>Vice Sunset</span></button><button class="cc-wallpaper" type="button" data-wallpaper="ocean" aria-pressed="false"><span>Ocean Drive</span></button><button class="cc-wallpaper" type="button" data-wallpaper="emerald" aria-pressed="false"><span>Emerald</span></button><button class="cc-wallpaper" type="button" data-wallpaper="gold" aria-pressed="false"><span>Midnight Gold</span></button><button class="cc-wallpaper" type="button" data-wallpaper="mono" aria-pressed="false"><span>Monochrome</span></button></div><label class="cc-upload">＋ Upload your wallpaper<input id="ultraWallpaperFile" type="file" accept="image/png,image/jpeg,image/webp"></label><div class="cc-status" id="wallpaperStatus" aria-live="polite">Choose a preset or upload a background image. Wallpaper stays in this browser.</div></div><div class="cc-control"><div class="cc-control-top"><strong>Connection</strong><output id="connectionState">Checking…</output></div><div class="cc-status">Ultra can show your browser's online/offline status, but a website cannot switch your device's Wi-Fi or Bluetooth radios.</div></div></section></div>
 <div class="ultra-overlay" id="appLibraryOverlay" aria-hidden="true"><section class="ultra-panel" role="dialog" aria-modal="true" aria-labelledby="appLibraryTitle"><div class="ultra-panel-head"><div><h2 id="appLibraryTitle">App Library</h2><p>Open an Ultra section or pin it for quick access</p></div><button class="ultra-close" type="button" data-close-overlay="appLibraryOverlay" aria-label="Close">×</button></div><input class="app-search" id="appSearch" type="search" placeholder="Search apps and pages…" autocomplete="off"><div class="app-section-label">PINNED</div><div class="app-grid" id="pinnedAppsGrid"></div><div class="app-section-label">ALL APPS</div><div class="app-grid" id="allAppsGrid"></div><div class="cc-status" id="appLibraryStatus">Pinned apps are saved to your Ultra account's browser profile on this device.</div></section></div>
-<div class="footer">ULTRA OS 3.0 · DC GAMING NETWORK</div>
+<div class="ultra-overlay" id="commandPaletteOverlay" aria-hidden="true"><section class="ultra-panel ultra-command-panel" role="dialog" aria-modal="true" aria-labelledby="commandPaletteTitle"><div class="command-head"><div><strong id="commandPaletteTitle">ULTRA COMMAND</strong><br><small>Search apps, pages, and workspace actions</small></div><button class="ultra-close" type="button" data-close-overlay="commandPaletteOverlay" aria-label="Close command palette">×</button></div><div class="command-search-wrap"><input class="command-search" id="commandSearch" type="search" placeholder="Type an app or command…" autocomplete="off" spellcheck="false"></div><div class="command-results" id="commandResults" role="listbox" aria-label="Command results"></div><div class="command-foot"><span>↑ ↓ Navigate · Enter Open</span><span>ESC Close · Ctrl K Launch</span></div></section></div><div class="footer">ULTRA OS 3.0 · DC GAMING NETWORK</div>
 <script>
 window.addEventListener("error",()=>{const box=document.getElementById("status");if(box&&!box.textContent){box.textContent="Ultra sign-in could not start. Refresh this page and try again.";box.classList.add("error")}});
 const SUPABASE_URL="https://qmgpiczgjbtxxgfiekys.supabase.co";
@@ -1794,7 +1833,7 @@ document.getElementById("controlCenterOpen").addEventListener("click",()=>openUl
 document.getElementById("appLibraryOpen").addEventListener("click",()=>openUltraOverlay("appLibraryOverlay"));
 document.querySelectorAll("[data-close-overlay]").forEach(b=>b.addEventListener("click",()=>closeUltraOverlay(b.dataset.closeOverlay)));
 document.querySelectorAll(".ultra-overlay").forEach(o=>o.addEventListener("click",e=>{if(e.target===o)closeUltraOverlay(o.id)}));
-document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".ultra-overlay.open").forEach(o=>closeUltraOverlay(o.id));if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"&&dashboardView.style.display==="block"){e.preventDefault();openUltraOverlay("appLibraryOverlay")}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".ultra-overlay.open").forEach(o=>closeUltraOverlay(o.id));if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"&&dashboardView.style.display==="block"){e.preventDefault();openUltraCommandPalette()}});
 document.getElementById("appSearch").addEventListener("input",filterUltraApps);
 document.getElementById("ultraBrightness").addEventListener("input",e=>{const v=Number(e.target.value);document.documentElement.style.setProperty("--ultra-brightness",String(v/100));document.getElementById("brightnessValue").textContent=v+"%";ultraSave("brightness",String(v))});
 document.getElementById("ultraVolume").addEventListener("input",e=>{const v=Number(e.target.value);document.getElementById("volumeValue").textContent=v+"%";document.querySelectorAll("audio,video").forEach(m=>m.volume=v/100);ultraSave("volume",String(v))});
@@ -1893,4 +1932,39 @@ document.getElementById("osWallpaperMore")?.addEventListener("click",()=>documen
 document.querySelectorAll("[data-ultra-wallpaper]").forEach(b=>b.addEventListener("click",()=>applyUltraWallpaper(b.dataset.ultraWallpaper)));
 window.addEventListener("online",updateUltraOSHome);window.addEventListener("offline",updateUltraOSHome);
 updateUltraOSHome();setInterval(updateUltraOSHome,30000);
+
+/* Ultra Command Palette */
+const ultraCommands=[
+ ...ultraAppCatalog.map(app=>({label:app.name,detail:"Open app",icon:app.icon,kind:"app",value:app.id})),
+ {label:"App Library",detail:"Browse and pin every Ultra app",icon:"▦",kind:"overlay",value:"appLibraryOverlay"},
+ {label:"Control Center",detail:"Display, motion, focus, and media controls",icon:"☷",kind:"overlay",value:"controlCenterOverlay"},
+ {label:"Wallpaper Studio",detail:"Change your Ultra desktop wallpaper",icon:"▧",kind:"wallpaper"}
+];
+let commandActiveIndex=0,commandFiltered=[];
+function renderUltraCommands(){
+ const input=document.getElementById("commandSearch"),list=document.getElementById("commandResults");if(!input||!list)return;
+ const q=input.value.trim().toLowerCase();
+ commandFiltered=ultraCommands.filter(c=>(c.label+" "+c.detail).toLowerCase().includes(q));
+ commandActiveIndex=Math.min(commandActiveIndex,Math.max(0,commandFiltered.length-1));
+ list.replaceChildren();
+ if(!commandFiltered.length){const empty=document.createElement("div");empty.className="command-empty";empty.textContent="No matching apps or commands. Try another search.";list.append(empty);return}
+ const label=document.createElement("div");label.className="command-group-label";label.textContent=q?"SEARCH RESULTS":"QUICK ACCESS";list.append(label);
+ commandFiltered.forEach((c,i)=>{const b=document.createElement("button");b.type="button";b.className="command-result";b.setAttribute("role","option");b.setAttribute("aria-selected",String(i===commandActiveIndex));const icon=document.createElement("span");icon.className="command-result-icon";icon.textContent=c.icon;const copy=document.createElement("span");copy.className="command-result-copy";const strong=document.createElement("strong");strong.textContent=c.label;const small=document.createElement("small");small.textContent=c.detail;copy.append(strong,small);const hint=document.createElement("kbd");hint.textContent=i===0?"↵":"OPEN";b.append(icon,copy,hint);b.addEventListener("mouseenter",()=>{commandActiveIndex=i;renderUltraCommands()});b.addEventListener("click",()=>runUltraCommand(c));list.append(b)});
+}
+function runUltraCommand(c){
+ closeUltraOverlay("commandPaletteOverlay");
+ if(c.kind==="app"){showPage(c.value);return}
+ if(c.kind==="overlay"){openUltraOverlay(c.value);return}
+ if(c.kind==="wallpaper"){openUltraOverlay("controlCenterOverlay");document.getElementById("wallpaperChoices")?.scrollIntoView({behavior:"smooth",block:"center"});return}
+}
+function openUltraCommandPalette(){
+ const input=document.getElementById("commandSearch");if(!input)return;
+ input.value="";commandActiveIndex=0;renderUltraCommands();openUltraOverlay("commandPaletteOverlay");input.focus();
+}
+document.getElementById("commandLauncher")?.addEventListener("click",openUltraCommandPalette);
+document.getElementById("commandSearch")?.addEventListener("input",()=>{commandActiveIndex=0;renderUltraCommands()});
+document.getElementById("commandSearch")?.addEventListener("keydown",e=>{
+ if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();if(!commandFiltered.length)return;commandActiveIndex=(commandActiveIndex+(e.key==="ArrowDown"?1:-1)+commandFiltered.length)%commandFiltered.length;renderUltraCommands();return}
+ if(e.key==="Enter"&&commandFiltered[commandActiveIndex]){e.preventDefault();runUltraCommand(commandFiltered[commandActiveIndex])}
+});
 </script></body></html>
