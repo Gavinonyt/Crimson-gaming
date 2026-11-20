@@ -1651,6 +1651,64 @@ html,body{background:#07090e!important;color:#f4f6fb}
  .os-feature-stack{grid-template-columns:1fr!important}
  #dashboardView.ultra-home-active #homePage>.ultra-valor-dashboard{grid-template-columns:1fr!important}
 }
+
+/* ULTRA LAUNCHER — console-specific dashboard layouts */
+.arcade-shell[data-console-theme="ps5"] .launcher-layout{display:flex;flex-direction:column;gap:0;min-height:620px}
+.arcade-shell[data-console-theme="ps5"] .launcher-sidebar{position:relative;top:auto;display:flex;align-items:center;gap:8px;width:100%;padding:12px 18px;border:0;border-bottom:1px solid #ffffff20;border-radius:0;background:linear-gradient(180deg,#14263dcc,#091321bb);backdrop-filter:blur(22px);overflow-x:auto}
+.arcade-shell[data-console-theme="ps5"] .launcher-brand{flex:0 0 auto;border:0;margin:0 22px 0 0;padding:0 16px 0 0}
+.arcade-shell[data-console-theme="ps5"] .launcher-brand-mark{border-radius:50%;background:linear-gradient(145deg,#fff,#9bcfff);color:#07519a}
+.arcade-shell[data-console-theme="ps5"] .launcher-side-label,.arcade-shell[data-console-theme="ps5"] .launcher-sidebar-foot{display:none}
+.arcade-shell[data-console-theme="ps5"] .launcher-side-item{white-space:nowrap;border-radius:999px;padding:11px 16px}
+.arcade-shell[data-console-theme="ps5"] .launcher-side-item.active{background:#eaf5ff;color:#0756a2;border-color:#fff}
+.arcade-shell[data-console-theme="ps5"] .launcher-main{width:100%;padding:24px clamp(12px,3vw,42px);gap:24px}
+.arcade-shell[data-console-theme="ps5"] .launcher-toolbar{order:0}
+.arcade-shell[data-console-theme="ps5"] .launcher-hero{min-height:290px;border-radius:8px;background-size:cover;background-position:center}
+.arcade-shell[data-console-theme="ps5"] .launcher-game-grid{display:flex;gap:14px;overflow-x:auto;padding:4px 2px 18px}
+.arcade-shell[data-console-theme="ps5"] .launcher-game-card{flex:0 0 clamp(150px,19vw,220px);border-radius:7px;overflow:hidden;background:#14243a;border:1px solid #ffffff20;transition:transform .2s,border-color .2s}
+.arcade-shell[data-console-theme="ps5"] .launcher-game-card:hover{transform:translateY(-7px) scale(1.025);border-color:#8dcaff}
+.arcade-shell[data-console-theme="ps5"] .launcher-game-art{height:clamp(175px,22vw,245px)}
+.arcade-shell[data-console-theme="ps5"] .launcher-game-copy{padding:12px}
+.arcade-shell[data-console-theme="ps5"] .launcher-recent-list{display:flex;gap:12px;overflow-x:auto}
+.arcade-shell[data-console-theme="ps5"] .launcher-recent-item{flex:0 0 210px}
+.arcade-shell[data-console-theme="xbox"] .launcher-layout{grid-template-columns:76px minmax(0,1fr);gap:12px;min-height:620px}
+.arcade-shell[data-console-theme="xbox"] .launcher-sidebar{top:8px;padding:10px 7px;border-radius:9px;background:#111b16;border-color:#36553a;gap:10px}
+.arcade-shell[data-console-theme="xbox"] .launcher-brand{justify-content:center;padding:4px 0 12px}
+.arcade-shell[data-console-theme="xbox"] .launcher-brand>div:last-child,.arcade-shell[data-console-theme="xbox"] .launcher-side-label,.arcade-shell[data-console-theme="xbox"] .launcher-sidebar-foot{display:none}
+.arcade-shell[data-console-theme="xbox"] .launcher-brand-mark{border-radius:50%;background:#107c10;color:white}
+.arcade-shell[data-console-theme="xbox"] .launcher-side-item{justify-content:center;padding:13px 4px;font-size:0;border-radius:8px}
+.arcade-shell[data-console-theme="xbox"] .launcher-side-item span:first-child{font-size:21px;width:auto}
+.arcade-shell[data-console-theme="xbox"] .launcher-side-item.active{background:#107c10;color:#fff;border-color:#54bd4a}
+.arcade-shell[data-console-theme="xbox"] .launcher-main{gap:14px}
+.arcade-shell[data-console-theme="xbox"] .launcher-hero{min-height:230px;border-radius:5px}
+.arcade-shell[data-console-theme="xbox"] .launcher-game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:9px}
+.arcade-shell[data-console-theme="xbox"] .launcher-game-card{border-radius:4px;background:#18231b;border:1px solid #35523a;transition:transform .16s,border-color .16s}
+.arcade-shell[data-console-theme="xbox"] .launcher-game-card:hover{transform:scale(1.035);border:2px solid #8be66b}
+.arcade-shell[data-console-theme="xbox"] .launcher-game-art{height:clamp(125px,15vw,175px)}
+.arcade-shell[data-console-theme="xbox"] .launcher-category-button{border-radius:3px}
+.arcade-shell[data-console-theme="wii"] .launcher-layout{display:flex;flex-direction:column;gap:14px;min-height:620px}
+.arcade-shell[data-console-theme="wii"] .launcher-sidebar{position:relative;top:auto;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;border-radius:999px;background:#ffffffd9;border:1px solid #a8ddec}
+.arcade-shell[data-console-theme="wii"] .launcher-brand{border:0;margin:0 12px 0 0;padding:0}
+.arcade-shell[data-console-theme="wii"] .launcher-brand-mark{border-radius:50%;background:linear-gradient(145deg,#fff,#bdefff);color:#1687b4;border:1px solid #8bcfe6}
+.arcade-shell[data-console-theme="wii"] .launcher-side-label,.arcade-shell[data-console-theme="wii"] .launcher-sidebar-foot{display:none}
+.arcade-shell[data-console-theme="wii"] .launcher-side-item{padding:10px 15px;border-radius:999px;color:#31718b}
+.arcade-shell[data-console-theme="wii"] .launcher-side-item.active{background:#d9f5ff;border-color:#8bcfe6;color:#087cae}
+.arcade-shell[data-console-theme="wii"] .launcher-main{gap:14px;padding:4px 8px}
+.arcade-shell[data-console-theme="wii"] .launcher-hero{min-height:190px;border-radius:18px}
+.arcade-shell[data-console-theme="wii"] .launcher-game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:14px}
+.arcade-shell[data-console-theme="wii"] .launcher-game-card{border-radius:12px;background:#fff;border:1px solid #a7dff0;box-shadow:0 5px 15px #4d9bb522;overflow:hidden}
+.arcade-shell[data-console-theme="wii"] .launcher-game-art{height:clamp(110px,13vw,155px);border-radius:10px 10px 0 0}
+.arcade-shell[data-console-theme="wii"] .launcher-game-copy{padding:10px}
+.arcade-shell[data-console-theme="wii"] .launcher-game-star{background:#fff;color:#1687b4}
+@media(max-width:700px){
+.arcade-shell[data-console-theme="ps5"] .launcher-sidebar,.arcade-shell[data-console-theme="wii"] .launcher-sidebar{justify-content:flex-start}
+.arcade-shell[data-console-theme="ps5"] .launcher-brand,.arcade-shell[data-console-theme="wii"] .launcher-brand{margin-right:8px}
+.arcade-shell[data-console-theme="ps5"] .launcher-side-item,.arcade-shell[data-console-theme="wii"] .launcher-side-item{padding:9px 12px}
+.arcade-shell[data-console-theme="xbox"] .launcher-layout{grid-template-columns:54px minmax(0,1fr)}
+.arcade-shell[data-console-theme="xbox"] .launcher-sidebar{padding:7px 4px}
+.arcade-shell[data-console-theme="xbox"] .launcher-side-item{padding:11px 2px}
+.arcade-shell[data-console-theme="xbox"] .launcher-game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.arcade-shell[data-console-theme="wii"] .launcher-game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 </style>
 
 </head>
