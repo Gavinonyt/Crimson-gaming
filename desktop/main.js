@@ -151,6 +151,10 @@ ipcMain.handle("ultra-presence:save-client-id", async (_event, clientId) => {
   return result;
 });
 ipcMain.handle("ultra-presence:open-settings", () => { createSettingsWindow(); return { ok: true }; });
+ipcMain.handle("ultra-presence:open-external", async (_event, url) => {
+  if (url === "https://discord.com/developers/applications") await shell.openExternal(url);
+  return { ok: true };
+});
 app.whenReady().then(() => {
   const cfg = readConfig();
   rpcClientId = cfg.discordApplicationId || "";
