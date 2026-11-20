@@ -1,8 +1,0 @@
-{
-  "appId": "com.ultragaming.launcher",
-  "appName": "Ultra Launcher",
-  "webDir": "www",
-  "server": {
-    "androidScheme": "https"
-  }
-}
