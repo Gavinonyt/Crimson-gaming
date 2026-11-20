@@ -1694,6 +1694,7 @@ function updateBlocks(){
  document.getElementById("blocksScore").textContent="Score: "+st.score;
 }
 function startArcadeDrive(id){
+ if(arcadeTimer){clearTimeout(arcadeTimer);arcadeTimer=null}
  const stage=document.getElementById("arcadeStage");arcadeState={kind:"drive",id,lane:1,score:0,seconds:0,over:false,obstacles:[]};
  stage.innerHTML='<div class="arcade-toolbar"><strong>'+(id==="crimson drift"?"Neon Slide":"City Sprint")+'</strong><span class="arcade-score" id="driveScore">Score: 0</span></div><canvas id="arcadeRoad" width="640" height="340" style="width:100%;max-height:360px;border:1px solid #ffffff20;border-radius:12px;background:#100e19"></canvas><div class="arcade-controls">'+arcadeButton("◀ STEER LEFT","drive-left",true)+arcadeButton("STEER RIGHT ▶","drive-right",true)+'</div><div class="arcade-controls">'+arcadeButton("RESTART","drive-restart",true)+'</div><p class="arcade-muted" id="driveMessage">Use ← → or the buttons to dodge traffic. Stay on the road as long as you can.</p>';
  const canvas=document.getElementById("arcadeRoad"),ctx=canvas.getContext("2d");
@@ -1705,7 +1706,7 @@ function startArcadeDrive(id){
   ctx.clearRect(0,0,640,340);ctx.fillStyle="#123b31";ctx.fillRect(0,0,640,340);ctx.fillStyle="#292735";ctx.fillRect(180,0,280,340);
   ctx.strokeStyle="#e8d9a4";ctx.lineWidth=4;ctx.setLineDash([24,20]);ctx.lineDashOffset=-(st.seconds*5)%44;ctx.beginPath();ctx.moveTo(273,0);ctx.lineTo(273,340);ctx.moveTo(367,0);ctx.lineTo(367,340);ctx.stroke();ctx.setLineDash([]);
   ctx.fillStyle="#b98aff";ctx.fillRect(px-18,270,36,52);ctx.fillStyle="#171222";ctx.fillRect(px-12,280,24,13);
-  for(const o of st.obstacles){ctx.fillStyle="#ff668d";ctx.fillRect(laneX[o.lane]-17,o.y,34,46);if(o.lane===st.lane&&o.y>238&&o.y<315){st.over=true;document.getElementById("driveMessage").textContent="Run over! Press restart to race again.";}}
+  for(const o of st.obstacles){ctx.fillStyle="#ff668d";ctx.fillRect(laneX[o.lane]-17,o.y,34,46);if(o.lane===st.lane&&o.y<322&&o.y+46>270){st.over=true;document.getElementById("driveMessage").textContent="Run over! Press restart to race again.";}}
   st.score+=1;document.getElementById("driveScore").textContent="Score: "+Math.floor(st.score/5);
   if(!st.over)arcadeTimer=setTimeout(frame,45);
  }
