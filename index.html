@@ -2490,8 +2490,8 @@ function renderDrive3D(){
  drive3DRenderer.render(d.scene,d.camera);
 }
 function resizeDrive3D(){
- if(!drive3DReady)return;const frame=document.querySelector(".drive-frame");if(!frame)return;const w=Math.floor(frame.clientWidth);if(w<2)return;const h=Math.max(1,Math.round(w*8/15));
- drive3DRenderer.setSize(w,h,false);drive3D.camera.aspect=w/h;drive3D.camera.updateProjectionMatrix();renderDrive3D();
+ if(!drive3DReady||!drive3DRenderer||!drive3D)return;const frame=document.querySelector(".drive-frame");if(!frame)return;const w=Math.floor(frame.clientWidth);if(w<2)return;const h=Math.max(1,Math.round(w*8/15));
+ try{drive3DRenderer.setSize(w,h,false);drive3D.camera.aspect=w/h;drive3D.camera.updateProjectionMatrix();renderDrive3D()}catch(err){console.error("Ultra Sprint resize failed; switching to 2D:",err);drive3DReady=false;try{drive3DRenderer.dispose()}catch{}drive3DRenderer=null;document.querySelector(".drive3d-canvas")?.remove();if(driveCanvas)driveCanvas.style.display="block";drawDrive()}
 }
 window.addEventListener("resize",resizeDrive3D);
 function roundedRect(c,x,y,w,h,r){c.beginPath();c.roundRect(x,y,w,h,r);c.fill()}
@@ -2640,6 +2640,7 @@ async function loadDriveLeaderboard(){
   rows.innerHTML="";
   return;
  }
+ data=Array.isArray(data)?data:[];
  status.textContent=data.length? "TOP 10 PLAYERS":"No scores yet. Be the first!";
  rows.innerHTML=data.length?data.map((r,i)=>'<div class="leaderboard-row"><span class="leaderboard-rank">#'+(i+1)+'</span><div><strong>'+escapeLeaderboardText(r.player_name||"Ultra Player")+'</strong><small>Ultra Sprint</small></div><span class="leaderboard-score">'+Number(r.score||0).toLocaleString()+' m</span></div>').join(""):'<p class="drive-note">No scores posted yet. Start driving and post your best run!</p>';
 }
