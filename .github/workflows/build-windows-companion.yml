@@ -21,6 +21,17 @@ jobs:
         run: npm install
       - name: Build Windows installer
         run: npm run dist
+      - name: Smoke-test the packaged Windows app
+        shell: pwsh
+        run: |
+          $app = Join-Path $PWD "dist/win-unpacked/Ultra Launcher.exe"
+          if (!(Test-Path $app)) { throw "Packaged Ultra Launcher executable was not found." }
+          $process = Start-Process -FilePath $app -PassThru
+          Start-Sleep -Seconds 10
+          $process.Refresh()
+          if ($process.HasExited) { throw "Ultra Launcher exited during startup (exit code $($process.ExitCode))." }
+          Stop-Process -Id $process.Id -Force
+          Write-Host "Ultra Launcher started successfully in the GitHub Windows runner."
       - name: Upload installer
         uses: actions/upload-artifact@v4
         with:
