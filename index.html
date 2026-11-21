@@ -2496,135 +2496,31 @@ function resizeDrive3D(){
 window.addEventListener("resize",resizeDrive3D);
 function roundedRect(c,x,y,w,h,r){c.beginPath();c.roundRect(x,y,w,h,r);c.fill()}
 function drawDrive(){
- if(drive3DReady){try{renderDrive3D();document.getElementById("driveDistance").textContent=Math.floor(drive.distance)+" m";document.getElementById("driveSpeed").textContent=Math.round(drive.speed)+" MPH";document.getElementById("driveBest").textContent=Math.floor(drive.best)+" m";return}catch(err){console.error("Ultra Sprint 3D renderer failed; switching to 2D:",err);drive3DReady=false;try{drive3DRenderer?.dispose()}catch{}drive3DRenderer=null;document.querySelector(".drive3d-canvas")?.remove();if(driveCanvas)driveCanvas.style.display="block"}}
- const c=driveCtx,w=driveCanvas.width,h=driveCanvas.height,car=driveCars[drive.car]||driveCars.chevrolet,id=drive.car||"chevrolet";
- const profiles={
-  corvette:{dash:"#171b20",trim:"#c4cbd2",wheel:"#080a0d",screen:"#101a22",shape:"sport",cluster:"digital",badge:"CORVETTE"},
-  camaro:{dash:"#17191e",trim:"#c66b35",wheel:"#090b0e",screen:"#111820",shape:"muscle",cluster:"twin",badge:"CAMARO"},
-  cadillac:{dash:"#202229",trim:"#d8dce2",wheel:"#101216",screen:"#10171d",shape:"luxury",cluster:"wide",badge:"CADILLAC"},
-  truck:{dash:"#252421",trim:"#c6a16a",wheel:"#111111",screen:"#101619",shape:"truck",cluster:"twin",badge:"TRUCK"},
-  mustang:{dash:"#171b23",trim:"#4385c0",wheel:"#090c11",screen:"#101820",shape:"muscle",cluster:"twin",badge:"MUSTANG"},
-  fordgt:{dash:"#111a20",trim:"#27b7d1",wheel:"#070b0e",screen:"#0b1820",shape:"sport",cluster:"digital",badge:"FORD GT"},
-  lincoln:{dash:"#242129",trim:"#b9a5a0",wheel:"#121117",screen:"#17131d",shape:"luxury",cluster:"wide",badge:"LINCOLN"},
-  dodge:{dash:"#1b171d",trim:"#c34b54",wheel:"#0d0b0e",screen:"#121016",shape:"muscle",cluster:"twin",badge:"DODGE"},
-  jeep:{dash:"#252822",trim:"#9da77b",wheel:"#11140f",screen:"#151a15",shape:"upright",cluster:"twin",badge:"JEEP"},
-  tesla:{dash:"#1b1c20",trim:"#c9cdd3",wheel:"#0b0c0e",screen:"#101820",shape:"minimal",cluster:"screen",badge:"TESLA"},
-  rivian:{dash:"#c4b9a6",trim:"#a97848",wheel:"#24211d",screen:"#182026",shape:"minimal",cluster:"screen",badge:"RIVIAN"},
-  lucid:{dash:"#29272a",trim:"#c7bba8",wheel:"#121114",screen:"#171a20",shape:"luxury",cluster:"wide",badge:"LUCID"}
- };
- let type="dodge";
- if(/ford-gt/i.test(id))type="fordgt";
- else if(/corvette|viper/i.test(id))type="corvette";
- else if(/camaro/i.test(id))type="camaro";
- else if(/cadillac/i.test(id))type="cadillac";
- else if(/gmc|sierra|silverado|ram-|1500|2500|3500|f150|f-150|f250|f-250|tundra|tacoma|cybertruck|rivian-r1t|truck/i.test(id))type="truck";
- else if(/mustang/i.test(id))type="mustang";
- else if(/lincoln|continental/i.test(id))type="lincoln";
- else if(/jeep|wrangler/i.test(id))type="jeep";
- else if(/tesla/i.test(id))type="tesla";
- else if(/rivian/i.test(id))type="rivian";
- else if(/lucid/i.test(id))type="lucid";
- const cabin=profiles[type]||profiles.dodge,steer=(drive.x-450)/245,horizon=h*.39,shift=steer*82;
+ const c=driveCtx,w=driveCanvas.width,h=driveCanvas.height,car=driveCars[drive.car]||driveCars.chevrolet;
  c.clearRect(0,0,w,h);
- // View through the windshield
- const sky=c.createLinearGradient(0,0,0,h*.62);sky.addColorStop(0,"#101b2b");sky.addColorStop(.65,"#66516d");sky.addColorStop(1,"#d18e73");c.fillStyle=sky;c.fillRect(0,0,w,h);
- c.fillStyle="#f2b88e";c.beginPath();c.arc(w*.5,h*.27,39,0,Math.PI*2);c.fill();
- // Distant city, roadside and road perspective
- for(let i=0;i<14;i++){const x=i*w/14;c.fillStyle=i%2?"#293b3a":"#35423b";const bh=22+(i*17%43);c.fillRect(x,horizon-bh,25,bh)}
- c.fillStyle="#26352f";c.beginPath();c.moveTo(0,horizon);c.lineTo(w*.39,horizon);c.lineTo(w*.18,h);c.lineTo(0,h);c.fill();c.beginPath();c.moveTo(w,horizon);c.lineTo(w*.61,horizon);c.lineTo(w*.82,h);c.lineTo(w,h);c.fill();
- c.fillStyle="#34343b";c.beginPath();c.moveTo(w*.39,horizon);c.lineTo(w*.61,horizon);c.lineTo(w*.91,h);c.lineTo(w*.09,h);c.closePath();c.fill();
- c.strokeStyle="#e9d99a";c.lineWidth=5;c.beginPath();c.moveTo(w*.39,horizon);c.lineTo(w*.09,h);c.moveTo(w*.61,horizon);c.lineTo(w*.91,h);c.stroke();
- c.strokeStyle="#f5e7ba";c.lineWidth=4;for(let y=0;y<7;y++){const t=((y*86+drive.scroll*2.8)%(h*.7))/(h*.7),yy=horizon+t*(h-horizon),half=8+t*65;c.beginPath();c.moveTo(w*.5+shift*t-half,yy);c.lineTo(w*.5+shift*t+half,yy);c.stroke()}
- for(let i=0;i<12;i++){const t=((i*.11+drive.scroll*.002)%1),yy=horizon+t*(h*.52),size=8+t*48,x1=w*.08-t*50,x2=w*.92+t*50;c.fillStyle=i%2?"#20392f":"#314638";c.beginPath();c.arc(x1,yy,size,0,Math.PI*2);c.fill();c.beginPath();c.arc(x2,yy,size*1.1,0,Math.PI*2);c.fill()}
- // Windshield pillars, roof liner and rear-view mirror
- c.fillStyle="#090a10";c.beginPath();c.moveTo(0,0);c.lineTo(w*.105,0);c.lineTo(w*.205,h*.69);c.lineTo(0,h*.76);c.closePath();c.fill();c.beginPath();c.moveTo(w,0);c.lineTo(w*.895,0);c.lineTo(w*.795,h*.69);c.lineTo(w,h*.76);c.closePath();c.fill();
- c.fillStyle="#111218";c.fillRect(0,0,w,h*.045);c.fillStyle="#090a0e";roundedRect(c,w*.435,h*.035,w*.13,h*.045,8);c.fillStyle="#39343b";roundedRect(c,w*.445,h*.045,w*.11,h*.027,6);
- // Side window trim and door tops
- c.fillStyle="#111319";c.beginPath();c.moveTo(0,h*.55);c.lineTo(w*.18,h*.62);c.lineTo(w*.17,h*.84);c.lineTo(0,h*.91);c.fill();c.beginPath();c.moveTo(w,h*.55);c.lineTo(w*.82,h*.62);c.lineTo(w*.83,h*.84);c.lineTo(w,h*.91);c.fill();
- // Seats visible at the lower edges
- c.fillStyle="#111217";c.beginPath();c.moveTo(w*.06,h);c.lineTo(w*.13,h*.78);c.quadraticCurveTo(w*.17,h*.72,w*.24,h*.79);c.lineTo(w*.29,h);c.fill();c.beginPath();c.moveTo(w*.94,h);c.lineTo(w*.87,h*.78);c.quadraticCurveTo(w*.83,h*.72,w*.76,h*.79);c.lineTo(w*.71,h);c.fill();
- c.strokeStyle=cabin.trim+"88";c.lineWidth=3;c.beginPath();c.moveTo(w*.17,h*.82);c.lineTo(w*.23,h*.98);c.moveTo(w*.83,h*.82);c.lineTo(w*.77,h*.98);c.stroke();
- // Sculpted dashboard and upper dash pad
- c.fillStyle="#111016";c.beginPath();c.moveTo(0,h*.68);c.quadraticCurveTo(w*.5,h*.59,w,h*.68);c.lineTo(w,h);c.lineTo(0,h);c.closePath();c.fill();
- const dg=c.createLinearGradient(0,h*.65,0,h);dg.addColorStop(0,cabin.dash);dg.addColorStop(.42,cabin.dash);dg.addColorStop(1,"#09090d");c.fillStyle=dg;c.beginPath();c.moveTo(0,h*.69);c.quadraticCurveTo(w*.5,h*.61,w,h*.69);c.lineTo(w,h);c.lineTo(0,h);c.closePath();c.fill();
- c.strokeStyle=cabin.trim;c.globalAlpha=.65;c.lineWidth=4;c.beginPath();c.moveTo(w*.035,h*.72);c.quadraticCurveTo(w*.5,h*.635,w*.965,h*.72);c.stroke();c.globalAlpha=1;
- // Passenger-side air vent and trim
- c.fillStyle="#080a0e";roundedRect(c,w*.71,h*.715,w*.17,h*.052,7);c.strokeStyle=cabin.trim;c.lineWidth=2;c.strokeRect(w*.72,h*.725,w*.15,h*.03);for(let k=0;k<5;k++){c.beginPath();c.moveTo(w*(.735+k*.027),h*.73);c.lineTo(w*(.735+k*.027),h*.75);c.stroke()}
- // Driver instrument cluster hood
- c.fillStyle="#08090d";roundedRect(c,w*.245,h*.695,w*.25,h*.16,17);c.fillStyle="#171a20";roundedRect(c,w*.258,h*.705,w*.224,h*.125,12);
- // Model-specific instrument graphics
- if(cabin.cluster==="twin"){for(const x of [w*.315,w*.415]){c.strokeStyle="#b9c7d4";c.lineWidth=3;c.beginPath();c.arc(x,h*.765,23,0,Math.PI*2);c.stroke();c.strokeStyle="#f3f4f6";c.lineWidth=2;c.beginPath();c.moveTo(x,h*.765);c.lineTo(x+Math.min(15,drive.speed*.07),h*.75);c.stroke();c.fillStyle="#bcecff";c.font="10px system-ui";c.textAlign="center";c.fillText(Math.round(drive.speed),x,h*.81)}}
- else{c.fillStyle="#07131b";roundedRect(c,w*.27,h*.72,w*.20,h*.095,8);c.fillStyle="#a9eaff";c.font="bold 21px system-ui";c.textAlign="center";c.fillText(Math.round(drive.speed)+"",w*.37,h*.765);c.font="9px system-ui";c.fillText("MPH  •  "+cabin.badge,w*.37,h*.795)}
- // Center infotainment stack; screen layout changes by vehicle family
- const sx=cabin.shape==="minimal"?w*.52:w*.535,sw=cabin.shape==="minimal"?w*.25:w*.18;
- c.fillStyle="#080a0e";roundedRect(c,sx,h*.69,sw,h*.17,12);c.fillStyle=cabin.screen;roundedRect(c,sx+5,h*.70,sw-10,h*.145,8);
- c.fillStyle="#d8e5ec";c.font="bold 11px system-ui";c.textAlign="center";c.fillText(cabin.badge,sx+sw/2,h*.728);
- c.strokeStyle=cabin.trim;c.lineWidth=2;c.beginPath();c.moveTo(sx+10,h*.744);c.lineTo(sx+sw-10,h*.744);c.stroke();
- if(cabin.shape==="minimal"){c.fillStyle="#91d9f0";c.font="10px system-ui";c.fillText("NAV  •  MEDIA  •  CLIMATE",sx+sw/2,h*.78);c.fillText("CONNECTED VEHICLE",sx+sw/2,h*.81)}
- else{for(let k=0;k<4;k++){c.fillStyle=["#9ad7ee","#c4b6e5","#9cc6a6","#e3c18c"][k];roundedRect(c,sx+12+k*((sw-30)/4),h*.765,Math.max(12,(sw-42)/4),h*.047,3)}}
- // Physical climate controls and center console
- c.fillStyle="#0b0c11";roundedRect(c,w*.535,h*.865,w*.18,h*.08,10);for(let k=0;k<3;k++){c.strokeStyle=cabin.trim;c.lineWidth=2;c.beginPath();c.arc(w*(.565+k*.06),h*.895,8,0,Math.PI*2);c.stroke()}
- c.fillStyle="#17171d";c.beginPath();c.moveTo(w*.46,h*.84);c.lineTo(w*.73,h*.84);c.lineTo(w*.79,h);c.lineTo(w*.39,h);c.closePath();c.fill();
- c.fillStyle="#08090d";roundedRect(c,w*.59,h*.93,w*.07,h*.045,7);c.fillStyle=cabin.trim;roundedRect(c,w*.615,h*.94,w*.02,h*.025,4);
- // Extra cabin geometry: layered door cards, handles, armrests and window switches
- const doorTop=cabin.shape==="truck"||cabin.shape==="upright"?h*.605:h*.635;
- c.fillStyle="#090a0f";c.beginPath();c.moveTo(0,doorTop);c.quadraticCurveTo(w*.10,h*.67,w*.20,h*.70);c.lineTo(w*.22,h);c.lineTo(0,h);c.closePath();c.fill();
- c.beginPath();c.moveTo(w,doorTop);c.quadraticCurveTo(w*.90,h*.67,w*.80,h*.70);c.lineTo(w*.78,h);c.lineTo(w,h);c.closePath();c.fill();
- const doorGrad=c.createLinearGradient(0,h*.68,0,h);doorGrad.addColorStop(0,cabin.dash);doorGrad.addColorStop(1,"#08090d");c.fillStyle=doorGrad;
- c.beginPath();c.moveTo(0,h*.72);c.quadraticCurveTo(w*.12,h*.69,w*.205,h*.755);c.lineTo(w*.22,h);c.lineTo(0,h);c.fill();
- c.beginPath();c.moveTo(w,h*.72);c.quadraticCurveTo(w*.88,h*.69,w*.795,h*.755);c.lineTo(w*.78,h);c.lineTo(w,h);c.fill();
- c.strokeStyle=cabin.trim;c.globalAlpha=.7;c.lineWidth=2;c.beginPath();c.moveTo(w*.035,h*.79);c.quadraticCurveTo(w*.12,h*.755,w*.19,h*.80);c.moveTo(w*.965,h*.79);c.quadraticCurveTo(w*.88,h*.755,w*.81,h*.80);c.stroke();c.globalAlpha=1;
- // Door pulls and window switches
- for(const side of [0,1]){const dx=side?w*.835:w*.085;c.fillStyle="#050609";roundedRect(c,dx,h*.81,w*.075,h*.035,7);c.strokeStyle=cabin.trim;c.lineWidth=2;c.beginPath();c.moveTo(dx+8,h*.827);c.lineTo(dx+w*.055,h*.827);c.stroke();c.fillStyle="#20232a";roundedRect(c,dx+5,h*.865,w*.055,h*.022,4);for(let q=0;q<3;q++){c.fillStyle="#07090c";roundedRect(c,dx+8+q*10,h*.87,7,5,2)}}
- // Sculpted front seats with bolsters and headrests; truck/SUV seats sit taller
- const seatY=(cabin.shape==="truck"||cabin.shape==="upright")?.685:.735;
- for(const side of [0,1]){
-  const x=side?w*.80:w*.075,sw=w*.15;
-  c.fillStyle="#050609";c.beginPath();c.moveTo(x+sw*.12,h);c.lineTo(x+sw*.08,seatY*h);c.quadraticCurveTo(x+sw*.08,seatY*h-22,x+sw*.5,seatY*h-25);c.quadraticCurveTo(x+sw*.92,seatY*h-22,x+sw*.92,seatY*h);c.closePath();c.fill();
-  c.fillStyle=cabin.dash;c.beginPath();c.moveTo(x+sw*.19,h);c.lineTo(x+sw*.17,seatY*h+18);c.quadraticCurveTo(x+sw*.5,seatY*h-5,x+sw*.83,seatY*h+18);c.lineTo(x+sw*.82,h);c.closePath();c.fill();
-  c.strokeStyle=cabin.trim;c.globalAlpha=.6;c.lineWidth=2;c.beginPath();c.moveTo(x+sw*.28,seatY*h+18);c.lineTo(x+sw*.30,h-8);c.moveTo(x+sw*.72,seatY*h+18);c.lineTo(x+sw*.70,h-8);c.stroke();c.globalAlpha=1;
-  c.fillStyle="#090a0e";roundedRect(c,x+sw*.30,seatY*h-38,sw*.40,25,9);c.strokeStyle=cabin.trim;c.lineWidth=2;c.strokeRect(x+sw*.34,seatY*h-34,sw*.32,16);
- }
- // Center tunnel, gear selector, cupholders and parking controls
- const tunnelTop=cabin.shape==="truck"||cabin.shape==="upright"?.82:.855;
- c.fillStyle="#08090d";c.beginPath();c.moveTo(w*.455,h*.84);c.lineTo(w*.70,h*.84);c.lineTo(w*.84,h);c.lineTo(w*.34,h);c.closePath();c.fill();
- c.strokeStyle=cabin.trim;c.globalAlpha=.55;c.lineWidth=2;c.beginPath();c.moveTo(w*.47,h*tunnelTop);c.lineTo(w*.365,h);c.moveTo(w*.68,h*tunnelTop);c.lineTo(w*.835,h);c.stroke();c.globalAlpha=1;
- if(cabin.shape!=="minimal"){
-  c.fillStyle="#171a20";roundedRect(c,w*.50,h*.86,w*.075,h*.075,9);c.fillStyle=cabin.trim;roundedRect(c,w*.526,h*.872,w*.022,h*.042,5);
-  for(let k=0;k<2;k++){c.fillStyle="#050609";c.beginPath();c.ellipse(w*(.62+k*.075),h*.91,13,8,0,0,Math.PI*2);c.fill();c.strokeStyle=cabin.trim;c.lineWidth=2;c.stroke()}
- }else{
-  c.fillStyle="#090b10";roundedRect(c,w*.51,h*.875,w*.19,h*.045,12);c.fillStyle="#303640";roundedRect(c,w*.535,h*.884,w*.14,h*.022,7);
- }
- // Vehicle-family dashboard details: sport-car hood, upright truck dash, or clean EV fascia
- if(cabin.shape==="sport"||cabin.shape==="muscle"){
-  c.fillStyle="#08090d";roundedRect(c,w*.245,h*.665,w*.25,h*.035,8);c.fillStyle=cabin.trim;c.globalAlpha=.7;c.fillRect(w*.27,h*.676,w*.20,2);c.globalAlpha=1;
- }else if(cabin.shape==="truck"||cabin.shape==="upright"){
-  c.fillStyle="#0a0b0e";roundedRect(c,w*.08,h*.70,w*.13,h*.075,8);c.strokeStyle=cabin.trim;c.lineWidth=2;c.strokeRect(w*.09,h*.715,w*.11,h*.045);
-  c.fillStyle="#090a0d";roundedRect(c,w*.73,h*.67,w*.15,h*.04,7);c.fillStyle=cabin.trim;c.fillRect(w*.75,h*.685,w*.11,2);
- }else if(cabin.shape==="luxury"){
-  c.strokeStyle=cabin.trim;c.globalAlpha=.65;c.lineWidth=3;c.beginPath();c.moveTo(w*.08,h*.70);c.quadraticCurveTo(w*.5,h*.65,w*.91,h*.70);c.stroke();c.globalAlpha=1;
- }
- // Small pedal set in the driver's footwell
- c.fillStyle="#252830";roundedRect(c,w*.25,h*.94,w*.035,h*.045,4);roundedRect(c,w*.295,h*.935,w*.035,h*.05,4);
- c.strokeStyle="#777d87";c.lineWidth=1;for(let p=0;p<2;p++)for(let q=0;q<3;q++){c.beginPath();c.moveTo(w*(.257+p*.045),h*(.95+q*.01));c.lineTo(w*(.277+p*.045),h*(.95+q*.01));c.stroke()}
- // Steering wheel with rim, spokes, controls and center badge
- const wx=w*.365+steer*27,wy=h*.89,wr=66;c.strokeStyle="#050608";c.lineWidth=22;c.beginPath();c.arc(wx,wy,wr,Math.PI*1.08,Math.PI*1.92);c.stroke();c.strokeStyle="#55545a";c.lineWidth=4;c.beginPath();c.arc(wx,wy,wr,Math.PI*1.08,Math.PI*1.92);c.stroke();
- c.fillStyle="#15171d";c.beginPath();c.moveTo(wx-wr*.83,wy-4);c.lineTo(wx-wr*.53,wy+28);c.lineTo(wx+wr*.53,wy+28);c.lineTo(wx+wr*.83,wy-4);c.closePath();c.fill();
- c.strokeStyle="#08090c";c.lineWidth=11;c.beginPath();c.moveTo(wx,wy-3);c.lineTo(wx,wy-56);c.moveTo(wx-4,wy+4);c.lineTo(wx-48,wy-25);c.moveTo(wx+4,wy+4);c.lineTo(wx+48,wy-25);c.stroke();
- c.fillStyle=cabin.trim;c.beginPath();c.arc(wx,wy,19,0,Math.PI*2);c.fill();c.fillStyle="#15161b";c.beginPath();c.arc(wx,wy,14,0,Math.PI*2);c.fill();c.fillStyle=car.color;c.beginPath();c.arc(wx,wy,5,0,Math.PI*2);c.fill();
- // Stitching and subtle material seams
- c.strokeStyle=cabin.trim;c.globalAlpha=.55;c.setLineDash([5,7]);c.lineWidth=1.5;c.beginPath();c.moveTo(w*.05,h*.755);c.quadraticCurveTo(w*.5,h*.675,w*.95,h*.755);c.stroke();c.setLineDash([]);c.globalAlpha=1;
- c.fillStyle="#d9d1dc";c.font="11px system-ui";c.textAlign="left";c.fillText("DIST "+Math.floor(drive.distance)+" m",18,h-13);c.textAlign="right";c.fillText("BEST "+Math.floor(drive.best)+" m",w-18,h-13);
- document.getElementById("driveDistance").textContent=Math.floor(drive.distance)+" m";document.getElementById("driveSpeed").textContent=Math.round(drive.speed)+" MPH";document.getElementById("driveBest").textContent=Math.floor(drive.best)+" m";
-}function drawDriveFallback(){const c=driveCtx;if(!c||!driveCanvas)return;const w=driveCanvas.width,h=driveCanvas.height;c.clearRect(0,0,w,h);c.fillStyle="#182a3d";c.fillRect(0,0,w,h*.42);c.fillStyle="#344638";c.fillRect(0,h*.42,w,h*.58);c.fillStyle="#30343a";c.beginPath();c.moveTo(w*.36,h*.42);c.lineTo(w*.64,h*.42);c.lineTo(w*.92,h);c.lineTo(w*.08,h);c.closePath();c.fill();c.strokeStyle="#f4e7b5";c.lineWidth=5;c.setLineDash([24,20]);c.beginPath();c.moveTo(w*.5,h*.44);c.lineTo(w*.5,h);c.stroke();c.setLineDash([]);c.fillStyle=(driveCars[drive.car]||driveCars.chevrolet).color||"#168cff";c.fillRect(drive.x-w*.045,h*.72,w*.09,h*.16);c.fillStyle="#fff";c.font="bold 20px sans-serif";c.fillText("ULTRA SPRINT",24,34);const a=document.getElementById("driveDistance"),b=document.getElementById("driveSpeed"),d=document.getElementById("driveBest");if(a)a.textContent=Math.floor(drive.distance)+" m";if(b)b.textContent=Math.round(drive.speed)+" MPH";if(d)d.textContent=Math.floor(drive.best)+" m"}
-function driveFrame(t,token){if(token!==drive.frameToken||!drive.running||drive.paused){drive.rafId=0;return}if(document.hidden||document.getElementById("playPage")?.style.display!=="block"){drive.paused=true;drive.rafId=0;const pauseControl=document.getElementById("drivePause");if(pauseControl)pauseControl.textContent="RESUME";return}try{const dt=Math.max(0,Math.min((t-drive.last)/16.6667,2.5));drive.last=t;const left=!!(drive.keys.ArrowLeft||drive.keys.a||drive.touch.left),right=!!(drive.keys.ArrowRight||drive.keys.d||drive.touch.right),gas=!!(drive.keys.ArrowUp||drive.keys.w||drive.touch.gas),brake=!!(drive.keys.ArrowDown||drive.keys.s||drive.touch.brake);const selectedCar=driveCars[drive.car]||driveCars.chevrolet,acceleration=Number.isFinite(selectedCar.acceleration)?selectedCar.acceleration:(drive.car==="dodge-demon-170"?2.45:2.0),topSpeed=Number.isFinite(selectedCar.topSpeed)&&selectedCar.topSpeed>0?selectedCar.topSpeed:365;drive.speed=Math.max(0,Math.min(topSpeed,drive.speed+(gas?acceleration:-0.22-(brake?2.2:0))*dt));drive.x+=((right?1:0)-(left?1:0))*(2.3+drive.speed*.018)*dt;drive.x=Math.max(205,Math.min(695,drive.x));drive.distance+=drive.speed*.0018*dt;drive.scroll=(drive.scroll+drive.speed*.025*dt)%1000;if(drive.distance>drive.best){drive.best=drive.distance;const bestAccount=activeUser&&activeUser.id||"guest";localStorage.setItem("crimson_drive_best_"+bestAccount,String(Math.floor(drive.best)));localStorage.setItem("crimson_drive_best",String(Math.floor(drive.best)))}try{drawDrive()}catch(renderError){console.warn("Ultra Sprint using safe 2D renderer",renderError);drive3DReady=false;document.querySelector(".drive3d-canvas")?.remove();if(driveCanvas)driveCanvas.style.display="block";drawDriveFallback()}drive.rafId=requestAnimationFrame(next=>driveFrame(next,token))}catch(err){console.error("Ultra Sprint frame stopped safely:",err);drive.running=false;drive.paused=true;drive.rafId=0;Object.keys(drive.keys).forEach(k=>drive.keys[k]=false);Object.keys(drive.touch).forEach(k=>drive.touch[k]=false);const overlay=document.getElementById("driveOverlay");if(overlay){overlay.classList.remove("hidden");const message=overlay.querySelector("p");if(message)message.textContent="The run was stopped safely after a game error. Press restart to try again."}const pauseControl=document.getElementById("drivePause");if(pauseControl)pauseControl.textContent="PAUSE"}}
+ const sky=c.createLinearGradient(0,0,0,h*.58);sky.addColorStop(0,"#10294b");sky.addColorStop(1,"#80b4d0");c.fillStyle=sky;c.fillRect(0,0,w,h*.58);
+ c.fillStyle="#385b43";c.fillRect(0,h*.48,w,h*.52);
+ // Third-person chase view: road ahead and the selected car fully visible.
+ c.fillStyle="#292e36";c.beginPath();c.moveTo(w*.43,h*.43);c.lineTo(w*.57,h*.43);c.lineTo(w*.94,h);c.lineTo(w*.06,h);c.closePath();c.fill();
+ c.strokeStyle="#f5e9bd";c.lineWidth=5;c.setLineDash([30,25]);c.beginPath();c.moveTo(w*.5,h*.46);c.lineTo(w*.5,h);c.stroke();c.setLineDash([]);
+ for(let i=0;i<12;i++){const y=h*.49+i*h*.045,scale=(y-h*.45)/(h*.55);c.fillStyle=i%2?"#416a49":"#527b53";c.fillRect(0,y,w*.23*scale,4);c.fillRect(w-w*.23*scale,y,w*.23*scale,4)}
+ const carX=Math.max(w*.25,Math.min(w*.75,drive.x/900*w)),carY=h*.69,carW=w*.19,carH=h*.23;
+ c.fillStyle="#080a0e";c.fillRect(carX-carW*.53,carY+carH*.12,carW*.16,carH*.45);c.fillRect(carX+carW*.37,carY+carH*.12,carW*.16,carH*.45);
+ c.fillStyle=car.color||"#168cff";c.beginPath();c.moveTo(carX-carW*.5,carY+carH*.78);c.lineTo(carX-carW*.43,carY+carH*.28);c.quadraticCurveTo(carX,carY-carH*.05,carX+carW*.43,carY+carH*.28);c.lineTo(carX+carW*.5,carY+carH*.78);c.closePath();c.fill();
+ c.fillStyle="#152b3d";c.beginPath();c.moveTo(carX-carW*.29,carY+carH*.31);c.quadraticCurveTo(carX,carY+carH*.08,carX+carW*.29,carY+carH*.31);c.lineTo(carX+carW*.34,carY+carH*.49);c.lineTo(carX-carW*.34,carY+carH*.49);c.closePath();c.fill();
+ c.fillStyle="#f5f7ff";c.fillRect(carX-carW*.39,carY+carH*.65,carW*.14,carH*.06);c.fillRect(carX+carW*.25,carY+carH*.65,carW*.14,carH*.06);
+ c.fillStyle="#fff";c.font="bold 20px sans-serif";c.fillText("ULTRA SPRINT",22,30);c.font="bold 13px sans-serif";c.fillText(car.short||car.name,22,52);
+ const a=document.getElementById("driveDistance"),b=document.getElementById("driveSpeed"),d=document.getElementById("driveBest");if(a)a.textContent=Math.floor(drive.distance)+" m";if(b)b.textContent=Math.round(drive.speed)+" MPH";if(d)d.textContent=Math.floor(drive.best)+" m";
+}
+function drawDriveFallback(){const c=driveCtx;if(!c||!driveCanvas)return;const w=driveCanvas.width,h=driveCanvas.height;c.clearRect(0,0,w,h);c.fillStyle="#182a3d";c.fillRect(0,0,w,h*.42);c.fillStyle="#344638";c.fillRect(0,h*.42,w,h*.58);c.fillStyle="#30343a";c.beginPath();c.moveTo(w*.36,h*.42);c.lineTo(w*.64,h*.42);c.lineTo(w*.92,h);c.lineTo(w*.08,h);c.closePath();c.fill();c.strokeStyle="#f4e7b5";c.lineWidth=5;c.setLineDash([24,20]);c.beginPath();c.moveTo(w*.5,h*.44);c.lineTo(w*.5,h);c.stroke();c.setLineDash([]);c.fillStyle=(driveCars[drive.car]||driveCars.chevrolet).color||"#168cff";c.fillRect(drive.x-w*.045,h*.72,w*.09,h*.16);c.fillStyle="#fff";c.font="bold 20px sans-serif";c.fillText("ULTRA SPRINT",24,34);const a=document.getElementById("driveDistance"),b=document.getElementById("driveSpeed"),d=document.getElementById("driveBest");if(a)a.textContent=Math.floor(drive.distance)+" m";if(b)b.textContent=Math.round(drive.speed)+" MPH";if(d)d.textContent=Math.floor(drive.best)+" m"}
+function driveFrame(t,token){if(token!==drive.frameToken||!drive.running||drive.paused){drive.rafId=0;return}if(document.hidden||document.getElementById("playPage")?.style.display!=="block"){drive.paused=true;drive.rafId=0;const pauseControl=document.getElementById("drivePause");if(pauseControl)pauseControl.textContent="RESUME";return}try{const dt=Math.max(0,Math.min((t-drive.last)/16.6667,2.5));drive.last=t;const left=!!(drive.keys.ArrowLeft||drive.keys.a||drive.touch.left),right=!!(drive.keys.ArrowRight||drive.keys.d||drive.touch.right),gas=!!(drive.keys.ArrowUp||drive.keys.w||drive.touch.gas),brake=!!(drive.keys.ArrowDown||drive.keys.s||drive.touch.brake);const selectedCar=driveCars[drive.car]||driveCars.chevrolet,acceleration=Number.isFinite(selectedCar.acceleration)?selectedCar.acceleration:(drive.car==="dodge-demon-170"?2.45:2.0),topSpeed=Number.isFinite(selectedCar.topSpeed)&&selectedCar.topSpeed>0?selectedCar.topSpeed:365;drive.speed=Math.max(0,Math.min(topSpeed,drive.speed+(gas?acceleration:-0.22-(brake?2.2:0))*dt));drive.x+=((right?1:0)-(left?1:0))*(2.3+drive.speed*.018)*dt;drive.x=Math.max(205,Math.min(695,drive.x));drive.distance+=drive.speed*.0018*dt;drive.scroll=(drive.scroll+drive.speed*.025*dt)%1000;if(drive.distance>drive.best){drive.best=drive.distance;const bestAccount=activeUser&&activeUser.id||"guest";localStorage.setItem("crimson_drive_best_"+bestAccount,String(Math.floor(drive.best)));localStorage.setItem("crimson_drive_best",String(Math.floor(drive.best)))}try{drawDrive()}catch(renderError){console.warn("Ultra Sprint using safe 2D renderer",renderError);drive3DReady=false;document.querySelector(".drive3d-canvas")?.remove();if(driveCanvas)driveCanvas.style.display="block";drawDriveFallback()}drive.rafId=requestAnimationFrame(next=>driveFrame(next,token))}catch(err){console.error("Ultra Sprint frame stopped safely:",err);drive.running=false;drive.paused=true;drive.rafId=0;Object.keys(drive.keys).forEach(k=>drive.keys[k]=false);Object.keys(drive.touch).forEach(k=>drive.touch[k]=false);const gasButton=document.querySelector('[data-drive="gas"]');if(gasButton){gasButton.textContent="GAS";gasButton.setAttribute("aria-pressed","false")}const overlay=document.getElementById("driveOverlay");if(overlay){overlay.classList.remove("hidden");const message=overlay.querySelector("p");if(message)message.textContent="The run was stopped safely after a game error. Press restart to try again."}const pauseControl=document.getElementById("drivePause");if(pauseControl)pauseControl.textContent="PAUSE"}}
 function startDrive(){try{if(drive.rafId)cancelAnimationFrame(drive.rafId);drive.frameToken++;drive.rafId=0;drive.x=450;drive.speed=0;drive.distance=0;drive.running=true;drive.paused=false;drive.last=performance.now();Object.keys(drive.keys).forEach(k=>drive.keys[k]=false);Object.keys(drive.touch).forEach(k=>drive.touch[k]=false);const overlay=document.getElementById("driveOverlay"),pause=document.getElementById("drivePause");if(overlay)overlay.classList.add("hidden");if(pause)pause.textContent="PAUSE";if(driveCanvas)driveCanvas.style.display="block";try{drawDrive()}catch(renderError){console.warn("Ultra Sprint switched to safe renderer",renderError);drive3DReady=false;document.querySelector(".drive3d-canvas")?.remove();drawDriveFallback()}const token=drive.frameToken;drive.rafId=requestAnimationFrame(t=>driveFrame(t,token));try{publishUltraDiscordActivity("Ultra Sprint","Racing in Ultra Launcher")}catch(activityError){console.warn("Ultra activity update skipped",activityError)}}catch(err){console.error("Ultra Sprint start error",err);drive.running=false;drive.paused=true;drive.rafId=0;const overlay=document.getElementById("driveOverlay");if(overlay){overlay.classList.remove("hidden");const p=overlay.querySelector("p");if(p)p.textContent="Start failed: "+(err&&err.message?err.message:"browser error")}}}
 document.getElementById("driveCarSelect").addEventListener("change",e=>{drive.car=e.target.value;renderDriveGarage();drawDrive()});document.getElementById("driveStart").addEventListener("click",e=>{e.preventDefault();startDrive()});document.getElementById("driveReset").addEventListener("click",e=>{e.preventDefault();startDrive()});
 document.getElementById("drivePause").addEventListener("click",()=>{if(!drive.running)return;drive.paused=!drive.paused;document.getElementById("drivePause").textContent=drive.paused?"RESUME":"PAUSE";if(drive.paused){if(drive.rafId)cancelAnimationFrame(drive.rafId);drive.rafId=0;drawDrive()}else{drive.last=performance.now();const token=drive.frameToken;drive.rafId=requestAnimationFrame(t=>driveFrame(t,token))}});
 window.addEventListener("keydown",e=>{if(!drive.running||drive.paused||document.getElementById("playPage")?.style.display!=="block"||document.hidden||/^(INPUT|TEXTAREA|SELECT)$/.test(e.target?.tagName||"")||e.target?.isContentEditable)return;const key=e.key.toLowerCase();if(["arrowleft","arrowright","arrowup","arrowdown"].includes(key)){e.preventDefault();drive.keys[e.key]=true}else if(["a","d","w","s"].includes(key))drive.keys[key]=true});window.addEventListener("keyup",e=>{drive.keys[e.key]=false;drive.keys[e.key.toLowerCase()]=false});
 window.addEventListener("blur",()=>{Object.keys(drive.keys).forEach(k=>drive.keys[k]=false);Object.keys(cityPlayer.keys).forEach(k=>cityPlayer.keys[k]=false);Object.keys(drive.touch).forEach(k=>drive.touch[k]=false);Object.keys(cityPlayer.touch).forEach(k=>cityPlayer.touch[k]=false)});document.addEventListener("visibilitychange",()=>{if(!document.hidden)return;Object.keys(drive.keys).forEach(k=>drive.keys[k]=false);Object.keys(drive.touch).forEach(k=>drive.touch[k]=false);if(drive.running&&!drive.paused){drive.paused=true;if(drive.rafId)cancelAnimationFrame(drive.rafId);drive.rafId=0;const pauseControl=document.getElementById("drivePause");if(pauseControl)pauseControl.textContent="RESUME";drawDrive()}});
-document.querySelectorAll("[data-drive]").forEach(b=>{const key=b.dataset.drive,down=e=>{e.preventDefault();drive.touch[key]=true;try{b.setPointerCapture(e.pointerId)}catch{}},up=e=>{e.preventDefault();drive.touch[key]=false;try{if(b.hasPointerCapture(e.pointerId))b.releasePointerCapture(e.pointerId)}catch{}};b.addEventListener("pointerdown",down);b.addEventListener("pointerup",up);b.addEventListener("pointercancel",up);b.addEventListener("lostpointercapture",up)});
-setupDrive3D();drawDrive();resizeDrive3D();
+document.querySelectorAll("[data-drive]").forEach(b=>{const key=b.dataset.drive;if(key==="gas"){b.addEventListener("click",e=>{e.preventDefault();drive.touch.gas=!drive.touch.gas;b.textContent=drive.touch.gas?"GAS ON":"GAS";b.setAttribute("aria-pressed",String(drive.touch.gas))});return}const down=e=>{e.preventDefault();drive.touch[key]=true;try{b.setPointerCapture(e.pointerId)}catch{}},up=e=>{e.preventDefault();drive.touch[key]=false;try{if(b.hasPointerCapture(e.pointerId))b.releasePointerCapture(e.pointerId)}catch{}};b.addEventListener("pointerdown",down);b.addEventListener("pointerup",up);b.addEventListener("pointercancel",up);b.addEventListener("lostpointercapture",up)});
+drive3DReady=false;if(driveCanvas){driveCanvas.style.display='block';driveCanvas.style.width='100%';driveCanvas.style.height='100%'}document.querySelector('.drive3d-canvas')?.remove();drawDrive();
 /* Ultra 2.4.0 leaderboard + isolated local HTML game player */
 async function loadDriveLeaderboard(){
  const status=document.getElementById("leaderboardStatus"),rows=document.getElementById("leaderboardRows");
