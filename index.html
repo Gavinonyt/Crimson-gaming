@@ -2721,7 +2721,41 @@ function runUltraBootSequence(){
  window.setTimeout(()=>{boot.classList.add("is-leaving");window.setTimeout(()=>{boot.hidden=true;boot.classList.remove("is-leaving");showToast()},420)},1050);
 }
 document.getElementById("ultraToastDismiss")?.addEventListener("click",()=>document.getElementById("ultraWelcomeToast")?.classList.remove("is-visible"));
-function showDashboard(user){activeUser=user;applyPlatformTheme(getPlatformTheme());loadUltraControls();const savedTheme=localStorage.getItem("crimson_accent_"+user.id)||"purple";applyAccent(savedTheme);const themeSelect=document.getElementById("accentSelect");if(themeSelect)themeSelect.value=savedTheme;applyWorkspacePrefs();applyUltraPersonal();renderProfileAvatar();loadDriveGarage(user);const ownerEmail=["lilmabu377@gmail.com","33604@dadecs.org"].includes(String(user.email||"").trim().toLowerCase());drive.isOwner=ownerEmail;if(drive.isOwner){drive.cash=Infinity;saveDriveGarage()}authView.style.display="none";dashboardView.style.display="block";document.body.classList.add("ultra-desktop-session");runUltraBootSequence();const start=localStorage.getItem("crimson_start_"+user.id)||"home";showPage(pageSections[start]?start:"home");const name=user.user_metadata&&user.user_metadata.display_name;document.getElementById("welcomeTitle").textContent=name?"Welcome, "+name+"!":"Your next adventure starts here.";document.getElementById("userEmail").textContent=user.email||"";const homePlayer=document.getElementById("homePlayerName");if(homePlayer)homePlayer.textContent=name||"Ultra Player";const themeLabel=document.getElementById("homeThemeStat");if(themeLabel){const themeNames={gta6:"VICE CITY NIGHTS",purple:"PURPLE",red:"RED",blue:"BLUE",vice:"VICE",ocean:"OCEAN",emerald:"EMERALD",gold:"GOLD"};themeLabel.textContent=themeNames[savedTheme]||"PURPLE"}refreshCounts();window.scrollTo(0,0)}
+function showDashboard(user){
+ activeUser=user;
+ const safeStep=(label,fn)=>{try{return fn()}catch(error){console.error("Ultra dashboard step failed ("+label+"):",error);return undefined}};
+ authView.style.display="none";
+ dashboardView.style.display="block";
+ document.body.classList.add("ultra-desktop-session");
+ safeStep("platform theme",()=>applyPlatformTheme(getPlatformTheme()));
+ safeStep("control center preferences",loadUltraControls);
+ const savedTheme=safeStep("saved theme",()=>localStorage.getItem("crimson_accent_"+user.id)||"purple")||"purple";
+ safeStep("accent theme",()=>applyAccent(savedTheme));
+ const themeSelect=document.getElementById("accentSelect");if(themeSelect)themeSelect.value=savedTheme;
+ safeStep("workspace preferences",applyWorkspacePrefs);
+ safeStep("personalization",applyUltraPersonal);
+ safeStep("profile avatar",renderProfileAvatar);
+ safeStep("vehicle garage",()=>loadDriveGarage(user));
+ const ownerEmail=["lilmabu377@gmail.com","33604@dadecs.org"].includes(String(user.email||"").trim().toLowerCase());
+ drive.isOwner=ownerEmail;
+ if(drive.isOwner){drive.cash=Infinity;safeStep("owner garage save",saveDriveGarage)}
+ safeStep("welcome animation",runUltraBootSequence);
+ const startPage=safeStep("saved start page",()=>localStorage.getItem("crimson_start_"+user.id)||"home")||"home";
+ const initialPage=pageSections[startPage]?startPage:"home";
+ const pageOpened=safeStep("open "+initialPage,()=>{showPage(initialPage);return true});
+ if(!pageOpened){
+  safeStep("home fallback",()=>{Object.entries(pageSections).forEach(([key,el])=>{if(el)el.style.display=key==="home"?"block":"none"});dashboardView.classList.add("ultra-home-active");const kicker=document.getElementById("pageKicker"),heading=document.getElementById("pageHeading");if(kicker)kicker.textContent="HOME";if(heading)heading.textContent="Welcome back";document.querySelectorAll(".nav[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page==="home"))});
+ }
+ const name=user.user_metadata&&user.user_metadata.display_name;
+ const welcome=document.getElementById("welcomeTitle"),email=document.getElementById("userEmail"),homePlayer=document.getElementById("homePlayerName");
+ if(welcome)welcome.textContent=name?"Welcome, "+name+"!":"Your next adventure starts here.";
+ if(email)email.textContent=user.email||"";
+ if(homePlayer)homePlayer.textContent=name||"Ultra Player";
+ const themeLabel=document.getElementById("homeThemeStat");
+ if(themeLabel){const themeNames={gta6:"VICE CITY NIGHTS",purple:"PURPLE",red:"RED",blue:"BLUE",vice:"VICE",ocean:"OCEAN",emerald:"EMERALD",gold:"GOLD"};themeLabel.textContent=themeNames[savedTheme]||"PURPLE"}
+ safeStep("dashboard counts",refreshCounts);
+ safeStep("scroll to dashboard",()=>window.scrollTo(0,0));
+}
 function showLogin(){document.body.classList.remove("ultra-desktop-session");dashboardView.classList.remove("ultra-home-active");dashboardView.style.display="none";authView.style.display="grid";window.scrollTo(0,0)}
 document.querySelectorAll(".nav[data-page]").forEach(b=>b.addEventListener("click",()=>{if(b.dataset.page==="store"){activeHubFilter="all";filterStore()}showPage(b.dataset.page)}));
 dashboardView.addEventListener("click",e=>{const hub=e.target.closest("[data-open-hub]");if(hub){activeHubFilter=hub.dataset.openHub;document.getElementById("storeSearch").value="";document.querySelectorAll(".store-filter").forEach(x=>x.classList.toggle("active",x.dataset.filter==="all"));showPage("store");filterStore();return}const go=e.target.closest("[data-go-page]");if(go){if(go.dataset.goPage==="store"){activeHubFilter="all";filterStore()}showPage(go.dataset.goPage);return}const b=e.target.closest("button[data-add],button[data-fav]");if(!b)return;const kind=b.dataset.add?"library":"favorites",id=b.dataset.add||b.dataset.fav,items=readSaved(kind),exists=items.includes(id);writeSaved(kind,exists?items.filter(x=>x!==id):[...items,id]);syncStoreButtons();if(pageSections.library.style.display==="block")renderSaved("library");if(pageSections.favorites.style.display==="block")renderSaved("favorites")});
