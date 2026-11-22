@@ -4003,4 +4003,122 @@ let rec=null,active=false;const SR=window.SpeechRecognition||window.webkitSpeech
 (function(){const b=document.getElementById("udcBackToLauncher");if(b)b.addEventListener("click",()=>{const home=document.getElementById("dashboardView");if(home){document.querySelectorAll(".dash-page").forEach(p=>p.style.setProperty("display","none","important"));home.style.display="block";}window.scrollTo(0,0);});})();
 </script>
 
+
+<style id="ultra-drive-dual-system-v2">
+#driveConnectPage .udc-shell{padding:0!important;border-radius:24px!important;overflow:hidden!important;background:#080d17!important;border:1px solid #ffffff24!important}
+#driveConnectPage .udc-shell .udc-top,#driveConnectPage .udc-shell .udc-modes{display:none!important}
+#driveConnectPage .udc-shell .udc-app-home{margin:0!important;padding:0!important;min-height:620px!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#080d17!important;overflow:hidden}
+#driveConnectPage .udc-shell .udc-grid,#driveConnectPage .udc-shell .udc-heading,#driveConnectPage .udc-shell .udc-player,#driveConnectPage .udc-shell .udc-links,#driveConnectPage .udc-shell .udc-voice{display:none!important}
+#driveConnectPage .udc-system-switch{position:absolute;z-index:5;top:14px;right:16px;border:1px solid #ffffff30;border-radius:30px;background:#151e2c;color:#fff;padding:9px 13px;font-size:10px;font-weight:800;cursor:pointer}
+#driveConnectPage .udc-v2{min-height:620px;color:#f8f9fc;font-family:inherit}
+#driveConnectPage .udc-v2 button,#driveConnectPage .udc-v2 a{font:inherit}
+#driveConnectPage .udc-v2-top{height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;background:#111722;color:#e7edf5;font-size:12px;font-weight:700}
+#driveConnectPage .udc-v2-top-left,#driveConnectPage .udc-v2-top-right{display:flex;align-items:center;gap:14px}
+#driveConnectPage .udc-v2-brand{font-size:11px;letter-spacing:1.7px;font-weight:950;color:#a9cfff}
+#driveConnectPage .udc-v2-layout{display:grid;grid-template-columns:76px minmax(0,1fr);min-height:574px}
+#driveConnectPage .udc-v2-rail{display:flex;flex-direction:column;align-items:center;gap:13px;padding:20px 8px;background:#101722;border-right:1px solid #ffffff12}
+#driveConnectPage .udc-v2-nav{width:48px;height:48px;border:0;border-radius:15px;background:transparent;color:#aeb9ca;display:grid;place-items:center;font-size:22px;cursor:pointer}
+#driveConnectPage .udc-v2-nav.active{background:#d9e8ff;color:#14243a;box-shadow:0 4px 18px #8bbdff30}
+#driveConnectPage .udc-v2-main{padding:30px clamp(16px,3vw,34px) 28px;min-width:0;background:radial-gradient(ellipse at 80% 0%,#293c5b55,transparent 40%),#0a101b}
+#driveConnectPage .udc-v2-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:12px 0 24px}
+#driveConnectPage .udc-v2-heading h2{font-size:clamp(27px,4vw,39px);letter-spacing:-1.2px;margin:4px 0}
+#driveConnectPage .udc-v2-muted{color:#9eacbf;font-size:12px}
+#driveConnectPage .udc-v2-eyebrow{color:#9fc7ff;font-size:9px;font-weight:900;letter-spacing:2px}
+#driveConnectPage .udc-v2-cards{display:grid;grid-template-columns:1.35fr .9fr;gap:15px}
+#driveConnectPage .udc-v2-card{min-width:0;padding:18px;border:1px solid #ffffff18;border-radius:19px;background:linear-gradient(145deg,#1a273a,#121c2b);color:#f6f8fc}
+#driveConnectPage .udc-v2-card h3{font-size:16px;margin:8px 0}
+#driveConnectPage .udc-v2-map{min-height:230px;position:relative;overflow:hidden;background:linear-gradient(32deg,transparent 45%,#b8c9bd22 46% 48%,transparent 49%),linear-gradient(120deg,transparent 45%,#b8c9bd22 46% 48%,transparent 49%),radial-gradient(ellipse at 24% 70%,#426b5a 0 13%,transparent 14%),radial-gradient(ellipse at 76% 25%,#3a6555 0 16%,transparent 17%),#263a3c}
+#driveConnectPage .udc-v2-map:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(18deg,transparent 0 35px,#d7e3d522 36px 38px);pointer-events:none}
+#driveConnectPage .udc-v2-map-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;min-height:194px}
+#driveConnectPage .udc-v2-map-content a{display:inline-flex;padding:10px 14px;border-radius:22px;background:#d9e8ff;color:#102039;text-decoration:none;font-size:11px;font-weight:900}
+#driveConnectPage .udc-v2-media{display:flex;flex-direction:column;justify-content:space-between;min-height:230px}
+#driveConnectPage .udc-v2-album{width:64px;height:64px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#59769e,#263d5e);font-size:28px}
+#driveConnectPage .udc-v2-controls{display:flex;gap:10px;margin-top:15px}
+#driveConnectPage .udc-v2-controls button{width:38px;height:38px;border:0;border-radius:50%;background:#2b3b53;color:white;font-size:16px}
+#driveConnectPage .udc-v2-apps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+#driveConnectPage .udc-v2-app{min-height:112px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;border:0;border-radius:17px;background:#1b293d;color:#f7f9ff;text-decoration:none;font-size:12px;font-weight:750}
+#driveConnectPage .udc-v2-app-icon{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;background:#ffffff18;font-size:27px}
+#driveConnectPage .udc-v2-app.maps .udc-v2-app-icon{background:#397b67}
+#driveConnectPage .udc-v2-app.spotify .udc-v2-app-icon{background:#168b51}
+#driveConnectPage .udc-v2-app.ytm .udc-v2-app-icon{background:#c83f43}
+#driveConnectPage .udc-v2-app.calendar .udc-v2-app-icon{background:#3474cf}
+#driveConnectPage .udc-v2-app.weather .udc-v2-app-icon{background:#b77b2f}
+#driveConnectPage .udc-v2-footer{margin-top:22px;color:#8291a5;font-size:10px}
+#driveConnectPage .udc-v2-android{background:#0d100e}
+#driveConnectPage .udc-v2-android .udc-v2-top{background:#151a16}
+#driveConnectPage .udc-v2-android .udc-v2-brand{color:#c1ed9c}
+#driveConnectPage .udc-v2-android .udc-v2-layout{display:block;padding:0 0 72px;background:linear-gradient(145deg,#18221b,#0b100d)}
+#driveConnectPage .udc-v2-android .udc-v2-main{padding:25px clamp(14px,3vw,30px);background:transparent}
+#driveConnectPage .udc-v2-android .udc-v2-heading{margin:8px 0 19px}
+#driveConnectPage .udc-v2-android .udc-v2-eyebrow{color:#c1ed9c}
+#driveConnectPage .udc-v2-android .udc-v2-cards{grid-template-columns:1.2fr .8fr}
+#driveConnectPage .udc-v2-android .udc-v2-card{border:0;border-radius:25px;background:#202a22}
+#driveConnectPage .udc-v2-android .udc-v2-map{min-height:190px}
+#driveConnectPage .udc-v2-android .udc-v2-map-content{min-height:154px}
+#driveConnectPage .udc-v2-android .udc-v2-map-content a{background:#c1ed9c;color:#182317}
+#driveConnectPage .udc-v2-android .udc-v2-media{min-height:190px}
+#driveConnectPage .udc-v2-android .udc-v2-app{background:#202a22;border-radius:22px}
+#driveConnectPage .udc-v2-android .udc-v2-app-icon{border-radius:50%}
+#driveConnectPage .udc-v2-android .udc-v2-navrow{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-around;height:65px;background:#171e19;border-top:1px solid #ffffff14}
+#driveConnectPage .udc-v2-android .udc-v2-nav{width:54px;height:46px;border-radius:24px;color:#d7e0d6;font-size:21px}
+#driveConnectPage .udc-v2-android .udc-v2-nav.active{background:#c1ed9c;color:#1b2718}
+#driveConnectPage .udc-v2-android .udc-v2-layout{position:relative}
+#driveConnectPage .udc-v2-android .udc-v2-apps{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#driveConnectPage .udc-v2-android .udc-v2-app{min-height:102px}
+#driveConnectPage .udc-v2 .udc-v2-hidden{display:none!important}
+#driveConnectPage .udc-disclaimer{margin:12px 16px 16px!important;font-size:9px!important}
+@media(max-width:620px){
+ #driveConnectPage .udc-v2{min-height:590px}
+ #driveConnectPage .udc-v2-layout{grid-template-columns:58px minmax(0,1fr);min-height:544px}
+ #driveConnectPage .udc-v2-rail{padding:16px 4px;gap:10px}
+ #driveConnectPage .udc-v2-nav{width:43px;height:43px}
+ #driveConnectPage .udc-v2-main{padding:24px 12px 20px}
+ #driveConnectPage .udc-v2-cards,#driveConnectPage .udc-v2-android .udc-v2-cards{grid-template-columns:1fr}
+ #driveConnectPage .udc-v2-apps{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ #driveConnectPage .udc-v2-app{min-height:95px;font-size:10px}
+ #driveConnectPage .udc-v2-app-icon{width:45px;height:45px}
+ #driveConnectPage .udc-v2-top{padding:0 12px}
+ #driveConnectPage .udc-v2-heading{align-items:flex-start;flex-direction:column}
+}
+</style>
+<script id="ultra-drive-dual-system-v2-logic">
+(function(){
+ const page=document.getElementById("driveConnectPage");
+ const root=page&&page.querySelector(".udc-shell");
+ const home=root&&root.querySelector(".udc-app-home");
+ if(!root||!home||home.dataset.v2==="1")return;
+ home.dataset.v2="1";
+ const apps=[
+  ["Maps","⌖","maps","https://www.google.com/maps","Navigation"],
+  ["Spotify","◖","spotify","https://open.spotify.com","Music"],
+  ["YouTube Music","▶","ytm","https://music.youtube.com","Music"],
+  ["Calendar","▦","calendar","https://calendar.google.com","Schedule"],
+  ["Weather","☀","weather","https://weather.com","Forecast"]
+ ];
+ const appTiles=()=>apps.map(a=>'<a class="udc-v2-app '+a[2]+'" href="'+a[3]+'" target="_blank" rel="noopener noreferrer"><span class="udc-v2-app-icon">'+a[1]+'</span><span>'+a[0]+'</span></a>').join("");
+ const homeCards='<div class="udc-v2-cards"><article class="udc-v2-card udc-v2-map"><div class="udc-v2-map-content"><div><span class="udc-v2-eyebrow">NAVIGATION</span><h3>Where to?</h3><p class="udc-v2-muted">Find a destination and open turn-by-turn directions.</p></div><a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">OPEN MAPS ↗</a></div></article><article class="udc-v2-card udc-v2-media"><div><span class="udc-v2-eyebrow">NOW PLAYING</span><div class="udc-v2-album">♫</div><h3>Music for the drive</h3><p class="udc-v2-muted">Choose your music app.</p></div><div class="udc-v2-controls"><button type="button" aria-label="Spotify" data-open="https://open.spotify.com">◖</button><button type="button" aria-label="YouTube Music" data-open="https://music.youtube.com">▶</button></div></article></div><div class="udc-v2-heading"><div><span class="udc-v2-eyebrow">YOUR APPS</span><h2>Quick launch</h2></div></div><div class="udc-v2-apps">'+appTiles()+'</div>';
+ const appsPage='<div class="udc-v2-heading"><div><span class="udc-v2-eyebrow">APP LIBRARY</span><h2>All apps</h2><p class="udc-v2-muted">Tap an app to open its service.</p></div></div><div class="udc-v2-apps">'+appTiles()+'</div><div class="udc-v2-footer">Apps open in a new browser tab.</div>';
+ const mapsPage='<div class="udc-v2-heading"><div><span class="udc-v2-eyebrow">NAVIGATION</span><h2>Maps</h2><p class="udc-v2-muted">Open Google Maps for search and live directions.</p></div></div><article class="udc-v2-card udc-v2-map"><div class="udc-v2-map-content"><div><span class="udc-v2-eyebrow">GOOGLE MAPS</span><h3>Where to?</h3><p class="udc-v2-muted">Search destinations, traffic, and routes in Maps.</p></div><a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">LAUNCH GOOGLE MAPS ↗</a></div></article>';
+ const audioPage='<div class="udc-v2-heading"><div><span class="udc-v2-eyebrow">MEDIA</span><h2>Audio</h2><p class="udc-v2-muted">Open your preferred music service.</p></div></div><div class="udc-v2-apps">'+appTiles()+'</div>';
+ function render(mode){
+  const android=mode==="android";
+  root.dataset.mode=android?"android":"carplay";
+  home.className="udc-app-home udc-v2 "+(android?"udc-v2-android":"udc-v2-carplay");
+  home.innerHTML='<div class="udc-v2-top"><div class="udc-v2-top-left"><span class="udc-v2-brand">ULTRA DRIVE</span><span>●</span><span>Connected</span></div><div class="udc-v2-top-right"><span id="udcV2Clock">--:--</span><span>◉</span><span>▰</span></div></div><div class="udc-v2-layout">'+(android?'<main class="udc-v2-main"><div class="udc-v2-heading"><div><span class="udc-v2-eyebrow">GOOD TO GO</span><h2>Good morning</h2><p class="udc-v2-muted">Your drive dashboard</p></div></div><div class="udc-v2-view">'+homeCards+'</div></main><nav class="udc-v2-navrow" aria-label="Android Auto navigation"><button class="udc-v2-nav active" data-page="home" aria-label="Home">⌂</button><button class="udc-v2-nav" data-page="maps" aria-label="Maps">⌖</button><button class="udc-v2-nav" data-page="audio" aria-label="Media">♫</button><button class="udc-v2-nav" data-page="apps" aria-label="Apps">▦</button></nav>':'<nav class="udc-v2-rail" aria-label="CarPlay navigation"><button class="udc-v2-nav active" data-page="home" aria-label="Home">⌂</button><button class="udc-v2-nav" data-page="maps" aria-label="Maps">⌖</button><button class="udc-v2-nav" data-page="audio" aria-label="Audio">♫</button><button class="udc-v2-nav" data-page="apps" aria-label="Apps">▦</button><button class="udc-v2-nav" data-page="launcher" aria-label="Ultra Launcher">U</button></nav><main class="udc-v2-main"><div class="udc-v2-heading"><div><span class="udc-v2-eyebrow">ULTRA DRIVE</span><h2>Dashboard</h2><p class="udc-v2-muted">Everything you need for the drive.</p></div></div><div class="udc-v2-view">'+homeCards+'</div></main>')+'</div>';
+  const view=home.querySelector(".udc-v2-view");
+  home.addEventListener("click",function(e){
+   const nav=e.target.closest("[data-page]");
+   if(nav){const p=nav.dataset.page;if(p==="launcher"){const d=document.getElementById("dashboardView");if(d){document.querySelectorAll(".dash-page").forEach(x=>x.style.setProperty("display","none","important"));d.style.display="block";}window.scrollTo(0,0);return;}home.querySelectorAll(".udc-v2-nav").forEach(n=>n.classList.toggle("active",n===nav));view.innerHTML=p==="apps"?appsPage:p==="maps"?mapsPage:p==="audio"?audioPage:homeCards;}
+   const open=e.target.closest("[data-open]");if(open)window.open(open.dataset.open,"_blank","noopener");
+  },{once:true});
+  home.querySelectorAll(".udc-v2-nav").forEach(n=>n.addEventListener("click",function(){home.querySelectorAll(".udc-v2-nav").forEach(x=>x.classList.toggle("active",x===n));const p=n.dataset.page;if(p==="launcher"){const d=document.getElementById("dashboardView");if(d){document.querySelectorAll(".dash-page").forEach(x=>x.style.setProperty("display","none","important"));d.style.display="block";}window.scrollTo(0,0);return;}view.innerHTML=p==="apps"?appsPage:p==="maps"?mapsPage:p==="audio"?audioPage:homeCards;}));
+  const clock=home.querySelector("#udcV2Clock");const tick=()=>{if(clock)clock.textContent=new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"});};tick();if(!window.__udcV2ClockTimer)window.__udcV2ClockTimer=setInterval(tick,30000);
+ }
+ render(root.dataset.mode);
+ const picker=document.getElementById("udcSystemPicker");
+ if(picker)picker.querySelectorAll("[data-launch-mode]").forEach(b=>b.addEventListener("click",()=>render(b.dataset.launchMode)));
+ const switcher=root.querySelector(".udc-system-switch");
+ if(switcher)switcher.addEventListener("click",()=>{const p=document.getElementById("udcSystemPicker");if(p){root.classList.add("udc-system-hidden");p.hidden=false;}});
+})();
+</script>
 </body></html>
