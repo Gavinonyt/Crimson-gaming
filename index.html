@@ -3551,7 +3551,6 @@ let rec=null,active=false;const SR=window.SpeechRecognition||window.webkitSpeech
   const page=document.getElementById("driveConnectPage");
   const dashboard=document.getElementById("dashboardView");
   if(!page||!dashboard)return;
-  Object.querySelectorAll;
   document.querySelectorAll(".dash-page").forEach(el=>{el.style.display=el===page?"block":"none"});
   page.style.setProperty("display","block","important");
   dashboard.style.display="block";
@@ -3570,4 +3569,81 @@ let rec=null,active=false;const SR=window.SpeechRecognition||window.webkitSpeech
  },true);
 })();
 </script>
+
+<style id="ultra-drive-fullscreen-redesign">
+/* Ultra Drive: immersive in-car display inspired by modern infotainment, not a replica */
+#driveConnectPage{padding:0!important;max-width:100%!important}
+#driveConnectPage>.store-head{display:none!important}
+#driveConnectPage .udc-shell{
+ --ua:#8ebcff;position:relative;margin:0!important;width:100%;min-height:calc(100vh - 30px);
+ padding:clamp(18px,2.4vw,34px)!important;border:1px solid #ffffff18!important;border-radius:26px!important;
+ background:radial-gradient(ellipse at 58% 8%,#253d5d 0%,transparent 42%),linear-gradient(145deg,#080d16 0%,#0c1421 58%,#101a29 100%)!important;
+ box-shadow:0 24px 70px #0008;overflow:hidden
+}
+#driveConnectPage .udc-shell:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.17;background-image:linear-gradient(#9bbde51a 1px,transparent 1px),linear-gradient(90deg,#9bbde51a 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+#driveConnectPage .udc-shell>*{position:relative;z-index:1}
+#driveConnectPage .udc-top{align-items:center;padding:0 2px 20px;border-bottom:1px solid #ffffff18}
+#driveConnectPage .udc-top h2{font-size:clamp(25px,3vw,36px);letter-spacing:-1.2px}
+#driveConnectPage .udc-top p{font-size:12px}
+#driveConnectPage .udc-top time{font-size:clamp(27px,3.4vw,42px);font-variant-numeric:tabular-nums;letter-spacing:-1px}
+#driveConnectPage .udc-modes{justify-content:flex-end;margin:-54px 0 24px;min-height:38px;padding-right:145px}
+#driveConnectPage .udc-mode{border-radius:10px;background:#172335;padding:10px 14px;border-color:#ffffff20;font-size:10px;letter-spacing:.3px}
+#driveConnectPage .udc-mode.active{background:#dcecff;color:#101b2b;box-shadow:0 4px 18px #9bcaff30}
+#driveConnectPage .udc-shell[data-mode=android]{background:radial-gradient(ellipse at 58% 8%,#23412d 0%,transparent 42%),linear-gradient(145deg,#080f0b 0%,#0d1912 58%,#122319 100%)!important}
+#driveConnectPage .udc-shell[data-mode=android] .udc-mode.active{background:#b8f28e;color:#12220e}
+#driveConnectPage .udc-grid{grid-template-columns:minmax(0,1.75fr) minmax(275px,.82fr);gap:16px}
+#driveConnectPage .udc-stack{gap:16px}
+#driveConnectPage .udc-card{padding:20px;border:1px solid #ffffff17;border-radius:19px;background:linear-gradient(145deg,#182538eF,#111c2beF);box-shadow:0 12px 30px #0003}
+#driveConnectPage .udc-card h3{font-size:20px;letter-spacing:-.45px}
+#driveConnectPage .udc-map{min-height:430px;display:flex;flex-direction:column}
+#driveConnectPage .udc-map-art{height:clamp(230px,33vh,360px);flex:1;min-height:230px;margin-top:10px;border:1px solid #ffffff1a;border-radius:15px;
+ background-color:#172d36;
+ background-image:
+ linear-gradient(25deg,transparent 44%,#9eb4a044 45%,#9eb4a044 47%,transparent 48%),
+ linear-gradient(115deg,transparent 31%,#9eb4a044 32%,#9eb4a044 34%,transparent 35%),
+ linear-gradient(72deg,transparent 65%,#9eb4a033 66%,#9eb4a033 68%,transparent 69%),
+ repeating-linear-gradient(0deg,transparent 0 34px,#ffffff0a 35px 36px),
+ repeating-linear-gradient(90deg,transparent 0 48px,#ffffff0a 49px 50px),
+ radial-gradient(ellipse at 20% 20%,#315c4d 0 12%,transparent 13%),
+ radial-gradient(ellipse at 83% 78%,#315c4d 0 15%,transparent 16%),
+ linear-gradient(135deg,#183d42,#1c3444 55%,#263b42);
+}
+#driveConnectPage .udc-map-art:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 47%,#d9e8c044 48%,#d9e8c044 49%,transparent 50%);clip-path:polygon(0 65%,16% 52%,28% 56%,42% 32%,57% 38%,72% 18%,100% 28%,100% 34%,72% 24%,58% 44%,43% 38%,30% 62%,16% 58%,0 71%)}
+#driveConnectPage .udc-map-art span{top:40%;left:52%;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#eaf3ff;color:#122238;font-size:25px;box-shadow:0 0 0 9px #eaf3ff28,0 8px 25px #0008}
+#driveConnectPage .udc-map-art b,#driveConnectPage .udc-map-art small{z-index:1;text-shadow:0 2px 6px #000}
+#driveConnectPage .udc-map form{margin:12px 0 4px}
+#driveConnectPage .udc-map input,#driveConnectPage .udc-fields input{border-radius:11px;background:#0a1320;border-color:#ffffff22;padding:13px}
+#driveConnectPage .udc-map form button,#driveConnectPage .udc-card button,#driveConnectPage .udc-voice button{border-radius:11px;letter-spacing:.45px;padding:13px 16px}
+#driveConnectPage .udc-secondary{align-self:flex-start}
+#driveConnectPage .udc-stack>.udc-card:first-child{min-height:145px}
+#driveConnectPage .udc-stack>.udc-card:first-child h3{font-size:23px}
+#driveConnectPage .udc-heading{margin:24px 0 12px}
+#driveConnectPage .udc-heading h3{font-size:20px}
+#driveConnectPage .udc-player{min-height:112px;display:flex}
+#driveConnectPage .udc-album{width:78px;height:78px;flex-basis:78px;border-radius:16px}
+#driveConnectPage .udc-links{gap:12px;margin-top:14px}
+#driveConnectPage .udc-links a{min-height:105px;justify-content:center;border-radius:16px;padding:16px;background:linear-gradient(145deg,#182538,#101b2a);transition:transform .18s,border-color .18s}
+#driveConnectPage .udc-links a:hover{transform:translateY(-3px);border-color:var(--ua)}
+#driveConnectPage .udc-voice{margin-top:14px}
+#driveConnectPage .udc-disclaimer{font-size:9px;background:#7b5b1710}
+#driveConnectPage .udc-note{margin:8px 0 0}
+@media(min-width:1100px){
+ #driveConnectPage .udc-shell{padding:30px 38px!important}
+ #driveConnectPage .udc-grid{grid-template-columns:minmax(0,1.9fr) minmax(300px,.78fr)}
+}
+@media(max-width:760px){
+ #driveConnectPage .udc-shell{min-height:100vh;border-radius:0!important;padding:17px!important}
+ #driveConnectPage .udc-top{padding-bottom:16px}
+ #driveConnectPage .udc-modes{margin:14px 0 18px;padding:0;justify-content:flex-start}
+ #driveConnectPage .udc-grid{grid-template-columns:1fr}
+ #driveConnectPage .udc-map{min-height:0}
+ #driveConnectPage .udc-map-art{height:240px;min-height:220px}
+ #driveConnectPage .udc-links{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #driveConnectPage .udc-links a{padding:12px 8px;min-height:92px}
+}
+@media(max-width:430px){
+ #driveConnectPage .udc-links{grid-template-columns:1fr 1fr}
+ #driveConnectPage .udc-top time{font-size:25px}
+}
+</style>
 </body></html>
