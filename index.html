@@ -3539,4 +3539,35 @@ $("udcMapForm").addEventListener("submit",e=>{e.preventDefault();const q=clean($
 $("udcCurrentLocation").addEventListener("click",()=>{if(!navigator.geolocation){$("udcMapStatus").textContent="Location is not supported here.";return;}$("udcMapStatus").textContent="Waiting for browser location permission…";navigator.geolocation.getCurrentPosition(p=>{const origin=p.coords.latitude+","+p.coords.longitude;$("udcMapStatus").textContent="Location found. Opening Maps.";window.open("https://www.google.com/maps/dir/?api=1&origin="+encodeURIComponent(origin),"_blank","noopener");},()=>{$("udcMapStatus").textContent="Location permission unavailable. Destination search still works."},{timeout:8000});});
 let audioUrl=null;$("udcAudioFile").addEventListener("change",e=>{const f=e.target.files&&e.target.files[0];if(!f)return;if(audioUrl)URL.revokeObjectURL(audioUrl);audioUrl=URL.createObjectURL(f);$("udcAudio").src=audioUrl;$("udcTrackName").textContent=f.name;$("udcTrackHint").textContent="Local audio file";$("udcAudio").play().catch(()=>{});});
 let rec=null,active=false;const SR=window.SpeechRecognition||window.webkitSpeechRecognition;$("udcVoiceButton").addEventListener("click",()=>{if(!SR){$("udcVoiceStatus").textContent="Speech recognition is not supported by this browser.";return;}if(active){rec.stop();return;}rec=new SR();rec.lang=navigator.language||"en-US";rec.onstart=()=>{active=true;$("udcVoiceButton").textContent="STOP LISTENING";$("udcVoiceStatus").textContent="Listening… say open maps, play, or pause."};rec.onend=()=>{active=false;$("udcVoiceButton").textContent="🎙 START VOICE"};rec.onerror=()=>{$("udcVoiceStatus").textContent="Voice permission or recognition unavailable."};rec.onresult=e=>{const t=e.results[0][0].transcript.toLowerCase();$("udcVoiceStatus").textContent="Heard: "+t;if(t.includes("map"))window.open("https://www.google.com/maps","_blank","noopener");else if(t.includes("play"))$("udcAudio").play().catch(()=>{});else if(t.includes("pause")||t.includes("stop"))$("udcAudio").pause();};try{rec.start()}catch(e){$("udcVoiceStatus").textContent="Could not start voice recognition.";}});})();</script>
+<style id="ultra-drive-chromebook-visibility-fix">
+#driveConnectPage{box-sizing:border-box;width:100%;min-width:0;max-width:100%;position:relative;isolation:isolate}
+#driveConnectPage .udc-shell{display:block!important;visibility:visible!important;opacity:1!important;width:100%;box-sizing:border-box}
+#driveConnectPage .udc-shell *{box-sizing:border-box}
+@media(min-width:761px){#driveConnectPage .udc-grid{grid-template-columns:minmax(0,1.5fr) minmax(260px,.9fr)}}
+</style>
+<script id="ultra-drive-chromebook-navigation-fix">
+(function(){
+ function openDrive(){
+  const page=document.getElementById("driveConnectPage");
+  const dashboard=document.getElementById("dashboardView");
+  if(!page||!dashboard)return;
+  Object.querySelectorAll;
+  document.querySelectorAll(".dash-page").forEach(el=>{el.style.display=el===page?"block":"none"});
+  page.style.setProperty("display","block","important");
+  dashboard.style.display="block";
+  document.querySelectorAll(".nav[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page==="driveconnect"));
+  const kicker=document.getElementById("pageKicker"),heading=document.getElementById("pageHeading");
+  if(kicker)kicker.textContent="ULTRA DRIVE CONNECT";
+  if(heading)heading.textContent="Ultra Drive";
+  window.scrollTo({top:0,behavior:"instant"});
+ }
+ document.addEventListener("click",function(e){
+  const button=e.target.closest('.nav[data-page="driveconnect"]');
+  if(button){e.preventDefault();openDrive();}
+ },true);
+ document.addEventListener("keydown",function(e){
+  if((e.key==="Enter"||e.key===" ")&&e.target.closest&&e.target.closest('.nav[data-page="driveconnect"]'))openDrive();
+ },true);
+})();
+</script>
 </body></html>
