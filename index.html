@@ -3419,73 +3419,80 @@ html[data-platform-theme="xbox"] .ultra-valor-card {
 </style>
 
 <style id="ultra-console-apps-relocation">
-/* PS5 / Xbox: keep the app shortcuts available, but move them below the
-   main console dashboard cards as a quieter, compact app shelf. */
-html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage > .os-app-grid,
-html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage > .os-app-grid {
+/* PS5 / Xbox: place shortcuts in a full-width shelf after the console dashboard,
+   never as a floating/centered overlay. */
+html[data-platform-theme="ps5"] .ultra-home .os-app-grid,
+html[data-platform-theme="xbox"] .ultra-home .os-app-grid {
   display: grid !important;
-  position: relative !important;
+  position: static !important;
   inset: auto !important;
-  left: auto !important;
-  right: auto !important;
-  top: auto !important;
-  bottom: auto !important;
+  transform: none !important;
+  float: none !important;
+  clear: both !important;
+  grid-area: auto / 1 / auto / -1 !important;
+  grid-column: 1 / -1 !important;
+  grid-row: auto !important;
+  justify-self: stretch !important;
+  align-self: start !important;
+  order: 20 !important;
   width: 100% !important;
   max-width: none !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
   grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
   gap: 8px !important;
   margin: 22px 0 34px !important;
   padding: 14px !important;
-  border: 1px solid var(--platform-border) !important;
+  border: 1px solid var(--platform-border, rgba(255,255,255,.14)) !important;
   border-radius: 16px !important;
-  background: color-mix(in srgb, var(--platform-panel) 78%, transparent) !important;
-  box-sizing: border-box !important;
+  background: color-mix(in srgb, var(--platform-panel, #17202d) 78%, transparent) !important;
 }
-html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage > .os-app-grid::before,
-html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage > .os-app-grid::before {
+html[data-platform-theme="ps5"] .ultra-home .os-app-grid::before,
+html[data-platform-theme="xbox"] .ultra-home .os-app-grid::before {
   content: "MORE APPS";
   grid-column: 1 / -1;
-  color: var(--platform-muted);
+  color: var(--platform-muted, #9aa8ba);
   font-size: 9px;
   font-weight: 900;
   letter-spacing: .16em;
   padding: 0 2px 3px;
 }
-html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage > .os-app-grid .os-app-tile,
-html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage > .os-app-grid .os-app-tile {
+html[data-platform-theme="ps5"] .ultra-home .os-app-grid .os-app-tile,
+html[data-platform-theme="xbox"] .ultra-home .os-app-grid .os-app-tile {
+  min-width: 0 !important;
   min-height: 76px !important;
   padding: 9px 7px !important;
   border-radius: 12px !important;
   align-items: center !important;
   text-align: center !important;
   gap: 4px !important;
-  background: color-mix(in srgb, var(--platform-panel) 88%, transparent) !important;
-  border-color: var(--platform-border) !important;
+  background: color-mix(in srgb, var(--platform-panel, #17202d) 88%, transparent) !important;
+  border-color: var(--platform-border, rgba(255,255,255,.14)) !important;
 }
-html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage > .os-app-grid .os-app-icon,
-html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage > .os-app-grid .os-app-icon {
+html[data-platform-theme="ps5"] .ultra-home .os-app-grid .os-app-icon,
+html[data-platform-theme="xbox"] .ultra-home .os-app-grid .os-app-icon {
   width: 30px !important;
   height: 30px !important;
   font-size: 17px !important;
 }
-html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage > .os-app-grid .os-app-tile strong,
-html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage > .os-app-grid .os-app-tile strong {
+html[data-platform-theme="ps5"] .ultra-home .os-app-grid .os-app-tile strong,
+html[data-platform-theme="xbox"] .ultra-home .os-app-grid .os-app-tile strong {
   font-size: 9px !important;
 }
-html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage > .os-app-grid .os-app-tile small,
-html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage > .os-app-grid .os-app-tile small {
+html[data-platform-theme="ps5"] .ultra-home .os-app-grid .os-app-tile small,
+html[data-platform-theme="xbox"] .ultra-home .os-app-grid .os-app-tile small {
   display: none !important;
 }
 @media(max-width:650px) {
-  html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage > .os-app-grid,
-  html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage > .os-app-grid {
+  html[data-platform-theme="ps5"] .ultra-home .os-app-grid,
+  html[data-platform-theme="xbox"] .ultra-home .os-app-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 7px !important;
     margin: 18px 0 28px !important;
     padding: 10px !important;
   }
-  html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage > .os-app-grid .os-app-tile,
-  html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage > .os-app-grid .os-app-tile {
+  html[data-platform-theme="ps5"] .ultra-home .os-app-grid .os-app-tile,
+  html[data-platform-theme="xbox"] .ultra-home .os-app-grid .os-app-tile {
     min-height: 68px !important;
   }
 }
