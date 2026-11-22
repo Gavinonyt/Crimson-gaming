@@ -2229,7 +2229,7 @@ html,body{background:#07090e!important;color:#f4f6fb}
 
       <section class="dash-page" id="driveConnectPage">
 <div class="store-head"><div><div class="store-tag">ULTRA DRIVE CONNECT · WEB EDITION</div><h2>Ultra Drive</h2><p>A standalone CarPlay-style and Android Auto-style dashboard inside Ultra Launcher.</p></div><span class="collection-total">NO CAR CONNECTION</span></div>
-<div class="udc-shell">
+<div class="udc-shell" data-mode="carplay">
 <header class="udc-top"><div><span class="udc-kicker">ULTRA DRIVE SYSTEM</span><h2>Good to see you.</h2><p id="udcVehicleLine">Your browser-based drive space is ready.</p></div><time id="udcClock">--:--</time></header>
 <div class="udc-modes"><button class="udc-mode active" data-mode="carplay"> CarPlay style</button><button class="udc-mode" data-mode="android">◉ Android Auto style</button></div>
 <div class="udc-grid"><article class="udc-card udc-map"><span class="udc-kicker">NAVIGATION</span><h3>Where to?</h3><form id="udcMapForm"><input id="udcDestination" placeholder="Search a place or destination" maxlength="140" required><button>SEARCH ROUTE ↗</button></form><div class="udc-map-art"><span>⌖</span><b>ULTRA NAVIGATION</b><small>Illustrative dashboard map · route search opens Maps</small></div><button id="udcCurrentLocation" class="udc-secondary">USE MY LOCATION</button><p id="udcMapStatus" class="udc-note">Location is optional. Enter a destination to search a route.</p></article>
@@ -3699,5 +3699,79 @@ let rec=null,active=false;const SR=window.SpeechRecognition||window.webkitSpeech
  #driveConnectPage .udc-shell:after{bottom:13px;min-width:245px;padding:11px 19px;font-size:17px}
 }
 </style>
+
+
+<style id="ultra-drive-fullscreen-layout-fix">
+/* Make the car icon open a dedicated in-launcher infotainment screen. */
+#dashboardView:has(#driveConnectPage[style*="display: block"]) .workspace-bar,
+#dashboardView:has(#driveConnectPage[style*="display: block"]) .birthday-banner{display:none!important}
+#driveConnectPage{padding:clamp(8px,2vw,24px)!important;min-height:calc(100vh - 28px)}
+#driveConnectPage>.store-head{display:none!important}
+#driveConnectPage .udc-shell{position:relative;min-height:calc(100vh - 72px);width:100%;max-width:none;margin:0!important;padding:clamp(14px,2vw,28px) clamp(14px,2.5vw,34px) 94px!important;border-radius:25px!important;overflow:auto!important}
+#driveConnectPage .udc-top{align-items:center;padding:8px 4px 18px!important}
+#driveConnectPage .udc-top h2{font-size:clamp(25px,3.2vw,42px)!important}
+#driveConnectPage .udc-top time{font-size:clamp(28px,4vw,48px)!important}
+#driveConnectPage .udc-modes{justify-content:flex-start!important;margin:0 0 18px!important;padding:0!important;min-height:0!important}
+#driveConnectPage .udc-mode{font-size:12px!important;padding:12px 18px!important;border-radius:13px!important}
+#driveConnectPage .udc-grid{grid-template-columns:minmax(0,1.8fr) minmax(270px,.85fr)!important;gap:18px!important}
+#driveConnectPage .udc-map{min-height:440px!important}
+#driveConnectPage .udc-map-art{min-height:270px!important}
+#driveConnectPage .udc-shell:after{position:fixed!important;bottom:18px!important;z-index:999!important}
+#driveConnectPage .udc-shell[data-mode="carplay"]{--ua:#65aaff!important;background:linear-gradient(145deg,#07101e,#13243d 58%,#091321)!important}
+#driveConnectPage .udc-shell[data-mode="android"]{--ua:#b6ed82!important;background:linear-gradient(145deg,#07140d,#193321 58%,#0a1710)!important}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-mode.active{background:#b6ed82!important;color:#10200f!important}
+@media(max-width:760px){
+ #driveConnectPage{padding:6px!important}
+ #driveConnectPage .udc-shell{min-height:calc(100vh - 12px);padding:14px 12px 88px!important;border-radius:18px!important}
+ #driveConnectPage .udc-grid{grid-template-columns:minmax(0,1fr)!important}
+ #driveConnectPage .udc-map{min-height:350px!important}
+ #driveConnectPage .udc-map-art{min-height:200px!important}
+ #driveConnectPage .udc-top{gap:8px!important}
+ #driveConnectPage .udc-top p{max-width:230px}
+ #driveConnectPage .udc-shell:after{bottom:10px!important;min-width:245px;padding:11px 18px;font-size:16px}
+}
+</style>
+<script id="ultra-drive-reliable-launch-and-modes">
+(function(){
+ function openUltraDrive(){
+  const page=document.getElementById("driveConnectPage");
+  const dashboard=document.getElementById("dashboardView");
+  if(!page||!dashboard)return false;
+  dashboard.style.display="block";
+  dashboard.classList.add("ultra-drive-screen-open");
+  document.querySelectorAll(".dash-page").forEach(el=>{
+   el.style.setProperty("display",el===page?"block":"none","important");
+  });
+  page.style.setProperty("display","block","important");
+  const root=page.querySelector(".udc-shell");
+  if(root&&!root.dataset.mode)root.dataset.mode="carplay";
+  document.querySelectorAll(".bottom-dock .nav[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page==="driveconnect"));
+  const kicker=document.getElementById("pageKicker"),heading=document.getElementById("pageHeading");
+  if(kicker)kicker.textContent="ULTRA DRIVE";
+  if(heading)heading.textContent="Car Dashboard";
+  window.scrollTo(0,0);
+  return true;
+ }
+ document.addEventListener("click",function(e){
+  const nav=e.target.closest('.bottom-dock .nav[data-page="driveconnect"]');
+  const shortcut=e.target.closest("#ultraDriveQuickOpen");
+  if(nav||shortcut){e.preventDefault();e.stopPropagation();openUltraDrive();}
+ },true);
+ document.addEventListener("click",function(e){
+  const mode=e.target.closest("#driveConnectPage .udc-mode");
+  if(!mode)return;
+  const root=document.querySelector("#driveConnectPage .udc-shell");
+  if(!root)return;
+  root.dataset.mode=mode.dataset.mode==="android"?"android":"carplay";
+  document.querySelectorAll("#driveConnectPage .udc-mode").forEach(b=>{
+   const active=b===mode;b.classList.toggle("active",active);b.setAttribute("aria-pressed",active?"true":"false");
+  });
+ },true);
+ window.addEventListener("pageshow",function(){
+  const root=document.querySelector("#driveConnectPage .udc-shell");
+  if(root&&!root.dataset.mode)root.dataset.mode="carplay";
+ });
+})();
+</script>
 
 </body></html>
