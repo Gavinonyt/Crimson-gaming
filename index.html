@@ -2229,6 +2229,21 @@ html,body{background:#07090e!important;color:#f4f6fb}
 
       <section class="dash-page" id="driveConnectPage">
 <div class="store-head"><div><div class="store-tag">ULTRA DRIVE CONNECT · WEB EDITION</div><h2>Ultra Drive</h2><p>A standalone CarPlay-style and Android Auto-style dashboard inside Ultra Launcher.</p></div><span class="collection-total">NO CAR CONNECTION</span></div>
+<div class="udc-system-picker" id="udcSystemPicker">
+ <div class="udc-picker-brand"><span class="udc-picker-mark">U</span><span>ULTRA DRIVE</span><small>CHOOSE YOUR DRIVE SYSTEM</small></div>
+ <h2>How do you want your dashboard?</h2><p>Select the interface you want to launch. You can switch systems later.</p>
+ <div class="udc-system-options">
+  <button type="button" class="udc-system-option udc-choice-carplay" data-launch-mode="carplay">
+   <span class="udc-option-preview udc-preview-carplay"><i>9:41</i><b>Maps</b><em>♫</em><small>⌂　◉　♫　⌖</small></span>
+   <span class="udc-option-copy"><strong>Apple CarPlay</strong><small>CarPlay-inspired dashboard</small><span class="udc-launch-label">LAUNCH SYSTEM <b>↗</b></span></span>
+  </button>
+  <button type="button" class="udc-system-option udc-choice-android" data-launch-mode="android">
+   <span class="udc-option-preview udc-preview-android"><i>9:41　5G</i><b>Where to?</b><em>♫  Now playing</em><small>◉　⌂　♫　▦</small></span>
+   <span class="udc-option-copy"><strong>Android Auto</strong><small>Android Auto-inspired dashboard</small><span class="udc-launch-label">LAUNCH SYSTEM <b>↗</b></span></span>
+  </button>
+ </div>
+ <div class="udc-picker-footer"><span>ULTRA DRIVE SYSTEM SELECTOR</span><span>Choose a system to continue</span></div>
+</div>
 <div class="udc-shell" data-mode="carplay">
 <header class="udc-top"><div><span class="udc-kicker">ULTRA DRIVE SYSTEM</span><h2>Good to see you.</h2><p id="udcVehicleLine">Your browser-based drive space is ready.</p></div><time id="udcClock">--:--</time></header>
 <div class="udc-modes"><button class="udc-mode active" data-mode="carplay"> CarPlay style</button><button class="udc-mode" data-mode="android">◉ Android Auto style</button></div>
@@ -3900,5 +3915,48 @@ let rec=null,active=false;const SR=window.SpeechRecognition||window.webkitSpeech
  #driveConnectPage .udc-shell[data-mode="android"] .udc-map-art{min-height:180px}
 }
 </style>
+
+<style id="ultra-drive-system-selector-ui">
+#driveConnectPage .udc-system-picker{position:relative;isolation:isolate;margin:18px 0 22px;padding:clamp(20px,4vw,38px);border:1px solid #ffffff20;border-radius:28px;overflow:hidden;color:#f5f7fb;background:radial-gradient(ellipse at 50% -15%,#385b87aa,transparent 52%),linear-gradient(145deg,#111a29,#090f19 75%);box-shadow:0 22px 65px #0006}
+#driveConnectPage .udc-picker-brand{display:flex;align-items:center;gap:11px;font-size:12px;font-weight:900;letter-spacing:2px}
+#driveConnectPage .udc-picker-mark{width:35px;height:35px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#a9d5ff,#507bb5);color:#10213a;font-size:20px;font-weight:950;letter-spacing:-1px}
+#driveConnectPage .udc-picker-brand small{margin-left:auto;color:#9aabc1;font-size:9px;letter-spacing:1.5px}
+#driveConnectPage .udc-system-picker h2{font-size:clamp(25px,4vw,38px);letter-spacing:-1px;margin:32px 0 7px}
+#driveConnectPage .udc-system-picker>p{font-size:13px;color:#aab8ca;margin:0 0 23px}
+#driveConnectPage .udc-system-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#driveConnectPage .udc-system-option{display:flex;flex-direction:column;gap:16px;text-align:left;min-width:0;padding:14px;border-radius:22px;border:1px solid #ffffff22;background:linear-gradient(145deg,#202d40,#121c2b);color:#f7f9fc;cursor:pointer;transition:transform .18s,border-color .18s,box-shadow .18s}
+#driveConnectPage .udc-system-option:hover{transform:translateY(-3px);border-color:#a8cfff88;box-shadow:0 15px 32px #0005}
+#driveConnectPage .udc-option-preview{height:172px;position:relative;display:flex;flex-direction:column;gap:12px;overflow:hidden;padding:14px;border-radius:15px;font-style:normal}
+#driveConnectPage .udc-option-preview i{font-size:10px;font-style:normal;font-weight:800}
+#driveConnectPage .udc-option-preview b{font-size:22px;margin-top:6px}
+#driveConnectPage .udc-option-preview em{font-size:14px;font-style:normal}
+#driveConnectPage .udc-option-preview small{margin-top:auto;font-size:15px;letter-spacing:3px}
+#driveConnectPage .udc-preview-carplay{background:linear-gradient(135deg,#2b405b,#101c30 80%);border:1px solid #9dcaff33}
+#driveConnectPage .udc-preview-carplay:after{content:"";position:absolute;right:-22px;bottom:-42px;width:190px;height:130px;border-radius:50%;background:repeating-linear-gradient(28deg,transparent 0 18px,#d9e4e455 19px 21px),linear-gradient(120deg,#315d50,#243b43);transform:rotate(-13deg)}
+#driveConnectPage .udc-preview-android{background:linear-gradient(135deg,#2b392f,#111913 80%);border:1px solid #c2f28d33}
+#driveConnectPage .udc-preview-android:after{content:"";position:absolute;right:-22px;bottom:-42px;width:190px;height:130px;border-radius:50%;background:repeating-linear-gradient(28deg,transparent 0 18px,#d9e4bd55 19px 21px),linear-gradient(120deg,#416346,#263d2b);transform:rotate(-13deg)}
+#driveConnectPage .udc-option-preview>*{position:relative;z-index:1}
+#driveConnectPage .udc-option-copy{display:grid;gap:6px;padding:0 3px 3px}
+#driveConnectPage .udc-option-copy strong{font-size:19px}
+#driveConnectPage .udc-option-copy>small{font-size:11px;color:#9eacc0}
+#driveConnectPage .udc-launch-label{display:flex;justify-content:space-between;align-items:center;margin-top:9px;padding:12px 14px;border-radius:12px;background:#eaf2fc;color:#15253b;font-size:10px;font-weight:900;letter-spacing:1px}
+#driveConnectPage .udc-choice-android .udc-launch-label{background:#c2f28d;color:#1b2a17}
+#driveConnectPage .udc-picker-footer{display:flex;justify-content:space-between;gap:12px;margin-top:22px;padding-top:14px;border-top:1px solid #ffffff18;color:#8191a6;font-size:9px;letter-spacing:1px}
+#driveConnectPage .udc-shell.udc-system-hidden{display:none!important}
+#driveConnectPage .udc-shell .udc-system-switch{position:absolute;top:16px;right:18px;z-index:8;padding:8px 12px;border-radius:99px;border:1px solid #ffffff35;background:#101b2b;color:#fff;font-size:10px;font-weight:800;cursor:pointer}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-system-switch{background:#29362c}
+#driveConnectPage .udc-shell .udc-modes{display:none!important}
+@media(max-width:640px){#driveConnectPage .udc-system-options{grid-template-columns:1fr}#driveConnectPage .udc-system-picker{padding:18px}#driveConnectPage .udc-picker-brand small{font-size:8px}#driveConnectPage .udc-option-preview{height:145px}}
+</style>
+<script id="ultra-drive-system-selector-logic">
+(function(){
+ const page=document.getElementById("driveConnectPage"),root=page&&page.querySelector(".udc-shell"),picker=document.getElementById("udcSystemPicker");
+ if(!page||!root||!picker||picker.dataset.bound)return;picker.dataset.bound="1";
+ root.classList.add("udc-system-hidden");
+ function choose(mode){root.dataset.mode=mode==="android"?"android":"carplay";root.classList.remove("udc-system-hidden");picker.hidden=true;const old=root.querySelector(".udc-system-switch");if(!old){const back=document.createElement("button");back.type="button";back.className="udc-system-switch";back.textContent="↶ SWITCH SYSTEM";back.addEventListener("click",()=>{root.classList.add("udc-system-hidden");picker.hidden=false;});root.appendChild(back);} }
+ picker.querySelectorAll("[data-launch-mode]").forEach(btn=>btn.addEventListener("click",()=>choose(btn.dataset.launchMode)));
+ window.ultraDriveShowPicker=function(){root.classList.add("udc-system-hidden");picker.hidden=false;};
+})();
+</script>
 
 </body></html>
