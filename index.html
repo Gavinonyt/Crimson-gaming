@@ -3399,4 +3399,22 @@ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ult
   display: none !important;
 }
 </style>
+
+<style id="ultra-console-six-card-hard-fix">
+/* Keep the Ultra Regular six-card player dashboard out of console themes.
+   This intentionally uses a broad theme selector so it does not depend on
+   dashboard wrapper IDs/classes being present during theme switching. */
+html[data-platform-theme="ps5"] .ultra-valor-dashboard,
+html[data-platform-theme="xbox"] .ultra-valor-dashboard,
+html[data-platform-theme="ps5"] .ultra-valor-card,
+html[data-platform-theme="xbox"] .ultra-valor-card {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+</style>
 </body></html>
