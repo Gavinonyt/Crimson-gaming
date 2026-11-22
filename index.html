@@ -1954,7 +1954,7 @@ html,body{background:#07090e!important;color:#f4f6fb}
       <div class="birthday-banner">🎂 ULTRA GAMING 2.5.0 · BETA ARCADE <span class="update-chip">NEW ERA</span></div>
       <div class="workspace-bar">
         <div><div class="workspace-kicker" id="pageKicker">PLAYER HOME</div><div class="workspace-title" id="pageHeading">Welcome back</div></div>
-        <div class="workspace-user"><span id="userEmail"></span><div class="workspace-actions"><span class="workspace-clock" id="ultraClock">--:--</span><button class="workspace-tool" id="appLibraryOpen" type="button">▦ APPS</button><button class="workspace-tool" id="controlCenterOpen" type="button">☷ CONTROL</button><button class="workspace-tool" id="commandLauncher" type="button" title="Open command palette (Ctrl+K)">⌕ COMMAND</button><button class="signout" id="signoutBtn">SIGN OUT</button></div></div>
+        <div class="workspace-user"><span id="userEmail"></span><div class="workspace-actions"><span class="workspace-clock" id="ultraClock">--:--</span><button class="workspace-tool" id="ultraDriveQuickOpen" type="button" aria-label="Open Ultra Drive">🚘 ULTRA DRIVE</button><button class="workspace-tool" id="appLibraryOpen" type="button">▦ APPS</button><button class="workspace-tool" id="controlCenterOpen" type="button">☷ CONTROL</button><button class="workspace-tool" id="commandLauncher" type="button" title="Open command palette (Ctrl+K)">⌕ COMMAND</button><button class="signout" id="signoutBtn">SIGN OUT</button></div></div>
       </div>
 
       <section class="dash-page ultra-home" id="homePage">
@@ -3646,4 +3646,19 @@ let rec=null,active=false;const SR=window.SpeechRecognition||window.webkitSpeech
  #driveConnectPage .udc-top time{font-size:25px}
 }
 </style>
+
+<script id="ultra-drive-workspace-shortcut">
+(function(){
+ const launch=document.getElementById("ultraDriveQuickOpen");
+ if(!launch)return;
+ launch.addEventListener("click",function(){
+  const nav=document.querySelector('.bottom-dock .nav[data-page="driveconnect"]');
+  if(nav)nav.click();
+  else {
+   const page=document.getElementById("driveConnectPage");
+   if(page){document.querySelectorAll(".dash-page").forEach(el=>el.style.display=el===page?"block":"none");page.style.setProperty("display","block","important");}
+  }
+ });
+})();
+</script>
 </body></html>
