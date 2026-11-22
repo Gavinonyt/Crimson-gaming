@@ -4110,7 +4110,7 @@ let rec=null,active=false;const SR=window.SpeechRecognition||window.webkitSpeech
    const nav=e.target.closest("[data-page]");
    if(nav){const p=nav.dataset.page;if(p==="launcher"){const d=document.getElementById("dashboardView");if(d){document.querySelectorAll(".dash-page").forEach(x=>x.style.setProperty("display","none","important"));d.style.display="block";}window.scrollTo(0,0);return;}home.querySelectorAll(".udc-v2-nav").forEach(n=>n.classList.toggle("active",n===nav));view.innerHTML=p==="apps"?appsPage:p==="maps"?mapsPage:p==="audio"?audioPage:homeCards;}
    const open=e.target.closest("[data-open]");if(open)window.open(open.dataset.open,"_blank","noopener");
-  },{once:true});
+  });
   home.querySelectorAll(".udc-v2-nav").forEach(n=>n.addEventListener("click",function(){home.querySelectorAll(".udc-v2-nav").forEach(x=>x.classList.toggle("active",x===n));const p=n.dataset.page;if(p==="launcher"){const d=document.getElementById("dashboardView");if(d){document.querySelectorAll(".dash-page").forEach(x=>x.style.setProperty("display","none","important"));d.style.display="block";}window.scrollTo(0,0);return;}view.innerHTML=p==="apps"?appsPage:p==="maps"?mapsPage:p==="audio"?audioPage:homeCards;}));
   const clock=home.querySelector("#udcV2Clock");const tick=()=>{if(clock)clock.textContent=new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"});};tick();if(!window.__udcV2ClockTimer)window.__udcV2ClockTimer=setInterval(tick,30000);
  }
