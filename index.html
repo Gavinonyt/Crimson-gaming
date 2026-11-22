@@ -1392,6 +1392,48 @@ html[data-show-boot="off"] .ultra-boot{display:none!important}
  #dashboardView.ultra-home-active #homePage .ultra-xbox-card-grid{position:relative;left:auto;right:auto;top:auto;bottom:auto;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;grid-auto-rows:110px;margin-top:8px}
 }
 @media(prefers-reduced-motion:reduce){.ultra-xbox-app-strip button,.ultra-xbox-card{transition:none!important}}
+
+/* PS5-inspired home composition: horizontal console navigation and wide featured-game shelf. */
+@media(min-width:651px){
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage{min-height:calc(100vh - 12px)!important;overflow:hidden!important;padding:0!important;background:radial-gradient(ellipse at 78% 35%,#174b7d55,transparent 42%),linear-gradient(145deg,#08182b,#050b14 72%)}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-xbox-rail,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-xbox-card-grid{display:none!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-topline{position:absolute!important;left:24px!important;right:24px!important;top:12px!important;display:flex;align-items:center;gap:28px;padding:12px 18px;border:1px solid #78bfff24;border-radius:16px;background:#071426d9!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-top-actions{display:flex;align-items:center;gap:clamp(12px,2.4vw,34px);margin-left:24px}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-top-actions button{font-size:11px;letter-spacing:.08em;color:#c8ddf3}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-top-actions button:hover{color:#78bfff}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-welcome{left:28px!important;right:28px!important;top:92px!important;min-height:112px!important;padding:20px 24px!important;border:0!important;background:transparent!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy h1{font-size:clamp(28px,3.5vw,48px)!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage>.os-feature-grid{position:absolute;display:grid!important;left:28px;right:28px;top:235px;bottom:26px;grid-template-columns:minmax(0,1.7fr) minmax(220px,.8fr);gap:16px}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-feature-card{min-height:0;border:1px solid #78bfff38;border-radius:18px;background:linear-gradient(115deg,#0b2745,#0a1526 68%,#102d4b);box-shadow:0 18px 55px #0006}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-feature-main{min-height:100%;background:radial-gradient(ellipse at 75% 42%,#2586d966,transparent 38%),linear-gradient(110deg,#0c2c4d,#071426 68%,#0b2340)}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-feature-art{font-size:clamp(80px,12vw,170px)}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-feature-title{font-size:clamp(25px,3vw,42px)}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-feature-stack{display:grid;grid-template-rows:1fr 1fr;gap:16px}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage>.ultra-home-widgets,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage>.os-section-head,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage>.ultra-cine-app-tools,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage>#osAppGrid,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage>.os-bottom-grid{display:none!important}
+}
+html[data-platform-theme="ps5"] .nav.active{background:#78bfff20!important;border-color:#78bfff55!important;box-shadow:inset 3px 0 #78bfff!important}
+html[data-platform-theme="ps5"] .settings-action,html[data-platform-theme="ps5"] .hero-button{background:#1678c9!important;border-color:#78bfff!important}
+html[data-platform-theme="xbox"] .nav.active{background:#107c102b!important;border-color:#107c1066!important;box-shadow:inset 3px 0 #35d34a!important}
+@media(max-width:650px){
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage{overflow:visible!important;min-height:100vh!important;padding:0 12px 90px!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-xbox-rail,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-xbox-card-grid{display:none!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-topline{position:relative!important;left:auto!important;right:auto!important;top:auto!important;margin:8px 0 12px;padding:10px;border:1px solid #78bfff24;border-radius:13px;background:#071426!important;flex-wrap:wrap}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-top-actions{display:flex;order:3;width:100%;gap:8px;overflow-x:auto;margin:5px 0 0;padding:5px 0}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-top-actions button{white-space:nowrap;font-size:10px}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-welcome{position:relative!important;left:auto!important;right:auto!important;top:auto!important;margin:10px 0!important;min-height:95px!important;padding:12px!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage>.os-feature-grid{position:relative;left:auto;right:auto;top:auto;bottom:auto;display:grid!important;grid-template-columns:1fr;gap:10px;margin:8px 0}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-feature-main{min-height:245px}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-feature-stack{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:150px;gap:10px}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-feature-art{font-size:64px}
+}
 </style>
 
 <style id="ultra-valor-crimson-v290">
