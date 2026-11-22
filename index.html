@@ -3303,4 +3303,81 @@ window.addEventListener("online",updateUltraXboxDashboard);window.addEventListen
  if(document.readyState!=="loading")init();
 })();
 </script><style id="ultra-reference-theme-visibility">.ultra-xbox-discord-hero{display:none!important}</style>
+
+<style id="ultra-console-reference-final-fix">
+/* Reference-mockup pass: keep the two console dashboards distinct and uncluttered. */
+@media (min-width:651px){
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage{background:linear-gradient(145deg,#071426,#0a1c31 58%,#06101e)!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage:before{background:radial-gradient(ellipse at 82% 8%,#286aa044,transparent 42%),linear-gradient(180deg,#071426,#0a1b30 58%,#050e1b)!important;filter:none!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-xbox-rail{display:none!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-topline{left:28px!important;right:28px!important;top:18px!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-top-actions button{background:#10243acc!important;border-color:#8dcaff30!important;color:#e4f2ff!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-welcome{position:absolute!important;display:flex!important;top:76px!important;left:28px!important;right:28px!important;transform:none!important;width:auto!important;text-align:left!important;align-items:center!important;justify-content:space-between!important;margin:0!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy{position:relative!important;width:auto!important;height:auto!important;overflow:visible!important;clip:auto!important;white-space:normal!important;max-width:70%!important;text-align:left!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy h1{font-size:clamp(28px,3.4vw,43px)!important;color:#f5f9ff!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy p{color:#a9c2dc!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-home-date{position:relative!important;top:auto!important;right:auto!important;align-items:flex-end!important;text-align:right!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip{top:185px!important;left:28px!important;right:28px!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-ps5-info-grid{top:292px!important;left:28px!important;right:28px!important;bottom:20px!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-home-widgets,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-app-grid,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-app-tools,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-bottom-grid{display:none!important}
+
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage{background:linear-gradient(145deg,#0b100d,#111a12 60%,#070c08)!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage:before{background:radial-gradient(ellipse at 70% 0%,#28652a33,transparent 44%),linear-gradient(145deg,#0b100d,#111a12 60%,#070c08)!important;filter:none!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-rail{display:flex!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-cine-topline{left:285px!important;right:25px!important;top:12px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-cine-top-actions button{background:#17231acc!important;border-color:#426a46!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .os-welcome{position:absolute!important;display:flex!important;top:58px!important;left:285px!important;right:25px!important;transform:none!important;width:auto!important;text-align:left!important;align-items:center!important;justify-content:space-between!important;margin:0!important;min-height:108px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy{position:relative!important;width:auto!important;height:auto!important;overflow:visible!important;clip:auto!important;white-space:normal!important;max-width:68%!important;text-align:left!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy h1{font-size:clamp(25px,3vw,39px)!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy p{color:#aab8ac!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-home-date{position:relative!important;top:auto!important;right:auto!important;align-items:flex-end!important;text-align:right!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip{top:175px!important;left:285px!important;right:25px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-discord-hero{top:275px!important;left:285px!important;right:25px!important;height:175px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-card-grid{top:465px!important;left:285px!important;right:25px!important;bottom:18px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-home-widgets,
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .os-app-grid,
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-cine-app-tools,
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-ps5-info-grid,
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .os-bottom-grid{display:none!important}
+}
+@media (max-width:650px){
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage{overflow-y:auto!important;overflow-x:hidden!important;background:#071426!important;padding:12px!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-xbox-rail{display:none!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-topline{position:relative!important;top:auto!important;left:auto!important;right:auto!important;flex-wrap:wrap!important;margin:0 0 20px!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-top-actions{display:flex!important;flex-wrap:wrap!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-welcome{position:relative!important;top:auto!important;left:auto!important;right:auto!important;transform:none!important;width:auto!important;display:flex!important;text-align:left!important;align-items:flex-start!important;margin:0 0 16px!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy{position:relative!important;width:auto!important;height:auto!important;overflow:visible!important;clip:auto!important;white-space:normal!important;text-align:left!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-home-date{display:none!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip{position:relative!important;left:auto!important;right:auto!important;top:auto!important;margin:0 0 12px!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-ps5-info-grid{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;margin:0!important}
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-home-widgets,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-app-grid,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-cine-app-tools,
+ html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .os-bottom-grid{display:none!important}
+
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage{overflow-y:auto!important;overflow-x:hidden!important;background:#0b100d!important;padding:10px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-rail{position:relative!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;width:100%!important;height:auto!important;display:flex!important;flex-direction:row!important;align-items:center!important;overflow-x:auto!important;margin:0 0 14px!important;padding:7px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-rail-icons{display:none!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-rail-link,
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-rail-feature{flex:0 0 auto!important;white-space:nowrap!important;padding:8px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-rail-feature b{width:28px!important;height:28px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-rail-bottom{display:none!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-cine-topline{position:relative!important;top:auto!important;left:auto!important;right:auto!important;flex-wrap:wrap!important;margin:0 0 12px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .os-welcome{position:relative!important;top:auto!important;left:auto!important;right:auto!important;transform:none!important;width:auto!important;display:flex!important;text-align:left!important;align-items:flex-start!important;margin:0 0 12px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy{position:relative!important;width:auto!important;height:auto!important;overflow:visible!important;clip:auto!important;white-space:normal!important;text-align:left!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-home-date{display:none!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip{position:relative!important;left:auto!important;right:auto!important;top:auto!important;margin:0 0 12px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-discord-hero{position:relative!important;left:auto!important;right:auto!important;top:auto!important;height:170px!important;margin:0 0 12px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-card-grid{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;display:flex!important;min-height:145px!important;margin:0 0 20px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-card-grid .ultra-xbox-game-card{flex:0 0 155px!important;min-height:135px!important}
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-home-widgets,
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .os-app-grid,
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-cine-app-tools,
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-ps5-info-grid,
+ html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .os-bottom-grid{display:none!important}
+}
+</style>
 </body></html>
