@@ -3553,4 +3553,97 @@ const observer=new MutationObserver(syncName);const u=document.getElementById('u
 document.addEventListener('click',e=>{const p=e.target.closest('.bottom-dock [data-page]');if(p){side.querySelectorAll('.uv-nav').forEach(x=>x.classList.toggle('active',x.dataset.uvPage===p.dataset.page));}});
 })();
 </script>
+
+<style id="ultra-reference-match-v2">
+/* Reference-matched desktop frame: title strip, primary rail, settings rail and centered workspace */
+#ultraWindowBar{position:fixed;z-index:1400;top:0;left:0;right:0;height:41px;background:#050505;border-bottom:1px solid #222;display:flex;align-items:center;padding:0 12px;gap:12px;color:#d9d9d9}
+#ultraWindowBar .uwb-brand{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:800;letter-spacing:.1px}
+#ultraWindowBar .uwb-mark{width:27px;height:27px;border-radius:7px;display:grid;place-items:center;background:#151515;border:1px solid #343434;color:#fff;font-weight:900}
+#ultraWindowBar .uwb-spacer{flex:1}
+#ultraWindowBar .uwb-tool{width:34px;height:30px;border:0;border-radius:5px;background:transparent;color:#aeb4bd;font-size:15px;cursor:pointer}
+#ultraWindowBar .uwb-tool:hover{background:#222;color:#fff}
+#ultraWindowBar .uwb-close:hover{background:#c42b35}
+#dashboardView .dash-layout{padding-top:41px!important;padding-left:222px!important}
+#dashboardView .dash-main{padding-top:25px!important}
+#ultraValorsSidebar{top:41px!important;width:222px!important;padding:10px 7px 0!important;background:#050505!important}
+#ultraValorsSidebar .uv-brand{height:42px!important;padding:0 12px 12px!important;margin-bottom:14px!important;border-bottom:1px solid #1e1e1e!important}
+#ultraValorsSidebar .uv-brand .uv-mark{width:28px;height:28px;display:grid;place-items:center;border-radius:7px;background:#171717;border:1px solid #3a3a3a;color:#fff;font-weight:900}
+#ultraValorsSidebar .uv-nav{height:44px!important;margin:2px 0!important;border-radius:8px!important;padding:0 13px!important;font-size:13px!important;color:#9da3ad!important}
+#ultraValorsSidebar .uv-nav.active{background:#191919!important;border-color:#444!important;color:#f6f6f6!important}
+#ultraValorsSidebar .uv-nav .uv-icon{font-size:16px!important;color:#9ca4b1!important}
+#ultraValorsSidebar .uv-profile{min-height:75px!important;padding:11px 9px!important}
+#ultraValorsSidebar .uv-avatar{width:40px!important;height:40px!important;border-radius:50%!important;background:#111!important;border:1px solid #555!important}
+#ultraSettingsRail{display:none;position:fixed;z-index:1190;left:222px;top:41px;bottom:0;width:210px;background:#080808;border-right:1px solid #222;padding:27px 10px 12px;overflow:auto}
+#ultraSettingsRail.visible{display:block}
+#ultraSettingsRail .usr-heading{font-size:20px;font-weight:800;color:#f4f4f4;padding:0 8px}
+#ultraSettingsRail .usr-sub{font-size:10px;color:#777;padding:5px 8px 14px}
+#ultraSettingsRail .usr-search{width:100%;height:33px;background:#151515;border:1px solid #303030;border-radius:9px;padding:0 11px;color:#ddd;font-size:11px;margin-bottom:14px}
+#ultraSettingsRail .usr-label{font-size:9px;letter-spacing:1.5px;color:#626873;padding:11px 9px 6px}
+#ultraSettingsRail button{display:flex;align-items:center;gap:10px;width:100%;height:39px;padding:0 9px;border:1px solid transparent;border-radius:9px;background:transparent;color:#aeb1b8;text-align:left;font-size:11px;font-weight:650;cursor:pointer}
+#ultraSettingsRail button:hover{background:#151515;color:#fff}
+#ultraSettingsRail button.active{background:linear-gradient(100deg,#42200e,#17110d);border-color:#9a4b12;color:#fff;box-shadow:0 0 18px #f0782020}
+#ultraSettingsRail .usr-ico{width:25px;height:25px;display:grid;place-items:center;border-radius:8px;background:#242424;color:#ddd;font-size:13px}
+#ultraSettingsRail button.active .usr-ico{background:#e87520;color:#fff}
+#dashboardView.settings-subrail-open .dash-layout{padding-left:432px!important}
+#dashboardView.settings-subrail-open .dash-main{max-width:1000px!important;margin-left:0!important;padding-left:clamp(20px,8vw,120px)!important;padding-right:24px!important}
+#dashboardView.settings-subrail-open .workspace-bar{margin-bottom:20px!important}
+#settingsPage{max-width:100%!important}
+#settingsPage .store-head{display:none!important}
+#settingsPage .settings-card{max-width:620px!important;margin:0 auto 14px!important;background:#0d0d0d!important;border:1px solid #252525!important;border-radius:16px!important;padding:19px!important}
+#settingsPage .settings-card h3{font-size:15px!important}
+#settingsPage .settings-card p{font-size:11px!important;color:#929292!important}
+#settingsPage .settings-action{border-radius:9px!important}
+#dashboardView .dash-page:not(#settingsPage) .store-head{margin-bottom:22px!important}
+@media(max-width:760px){
+ #ultraWindowBar{height:39px;padding:0 8px}
+ #dashboardView .dash-layout{padding-top:39px!important;padding-left:68px!important}
+ #ultraValorsSidebar{top:39px!important;width:68px!important}
+ #ultraValorsSidebar .uv-brand{justify-content:center;padding-left:0!important;padding-right:0!important}
+ #ultraValorsSidebar .uv-brand span:not(.uv-mark){display:none}
+ #ultraValorsSidebar .uv-nav{justify-content:center;padding:0!important}
+ #ultraValorsSidebar .uv-nav .uv-label{display:none}
+ #ultraValorsSidebar .uv-nav .uv-icon{width:auto}
+ #ultraValorsSidebar .uv-profile{justify-content:center;padding:9px 0!important}
+ #ultraValorsSidebar .uv-user,#ultraValorsSidebar .uv-online{display:none!important}
+ #ultraSettingsRail{left:68px;width:0;padding:0;border:0;visibility:hidden}
+ #dashboardView.settings-subrail-open .dash-layout{padding-left:68px!important}
+ #dashboardView.settings-subrail-open .dash-main{padding:18px 12px!important}
+ #dashboardView.settings-subrail-open #settingsPage{padding-left:0!important}
+}
+</style>
+<div id="ultraWindowBar"><div class="uwb-brand"><span class="uwb-mark">U</span><span>Ultra Launcher</span></div><div class="uwb-spacer"></div><button class="uwb-tool" type="button" title="Settings" data-uwb-settings>⚙</button><button class="uwb-tool" type="button" title="Minimize" data-uwb-min>—</button><button class="uwb-tool" type="button" title="Fullscreen" data-uwb-full>⛶</button><button class="uwb-tool uwb-close" type="button" title="Close dashboard" data-uwb-close>×</button></div>
+<aside id="ultraSettingsRail" aria-label="Settings categories">
+ <div class="usr-heading">Settings</div><div class="usr-sub">Tune Ultra Launcher to your setup</div>
+ <input class="usr-search" type="search" placeholder="⌕  Search settings" aria-label="Search settings">
+ <div class="usr-label">USER</div>
+ <button data-setting-target="account"><span class="usr-ico">♙</span>My Account</button>
+ <button data-setting-target="privacy"><span class="usr-ico">⬟</span>Privacy &amp; Safety</button>
+ <button data-setting-target="pass"><span class="usr-ico">♛</span>Ultra Pass</button>
+ <div class="usr-label">APP</div>
+ <button data-setting-target="appearance"><span class="usr-ico">◈</span>Appearance</button>
+ <button data-setting-target="backgrounds"><span class="usr-ico">▧</span>Backgrounds</button>
+ <button data-setting-target="library"><span class="usr-ico">▣</span>Library</button>
+ <button data-setting-target="voice"><span class="usr-ico">♬</span>Voice &amp; Video</button>
+ <button data-setting-target="notifications"><span class="usr-ico">♧</span>Notifications</button>
+ <button data-setting-target="system"><span class="usr-ico">▤</span>System</button>
+ <div class="usr-label">INFO</div><button data-setting-target="about"><span class="usr-ico">ⓘ</span>About</button>
+</aside>
+<script id="ultra-reference-match-script">
+(()=>{const root=document.getElementById('dashboardView'),rail=document.getElementById('ultraSettingsRail');if(!root||!rail)return;
+const nav=document.getElementById('ultraValorsSidebar');
+if(nav){const brand=nav.querySelector('.uv-brand');if(brand){brand.innerHTML='<span class="uv-mark">U</span><span>ULTRA</span>';}}
+const originalProfile=nav?.querySelector('.uv-profile');
+if(originalProfile){const name=originalProfile.querySelector('strong');if(name)name.textContent='Ultra Player';}
+function currentPage(){return document.querySelector('#dashboardView .bottom-dock .nav.active')?.dataset.page||'home'}
+function setSettingsRail(){const open=currentPage()==='settings';rail.classList.toggle('visible',open);root.classList.toggle('settings-subrail-open',open);if(open){rail.querySelector('[data-setting-target="account"]')?.classList.add('active')}else{rail.querySelectorAll('button').forEach(b=>b.classList.remove('active'))}}
+document.addEventListener('click',e=>{const p=e.target.closest('.bottom-dock [data-page]');if(p)setTimeout(setSettingsRail,0);const s=e.target.closest('[data-uv-page]');if(s)setTimeout(setSettingsRail,0);const cat=e.target.closest('[data-setting-target]');if(cat){rail.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b===cat));const cards=[...document.querySelectorAll('#settingsPage .settings-card')];const key=cat.dataset.settingTarget;let idx={account:0,privacy:1,pass:1,appearance:2,backgrounds:3,library:8,voice:4,notifications:5,system:6,about:7}[key]??0;const target=cards[Math.min(idx,cards.length-1)];target?.scrollIntoView({behavior:'smooth',block:'start'});}});
+rail.querySelector('.usr-search')?.addEventListener('input',e=>{const q=e.target.value.toLowerCase();rail.querySelectorAll('[data-setting-target]').forEach(b=>b.hidden=!b.textContent.toLowerCase().includes(q));});
+document.querySelector('[data-uwb-settings]')?.addEventListener('click',()=>document.querySelector('.bottom-dock [data-page="settings"]')?.click());
+document.querySelector('[data-uwb-full]')?.addEventListener('click',()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()});
+document.querySelector('[data-uwb-min]')?.addEventListener('click',()=>{document.body.classList.toggle('uwb-minimized');});
+document.querySelector('[data-uwb-close]')?.addEventListener('click',()=>{document.querySelector('#signoutBtn')?.click()});
+const user=document.getElementById('userEmail');if(user){const set=()=>{const t=user.textContent.trim();if(t){const n=nav?.querySelector('.uv-profile strong');if(n)n.textContent=t.split('@')[0]}};new MutationObserver(set).observe(user,{childList:true,subtree:true,characterData:true});set();}
+setSettingsRail();
+})();
+</script>
 </body></html>
