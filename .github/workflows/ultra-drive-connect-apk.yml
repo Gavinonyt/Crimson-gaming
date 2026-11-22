@@ -27,36 +27,31 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Accept Android SDK licences
+      - name: Install Android SDK 35
         shell: bash
         run: |
           set +o pipefail
           yes | sdkmanager --licenses
           set -o pipefail
-
-      - name: Install Android SDK 35
-        run: |
           sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
-      - name: Set up Gradle 8.9
-        uses: gradle/actions/setup-gradle@v4
+      - name: Build debug APK with Gradle 8.9
+        uses: gradle/gradle-build-action@v3
         with:
           gradle-version: "8.9"
-
-      - name: Show build environment
-        run: |
-          java -version
-          gradle --version
-          sdkmanager --list_installed
-
-      - name: Build debug APK
-        working-directory: ultra-drive-connect
-        run: gradle --no-daemon --stacktrace --info :app:assembleDebug
+          arguments: ":app:assembleDebug --stacktrace --warning-mode all"
+          build-root-directory: "ultra-drive-connect"
 
       - name: Verify APK exists
+        shell: bash
         run: |
-          test -s ultra-drive-connect/app/build/outputs/apk/debug/app-debug.apk
-          ls -lh ultra-drive-connect/app/build/outputs/apk/debug/app-debug.apk
+          APK="ultra-drive-connect/app/build/outputs/apk/debug/app-debug.apk"
+          if [ ! -s "$APK" ]; then
+            echo "::error::Gradle completed without producing the expected APK: $APK"
+            find ultra-drive-connect/app/build/outputs -maxdepth 5 -type f -print 2>/dev/null || true
+            exit 1
+          fi
+          ls -lh "$APK"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
