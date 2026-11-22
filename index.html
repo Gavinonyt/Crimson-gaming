@@ -1027,6 +1027,15 @@ html[data-platform-theme="switch"] .brand-mark{background:linear-gradient(90deg,
 .social-connect-heading{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}.social-connect-heading h2{margin:5px 0;font-size:24px}.social-connect-heading p,.social-connect-footnote{color:var(--platform-muted,#aaa);font-size:12px;line-height:1.6}.social-connect-mark{font-size:30px;color:var(--platform-accent,#9b5cff)}
 .social-connect-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.social-connect-card{display:flex;flex-direction:column;gap:9px;padding:18px;border:1px solid var(--platform-border,#ffffff20);border-radius:14px;background:color-mix(in srgb,var(--platform-surface,#100d18) 75%,transparent);min-width:0}.social-connect-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:color-mix(in srgb,var(--platform-accent,#9b5cff) 22%,transparent);font-size:20px}.discord-icon{background:#5865f2;color:white}.social-connect-copy strong{display:block;font-size:15px}.social-connect-copy small,.social-connect-hint{display:block;color:var(--platform-muted,#aaa);font-size:11px;line-height:1.5}.social-connect-card label{font-size:9px;letter-spacing:1px;font-weight:900;color:var(--platform-muted,#aaa);margin-top:5px}.social-connect-card input{width:100%;min-width:0;padding:11px 12px;border:1px solid var(--platform-border,#ffffff25);border-radius:9px;background:var(--platform-surface,#100d18);color:var(--platform-text,#fff);font:inherit;font-size:12px}.social-connect-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.social-connect-actions button{border:1px solid var(--platform-border,#ffffff25);border-radius:9px;padding:10px 13px;background:var(--platform-accent,#9b5cff);color:white;font-size:10px;font-weight:900;cursor:pointer}.social-connect-actions .social-connect-open{background:transparent;color:var(--platform-text,#fff)}.ultra-discord-widget-wrap iframe{width:100%;max-width:350px;height:500px;border:0;border-radius:12px;background:#202127}.ultra-discord-widget-wrap{margin-top:12px}.ultra-social-links-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.ultra-social-links-list a{padding:9px 12px;border-radius:9px;border:1px solid var(--platform-border,#ffffff25);color:var(--platform-text,#fff);text-decoration:none;font-size:11px;font-weight:800}.ultra-social-links-list a:hover{border-color:var(--platform-accent,#9b5cff)}.social-connect-footnote{margin:14px 0 0}.ultra-rich-presence{margin-top:14px;padding:13px;border:1px solid #5865f255;border-radius:11px;background:#5865f210}.ultra-rich-presence strong{font-size:10px;letter-spacing:.08em}.ultra-rich-presence p{margin:7px 0;color:var(--platform-text,#fff);font-size:12px}.ultra-rich-presence small{display:block;color:var(--platform-muted,#aaa);font-size:10px;line-height:1.5}.ultra-rich-presence a{display:inline-block;margin-top:10px;color:#9ca9ff;font-size:10px;font-weight:900;text-decoration:none}
 @media(max-width:760px){.social-connect-grid{grid-template-columns:1fr}.ultra-connected-social{margin:14px 8px;padding:14px}.social-connect-heading h2{font-size:20px}}
+
+/* Ultra Drive Connect 2.0 garage form */
+.driveconnect-garage-form label{display:block;font-size:9px;letter-spacing:1.3px;font-weight:900;color:#c8b6dc;margin:10px 0 7px}
+.driveconnect-garage-form input{width:100%;min-width:0}
+.driveconnect-form-row{display:grid;grid-template-columns:.7fr 1fr 1fr;gap:10px}
+.driveconnect-form-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.driveconnect-link.secondary{background:#171322;border-color:#ffffff26}
+.driveconnect-saved-vehicle{margin-top:12px;padding:12px;border:1px solid #8b65b855;background:#251b33;border-radius:8px;color:#e8d9fb;font-size:12px}
+@media(max-width:650px){.driveconnect-form-row{grid-template-columns:1fr 1fr}.driveconnect-form-row>div:first-child{grid-column:1/-1}}
 </style><style id="ultra-personalization-styles">
 :root{--ultra-radius:18px;--ultra-ui-scale:1;--ultra-font-family:Inter,ui-sans-serif,system-ui,sans-serif;--ultra-dock-scale:1}
 body{font-family:var(--ultra-font-family)}.settings-card,.store-card,.hub-card,.friend-person,.app-entry,.command-result{border-radius:var(--ultra-radius)!important}#dashboardView{font-size:calc(1rem * var(--ultra-ui-scale))}
@@ -2164,23 +2173,38 @@ html,body{background:#07090e!important;color:#f4f6fb}
       </section>
 
       <section class="dash-page" id="driveConnectPage">
-        <div class="store-head"><div><div class="store-tag">ULTRA DRIVE CONNECT</div><h2>Connected driving</h2><p>A companion dashboard for supported in-car experiences. Set everything up while parked.</p></div><span class="collection-total">WEB COMPANION</span></div>
-        <div class="driveconnect-hero"><div><span class="driveconnect-kicker">ULTRA DRIVE CONNECT · 1.0</span><h3>Your drive. Your ecosystem.</h3><p>Keep your favorite media, navigation destinations, and vehicle information organized in one place.</p></div><div class="driveconnect-mark">U<span>+</span></div></div>
-        <div class="driveconnect-grid">
-          <article class="driveconnect-card"><div class="driveconnect-icon"></div><div class="driveconnect-label">APPLE CARPLAY</div><h3>CarPlay companion</h3><p>Use the official CarPlay experience on a compatible iPhone and vehicle. This website cannot project or replace CarPlay.</p><a class="driveconnect-link" href="https://support.apple.com/en-us/108415" target="_blank" rel="noopener noreferrer">APPLE SETUP GUIDE ↗</a></article>
-          <article class="driveconnect-card"><div class="driveconnect-icon">◉</div><div class="driveconnect-label">ANDROID AUTO</div><h3>Android Auto companion</h3><p>Use Android Auto through its supported phone and vehicle connection. Ultra Launcher provides shortcuts, not an Android Auto receiver.</p><a class="driveconnect-link" href="https://support.google.com/androidauto/answer/6348029" target="_blank" rel="noopener noreferrer">ANDROID AUTO SETUP ↗</a></article>
-        </div>
-        <div class="driveconnect-section-head"><div><span class="driveconnect-kicker">YOUR VEHICLE</span><h3>Digital vehicle key</h3><p>Pairing availability depends on the vehicle manufacturer, model, phone, and their approved digital-key system.</p></div><span class="driveconnect-status">NOT PAIRED</span></div>
-        <div class="driveconnect-key-panel"><div class="driveconnect-key-art">▣</div><div class="driveconnect-key-copy"><strong>Real key integration is not connected</strong><p>Ultra Launcher does not currently have an automaker-authorized digital-key connection. No unlock, lock, or engine-start commands are sent from this page.</p><span class="driveconnect-disclaimer">DEMO / COMPANION ONLY · NO VEHICLE ACCESS</span></div></div>
-        <div class="driveconnect-section-head"><div><span class="driveconnect-kicker">QUICK ACCESS</span><h3>Drive essentials</h3><p>Open supported services before your trip. Make selections while parked.</p></div></div>
-        <div class="driveconnect-shortcuts">
-          <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer"><span>⌖</span><strong>Google Maps</strong><small>Open navigation</small></a>
-          <a href="https://music.youtube.com" target="_blank" rel="noopener noreferrer"><span>♫</span><strong>YouTube Music</strong><small>Open music</small></a>
-          <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer"><span>◖</span><strong>Spotify</strong><small>Open music</small></a>
-          <a href="https://support.apple.com/carplay" target="_blank" rel="noopener noreferrer"><span></span><strong>CarPlay help</strong><small>Compatibility info</small></a>
-        </div>
-        <p class="driveconnect-safety">For safety, set up your phone and choose media or destinations before moving. Never use this dashboard while driving.</p>
-      </section>
+  <div class="store-head">
+    <div><div class="store-tag">ULTRA DRIVE CONNECT · 2.0</div><h2>Connected driving</h2><p>Your all-in-one driving companion, built right into Ultra Launcher. Configure your setup while parked.</p></div>
+    <span class="collection-total">WEB EDITION</span>
+  </div>
+  <div class="driveconnect-hero">
+    <div><span class="driveconnect-kicker">ULTRA DRIVE CONNECT · YOUR ROAD, YOUR RULES</span><h3>Everything for the drive.</h3><p>Keep your vehicle profile, navigation, music and official in-car setup guides together in one dashboard.</p></div>
+    <div class="driveconnect-mark">U<span>+</span></div>
+  </div>
+  <div class="driveconnect-section-head"><div><span class="driveconnect-kicker">PLATFORM SETUP</span><h3>Choose your in-car system</h3><p>Use the official service on a compatible phone and vehicle.</p></div></div>
+  <div class="driveconnect-grid">
+    <article class="driveconnect-card"><div class="driveconnect-icon"></div><div class="driveconnect-label">APPLE CARPLAY</div><h3>CarPlay setup</h3><p>Open Apple's guide to connect a compatible iPhone to a supported vehicle. Ultra Launcher does not act as a CarPlay receiver or project the CarPlay interface.</p><a class="driveconnect-link" href="https://support.apple.com/en-us/108415" target="_blank" rel="noopener noreferrer">OPEN APPLE GUIDE ↗</a></article>
+    <article class="driveconnect-card"><div class="driveconnect-icon">◉</div><div class="driveconnect-label">ANDROID AUTO</div><h3>Android Auto setup</h3><p>Find setup steps for compatible Android phones and vehicle displays. This web page is a companion dashboard, not an Android Auto projection service.</p><a class="driveconnect-link" href="https://support.google.com/androidauto/answer/6348029" target="_blank" rel="noopener noreferrer">OPEN GOOGLE GUIDE ↗</a></article>
+  </div>
+  <div class="driveconnect-section-head"><div><span class="driveconnect-kicker">YOUR VEHICLE</span><h3>My garage</h3><p>Save a basic vehicle profile on this device.</p></div><span class="driveconnect-status">LOCAL PROFILE</span></div>
+  <div class="driveconnect-card driveconnect-garage-form">
+    <label for="dcVehicleName">VEHICLE NAME</label><input id="dcVehicleName" class="store-search" maxlength="48" placeholder="e.g. Daily Driver">
+    <div class="driveconnect-form-row"><div><label for="dcVehicleYear">YEAR</label><input id="dcVehicleYear" class="store-search" inputmode="numeric" maxlength="4" placeholder="2024"></div><div><label for="dcVehicleMake">MAKE</label><input id="dcVehicleMake" class="store-search" maxlength="32" placeholder="Make"></div><div><label for="dcVehicleModel">MODEL</label><input id="dcVehicleModel" class="store-search" maxlength="32" placeholder="Model"></div></div>
+    <div class="driveconnect-form-actions"><button class="driveconnect-link" type="button" id="dcSaveVehicle">SAVE VEHICLE PROFILE</button><button class="driveconnect-link secondary" type="button" id="dcClearVehicle">CLEAR</button></div>
+    <p id="dcGarageStatus" class="small-note" role="status" aria-live="polite">Your profile stays in this browser on this device.</p>
+    <div id="dcSavedVehicle" class="driveconnect-saved-vehicle" hidden></div>
+  </div>
+  <div class="driveconnect-section-head"><div><span class="driveconnect-kicker">SECURE ACCESS</span><h3>Digital vehicle key</h3><p>Check what is needed for a supported vehicle.</p></div><span class="driveconnect-status">NOT CONNECTED</span></div>
+  <div class="driveconnect-key-panel"><div class="driveconnect-key-art">▣</div><div class="driveconnect-key-copy"><strong>Automaker integration required</strong><p>Real digital keys require a compatible vehicle, supported phone hardware and an approved automaker digital-key service. No lock, unlock or engine-start commands are available in Ultra Launcher.</p><span class="driveconnect-disclaimer">READINESS INFORMATION ONLY · NO VEHICLE ACCESS</span></div></div>
+  <div class="driveconnect-section-head"><div><span class="driveconnect-kicker">QUICK ACCESS</span><h3>Drive essentials</h3><p>Open these services before your trip.</p></div></div>
+  <div class="driveconnect-shortcuts">
+    <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer"><span>⌖</span><strong>Google Maps</strong><small>Navigation</small></a>
+    <a href="https://music.youtube.com" target="_blank" rel="noopener noreferrer"><span>♫</span><strong>YouTube Music</strong><small>Music</small></a>
+    <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer"><span>◖</span><strong>Spotify</strong><small>Music</small></a>
+    <a href="https://support.apple.com/carplay" target="_blank" rel="noopener noreferrer"><span></span><strong>CarPlay help</strong><small>Compatibility</small></a>
+  </div>
+  <p class="driveconnect-safety">Safety reminder: set up your phone and choose destinations or media while parked. Never interact with this dashboard while driving.</p>
+</section>
       <section class="dash-page" id="updatesPage">
         <div class="store-head"><div><div class="store-tag">ULTRA CHANGELOG</div><h2>What’s New</h2><p>See what’s new, what’s improved, and what changed across Ultra Gaming.</p></div><span class="collection-total">LATEST · 5.1.0</span></div>
         <div class="settings-card update-release"><div class="update-release-top"><div><span class="update-version">VERSION 5.1.0</span><h3>Ultra Drive Connect Companion</h3><p>CarPlay and Android Auto setup links, drive shortcuts, and digital-key readiness</p></div><span class="update-pill">LATEST</span></div><ul class="update-list"><li><span class="update-type improved">UPDATED</span><span>Carried forward the Ultra Launcher V4.0 platform theme experience and refreshed the release identity to V5.0.0.</span></li><li><span class="update-type improved">UPDATED</span><span>Kept Ultra City: State of Sun and the browser-playable Ultra Sprint experience available in the launcher.</span></li><li><span class="update-type new">NEW</span><span>Added Ultra Drive Connect with official Apple CarPlay and Android Auto setup resources, Google Maps and music shortcuts, and responsive mobile layout.</span></li><li><span class="update-type improved">CLARIFIED</span><span>Added a digital-key readiness panel. Real lock, unlock, and engine-start access remains unavailable until an authorized automaker integration is built and approved.</span></li><li><span class="update-type improved">NOTE</span><span>Existing accounts, game collections, themes, social features, and browser game progress remain in the current web app. This update does not rebuild or replace the Android APK or Windows installer.</span></li></ul></div>
@@ -3186,4 +3210,41 @@ window.addEventListener("online",updateUltraXboxDashboard);window.addEventListen
 
 /* Ultra Drive Connect companion UI */
 .driveconnect-hero{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:24px 27px;border:1px solid #5c3d7e;background:radial-gradient(ellipse at 85% 45%,#7546a455,transparent 45%),linear-gradient(110deg,#251a35,#14101d);border-radius:13px;margin:18px 0 16px}.driveconnect-kicker{font-size:9px;letter-spacing:2px;font-weight:900;color:#c69aff}.driveconnect-hero h3{font-size:25px;margin:10px 0 6px}.driveconnect-hero p,.driveconnect-section-head p{font-size:11px;line-height:1.6;color:#b4a8c2;margin:0;max-width:600px}.driveconnect-mark{font-size:72px;font-weight:1000;color:#ffffff1b;padding:0 15px}.driveconnect-mark span{font-size:24px;color:#c49aff}.driveconnect-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.driveconnect-card{background:#191423;border:1px solid #ffffff18;border-radius:11px;padding:18px;min-width:0}.driveconnect-icon{font-size:25px;margin-bottom:13px}.driveconnect-label{font-size:9px;letter-spacing:1.7px;color:#bd96ed;font-weight:900}.driveconnect-card h3{font-size:17px;margin:7px 0}.driveconnect-card p{font-size:11px;line-height:1.6;color:#aa9fb8;min-height:52px}.driveconnect-link{display:inline-block;margin-top:9px;color:#e2caff;text-decoration:none;font-size:10px;font-weight:900;border:1px solid #a16be066;background:#30203f;padding:10px 12px;border-radius:7px}.driveconnect-section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:26px 0 12px}.driveconnect-section-head h3{font-size:19px;margin:6px 0}.driveconnect-status{font-size:9px;font-weight:900;letter-spacing:1px;color:#f0c78b;background:#4a351e;border:1px solid #a67b3f66;padding:7px 9px;border-radius:20px;white-space:nowrap}.driveconnect-key-panel{display:flex;align-items:center;gap:17px;background:#191423;border:1px solid #ffffff18;border-radius:11px;padding:18px}.driveconnect-key-art{width:58px;height:58px;display:grid;place-items:center;flex:0 0 58px;border-radius:13px;background:#2a2038;color:#d6b6ff;font-size:30px}.driveconnect-key-copy strong{font-size:13px}.driveconnect-key-copy p{font-size:11px;line-height:1.6;color:#aa9fb8;margin:7px 0}.driveconnect-disclaimer{font-size:9px;letter-spacing:1px;color:#e4bd8a;font-weight:900}.driveconnect-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.driveconnect-shortcuts a{display:flex;flex-direction:column;gap:7px;text-decoration:none;color:#fff;background:#191423;border:1px solid #ffffff18;border-radius:10px;padding:14px;min-width:0}.driveconnect-shortcuts a>span{font-size:22px;color:#c69aff}.driveconnect-shortcuts strong{font-size:11px}.driveconnect-shortcuts small{font-size:9px;color:#9f95ad}.driveconnect-safety{margin:16px 0 0;padding:12px 14px;border:1px solid #8a663c55;background:#2b2118;border-radius:8px;color:#e3c69f;font-size:10px;line-height:1.5}@media(max-width:650px){.driveconnect-grid{grid-template-columns:1fr}.driveconnect-hero{padding:20px}.driveconnect-mark{font-size:54px;padding:0}.driveconnect-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}.driveconnect-section-head{align-items:flex-start;flex-direction:column}.driveconnect-key-panel{align-items:flex-start}}
-</style></body></html>
+</style>
+<script>
+(function(){
+ const ids=["dcVehicleName","dcVehicleYear","dcVehicleMake","dcVehicleModel"];
+ const key="ultra_drive_connect_vehicle_v2";
+ function el(id){return document.getElementById(id)}
+ function safeText(value){return String(value||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+ function renderSaved(){
+  const box=el("dcSavedVehicle"); if(!box)return;
+  try{
+   const v=JSON.parse(localStorage.getItem(key)||"null");
+   if(!v){box.hidden=true;box.textContent="";return}
+   box.hidden=false;
+   box.innerHTML="<strong> SAVED VEHICLE </strong><div>"+safeText([v.year,v.make,v.model].filter(Boolean).join(" ")||"Vehicle profile")+"</div><small>"+safeText(v.name||"My vehicle")+"</small>";
+   ids.forEach(id=>{const input=el(id);if(input)input.value=v[({dcVehicleName:"name",dcVehicleYear:"year",dcVehicleMake:"make",dcVehicleModel:"model"})[id]]||""});
+  }catch(_){box.hidden=true}
+ }
+ function init(){
+  if(!el("dcSaveVehicle"))return;
+  renderSaved();
+  el("dcSaveVehicle").onclick=function(){
+   const v={name:el(ids[0]).value.trim(),year:el(ids[1]).value.trim(),make:el(ids[2]).value.trim(),model:el(ids[3]).value.trim()};
+   if(!v.name&&!v.make&&!v.model){el("dcGarageStatus").textContent="Add a vehicle name, make or model first.";return}
+   if(v.year&&!/^\\d{4}$/.test(v.year)){el("dcGarageStatus").textContent="Enter a four-digit year or leave it blank.";return}
+   try{localStorage.setItem(key,JSON.stringify(v));el("dcGarageStatus").textContent="Vehicle profile saved on this device.";renderSaved()}
+   catch(_){el("dcGarageStatus").textContent="This browser could not save the profile. Check browser storage settings."}
+  };
+  el("dcClearVehicle").onclick=function(){
+   try{localStorage.removeItem(key)}catch(_){}
+   ids.forEach(id=>{if(el(id))el(id).value=""});
+   renderSaved();el("dcGarageStatus").textContent="Saved vehicle profile cleared from this device.";
+  };
+ }
+ document.addEventListener("DOMContentLoaded",init);
+ document.addEventListener("click",function(e){if(e.target&&e.target.closest('[data-page="driveconnect"]'))setTimeout(init,0)});
+ if(document.readyState!=="loading")init();
+})();
+</script></body></html>
