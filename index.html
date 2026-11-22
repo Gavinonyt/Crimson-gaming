@@ -3391,4 +3391,12 @@ html:not([data-platform-theme="ps5"]):not([data-platform-theme="xbox"]) #dashboa
   display: none !important;
 }
 </style>
+
+<style id="ultra-hide-regular-six-cards-in-console-themes">
+/* The six-card Ultra Regular player dashboard must not appear in console layouts. */
+html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-valor-dashboard,
+html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-valor-dashboard {
+  display: none !important;
+}
+</style>
 </body></html>
