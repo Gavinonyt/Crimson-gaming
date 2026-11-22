@@ -20,8 +20,10 @@ jobs:
           html = open('index.html', encoding='utf-8').read()
           scripts = re.findall(r'<script\b([^>]*)>([\s\S]*?)</script>', html, re.I)
           inline = [body for attrs, body in scripts if not re.search(r'\bsrc\s*=', attrs, re.I) and body.strip()]
-          if len(inline) != 1:
-              raise SystemExit(f'Expected one inline script, found {len(inline)}')
-          open('/tmp/ultra-inline.js', 'w', encoding='utf-8').write(inline[0])
+          if not inline:
+              raise SystemExit('No inline JavaScript found')
+          for index, body in enumerate(inline):
+              open(f'/tmp/ultra-inline-{index}.js', 'w', encoding='utf-8').write(body)
+          print(f'Checking {len(inline)} inline scripts')
           PY
-          node --check /tmp/ultra-inline.js
+          for file in /tmp/ultra-inline-*.js; do node --check "$file"; done
