@@ -3829,4 +3829,76 @@ let rec=null,active=false;const SR=window.SpeechRecognition||window.webkitSpeech
 @media(max-width:390px){#driveConnectPage .udc-links{grid-template-columns:1fr 1fr!important}}
 </style>
 
+
+<style id="ultra-drive-layout-rebuild-2026">
+/* Rebuild the two screens around their actual in-car layout patterns */
+#driveConnectPage .udc-shell{position:relative;box-sizing:border-box;min-height:560px;padding:22px 24px 88px!important;border-radius:25px!important;overflow:hidden}
+#driveConnectPage .udc-shell *{box-sizing:border-box}
+#driveConnectPage .udc-top{min-height:54px;align-items:center;padding:0 0 12px!important;border:0!important;background:transparent!important}
+#driveConnectPage .udc-top h2{font-size:22px!important;margin:2px 0!important}
+#driveConnectPage .udc-top p{font-size:11px!important}
+#driveConnectPage .udc-top time{font-size:19px!important;font-variant-numeric:tabular-nums}
+#driveConnectPage .udc-modes{position:absolute;right:22px;top:76px;z-index:5;gap:4px;padding:4px;border-radius:99px;background:#05080d66}
+#driveConnectPage .udc-mode{padding:7px 12px!important;font-size:9px!important;border:0!important;background:transparent!important;color:#dce6f2!important}
+#driveConnectPage .udc-mode.active{background:#f1f5fb!important;color:#101722!important}
+#driveConnectPage .udc-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(245px,.82fr)!important;gap:14px!important;align-items:stretch}
+#driveConnectPage .udc-stack{gap:12px!important;align-content:start}
+#driveConnectPage .udc-stack>article:first-child{display:none!important}
+#driveConnectPage .udc-card{border-radius:22px!important;padding:17px!important}
+#driveConnectPage .udc-map{min-height:390px;display:flex;flex-direction:column}
+#driveConnectPage .udc-map h3{font-size:21px!important;margin:5px 0 8px!important}
+#driveConnectPage .udc-map-art{flex:1;min-height:235px;height:auto!important;border-radius:18px!important;margin-top:5px}
+#driveConnectPage .udc-heading{margin:17px 0 9px!important}
+#driveConnectPage .udc-heading h3{font-size:16px!important}
+#driveConnectPage .udc-player{min-height:112px}
+#driveConnectPage .udc-player audio{max-width:100%}
+#driveConnectPage .udc-links{gap:9px!important;margin-top:9px!important}
+#driveConnectPage .udc-links a{min-height:68px!important;border-radius:16px!important;padding:11px!important}
+#driveConnectPage .udc-voice{margin-top:10px!important}
+#driveConnectPage .udc-disclaimer{font-size:9px!important}
+
+/* CarPlay-inspired dashboard: left app rail, large map, right-side glanceable media */
+#driveConnectPage .udc-shell[data-mode="carplay"]{display:block!important;background:linear-gradient(135deg,#111d30,#0b1422 68%,#111e30)!important;padding-left:86px!important}
+#driveConnectPage .udc-shell[data-mode="carplay"]:before{content:"9:41\A  ◉\A\A  ⌂\A\A  ♫\A\A  ⌖\A\A  ▦";white-space:pre;position:absolute;left:14px;top:18px;bottom:82px;width:54px;display:flex;align-items:center;justify-content:flex-start;text-align:center;padding-top:0;color:#f2f6ff;font-size:15px;line-height:2.2;font-weight:700;background:linear-gradient(180deg,#26364d,#1a293d);border:1px solid #ffffff18;border-radius:20px;box-shadow:0 8px 24px #0005}
+#driveConnectPage .udc-shell[data-mode="carplay"] .udc-top{padding-right:185px!important}
+#driveConnectPage .udc-shell[data-mode="carplay"] .udc-grid{grid-template-columns:minmax(0,1.65fr) minmax(250px,.8fr)!important}
+#driveConnectPage .udc-shell[data-mode="carplay"] .udc-map{background:linear-gradient(145deg,#25374e,#17263b)!important}
+#driveConnectPage .udc-shell[data-mode="carplay"] .udc-map-art{background-color:#344e50!important;background-image:linear-gradient(22deg,transparent 44%,#e4e8d477 45%,#e4e8d477 47%,transparent 48%),linear-gradient(115deg,transparent 30%,#e4e8d466 31%,#e4e8d466 33%,transparent 34%),linear-gradient(78deg,transparent 65%,#e4e8d455 66%,#e4e8d455 68%,transparent 69%),repeating-linear-gradient(0deg,transparent 0 40px,#ffffff12 41px 42px),repeating-linear-gradient(90deg,transparent 0 47px,#ffffff12 48px 49px),radial-gradient(ellipse at 20% 20%,#548363 0 13%,transparent 14%),radial-gradient(ellipse at 82% 75%,#548363 0 15%,transparent 16%),linear-gradient(135deg,#31545a,#273f51 65%,#415b57)!important}
+#driveConnectPage .udc-shell[data-mode="carplay"] .udc-stack>article:nth-child(2){background:linear-gradient(145deg,#293a50,#1b2b40)!important}
+#driveConnectPage .udc-shell[data-mode="carplay"] .udc-player{background:linear-gradient(145deg,#293a50,#1b2b40)!important}
+#driveConnectPage .udc-shell[data-mode="carplay"] .udc-album{border-radius:13px!important;background:linear-gradient(135deg,#426b91,#233b5c)!important}
+#driveConnectPage .udc-shell[data-mode="carplay"] .udc-shell-dock{display:none}
+#driveConnectPage .udc-shell[data-mode="carplay"]:after{content:"⌂       ◉       ♫       ⌖       ▦";position:absolute;left:50%;bottom:14px;transform:translateX(-50%);width:300px;min-height:56px;display:flex;align-items:center;justify-content:space-evenly;border-radius:18px;background:#26374df2;border:1px solid #ffffff24;box-shadow:0 10px 35px #0009;color:#f7f9ff;font-size:21px;letter-spacing:0;pointer-events:none}
+
+/* Android Auto-inspired dashboard: map-first split screen and persistent bottom taskbar */
+#driveConnectPage .udc-shell[data-mode="android"]{padding:20px 22px 94px!important;background:linear-gradient(145deg,#171d19,#0c110e 70%,#1a211b)!important}
+#driveConnectPage .udc-shell[data-mode="android"]:before{content:"ULTRA DRIVE     9:41                         5G  ▮▮▮  ◉";display:block;position:static;width:auto;height:auto;padding:0 3px 14px;background:none;border:0;box-shadow:none;border-radius:0;text-align:left;color:#e8f2e6;font-size:11px;letter-spacing:.4px;white-space:pre}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-top{padding:0 0 10px!important}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-top h2{font-size:18px!important}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-modes{top:62px;right:18px}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-grid{grid-template-columns:minmax(0,1.75fr) minmax(250px,.8fr)!important}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-map{background:#202a23!important}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-map-art{background-color:#294333!important;background-image:linear-gradient(23deg,transparent 43%,#d5e4bd77 44%,#d5e4bd77 46%,transparent 47%),linear-gradient(114deg,transparent 31%,#d5e4bd66 32%,#d5e4bd66 34%,transparent 35%),linear-gradient(72deg,transparent 65%,#d5e4bd55 66%,#d5e4bd55 68%,transparent 69%),repeating-linear-gradient(0deg,transparent 0 36px,#ffffff0e 37px 38px),repeating-linear-gradient(90deg,transparent 0 47px,#ffffff0e 48px 49px),radial-gradient(ellipse at 20% 20%,#477653 0 13%,transparent 14%),radial-gradient(ellipse at 82% 75%,#477653 0 15%,transparent 16%),linear-gradient(135deg,#244b3d,#2b4536 65%,#3a5039)!important}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-stack>article:nth-child(2),#driveConnectPage .udc-shell[data-mode="android"] .udc-player{background:#263129!important}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-links{display:none!important}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-heading{display:none!important}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-player{margin-top:12px}
+#driveConnectPage .udc-shell[data-mode="android"]:after{content:"◉      ⌂       ♫       ▦       🎙       9:41";position:absolute;left:18px;right:18px;bottom:13px;min-height:58px;display:flex;align-items:center;justify-content:space-around;border-radius:20px;background:#303a32f5;border:1px solid #c2f28d35;box-shadow:0 10px 30px #0009;color:#f5fff0;font-size:18px;letter-spacing:0;pointer-events:none}
+#driveConnectPage .udc-shell[data-mode="android"] .udc-voice{display:none!important}
+@media(max-width:700px){
+ #driveConnectPage .udc-shell[data-mode="carplay"]{padding:16px 12px 84px 68px!important}
+ #driveConnectPage .udc-shell[data-mode="carplay"]:before{left:8px;width:48px;top:12px;bottom:80px;font-size:13px}
+ #driveConnectPage .udc-shell[data-mode="carplay"] .udc-top{padding-right:0!important}
+ #driveConnectPage .udc-shell[data-mode="carplay"] .udc-modes{position:static;margin:0 0 12px!important}
+ #driveConnectPage .udc-shell[data-mode="carplay"] .udc-grid,#driveConnectPage .udc-shell[data-mode="android"] .udc-grid{grid-template-columns:minmax(0,1fr)!important}
+ #driveConnectPage .udc-shell[data-mode="carplay"] .udc-map{min-height:320px}
+ #driveConnectPage .udc-shell[data-mode="carplay"] .udc-map-art{min-height:190px}
+ #driveConnectPage .udc-shell[data-mode="android"]{padding:14px 12px 84px!important}
+ #driveConnectPage .udc-shell[data-mode="android"] .udc-modes{position:static;margin:0 0 12px!important}
+ #driveConnectPage .udc-shell[data-mode="android"] .udc-top{padding-right:0!important}
+ #driveConnectPage .udc-shell[data-mode="android"] .udc-map{min-height:310px}
+ #driveConnectPage .udc-shell[data-mode="android"] .udc-map-art{min-height:180px}
+}
+</style>
+
 </body></html>
