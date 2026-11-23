@@ -1995,6 +1995,64 @@ body{background:#050505!important}
 .launcher-profile-avatar{font-size:0!important;position:relative}
 .launcher-profile-avatar:after{content:"U";font-size:12px;font-weight:950;letter-spacing:0;color:#fff}
 </style>
+
+<style id="ultra-windows-settings-refresh-v1">
+/* Windows-inspired Settings shell. USER content and its controls are intentionally unchanged. */
+#settingsPage>.store-head{margin:0 0 25px;padding:24px 28px;border:1px solid #ffffff18;border-radius:16px;background:linear-gradient(115deg,#202b3d 0%,#171d2a 48%,#171321 100%);box-shadow:0 14px 38px #0004}
+#settingsPage>.store-head .store-tag{color:#9dc9ff;letter-spacing:2.2px}
+#settingsPage>.store-head h2{font-size:clamp(27px,3.2vw,36px);letter-spacing:-1.1px;margin:7px 0}
+#settingsPage>.store-head p{font-size:13px;color:#b8c4d5}
+#settingsPage .vh-settings-layout{grid-template-columns:238px minmax(0,1fr);gap:22px;align-items:stretch}
+#settingsPage .vh-settings-subnav{position:sticky;top:18px;min-height:calc(100vh - 190px);padding:17px 12px;border:1px solid #ffffff19;border-radius:14px;background:linear-gradient(180deg,#171d29,#11151e);box-shadow:0 12px 35px #0003}
+#settingsPage .vh-settings-group-label{margin:16px 10px 8px;color:#8293aa;font-size:9px;letter-spacing:1.8px}
+#settingsPage .vh-settings-tab{height:43px;padding:0 12px;border:1px solid transparent;border-radius:8px;color:#c2ccda;font-size:12px;transition:background .16s,border-color .16s}
+#settingsPage .vh-settings-tab span{width:19px;color:#9db4d0;font-size:16px}
+#settingsPage .vh-settings-tab:hover{background:#ffffff0b;border-color:#ffffff12;color:#fff}
+#settingsPage .vh-settings-tab.active{background:linear-gradient(100deg,#28476a,#23364f);border-color:#78aee955;color:#fff;box-shadow:inset 3px 0 #80baff}
+#settingsPage .vh-settings-tab.active span{color:#b8dcff}
+#settingsPage .vh-settings-content{gap:15px}
+#settingsPage .vh-settings-content>[data-vh-setting-card]:not([data-vh-setting-card="account"]):not([data-vh-setting-card="pass"]){max-width:100%;padding:24px;border:1px solid #ffffff1b;border-radius:14px;background:linear-gradient(145deg,#1b2230,#141923 72%);box-shadow:0 12px 32px #0003}
+#settingsPage .vh-settings-content>[data-vh-setting-card="appearance"] .settings-card-heading h3,
+#settingsPage .vh-settings-content>[data-vh-setting-card="backgrounds"] .settings-card-heading h3,
+#settingsPage .vh-settings-content>[data-vh-setting-card="library"] .settings-card-heading h3,
+#settingsPage .vh-settings-content>[data-vh-setting-card="system"] .settings-card-heading h3,
+#settingsPage .vh-settings-content>[data-vh-setting-card="about"] .settings-card-heading h3{font-size:19px;letter-spacing:-.35px}
+#settingsPage .vh-settings-content>[data-vh-setting-card="appearance"] .settings-card-heading p,
+#settingsPage .vh-settings-content>[data-vh-setting-card="backgrounds"] .settings-card-heading p,
+#settingsPage .vh-settings-content>[data-vh-setting-card="library"] .settings-card-heading p,
+#settingsPage .vh-settings-content>[data-vh-setting-card="system"] .settings-card-heading p,
+#settingsPage .vh-settings-content>[data-vh-setting-card="about"] .settings-card-heading p{font-size:12px;color:#aebbd0}
+#settingsPage .vh-settings-content>[data-vh-setting-card="appearance"] .settings-form label,
+#settingsPage .vh-settings-content>[data-vh-setting-card="backgrounds"] label,
+#settingsPage .vh-settings-content>[data-vh-setting-card="system"] label{color:#a9bdd5}
+#settingsPage .vh-settings-content>[data-vh-setting-card="appearance"] input:not([type="color"]),
+#settingsPage .vh-settings-content>[data-vh-setting-card="appearance"] select,
+#settingsPage .vh-settings-content>[data-vh-setting-card="backgrounds"] input:not([type="checkbox"]):not([type="range"]):not([type="color"]),
+#settingsPage .vh-settings-content>[data-vh-setting-card="backgrounds"] select,
+#settingsPage .vh-settings-content>[data-vh-setting-card="system"] input,
+#settingsPage .vh-settings-content>[data-vh-setting-card="system"] select{border-color:#3a4a60;background:#111824;color:#edf4ff;border-radius:8px}
+#settingsPage .vh-settings-content>[data-vh-setting-card="appearance"] .settings-action,
+#settingsPage .vh-settings-content>[data-vh-setting-card="backgrounds"] .settings-action,
+#settingsPage .vh-settings-content>[data-vh-setting-card="system"] .settings-action{border-color:#6598ca88;background:#29496a;color:#f3f8ff;border-radius:8px}
+#settingsPage .vh-settings-content>[data-vh-setting-card="appearance"] .settings-action:hover,
+#settingsPage .vh-settings-content>[data-vh-setting-card="backgrounds"] .settings-action:hover,
+#settingsPage .vh-settings-content>[data-vh-setting-card="system"] .settings-action:hover{background:#345d87}
+#settingsPage .ultra-about-card{max-width:none!important}
+#settingsPage .ultra-about-hero{border-color:#34445a}
+#settingsPage .ultra-about-logo{border-color:#3a4b62;background:linear-gradient(145deg,#25364c,#131c29)}
+#settingsPage .ultra-about-specs,#settingsPage .ultra-about-details{background:#35465b;border-color:#35465b}
+#settingsPage .ultra-about-specs>div,#settingsPage .ultra-about-details>div{background:#141d2a}
+#settingsPage .ultra-about-specs span,#settingsPage .ultra-about-details span{color:#91a5bf}
+#settingsPage .ultra-about-specs strong,#settingsPage .ultra-about-details strong{color:#eaf2fc}
+@media(max-width:760px){
+ #settingsPage>.store-head{padding:19px;margin-bottom:14px}
+ #settingsPage .vh-settings-layout{grid-template-columns:1fr;gap:12px}
+ #settingsPage .vh-settings-subnav{position:static;min-height:0;display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;border:1px solid #ffffff1b;border-radius:12px;padding:8px;background:#151c28}
+ #settingsPage .vh-settings-group-label{display:none}
+ #settingsPage .vh-settings-tab{height:40px;flex:0 0 auto;white-space:nowrap}
+ #settingsPage .vh-settings-content>[data-vh-setting-card]:not([data-vh-setting-card="account"]):not([data-vh-setting-card="pass"]){padding:17px}
+}
+</style>
 </head>
 <body>
 <div class="ultra-boot" id="ultraBootScreen" hidden aria-label="Starting Ultra OS">
