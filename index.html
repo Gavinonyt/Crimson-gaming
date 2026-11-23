@@ -3616,26 +3616,7 @@ html[data-platform-theme="xbox"] .ultra-home .os-app-grid .os-app-tile small {
 @media(max-width:650px){.drive-frame{aspect-ratio:4/3;min-height:190px}.drive-touch button{min-height:48px;font-size:12px}}
 </style>
 \n\n
-<aside id="ultraValorsSidebar" aria-label="Ultra Launcher navigation">
- <div class="uv-brand"><img src="./ultra-u-logo.svg" alt=""><span>ULTRA</span></div>
- <button class="uv-nav active" data-uv-page="home"><span class="uv-icon">⌂</span><span class="uv-label">Home</span></button>
- <button class="uv-nav" data-uv-page="library"><span class="uv-icon">▤</span><span class="uv-label">Library</span></button>
- <button class="uv-nav" data-uv-page="social"><span class="uv-icon">♧</span><span class="uv-label">Social</span></button>
- <button class="uv-nav" data-uv-page="store"><span class="uv-icon">🛒</span><span class="uv-label">Shop</span></button>
- <button class="uv-nav" data-uv-page="network"><span class="uv-icon">ϟ</span><span class="uv-label">Network</span></button>
- <button class="uv-nav" data-uv-page="settings"><span class="uv-icon">⚙</span><span class="uv-label">Settings</span></button>
- <div class="uv-spacer"></div>
- <button class="uv-profile" type="button" data-uv-profile><span class="uv-avatar">U</span><span class="uv-user"><strong id="uvSidebarName">Player</strong><small><i class="online-dot"></i>Online</small></span><span class="uv-online"></span></button>
-</aside>
-<script id="ultra-valorshub-redesign-script">
-(()=>{const side=document.getElementById('ultraValorsSidebar');if(!side)return;
-const map={home:'home',library:'library',social:'social',store:'store',network:'network',settings:'settings'};
-function syncName(){const email=document.getElementById('userEmail')?.textContent?.trim();const welcome=document.getElementById('welcomeTitle')?.textContent?.trim();const n=(welcome&&welcome!=='Welcome to your world.')?welcome.replace(/^Welcome back[,! ]*/i,''):email?.split('@')[0];if(n)document.getElementById('uvSidebarName').textContent=n;}
-side.addEventListener('click',e=>{const b=e.target.closest('[data-uv-page]');if(b){const p=map[b.dataset.uvPage];const target=document.querySelector('.bottom-dock [data-page="'+p+'"]');if(target)target.click();side.querySelectorAll('.uv-nav').forEach(x=>x.classList.toggle('active',x===b));}if(e.target.closest('[data-uv-profile]')){const profile=document.querySelector('[data-home-action="profile"]');if(profile)profile.click();}});
-const observer=new MutationObserver(syncName);const u=document.getElementById('userEmail');if(u)observer.observe(u,{childList:true,subtree:true,characterData:true});syncName();
-document.addEventListener('click',e=>{const p=e.target.closest('.bottom-dock [data-page]');if(p){side.querySelectorAll('.uv-nav').forEach(x=>x.classList.toggle('active',x.dataset.uvPage===p.dataset.page));}});
-})();
-</script>
+
 
 <style id="ultra-reference-match-v2">
 /* Reference-matched desktop frame: title strip, primary rail, settings rail and centered workspace */
