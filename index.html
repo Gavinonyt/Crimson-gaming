@@ -2053,7 +2053,18 @@ body{background:#050505!important}
  #settingsPage .vh-settings-content>[data-vh-setting-card]:not([data-vh-setting-card="account"]):not([data-vh-setting-card="pass"]){padding:17px}
 }
 </style>
-</head>
+<style id="ultra-four-games-polish-v1">
+.ultra-royale-grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px;max-width:430px;margin:14px auto;padding:10px;background:#0b1020;border:1px solid #ffffff22;border-radius:16px}
+.ultra-royale-grid .arcade-tile{aspect-ratio:1;min-width:0;border-radius:7px;background:#24334b;display:grid;place-items:center;font-size:clamp(12px,3vw,21px)}
+.ultra-royale-grid .arcade-tile.wall{background:#111827;border:1px solid #334155}
+.ultra-royale-grid .arcade-tile.zone-danger{background:#512c49;color:#fda4af}
+.ultra-blocks-hotbar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.ultra-blocks-hotbar .arcade-btn.active,[data-block-type].active{outline:2px solid #a78bfa;background:#3b2860}
+.ultra-blocks-world{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;max-width:540px;margin:12px auto;padding:9px;background:#111827;border:1px solid #ffffff20;border-radius:14px}
+.ultra-blocks-world .arcade-cell{aspect-ratio:1;min-width:0;padding:0;border-radius:5px;font-size:clamp(9px,2vw,17px);background:#1d293b;border:1px solid #ffffff12}
+.ultra-blocks-world .block-grass{background:#245b39}.ultra-blocks-world .block-stone{background:#64748b}.ultra-blocks-world .block-water{background:#155e9a}.ultra-blocks-world .block-wood{background:#80552f}
+@media(max-width:520px){.ultra-blocks-world{gap:2px;padding:5px}.ultra-royale-grid{gap:3px;padding:6px}}
+</style></head>
 <body>
 <div class="ultra-boot" id="ultraBootScreen" hidden aria-label="Starting Ultra OS">
   <div class="ultra-boot-content"><div class="ultra-boot-mark"><img src="./ultra-u-logo.svg" alt="" aria-hidden="true"></div><strong>ULTRA OS</strong><small>ULTRA PLAYER NETWORK</small><div class="ultra-boot-track"><i></i></div></div>
@@ -2995,27 +3006,61 @@ function renderLifeGame(){
  stage.innerHTML='<div class="arcade-toolbar"><strong>Your Ultra home</strong><span class="arcade-score" id="lifeCoins">100 HOME COINS</span></div><div class="arcade-room" id="lifeRoom"><span class="arcade-room-item">🧑</span><span class="arcade-room-item">🛋️</span><span class="arcade-room-item">🪴</span><span class="arcade-room-item">🖼️</span></div><div class="arcade-toolbar"><strong>Customize your space</strong><span class="arcade-muted">Choose a room style or add decor</span></div><div class="arcade-choice-row"><button class="arcade-btn alt" data-arcade-action="room-blue">🌊 Ocean room</button><button class="arcade-btn alt" data-arcade-action="room-pink">🌸 Sunset room</button><button class="arcade-btn alt" data-arcade-action="room-green">🌿 Garden room</button></div><div class="arcade-choice-row"><button class="arcade-btn" data-arcade-action="decor-sofa">＋ Sofa · 20</button><button class="arcade-btn" data-arcade-action="decor-plant">＋ Plant · 10</button><button class="arcade-btn" data-arcade-action="decor-art">＋ Wall art · 15</button><button class="arcade-btn alt" data-arcade-action="life-reset">RESET ROOM</button></div><p class="arcade-muted" id="lifeMessage">Welcome home! Decorate your room.</p>';
 }
 function renderQuestGame(){
- const stage=document.getElementById("arcadeStage");arcadeState={kind:"quest",x:0,y:0,steps:0,won:false};
- const maze=["S........",".###.###.","...#...#.","##.#.#.#.","...#.#...",".#.#.###.","...#.....","###.###.G"];
- arcadeState.maze=maze;drawQuestMaze();
+ const stage=document.getElementById("arcadeStage");
+ const map=[
+ "#########",
+ "#...#...#",
+ "#.......#",
+ "#.##.#..#",
+ "#.......#",
+ "#..#.#..#",
+ "#.......#",
+ "#...#...#",
+ "#########"
+ ];
+ arcadeState={kind:"quest",x:1,y:1,steps:0,health:3,crystals:0,won:false,lost:false,map,bots:[{x:7,y:1,hp:1},{x:7,y:7,hp:1},{x:1,y:7,hp:1}],loot:[{x:4,y:2},{x:2,y:6},{x:6,y:5}],zone:4};
+ drawQuestMaze();
 }
 function drawQuestMaze(){
- const stage=document.getElementById("arcadeStage"),st=arcadeState,maze=st.maze;
- stage.innerHTML='<div class="arcade-toolbar"><strong>Crystal Run</strong><span class="arcade-score">Steps: '+st.steps+'</span></div><div class="arcade-maze">'+maze.map((row,y)=>row.split("").map((c,x)=>'<div class="arcade-tile '+(c==="#"?"wall":c==="G"?"goal":"")+'">'+(st.x===x&&st.y===y?"🧭":c==="G"?"💎":c==="#"?"": " ")+'</div>').join("")).join("")+'</div><div class="arcade-controls">'+arcadeButton("▲","quest-up",true)+'</div><div class="arcade-controls">'+arcadeButton("◀","quest-left",true)+arcadeButton("▼","quest-down",true)+arcadeButton("▶","quest-right",true)+'</div><div class="arcade-muted">'+(st.won?"Crystal collected! You cleared Ultra Quest.": "Find the crystal at the far end. Move with the arrows.")+'</div>'+arcadeButton("RESTART","quest-reset",true);
+ const stage=document.getElementById("arcadeStage"),st=arcadeState;if(!st||st.kind!=="quest")return;
+ const tiles=st.map.map((row,y)=>row.split("").map((c,x)=>{
+  const bot=st.bots.find(b=>b.x===x&&b.y===y),loot=st.loot.some(p=>p.x===x&&p.y===y),outside=Math.max(Math.abs(x-4),Math.abs(y-4))>st.zone;
+  const symbol=st.x===x&&st.y===y?"🧭":bot?"🤖":loot?"💎":c==="#"?"":outside?"·":"";
+  return '<div class="arcade-tile '+(c==="#"?"wall":outside?"zone-danger":"")+'">'+symbol+'</div>';
+ }).join("")).join("");
+ stage.innerHTML='<div class="arcade-toolbar"><strong>Ultra Royale · Crystal Arena</strong><span class="arcade-score">❤ '+st.health+' &nbsp; 💎 '+st.crystals+' &nbsp; '+st.steps+' turns</span></div><p class="arcade-muted">Collect crystals, avoid the sentry bots, and stay inside the shrinking safe zone.</p><div class="arcade-maze ultra-royale-grid">'+tiles+'</div><div class="arcade-controls">'+arcadeButton("▲","quest-up",true)+'</div><div class="arcade-controls">'+arcadeButton("◀","quest-left",true)+arcadeButton("▼","quest-down",true)+arcadeButton("▶","quest-right",true)+'</div><p class="arcade-muted">'+(st.won?"Victory! You escaped the arena with all the crystals.":st.lost?"Eliminated. Restart and try a new run.":"Collect all 3 crystals and reach the center before the zone closes.")+'</p>'+arcadeButton("DROP AGAIN","quest-reset",true);
 }
 function moveQuest(dx,dy){
- const st=arcadeState;if(!st||st.kind!=="quest"||st.won)return;
- const nx=st.x+dx,ny=st.y+dy;if(ny<0||ny>=st.maze.length||nx<0||nx>=st.maze[ny].length||st.maze[ny][nx]==="#")return;
- st.x=nx;st.y=ny;st.steps++;if(st.maze[ny][nx]==="G")st.won=true;drawQuestMaze();
+ const st=arcadeState;if(!st||st.kind!=="quest"||st.won||st.lost)return;
+ const nx=st.x+dx,ny=st.y+dy;
+ if(ny<0||ny>=st.map.length||nx<0||nx>=st.map[ny].length||st.map[ny][nx]==="#")return;
+ st.x=nx;st.y=ny;st.steps++;
+ const loot=st.loot.findIndex(p=>p.x===nx&&p.y===ny);if(loot>=0){st.loot.splice(loot,1);st.crystals++}
+ const bot=st.bots.findIndex(b=>b.x===nx&&b.y===ny);if(bot>=0){st.bots.splice(bot,1);st.health--}
+ st.bots.forEach(b=>{
+  const options=[[0,-1],[1,0],[0,1],[-1,0]].map(([x,y])=>({x:b.x+x,y:b.y+y})).filter(p=>p.x>0&&p.x<8&&p.y>0&&p.y<8&&st.map[p.y][p.x]!=="#"&&!(p.x===st.x&&p.y===st.y));
+  options.sort((a,b)=>Math.abs(a.x-st.x)+Math.abs(a.y-st.y)-(Math.abs(b.x-st.x)+Math.abs(b.y-st.y)));
+  if(options.length&&Math.random()<.7){b.x=options[0].x;b.y=options[0].y}
+  if(Math.abs(b.x-st.x)+Math.abs(b.y-st.y)===1)st.health--;
+ });
+ if(st.steps%5===0&&st.zone>1)st.zone--;
+ if(st.health<=0)st.lost=true;
+ if(st.crystals>=3&&st.x===4&&st.y===4)st.won=true;
+ drawQuestMaze();
 }
 function renderBlocksGame(){
- const stage=document.getElementById("arcadeStage");arcadeState={kind:"blocks",cells:Array(25).fill(false),score:0,turn:0};
- stage.innerHTML='<div class="arcade-toolbar"><strong>Neon Grid</strong><span class="arcade-score" id="blocksScore">Score: 0</span></div><p class="arcade-muted">Tap squares to build a full row or column of five. Complete a line to score points.</p><div class="arcade-grid" id="blocksGrid" style="grid-template-columns:repeat(5,1fr)">'+Array(25).fill(0).map((_,i)=>'<button type="button" class="arcade-cell" data-block-cell="'+i+'"></button>').join("")+'</div><div class="arcade-controls">'+arcadeButton("NEW BOARD","blocks-reset",true)+'</div><p class="arcade-muted" id="blocksMessage">Tap any square to place a block.</p>';
+ const stage=document.getElementById("arcadeStage");
+ const saved=(()=>{try{return JSON.parse(localStorage.getItem("ultra_blocks_world")||"{}")}catch{return {}}})();
+ const cells=Array.isArray(saved.cells)&&saved.cells.length===100?saved.cells:Array(100).fill("");
+ arcadeState={kind:"blocks",cells,selected:"grass",placed:cells.filter(Boolean).length};
+ stage.innerHTML='<div class="arcade-toolbar"><strong>Ultra Blocks · Creative World</strong><span class="arcade-score" id="blocksScore">'+arcadeState.placed+' blocks placed</span></div><p class="arcade-muted">Build your own tiny voxel world. Pick a block, tap a tile to place it, or choose Erase to remove one. Your world saves on this device.</p><div class="ultra-blocks-hotbar"><button class="arcade-btn" data-block-type="grass">🟩 Grass</button><button class="arcade-btn alt" data-block-type="stone">⬜ Stone</button><button class="arcade-btn alt" data-block-type="water">🟦 Water</button><button class="arcade-btn alt" data-block-type="wood">🟫 Wood</button><button class="arcade-btn alt" data-block-type="erase">⌫ Erase</button></div><div class="arcade-grid ultra-blocks-world" id="blocksGrid" style="grid-template-columns:repeat(10,minmax(0,1fr))">'+cells.map((v,i)=>'<button type="button" class="arcade-cell ultra-block-tile '+(v?'block-'+v:'')+'" data-block-cell="'+i+'" aria-label="World tile '+(i+1)+'">'+(v?({grass:"🌱",stone:"◻",water:"💧",wood:"🪵"}[v]||""):"")+'</button>').join("")+'</div><div class="arcade-controls">'+arcadeButton("CLEAR WORLD","blocks-reset",true)+'</div><p class="arcade-muted" id="blocksMessage">Selected: Grass. Start building!</p>';
+ updateBlocks();
 }
 function updateBlocks(){
  const st=arcadeState,grid=document.getElementById("blocksGrid");if(!st||!grid)return;
- [...grid.children].forEach((el,i)=>{el.classList.toggle("active",st.cells[i]);el.textContent=st.cells[i]?"◆":""});
- document.getElementById("blocksScore").textContent="Score: "+st.score;
+ [...grid.children].forEach((el,i)=>{const v=st.cells[i]||"";el.className="arcade-cell ultra-block-tile"+(v?" block-"+v:"");el.textContent=v?({grass:"🌱",stone:"◻",water:"💧",wood:"🪵"}[v]||""):""});
+ const score=document.getElementById("blocksScore");if(score)score.textContent=st.cells.filter(Boolean).length+" blocks placed";
+ try{localStorage.setItem("ultra_blocks_world",JSON.stringify({cells:st.cells}))}catch(e){}
 }
 function startArcadeDrive(id){
  if(arcadeTimer){clearTimeout(arcadeTimer);arcadeTimer=null}
@@ -3055,20 +3100,18 @@ document.getElementById("arcadePage").addEventListener("click",e=>{
  const b=e.target.closest("[data-arcade-action]");if(!b)return;const a=b.dataset.arcadeAction,st=arcadeState;
  if(a==="drive-left")arcadeDriveSteer(-1);if(a==="drive-right")arcadeDriveSteer(1);if(a==="drive-restart"&&st?.kind==="drive")startArcadeDrive(st.id);
  if(a==="quest-up")moveQuest(0,-1);if(a==="quest-down")moveQuest(0,1);if(a==="quest-left")moveQuest(-1,0);if(a==="quest-right")moveQuest(1,0);if(a==="quest-reset")renderQuestGame();
- if(a==="blocks-reset")renderBlocksGame();
+ if(a==="blocks-reset"){if(confirm("Clear your saved Ultra Blocks world?")){try{localStorage.removeItem("ultra_blocks_world")}catch(e){}renderBlocksGame()}}
  if(a==="life-reset")renderLifeGame();
  if(a.startsWith("room-")&&st?.kind==="life"){const rooms={"room-blue":"linear-gradient(#153d58 0 62%,#684d43 62%)","room-pink":"linear-gradient(#60304f 0 62%,#684d43 62%)","room-green":"linear-gradient(#234c3a 0 62%,#684d43 62%)"};const room=document.getElementById("lifeRoom");if(room&&rooms[a])room.style.background=rooms[a]}
  if(a.startsWith("decor-")&&st?.kind==="life"){const costs={"decor-sofa":20,"decor-plant":10,"decor-art":15},icons={"decor-sofa":"🛋️","decor-plant":"🪴","decor-art":"🖼️"},cost=costs[a];if(!cost)return;if(st.coins<cost){document.getElementById("lifeMessage").textContent="Not enough home coins.";return}st.coins-=cost;const item=document.createElement("span");item.className="arcade-room-item";item.textContent=icons[a];document.getElementById("lifeRoom").append(item);document.getElementById("lifeCoins").textContent=st.coins+" HOME COINS"}
 });
 document.getElementById("arcadePage").addEventListener("click",e=>{
+ const type=e.target.closest("[data-block-type]");
+ if(type&&arcadeState?.kind==="blocks"){arcadeState.selected=type.dataset.blockType;document.querySelectorAll("[data-block-type]").forEach(b=>b.classList.toggle("active",b===type));const msg=document.getElementById("blocksMessage");if(msg)msg.textContent="Selected: "+type.textContent.trim();return}
  const cell=e.target.closest("[data-block-cell]");if(!cell||!arcadeState||arcadeState.kind!=="blocks")return;
- const st=arcadeState,i=Number(cell.dataset.blockCell);if(!Number.isInteger(i)||i<0||i>=25)return;st.cells[i]=!st.cells[i];st.turn++;
- let cleared=false;
- for(let y=0;y<5;y++){if(st.cells.slice(y*5,y*5+5).every(Boolean)){st.cells.fill(false,y*5,y*5+5);st.score+=10;cleared=true}}
- for(let x=0;x<5;x++){if([0,1,2,3,4].every(y=>st.cells[y*5+x])){for(let y=0;y<5;y++)st.cells[y*5+x]=false;st.score+=10;cleared=true}}
- document.getElementById("blocksMessage").textContent=cleared?"Line cleared! Nice move.":(st.cells.every(Boolean)?"Board full — start a new board to play again.":"Keep building a full line.");
- if(st.turn%6===0&&!cleared){const empty=st.cells.map((v,i)=>v?-1:i).filter(i=>i>=0);if(empty.length)st.cells[empty[Math.floor(Math.random()*empty.length)]]=true}
- updateBlocks();
+ const st=arcadeState,i=Number(cell.dataset.blockCell);if(!Number.isInteger(i)||i<0||i>=100)return;
+ st.cells[i]=st.selected==="erase"?"":st.selected;updateBlocks();
+ const msg=document.getElementById("blocksMessage");if(msg)msg.textContent=st.selected==="erase"?"Block removed.":"Placed "+st.selected+" block.";
 });
 document.addEventListener("keydown",e=>{if(pageSections.arcade.style.display!=="block"||/^(INPUT|TEXTAREA|SELECT)$/.test(e.target?.tagName||""))return;const arrows=["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"];if(arrows.includes(e.key)&&(arcadeState?.kind==="drive"||arcadeState?.kind==="quest"))e.preventDefault();if(arcadeState?.kind==="drive"){if(e.key==="ArrowLeft")arcadeDriveSteer(-1);if(e.key==="ArrowRight")arcadeDriveSteer(1)}if(arcadeState?.kind==="quest"){if(e.key==="ArrowUp")moveQuest(0,-1);if(e.key==="ArrowDown")moveQuest(0,1);if(e.key==="ArrowLeft")moveQuest(-1,0);if(e.key==="ArrowRight")moveQuest(1,0)}});
 
