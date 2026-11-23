@@ -2178,9 +2178,10 @@ body{background:#050505!important}
         <section class="media-saved-shell"><div class="media-player-heading"><div><span class="store-tag">YOUR COLLECTION</span><h3>Saved media</h3></div><button type="button" id="clearUltraMediaSaved" class="media-clear-button">CLEAR</button></div><div id="ultraMediaSavedList" class="media-saved-list"><p class="media-status">Your saved media will appear here.</p></div></section>
       </section>
       <section class="dash-page" id="storePage">
-        <div class="store-head"><div><div class="store-tag">ULTRA MARKETPLACE</div><h2>Shop</h2><p>Browse games and add them to your collection.</p></div></div>
-        <div class="store-tools"><input class="store-search" id="storeSearch" type="search" placeholder="Search the store..."><button class="store-filter active" data-filter="all" type="button">All</button><button class="store-filter" data-filter="games" type="button">Games</button><button class="store-filter" data-filter="apps" type="button">Apps</button></div>
-        <div class="store-grid" id="storeGrid">
+        <div class="vh-page-heading"><div><span class="store-tag">ULTRA MARKETPLACE</span><h2>Discover</h2><p>Find your next game, add it to your library, and keep everything organized.</p></div><div class="vh-page-heading-count"><strong>ULTRA SHOP</strong><small>DISCOVER SOMETHING NEW</small></div></div>
+        <div class="vh-shop-feature"><div><span>THE ULTRA COLLECTION</span><h3>Your next adventure<br>starts here.</h3><p>Browse featured games and apps, then save your picks to your personal library.</p><button type="button" data-filter="games" class="vh-shop-feature-cta">EXPLORE GAMES ↗</button></div><div class="vh-shop-feature-art" aria-hidden="true"><span>U</span><i>✦</i><b>PLAY MORE.</b></div></div>
+        <div class="vh-shop-toolbar"><div class="vh-shop-categories" role="group" aria-label="Shop categories"><button class="store-filter active" data-filter="all" type="button">Discover all</button><button class="store-filter" data-filter="games" type="button">Games</button><button class="store-filter" data-filter="apps" type="button">Apps</button></div><input class="store-search" id="storeSearch" type="search" placeholder="Search games and apps..."></div>
+        <div class="store-grid vh-shop-grid" id="storeGrid">
           <article class="store-card" data-category="games" data-name="roblox" data-hub="adventure community"><div class="store-art">🎮</div><div class="store-info"><span class="store-tag">GAME · OFFICIAL DOWNLOAD</span><strong>Roblox</strong><p>Play experiences created by a global community.</p><a class="store-action" href="https://www.roblox.com/discover" target="_blank" rel="noopener noreferrer">OPEN OFFICIAL ROBLOX ▶</a><div class="store-actions"><button type="button" data-add="roblox">＋ ADD TO LIBRARY</button><button type="button" data-fav="roblox">♡ FAVORITE</button></div></div></article>
           <article class="store-card" data-category="games" data-name="minecraft" data-hub="creative"><div class="store-art">⛏️</div><div class="store-info"><span class="store-tag">GAME · OFFICIAL DOWNLOAD</span><strong>Minecraft</strong><p>Explore, build, and create in a world of blocks.</p><a class="store-action" href="https://www.minecraft.net/en-us" target="_blank" rel="noopener noreferrer">OPEN OFFICIAL MINECRAFT ▶</a><div class="store-actions"><button type="button" data-add="minecraft">＋ ADD TO LIBRARY</button><button type="button" data-fav="minecraft">♡ FAVORITE</button></div></div></article>
           <article class="store-card" data-category="games" data-name="fortnite" data-hub="adventure"><div class="store-art">🌌</div><div class="store-info"><span class="store-tag">GAME · OFFICIAL DOWNLOAD</span><strong>Fortnite</strong><p>Visit Epic Games for the official game download.</p><a class="store-action" href="https://www.fortnite.com/" target="_blank" rel="noopener noreferrer">OPEN OFFICIAL FORTNITE ▶</a><div class="store-actions"><button type="button" data-add="fortnite">＋ ADD TO LIBRARY</button><button type="button" data-fav="fortnite">♡ FAVORITE</button></div></div></article>
@@ -2300,9 +2301,10 @@ body{background:#050505!important}
         <p class="friend-privacy">Friends beta: only your Ultra ID and display name are searchable. Email addresses are never shown. Please only accept requests from people you know.</p>
       </section>
       <section class="dash-page" id="libraryPage">
-        <div class="store-head"><div><div class="store-tag">YOUR COLLECTION</div><h2>Library</h2><p>Everything you've added to your Ultra collection.</p></div><span class="collection-total" id="libraryTotal">0 ITEMS</span></div>
-        <div class="collection-toolbar"><input class="store-search" id="librarySearch" type="search" placeholder="Search your library..."><span class="collection-hint">Saved on this device</span></div>
-        <div class="store-grid" id="libraryGrid"></div>
+        <div class="vh-page-heading"><div><span class="store-tag">YOUR COLLECTION</span><h2>Game Library</h2><p>Your games and apps, together in one place.</p></div><div class="vh-page-heading-count"><strong id="libraryTotal">0 ITEMS</strong><small>YOUR COLLECTION</small></div></div>
+        <div class="vh-library-summary"><div><span>COLLECTED ITEMS</span><strong id="vhLibraryCollected">0</strong></div><div><span>GAMES</span><strong id="vhLibraryGames">0</strong></div><div><span>APPS</span><strong id="vhLibraryApps">0</strong></div><button type="button" data-go-page="store">＋ ADD TO LIBRARY</button></div>
+        <div class="vh-library-toolbar"><div class="vh-library-filters" role="group" aria-label="Filter library"><button type="button" class="active" data-library-filter="all">All items</button><button type="button" data-library-filter="games">Games</button><button type="button" data-library-filter="apps">Apps</button></div><div class="vh-library-search-sort"><input class="store-search" id="librarySearch" type="search" placeholder="Search your collection..."><select id="librarySort" aria-label="Sort library"><option value="default">Recently added</option><option value="az">Name A–Z</option><option value="za">Name Z–A</option></select></div></div>
+        <div class="store-grid vh-library-grid" id="libraryGrid"></div>
       </section>
 
       <section class="dash-page" id="favoritesPage">
@@ -3986,5 +3988,74 @@ body:has(#dashboardView[style*="display: block"]) .topbar{display:none!important
  }
  tabs.forEach(tab=>tab.addEventListener("click",()=>select(tab.dataset.vhSettings)));
  select("account");
+})();
+</script><style id="ultra-valorshub-collection-shop">
+#dashboardView #libraryPage,#dashboardView #storePage{max-width:1400px;margin:0 auto}
+.vh-page-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:0 0 23px}
+.vh-page-heading h2{margin:7px 0 5px;color:#f5f5f5;font-size:clamp(25px,3vw,36px);letter-spacing:-1.1px}
+.vh-page-heading p{margin:0;color:#929292;font-size:12px}
+.vh-page-heading-count{min-width:145px;padding:11px 14px;border:1px solid #292929;border-radius:10px;background:#111;text-align:right}
+.vh-page-heading-count strong,.vh-page-heading-count small{display:block}
+.vh-page-heading-count strong{color:#f0f0f0;font-size:13px}
+.vh-page-heading-count small{margin-top:4px;color:#777;font-size:8px;letter-spacing:1.4px}
+.vh-library-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;align-items:center;gap:10px;margin-bottom:20px;padding:13px;border:1px solid #292929;border-radius:12px;background:linear-gradient(110deg,#17151d,#101010 65%)}
+.vh-library-summary>div{padding:5px 13px;border-right:1px solid #303030}
+.vh-library-summary>div span,.vh-library-summary>div strong{display:block}
+.vh-library-summary>div span{color:#89838f;font-size:8px;font-weight:800;letter-spacing:1.2px}
+.vh-library-summary>div strong{margin-top:5px;color:#f2f2f2;font-size:21px}
+.vh-library-summary>button{height:38px;padding:0 13px;border:1px solid #5a486e;border-radius:7px;background:#2a2035;color:#e8d8ff;font-size:9px;font-weight:850;white-space:nowrap}
+.vh-library-toolbar,.vh-shop-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 17px}
+.vh-library-filters,.vh-shop-categories{display:flex;gap:5px;overflow-x:auto}
+.vh-library-filters button,.vh-shop-categories button{padding:9px 12px;border:1px solid transparent;border-radius:7px;background:transparent;color:#969696;font-size:10px;font-weight:750;white-space:nowrap}
+.vh-library-filters button.active,.vh-shop-categories button.active{border-color:#38313f;background:#211b29;color:#f1e8ff}
+.vh-library-search-sort{display:flex;gap:8px;min-width:0}
+.vh-library-search-sort input{width:min(260px,34vw)}
+.vh-library-search-sort select{min-width:130px;padding:0 10px;border:1px solid #333;border-radius:8px;background:#121212;color:#bbb;font-size:10px}
+.vh-library-grid{grid-template-columns:repeat(auto-fill,minmax(205px,1fr))!important;gap:14px!important}
+.vh-library-grid .store-card,.vh-shop-grid .store-card{min-width:0;overflow:hidden;border:1px solid #292929!important;border-radius:12px!important;background:linear-gradient(155deg,#181818,#101010)!important;transition:transform .18s,border-color .18s,box-shadow .18s}
+.vh-library-grid .store-card:hover,.vh-shop-grid .store-card:hover{transform:translateY(-3px);border-color:#655477!important;box-shadow:0 16px 34px #0008}
+.vh-library-grid .store-art,.vh-shop-grid .store-art{min-height:135px;display:grid;place-items:center;border-bottom:1px solid #292929;background:radial-gradient(circle at 50% 30%,#453a52,#1b1820 65%,#111);font-size:48px}
+.vh-library-grid .store-info,.vh-shop-grid .store-info{padding:14px!important}
+.vh-shop-feature{min-height:205px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden;margin:0 0 23px;padding:25px 30px;border:1px solid #49394e;border-radius:15px;background:radial-gradient(ellipse at 80% 50%,#4a2c55 0,#211927 36%,#111 76%)}
+.vh-shop-feature>div:first-child{position:relative;z-index:1}
+.vh-shop-feature>div:first-child>span{color:#d4b8e8;font-size:8px;font-weight:900;letter-spacing:2px}
+.vh-shop-feature h3{margin:9px 0;color:#fff;font-size:clamp(22px,3vw,32px);line-height:1.08;letter-spacing:-.8px}
+.vh-shop-feature p{max-width:420px;margin:0 0 15px;color:#b5aab9;font-size:11px;line-height:1.6}
+.vh-shop-feature-cta{padding:10px 13px;border:1px solid #9675a4;border-radius:7px;background:#563d60;color:#fff;font-size:9px;font-weight:850}
+.vh-shop-feature-art{position:relative;width:190px;height:155px;flex:0 0 190px;display:grid;place-items:center;transform:rotate(-8deg);border:1px solid #ffffff32;border-radius:23px;background:linear-gradient(145deg,#6e4a79,#241b31 70%);box-shadow:0 18px 50px #0009}
+.vh-shop-feature-art span{color:#fff;font-size:110px;font-weight:950;line-height:1;text-shadow:0 10px 25px #0008}
+.vh-shop-feature-art i{position:absolute;top:14px;right:18px;color:#f6d8ff;font-size:27px}
+.vh-shop-feature-art b{position:absolute;bottom:13px;color:#fff;font-size:9px;letter-spacing:3px}
+#dashboardView #storeGrid.vh-shop-grid{grid-template-columns:repeat(auto-fill,minmax(215px,1fr))!important;gap:15px!important}
+@media(max-width:700px){.vh-page-heading{align-items:flex-start}.vh-page-heading-count{min-width:0}.vh-library-summary{grid-template-columns:repeat(3,minmax(0,1fr));padding:9px}.vh-library-summary>div{padding:4px 7px}.vh-library-summary>div strong{font-size:18px}.vh-library-summary>button{grid-column:1/-1;width:100%}.vh-library-toolbar,.vh-shop-toolbar{align-items:stretch;flex-direction:column}.vh-library-search-sort input{width:100%}.vh-library-search-sort select{min-width:110px}.vh-shop-feature{min-height:190px;padding:20px}.vh-shop-feature-art{width:110px;height:120px;flex-basis:110px}.vh-shop-feature-art span{font-size:76px}.vh-shop-feature-art b{font-size:7px;letter-spacing:1px}.vh-library-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr))!important}}
+</style><script id="ultra-valorshub-collection-behavior">
+(function(){
+ let libraryFilter="all";
+ const libraryGrid=document.getElementById("libraryGrid");
+ const librarySearch=document.getElementById("librarySearch");
+ const librarySort=document.getElementById("librarySort");
+ function applyLibraryView(){
+  if(!libraryGrid)return;
+  const q=(librarySearch&&librarySearch.value||"").trim().toLowerCase();
+  const cards=Array.from(libraryGrid.querySelectorAll(".store-card"));
+  cards.forEach(card=>{const type=card.dataset.category||"games";const matchType=libraryFilter==="all"||type===libraryFilter;const matchText=(card.dataset.name||card.textContent).toLowerCase().includes(q);card.hidden=!(matchType&&matchText)});
+  const visible=cards.filter(card=>!card.hidden);
+  const sort=librarySort&&librarySort.value;
+  if(sort==="az"||sort==="za"){visible.sort((a,b)=>{const cmp=(a.querySelector(".store-info strong")?.textContent||"").localeCompare(b.querySelector(".store-info strong")?.textContent||"");return sort==="az"?cmp:-cmp});visible.forEach(card=>libraryGrid.appendChild(card))}
+  const saved=typeof readSaved==="function"?readSaved("library"):[];
+  const games=saved.filter(id=>{const card=[...document.querySelectorAll("#storeGrid .store-card")].find(c=>c.dataset.name===id);return !card||card.dataset.category==="games"}).length;
+  const apps=saved.length-games;
+  const total=document.getElementById("vhLibraryCollected"),g=document.getElementById("vhLibraryGames"),a=document.getElementById("vhLibraryApps");
+  if(total)total.textContent=saved.length;if(g)g.textContent=games;if(a)a.textContent=apps;
+ }
+ document.querySelectorAll("[data-library-filter]").forEach(btn=>btn.addEventListener("click",()=>{libraryFilter=btn.dataset.libraryFilter;document.querySelectorAll("[data-library-filter]").forEach(b=>b.classList.toggle("active",b===btn));applyLibraryView()}));
+ if(librarySearch)librarySearch.addEventListener("input",applyLibraryView);
+ if(librarySort)librarySort.addEventListener("change",applyLibraryView);
+ const storeSearch=document.getElementById("storeSearch");
+ if(storeSearch)storeSearch.addEventListener("input",()=>{if(typeof filterStore==="function")filterStore()});
+ document.querySelectorAll(".vh-shop-feature-cta").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".store-filter").forEach(b=>b.classList.toggle("active",b.dataset.filter==="games"));if(typeof filterStore==="function")filterStore()}));
+ const observer=new MutationObserver(applyLibraryView);
+ if(libraryGrid)observer.observe(libraryGrid,{childList:true});
+ window.addEventListener("pageshow",applyLibraryView);
 })();
 </script></body></html>
