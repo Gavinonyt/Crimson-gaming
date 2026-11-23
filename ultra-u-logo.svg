@@ -1,12 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<defs>
- <linearGradient id="u" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8ffff"/><stop offset=".38" stop-color="#54eaff"/><stop offset=".72" stop-color="#087cff"/><stop offset="1" stop-color="#0751d8"/></linearGradient>
- <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="13" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs>
-<rect width="512" height="512" rx="112" fill="#050821"/>
-<g opacity=".55" stroke="#075cff" stroke-width="13"><path d="M-20 380 350 10M80 540 540 80M-20 210 210 -20M300 540 540 300" fill="none"/></g>
-<g filter="url(#glow)" fill="url(#u)">
- <path d="M118 113c18-10 38-1 51 18l77 111c44 64 36 150-20 205l-25 25c-14 14-35 14-50 1l-54-48c-14-13-15-34-1-48l34-35c26-27 30-67 10-98l-47-72c-12-19-4-48 25-59z"/>
- <path d="M294 65c14-16 37-19 56-8l74 43c20 12 26 39 13 58l-56 83c-21 31-33 68-34 106l-2 89c-1 23-20 40-43 37l-77-10c-24-3-39-25-32-48l22-71c11-35 13-73 6-110l-18-91c-4-21 3-44 18-61z"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Ultra U emblem</title>
+  <desc id="desc">A modern angular U monogram in electric blue and violet.</desc>
+  <defs>
+    <linearGradient id="ultraMetal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e7f8ff"/>
+      <stop offset=".24" stop-color="#8fdcff"/>
+      <stop offset=".56" stop-color="#4b8dff"/>
+      <stop offset=".82" stop-color="#7664ff"/>
+      <stop offset="1" stop-color="#b18aff"/>
+    </linearGradient>
+    <linearGradient id="ultraEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#9ccaff" stop-opacity=".05"/>
+    </linearGradient>
+    <filter id="ultraGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 .18 0 0 0 0 .42 0 0 0 0 1 0 0 0 .65 0" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g fill="none" stroke="#6ca8ff" stroke-opacity=".13" stroke-width="2">
+    <circle cx="256" cy="256" r="218"/>
+    <circle cx="256" cy="256" r="188"/>
+    <path d="M70 256h70M372 256h70M256 70v48M256 394v48"/>
+  </g>
+  <path d="M139 96h78v181c0 31 14 48 39 48s39-17 39-48V96h78v181c0 77-45 126-117 126s-117-49-117-126V96Z" fill="url(#ultraMetal)" filter="url(#ultraGlow)"/>
+  <path d="M151 108h53v169c0 38 18 61 52 61" fill="none" stroke="url(#ultraEdge)" stroke-width="7" stroke-linecap="round" opacity=".65"/>
+  <path d="M373 96h-78" fill="none" stroke="#d9f4ff" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+  <path d="M139 96h78l-17 24h-61Z" fill="#f1fbff" opacity=".28"/>
+  <path d="M295 96h78l-17 24h-61Z" fill="#ffffff" opacity=".2"/>
 </svg>
