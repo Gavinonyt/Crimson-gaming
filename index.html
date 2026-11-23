@@ -2486,13 +2486,22 @@ body{background:#050505!important}
 </div></div></section>
 
       <section class="dash-page ultra-network-page" id="networkPage">
-        <div class="store-head"><div><div class="store-tag">ULTRA NETWORK</div><h2>Network</h2><p>Connection status and system connectivity for this device.</p></div><button class="settings-action" type="button" id="ultraNetworkRefresh">REFRESH STATUS</button></div>
+        <div class="store-head"><div><div class="store-tag">ULTRA NETWORK DIAGNOSTICS</div><h2>Network</h2><p>Live connection details reported by your device and browser.</p></div><button class="settings-action" type="button" id="ultraNetworkRefresh">REFRESH DETAILS</button></div>
         <div class="network-overview-grid">
           <article class="network-status-card"><span class="network-card-label">INTERNET CONNECTION</span><strong id="ultraNetworkState">Checking…</strong><p id="ultraNetworkDetail">Checking this device's online status.</p><span class="network-status-indicator" id="ultraNetworkDot"></span></article>
-          <article class="network-status-card"><span class="network-card-label">CONNECTION TYPE</span><strong id="ultraNetworkType">Not reported</strong><p>Browser-reported connection information, when supported.</p></article>
-          <article class="network-status-card"><span class="network-card-label">LAST CHECK</span><strong id="ultraNetworkChecked">Not checked</strong><p>Status is refreshed when you open this page or press refresh.</p></article>
+          <article class="network-status-card"><span class="network-card-label">NETWORK TYPE</span><strong id="ultraNetworkType">Detecting…</strong><p id="ultraNetworkTypeDetail">Reading available connection information.</p></article>
+          <article class="network-status-card"><span class="network-card-label">LAST UPDATED</span><strong id="ultraNetworkChecked">Not checked</strong><p>Updates when the connection changes or you refresh.</p></article>
         </div>
-        <div class="settings-card network-info-card"><h3>About your connection</h3><p>Ultra Launcher uses your device's existing internet connection. Network details depend on what your browser and device make available; this page does not run hidden speed tests or collect your browsing activity.</p><div class="network-facts"><div><span>Connection status</span><strong id="ultraNetworkOnlineFact">—</strong></div><div><span>Effective connection</span><strong id="ultraNetworkEffective">—</strong></div><div><span>Estimated latency</span><strong id="ultraNetworkRtt">—</strong></div><div><span>Estimated downlink</span><strong id="ultraNetworkDownlink">—</strong></div></div><p class="network-footnote" id="ultraNetworkNote" role="status" aria-live="polite">No network diagnostics have been run.</p></div>
+        <div class="settings-card network-info-card"><h3>Connection details</h3><p>Values below come from the device's Network Information API when available. Mobile generation and speed are estimates supplied by the browser, not a carrier-grade measurement.</p><div class="network-facts">
+          <div><span>Connection status</span><strong id="ultraNetworkOnlineFact">—</strong></div>
+          <div><span>Mobile effective type</span><strong id="ultraNetworkEffective">—</strong></div>
+          <div><span>Estimated download speed</span><strong id="ultraNetworkDownlink">—</strong></div>
+          <div><span>Estimated latency (RTT)</span><strong id="ultraNetworkRtt">—</strong></div>
+          <div><span>Wi-Fi network name (SSID)</span><strong id="ultraNetworkSSID">Unavailable</strong></div>
+          <div><span>Signal strength</span><strong id="ultraNetworkSignal">Not exposed</strong></div>
+          <div><span>Data saver</span><strong id="ultraNetworkSaveData">Not reported</strong></div>
+          <div><span>Connection changes</span><strong id="ultraNetworkChanges">Listening</strong></div>
+        </div><p class="network-footnote" id="ultraNetworkNote" role="status" aria-live="polite">Waiting for connection information…</p></div>
       </section>
 
     </div>
@@ -3798,22 +3807,35 @@ html[data-platform-theme="xbox"] .ultra-home .os-app-grid .os-app-tile small {
 @media(max-width:420px){.network-facts{grid-template-columns:1fr}}
 </style>
 <script id="ultra-network-page-script">
-(()=>{const $=id=>document.getElementById(id);const update=()=>{
- const online=navigator.onLine!==false,conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+(()=>{const $=id=>document.getElementById(id);const getConnection=()=>navigator.connection||navigator.mozConnection||navigator.webkitConnection||null;
+const prettyEffective=value=>({slow-2g:'2G (slow)', '2g':'2G','3g':'3G','4g':'4G'}[value]||'Not reported');
+const update=()=>{
+ const online=navigator.onLine!==false,conn=getConnection(),rawType=String(conn?.type||'').toLowerCase(),effective=String(conn?.effectiveType||'').toLowerCase();
+ let type='Not exposed by browser',detail='Your browser does not expose the physical network type.';
+ if(rawType==='wifi'){type='Wi-Fi';detail='Connected over Wi-Fi. The network name is hidden by browser privacy restrictions.';}
+ else if(rawType==='cellular'){type='Mobile data';detail='Cellular connection detected'+(effective?' · '+prettyEffective(effective):'')+'.';}
+ else if(rawType==='ethernet'){type='Ethernet';detail='Wired network connection detected.';}
+ else if(rawType==='bluetooth'){type='Bluetooth';detail='Bluetooth network connection reported.';}
+ else if(effective){type='Effective '+prettyEffective(effective);detail='This is a browser estimate of connection quality, not a confirmed radio standard.';}
  $('ultraNetworkState').textContent=online?'Connected':'Offline';
- $('ultraNetworkDetail').textContent=online?'Your browser reports an active internet connection.':'Your browser reports that this device is offline.';
+ $('ultraNetworkDetail').textContent=online?'Your device reports an active internet connection.':'Your device reports that it is offline.';
  $('ultraNetworkDot').className='network-status-indicator '+(online?'online':'offline');
- $('ultraNetworkType').textContent=conn?.type||conn?.effectiveType||'Not reported';
- $('ultraNetworkChecked').textContent=new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+ $('ultraNetworkType').textContent=type;
+ $('ultraNetworkTypeDetail').textContent=detail;
+ $('ultraNetworkChecked').textContent=new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit',second:'2-digit'});
  $('ultraNetworkOnlineFact').textContent=online?'Online':'Offline';
- $('ultraNetworkEffective').textContent=conn?.effectiveType||'Not available';
- $('ultraNetworkRtt').textContent=Number.isFinite(conn?.rtt)?conn.rtt+' ms':'Not available';
- $('ultraNetworkDownlink').textContent=Number.isFinite(conn?.downlink)?conn.downlink+' Mbps':'Not available';
- $('ultraNetworkNote').textContent=online?'Status updated from your browser. Detailed connection metrics are shown only when your device provides them.':'Reconnect your device to the internet, then refresh this page.';
+ $('ultraNetworkEffective').textContent=effective?prettyEffective(effective):'Not reported';
+ $('ultraNetworkRtt').textContent=Number.isFinite(conn?.rtt)?Math.round(conn.rtt)+' ms':'Not exposed';
+ $('ultraNetworkDownlink').textContent=Number.isFinite(conn?.downlink)?conn.downlink.toFixed(1)+' Mbps':'Not exposed';
+ $('ultraNetworkSSID').textContent='Unavailable in browser';
+ $('ultraNetworkSignal').textContent='Not exposed in browser';
+ $('ultraNetworkSaveData').textContent=typeof conn?.saveData==='boolean'?(conn.saveData?'On':'Off'):'Not reported';
+ $('ultraNetworkChanges').textContent=conn?.addEventListener?'Live updates enabled':'Refresh to update';
+ $('ultraNetworkNote').textContent=!online?'Reconnect your device to the internet.':!conn?'Your browser does not provide detailed network metrics. Online status is still available.':'Connection details updated from the browser. Mbps and RTT are estimates provided by your device.';
 };
 $('ultraNetworkRefresh')?.addEventListener('click',update);
 window.addEventListener('online',update);window.addEventListener('offline',update);
-if(navigator.connection?.addEventListener)navigator.connection.addEventListener('change',update);
+const conn=getConnection();if(conn?.addEventListener)conn.addEventListener('change',update);
 update();
 })();
 </script>
