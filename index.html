@@ -2078,6 +2078,11 @@ body{background:#050505!important}
       <button class="ultra-desktop-card" type="button" data-go-page="updates"><span class="ultra-desktop-icon ultra-icon-update">↗</span><span class="ultra-desktop-copy"><strong>Update Log</strong><small>View the latest patches</small></span><span class="ultra-desktop-arrow">›</span></button>
     </div>
   </aside>
+<section class="vh-home-toolbar" aria-label="Quick launch">
+ <label class="vh-quick-launch"><span>⌕</span><input id="vhQuickLaunchSearch" type="search" placeholder="Quick launch — search apps" autocomplete="off"><kbd>Ctrl K</kbd></label>
+ <button type="button" class="vh-pass-pill" data-go-page="profile"><span>♛</span> Ultra Pass <span>♛</span></button>
+</section>
+<div class="vh-home-section-heading"><div><h2>Recent</h2><p>Pick up where you left off</p></div><button type="button" data-go-page="library">VIEW LIBRARY ↗</button></div>
 <div class="ultra-xbox-card-grid" aria-label="Xbox-style horizontal game and app shelf">
  <button type="button" class="ultra-xbox-card ultra-xbox-game-card" data-go-page="play"><div class="ultra-xbox-thumb">🏎️<span>PLAY NOW</span></div><strong>Ultra Sprint</strong></button>
  <button type="button" class="ultra-xbox-card ultra-xbox-game-card" data-go-page="city"><div class="ultra-xbox-thumb">🌆<span>OPEN WORLD</span></div><strong>Ultra City</strong></button>
@@ -2093,6 +2098,11 @@ body{background:#050505!important}
   <button type="button" class="ultra-home-collection-card" data-go-page="favorites"><span class="ultra-home-collection-icon">♡</span><span><strong id="ultraHomeFavoriteCount">0</strong><small>FAVORITES SAVED</small></span><b>›</b></button>
   <button type="button" class="ultra-home-collection-card" data-go-page="store"><span class="ultra-home-collection-icon">＋</span><span><strong>DISCOVER</strong><small>FIND YOUR NEXT GAME</small></span><b>›</b></button>
  </div>
+</section>
+<section class="vh-home-system-grid" aria-label="Player overview">
+ <button type="button" class="vh-home-system-card" data-go-page="library"><span class="vh-home-system-heading">▣ &nbsp; Library</span><strong id="vhHomeLibraryCount">0</strong><small>Items in your collection</small></button>
+ <button type="button" class="vh-home-system-card" data-go-page="friends"><span class="vh-home-system-heading">♧ &nbsp; Friends</span><strong>Community</strong><small>Open your friends and activity</small></button>
+ <button type="button" class="vh-home-system-card" data-go-page="network"><span class="vh-home-system-heading">◉ &nbsp; Network</span><strong id="vhHomeNetworkStatus">Checking…</strong><small>Connection status from this browser</small></button>
 </section>
 <div class="ultra-ps5-info-grid" aria-label="PlayStation-style information cards">
  <button type="button" class="ultra-ps5-info-card ps5-card-feature" data-go-page="play"><span class="ps5-info-icon">▶</span><small>CONTINUE PLAYING</small><strong>Ultra Sprint</strong><span>Jump back into your latest race</span></button>
@@ -3878,4 +3888,67 @@ body:has(#dashboardView[style*="display: block"]) .topbar{display:none!important
  #dashboardView .dash-main{padding-left:10px!important;padding-right:10px!important}
 }
 </style>
-</body></html>
+
+<style id="ultra-valorshub-home">
+#dashboardView #homePage{position:relative;min-height:calc(100vh - 100px);padding:0 0 26px!important;background:radial-gradient(ellipse at 75% 12%,#252525 0,#121212 32%,#080808 76%)!important}
+#dashboardView #homePage:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.28;background:radial-gradient(circle at 18% 28%,#555 0 1px,transparent 2px),radial-gradient(circle at 80% 62%,#444 0 1px,transparent 2px);background-size:170px 150px,230px 210px}
+#dashboardView #homePage>*{position:relative}
+#dashboardView .ultra-home-welcome,#dashboardView .ultra-xbox-discord-hero,#dashboardView .ultra-xbox-app-strip,#dashboardView .ultra-home-widgets,#dashboardView .ultra-home-collection,#dashboardView .ultra-ps5-info-grid{display:none!important}
+#dashboardView .vh-home-toolbar{display:flex;align-items:center;justify-content:center;gap:18px;position:relative;margin:0 auto 74px;max-width:880px}
+.vh-quick-launch{height:48px;max-width:580px;flex:1;display:flex;align-items:center;gap:12px;padding:0 16px;border:1px solid #343434;border-radius:14px;background:#090909d9;box-shadow:0 12px 45px #0008}
+.vh-quick-launch>span{font-size:22px;color:#a8a8a8}
+.vh-quick-launch input{width:100%;min-width:0;border:0!important;outline:0;background:transparent!important;color:#f5f5f5!important;font-size:13px}
+.vh-quick-launch input::placeholder{color:#888}
+.vh-quick-launch kbd{white-space:nowrap;padding:4px 7px;border:1px solid #393939;border-radius:5px;color:#a6a6a6;font-size:9px}
+.vh-pass-pill{height:40px;display:flex;align-items:center;gap:9px;padding:0 14px;border:1px solid #555;border-radius:24px;background:#161616;color:#eee;font-size:11px;font-weight:800;white-space:nowrap}
+.vh-pass-pill span{color:#d8bd82}
+#dashboardView .vh-home-section-heading{display:flex;align-items:flex-end;justify-content:space-between;margin:0 0 13px}
+.vh-home-section-heading h2{margin:0;color:#f4f4f4;font-size:20px;letter-spacing:-.3px}
+.vh-home-section-heading p{margin:4px 0 0;color:#858585;font-size:11px}
+.vh-home-section-heading button{padding:8px 10px;border:1px solid #333;border-radius:7px;background:#111;color:#bdbdbd;font-size:9px;font-weight:800}
+#dashboardView .ultra-xbox-card-grid{display:flex!important;gap:12px!important;overflow-x:auto!important;overflow-y:hidden!important;padding:0 0 15px!important;margin:0 0 14px!important;scrollbar-width:thin;scrollbar-color:#3d3d3d transparent}
+#dashboardView .ultra-xbox-card{flex:0 0 174px!important;width:174px!important;min-width:174px!important;display:flex!important;flex-direction:column!important;gap:9px!important;padding:0!important;border:0!important;background:transparent!important;color:#f4f4f4!important;text-align:left!important}
+#dashboardView .ultra-xbox-thumb{height:215px!important;position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important;border:1px solid #373737!important;border-radius:13px!important;background:linear-gradient(145deg,#383838,#151515 65%,#090909)!important;box-shadow:0 12px 25px #0008!important;font-size:58px!important;transition:transform .18s,border-color .18s}
+#dashboardView .ultra-xbox-card:nth-child(1) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#5b3821,#1e1a18 55%,#080808)!important}
+#dashboardView .ultra-xbox-card:nth-child(2) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#263f58,#111820 60%,#080808)!important}
+#dashboardView .ultra-xbox-card:nth-child(3) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#4b3b5b,#17131d 60%,#080808)!important}
+#dashboardView .ultra-xbox-card:nth-child(4) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#4d4d4d,#171717 60%,#080808)!important}
+#dashboardView .ultra-xbox-card:nth-child(5) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#1c4939,#111c18 60%,#080808)!important}
+#dashboardView .ultra-xbox-card:nth-child(6) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#42315b,#17131d 60%,#080808)!important}
+#dashboardView .ultra-xbox-thumb span{position:absolute;left:10px;right:10px;bottom:10px;padding:7px;border-radius:6px;background:#0009;color:#eee;font-size:8px;letter-spacing:1px;text-align:center}
+#dashboardView .ultra-xbox-card>strong{padding:0 3px;color:#ededed;font-size:12px;font-weight:750}
+#dashboardView .ultra-xbox-card:hover .ultra-xbox-thumb{transform:translateY(-3px);border-color:#aaa!important}
+.vh-home-system-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:20px}
+.vh-home-system-card{min-height:128px;display:flex;flex-direction:column;align-items:flex-start;gap:9px;padding:16px;border:1px solid #292929;border-radius:12px;background:linear-gradient(145deg,#151515,#0c0c0c);color:#f1f1f1;text-align:left}
+.vh-home-system-heading{color:#bcbcbc;font-size:11px;font-weight:750}
+.vh-home-system-card>strong{font-size:20px;letter-spacing:-.4px}
+.vh-home-system-card>small{color:#888;font-size:10px}
+.vh-home-system-card:hover{border-color:#666;background:#191919}
+@media(max-width:760px){
+ #dashboardView .vh-home-toolbar{margin:0 0 35px;gap:8px}
+ .vh-quick-launch{height:43px;padding:0 10px}
+ .vh-quick-launch input{font-size:11px}
+ .vh-quick-launch kbd{display:none}
+ .vh-pass-pill{height:36px;padding:0 9px;font-size:9px}
+ #dashboardView .ultra-xbox-card{flex-basis:138px!important;width:138px!important;min-width:138px!important}
+ #dashboardView .ultra-xbox-thumb{height:170px!important;font-size:48px!important}
+ .vh-home-system-grid{grid-template-columns:1fr;gap:8px}
+ .vh-home-system-card{min-height:90px}
+}
+</style>
+<script>
+(function(){
+ const input=document.getElementById("vhQuickLaunchSearch");
+ if(input){
+  const cards=()=>Array.from(document.querySelectorAll("#homePage .ultra-xbox-card"));
+  input.addEventListener("input",()=>{const q=input.value.trim().toLowerCase();cards().forEach(card=>{card.hidden=!!q&&!card.textContent.toLowerCase().includes(q)})});
+  input.addEventListener("keydown",event=>{if(event.key==="Enter"){const first=cards().find(card=>!card.hidden);if(first)first.click()}});
+ }
+ const library=document.getElementById("vhHomeLibraryCount");
+ if(library){try{const user=window.activeUser;library.textContent=JSON.parse(localStorage.getItem("crimson_library_"+(user&&user.id||"guest"))||"[]").length}catch{library.textContent="0"}}
+ const network=document.getElementById("vhHomeNetworkStatus");
+ if(network)network.textContent=navigator.onLine?"Online":"Offline";
+ window.addEventListener("online",()=>{if(network)network.textContent="Online"});
+ window.addEventListener("offline",()=>{if(network)network.textContent="Offline"});
+})();
+</script></body></html>
