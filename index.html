@@ -2002,7 +2002,25 @@ body{background:#050505!important}
 </div>
 <div class="status" id="status" role="status" aria-live="polite"></div><div class="divider"></div><div class="qr-panel"><div class="qr-icon">▦</div><div><strong>PHONE QR APPROVAL</strong><p>Secure QR sign-in is being set up. Scanning a code will never sign you in without your approval.</p></div></div></div></div></section>
 <section class="dashboard" id="dashboardView">
-  <div class="dash-layout">
+  <div class="dash-layout ultra-valorshub-layout">
+    <aside class="vh-sidebar" aria-label="Ultra main navigation">
+      <button type="button" class="vh-brand" data-go-page="home" aria-label="Ultra home"><span class="vh-brand-mark">U</span><strong>ULTRA</strong></button>
+      <nav class="vh-main-nav" aria-label="Main sections">
+        <button type="button" class="vh-nav-item nav active" data-page="home"><span class="vh-nav-icon">⌂</span><span>Home</span></button>
+        <button type="button" class="vh-nav-item nav" data-page="library"><span class="vh-nav-icon">▣</span><span>Library</span></button>
+        <button type="button" class="vh-nav-item nav" data-page="social"><span class="vh-nav-icon">♧</span><span>Social</span></button>
+        <button type="button" class="vh-nav-item nav" data-page="store"><span class="vh-nav-icon">◇</span><span>Shop</span></button>
+        <button type="button" class="vh-nav-item nav" data-page="network"><span class="vh-nav-icon">◉</span><span>Network</span></button>
+        <button type="button" class="vh-nav-item nav" data-page="settings"><span class="vh-nav-icon">⚙</span><span>Settings</span></button>
+      </nav>
+      <div class="vh-sidebar-spacer"></div>
+      <button type="button" class="vh-player-card" data-go-page="profile">
+        <span class="vh-player-avatar" id="vhSidebarAvatar">U</span>
+        <span class="vh-player-copy"><strong id="vhSidebarName">Ultra Player</strong><small><i></i> Online</small></span>
+        <span class="vh-player-menu">···</span>
+      </button>
+    </aside>
+
     
     <div class="dash-main">
       <div class="birthday-banner">🎂 ULTRA GAMING 2.5.0 · BETA ARCADE <span class="update-chip">NEW ERA</span></div>
@@ -3766,5 +3784,92 @@ update();
 .ultra-home-collection-card>b{margin-left:auto;color:#9e8bb7;font-size:20px}
 .ultra-home-collection-card:hover,.ultra-home-collection-heading>button:hover{border-color:var(--accent);background:var(--theme-glow)}
 @media(max-width:700px){.ultra-home-collection{margin:18px 12px;padding:13px}.ultra-home-collection-grid{grid-template-columns:1fr}.ultra-home-collection-heading h2{font-size:16px}}
+</style>
+
+<style id="ultra-valorshub-redesign">
+:root{--vh-bg:#080808;--vh-panel:#101010;--vh-panel-2:#151515;--vh-line:#292929;--vh-muted:#969696;--vh-text:#f4f4f4;--vh-accent:#f28b32}
+body:has(#dashboardView[style*="display: block"]){background:var(--vh-bg)!important}
+body:has(#dashboardView[style*="display: block"]) .topbar{display:none!important}
+#dashboardView{min-height:100vh!important;background:var(--vh-bg)!important;color:var(--vh-text)!important}
+#dashboardView .dash-layout.ultra-valorshub-layout{display:grid!important;grid-template-columns:222px minmax(0,1fr)!important;gap:0!important;min-height:100vh;padding:0!important;max-width:none!important}
+#dashboardView .vh-sidebar{position:sticky;top:0;height:100vh;min-height:100vh;display:flex;flex-direction:column;padding:17px 8px 12px;background:#050505;border-right:1px solid #242424;z-index:100}
+.vh-brand{height:42px;width:100%;display:flex;align-items:center;gap:12px;padding:0 12px;margin:0 0 26px;border:0;background:transparent;color:#f6f6f6;text-align:left;font-size:16px;letter-spacing:.2px}
+.vh-brand-mark{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(145deg,#282828,#101010);border:1px solid #393939;color:#fff;font-weight:950;font-size:17px}
+.vh-main-nav{display:grid;gap:5px}
+#dashboardView .vh-nav-item{height:44px;width:100%;display:flex;align-items:center;gap:13px;padding:0 13px;margin:0;border:1px solid transparent;border-radius:9px;background:transparent;color:#a9a9a9;text-align:left;font-size:13px;font-weight:650;transition:background .16s,border-color .16s,color .16s}
+#dashboardView .vh-nav-item .vh-nav-icon{width:19px;text-align:center;font-size:17px;color:#9ca3af}
+#dashboardView .vh-nav-item:hover{background:#151515;color:#fff}
+#dashboardView .vh-nav-item.active{background:#1a1a1a;border-color:#3a3a3a;color:#fff;box-shadow:0 3px 14px #0005}
+#dashboardView .vh-nav-item.active .vh-nav-icon{color:#c9a6ff}
+.vh-sidebar-spacer{flex:1}
+.vh-player-card{display:flex;align-items:center;gap:10px;width:100%;padding:11px 8px;border:0;border-top:1px solid #252525;background:transparent;color:#f3f3f3;text-align:left}
+.vh-player-avatar{width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;border-radius:50%;border:1px solid #565656;background:radial-gradient(circle at 35% 25%,#555,#161616 70%);font-size:18px;font-weight:900;overflow:hidden}
+.vh-player-avatar img{width:100%;height:100%;object-fit:cover}
+.vh-player-copy{display:grid;gap:4px;min-width:0}
+.vh-player-copy strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vh-player-copy small{display:flex;align-items:center;gap:6px;color:#8f8f8f;font-size:10px}
+.vh-player-copy small i{width:7px;height:7px;border-radius:50%;background:#42cf83}
+.vh-player-menu{margin-left:auto;color:#888;font-size:20px}
+#dashboardView .dash-main{min-width:0!important;width:100%;max-width:none!important;padding:25px 30px 45px!important;border:0!important;border-radius:0!important;background:var(--vh-bg)!important;box-shadow:none!important}
+#dashboardView .birthday-banner{display:none!important}
+#dashboardView .workspace-bar{min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 0 17px;margin:0 0 22px;border-bottom:1px solid #252525}
+#dashboardView .workspace-kicker{color:#a8a8a8!important;font-size:9px;letter-spacing:1.8px}
+#dashboardView .workspace-title{color:#f7f7f7;font-size:22px;font-weight:800;letter-spacing:-.4px}
+#dashboardView .workspace-user{gap:12px}
+#dashboardView .workspace-user #userEmail{display:none}
+#dashboardView .workspace-actions{display:flex;align-items:center;gap:8px}
+#dashboardView .workspace-clock{color:#a1a1a1;font-size:11px}
+#dashboardView .workspace-tool{padding:8px 10px;border:1px solid #303030;border-radius:8px;background:#121212;color:#c9c9c9;font-size:10px}
+#dashboardView .signout{padding:8px 11px;border:1px solid #303030;border-radius:8px;background:#171717;color:#d0d0d0}
+#dashboardView .ultra-xbox-rail,#dashboardView .ultra-cine-topline{display:none!important}
+#dashboardView .dash-page{min-width:0}
+#dashboardView .store-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 20px}
+#dashboardView .store-head h2{font-size:28px;letter-spacing:-.8px;color:#f5f5f5;margin:5px 0}
+#dashboardView .store-head p{color:#969696;font-size:13px;margin:0}
+#dashboardView .store-tag{color:#c18b55;font-size:9px;letter-spacing:1.8px;font-weight:900}
+#dashboardView .store-search,#dashboardView .collection-toolbar input{background:#141414!important;border:1px solid #303030!important;border-radius:9px!important;color:#f3f3f3!important}
+#dashboardView .store-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))!important;gap:14px!important}
+#dashboardView .store-card{overflow:hidden;border:1px solid #292929!important;border-radius:13px!important;background:#111!important;box-shadow:none!important}
+#dashboardView .store-art{min-height:145px;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#343434,#171717 66%,#101010)!important;font-size:44px}
+#dashboardView .store-info{padding:15px!important}
+#dashboardView .store-info strong{color:#f6f6f6;font-size:16px}
+#dashboardView .store-info p{color:#a0a0a0}
+#dashboardView .store-actions button,#dashboardView .store-action{border-radius:8px!important}
+#dashboardView .settings-card,#dashboardView .network-card,#dashboardView .ultra-home-collection{border:1px solid #292929!important;border-radius:14px!important;background:#111!important;box-shadow:none!important}
+#dashboardView .ultra-home-collection{margin:20px 0!important}
+#dashboardView .ultra-home-collection-heading h2{color:#f4f4f4}
+#dashboardView .ultra-home-collection-card{background:#171717;border-color:#303030}
+#dashboardView .ultra-social-shell{border:1px solid #2a2a2a;border-radius:14px;overflow:hidden}
+#dashboardView .ultra-social-channels{background:#111!important}
+#dashboardView .ultra-social-chat{background:#0c0c0c!important}
+#dashboardView .ultra-social-rail{background:#080808!important}
+#dashboardView .ultra-profile-cover{border-radius:14px 14px 0 0}
+#dashboardView .profile-card{border-radius:0 0 14px 14px!important}
+#dashboardView .bottom-dock{display:none!important}
+@media(max-width:760px){
+ #dashboardView .dash-layout.ultra-valorshub-layout{display:flex!important;flex-direction:column!important;min-height:100vh;padding-bottom:72px!important}
+ #dashboardView .vh-sidebar{position:fixed;top:auto;bottom:0;left:0;right:0;width:100%;height:auto;min-height:0;padding:7px 8px max(7px,env(safe-area-inset-bottom));border-right:0;border-top:1px solid #292929;background:rgba(5,5,5,.97);backdrop-filter:blur(18px)}
+ .vh-brand,.vh-sidebar-spacer,.vh-player-card{display:none!important}
+ .vh-main-nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:3px}
+ #dashboardView .vh-nav-item{height:52px;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:3px 1px;border-radius:8px;font-size:9px;text-align:center}
+ #dashboardView .vh-nav-item .vh-nav-icon{font-size:17px;width:auto}
+ #dashboardView .dash-main{padding:16px 13px 28px!important}
+ #dashboardView .workspace-bar{align-items:center;margin-bottom:17px;padding-bottom:13px}
+ #dashboardView .workspace-title{font-size:18px}
+ #dashboardView .workspace-clock,#dashboardView #appLibraryOpen,#dashboardView #controlCenterOpen{display:none!important}
+ #dashboardView .workspace-actions{gap:5px}
+ #dashboardView .workspace-tool{padding:7px 8px;font-size:9px}
+ #dashboardView .store-head h2{font-size:23px}
+ #dashboardView .store-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+ #dashboardView .store-art{min-height:100px}
+ #dashboardView .store-info{padding:10px!important}
+ #dashboardView .store-info strong{font-size:13px}
+ #dashboardView .store-info p{font-size:11px}
+ #dashboardView .ultra-home-collection-grid{grid-template-columns:1fr!important}
+}
+@media(max-width:390px){
+ #dashboardView .store-grid{grid-template-columns:1fr!important}
+ #dashboardView .dash-main{padding-left:10px!important;padding-right:10px!important}
+}
 </style>
 </body></html>
