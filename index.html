@@ -2002,7 +2002,25 @@ body{background:#050505!important}
 </div>
 <div class="status" id="status" role="status" aria-live="polite"></div><div class="divider"></div><div class="qr-panel"><div class="qr-icon">▦</div><div><strong>PHONE QR APPROVAL</strong><p>Secure QR sign-in is being set up. Scanning a code will never sign you in without your approval.</p></div></div></div></div></section>
 <section class="dashboard" id="dashboardView">
-  <div class="dash-layout">
+  <div class="dash-layout ultra-valorshub-layout">
+    <aside class="vh-sidebar" aria-label="Ultra main navigation">
+      <button type="button" class="vh-brand" data-go-page="home" aria-label="Ultra home"><span class="vh-brand-mark">U</span><strong>ULTRA</strong></button>
+      <nav class="vh-main-nav" aria-label="Main sections">
+        <button type="button" class="vh-nav-item nav active" data-page="home"><span class="vh-nav-icon">⌂</span><span>Home</span></button>
+        <button type="button" class="vh-nav-item nav" data-page="library"><span class="vh-nav-icon">▣</span><span>Library</span></button>
+        <button type="button" class="vh-nav-item nav" data-page="social"><span class="vh-nav-icon">♧</span><span>Social</span></button>
+        <button type="button" class="vh-nav-item nav" data-page="store"><span class="vh-nav-icon">◇</span><span>Shop</span></button>
+        <button type="button" class="vh-nav-item nav" data-page="network"><span class="vh-nav-icon">◉</span><span>Network</span></button>
+        <button type="button" class="vh-nav-item nav" data-page="settings"><span class="vh-nav-icon">⚙</span><span>Settings</span></button>
+      </nav>
+      <div class="vh-sidebar-spacer"></div>
+      <button type="button" class="vh-player-card" data-go-page="profile">
+        <span class="vh-player-avatar" id="vhSidebarAvatar">U</span>
+        <span class="vh-player-copy"><strong id="vhSidebarName">Ultra Player</strong><small><i></i> Online</small></span>
+        <span class="vh-player-menu">···</span>
+      </button>
+    </aside>
+
     
     <div class="dash-main">
       <div class="birthday-banner">🎂 ULTRA GAMING 2.5.0 · BETA ARCADE <span class="update-chip">NEW ERA</span></div>
@@ -2060,6 +2078,11 @@ body{background:#050505!important}
       <button class="ultra-desktop-card" type="button" data-go-page="updates"><span class="ultra-desktop-icon ultra-icon-update">↗</span><span class="ultra-desktop-copy"><strong>Update Log</strong><small>View the latest patches</small></span><span class="ultra-desktop-arrow">›</span></button>
     </div>
   </aside>
+<section class="vh-home-toolbar" aria-label="Quick launch">
+ <label class="vh-quick-launch"><span>⌕</span><input id="vhQuickLaunchSearch" type="search" placeholder="Quick launch — search apps" autocomplete="off"><kbd>Ctrl K</kbd></label>
+ <button type="button" class="vh-pass-pill" data-go-page="profile"><span>♛</span> Ultra Pass <span>♛</span></button>
+</section>
+<div class="vh-home-section-heading"><div><h2>Recent</h2><p>Pick up where you left off</p></div><button type="button" data-go-page="library">VIEW LIBRARY ↗</button></div>
 <div class="ultra-xbox-card-grid" aria-label="Xbox-style horizontal game and app shelf">
  <button type="button" class="ultra-xbox-card ultra-xbox-game-card" data-go-page="play"><div class="ultra-xbox-thumb">🏎️<span>PLAY NOW</span></div><strong>Ultra Sprint</strong></button>
  <button type="button" class="ultra-xbox-card ultra-xbox-game-card" data-go-page="city"><div class="ultra-xbox-thumb">🌆<span>OPEN WORLD</span></div><strong>Ultra City</strong></button>
@@ -2075,6 +2098,11 @@ body{background:#050505!important}
   <button type="button" class="ultra-home-collection-card" data-go-page="favorites"><span class="ultra-home-collection-icon">♡</span><span><strong id="ultraHomeFavoriteCount">0</strong><small>FAVORITES SAVED</small></span><b>›</b></button>
   <button type="button" class="ultra-home-collection-card" data-go-page="store"><span class="ultra-home-collection-icon">＋</span><span><strong>DISCOVER</strong><small>FIND YOUR NEXT GAME</small></span><b>›</b></button>
  </div>
+</section>
+<section class="vh-home-system-grid" aria-label="Player overview">
+ <button type="button" class="vh-home-system-card" data-go-page="library"><span class="vh-home-system-heading">▣ &nbsp; Library</span><strong id="vhHomeLibraryCount">0</strong><small>Items in your collection</small></button>
+ <button type="button" class="vh-home-system-card" data-go-page="friends"><span class="vh-home-system-heading">♧ &nbsp; Friends</span><strong>Community</strong><small>Open your friends and activity</small></button>
+ <button type="button" class="vh-home-system-card" data-go-page="network"><span class="vh-home-system-heading">◉ &nbsp; Network</span><strong id="vhHomeNetworkStatus">Checking…</strong><small>Connection status from this browser</small></button>
 </section>
 <div class="ultra-ps5-info-grid" aria-label="PlayStation-style information cards">
  <button type="button" class="ultra-ps5-info-card ps5-card-feature" data-go-page="play"><span class="ps5-info-icon">▶</span><small>CONTINUE PLAYING</small><strong>Ultra Sprint</strong><span>Jump back into your latest race</span></button>
@@ -2150,9 +2178,10 @@ body{background:#050505!important}
         <section class="media-saved-shell"><div class="media-player-heading"><div><span class="store-tag">YOUR COLLECTION</span><h3>Saved media</h3></div><button type="button" id="clearUltraMediaSaved" class="media-clear-button">CLEAR</button></div><div id="ultraMediaSavedList" class="media-saved-list"><p class="media-status">Your saved media will appear here.</p></div></section>
       </section>
       <section class="dash-page" id="storePage">
-        <div class="store-head"><div><div class="store-tag">ULTRA MARKETPLACE</div><h2>Shop</h2><p>Browse games and add them to your collection.</p></div></div>
-        <div class="store-tools"><input class="store-search" id="storeSearch" type="search" placeholder="Search the store..."><button class="store-filter active" data-filter="all" type="button">All</button><button class="store-filter" data-filter="games" type="button">Games</button><button class="store-filter" data-filter="apps" type="button">Apps</button></div>
-        <div class="store-grid" id="storeGrid">
+        <div class="vh-page-heading"><div><span class="store-tag">ULTRA MARKETPLACE</span><h2>Discover</h2><p>Find your next game, add it to your library, and keep everything organized.</p></div><div class="vh-page-heading-count"><strong>ULTRA SHOP</strong><small>DISCOVER SOMETHING NEW</small></div></div>
+        <div class="vh-shop-feature"><div><span>THE ULTRA COLLECTION</span><h3>Your next adventure<br>starts here.</h3><p>Browse featured games and apps, then save your picks to your personal library.</p><button type="button" data-filter="games" class="vh-shop-feature-cta">EXPLORE GAMES ↗</button></div><div class="vh-shop-feature-art" aria-hidden="true"><span>U</span><i>✦</i><b>PLAY MORE.</b></div></div>
+        <div class="vh-shop-toolbar"><div class="vh-shop-categories" role="group" aria-label="Shop categories"><button class="store-filter active" data-filter="all" type="button">Discover all</button><button class="store-filter" data-filter="games" type="button">Games</button><button class="store-filter" data-filter="apps" type="button">Apps</button></div><input class="store-search" id="storeSearch" type="search" placeholder="Search games and apps..."></div>
+        <div class="store-grid vh-shop-grid" id="storeGrid">
           <article class="store-card" data-category="games" data-name="roblox" data-hub="adventure community"><div class="store-art">🎮</div><div class="store-info"><span class="store-tag">GAME · OFFICIAL DOWNLOAD</span><strong>Roblox</strong><p>Play experiences created by a global community.</p><a class="store-action" href="https://www.roblox.com/discover" target="_blank" rel="noopener noreferrer">OPEN OFFICIAL ROBLOX ▶</a><div class="store-actions"><button type="button" data-add="roblox">＋ ADD TO LIBRARY</button><button type="button" data-fav="roblox">♡ FAVORITE</button></div></div></article>
           <article class="store-card" data-category="games" data-name="minecraft" data-hub="creative"><div class="store-art">⛏️</div><div class="store-info"><span class="store-tag">GAME · OFFICIAL DOWNLOAD</span><strong>Minecraft</strong><p>Explore, build, and create in a world of blocks.</p><a class="store-action" href="https://www.minecraft.net/en-us" target="_blank" rel="noopener noreferrer">OPEN OFFICIAL MINECRAFT ▶</a><div class="store-actions"><button type="button" data-add="minecraft">＋ ADD TO LIBRARY</button><button type="button" data-fav="minecraft">♡ FAVORITE</button></div></div></article>
           <article class="store-card" data-category="games" data-name="fortnite" data-hub="adventure"><div class="store-art">🌌</div><div class="store-info"><span class="store-tag">GAME · OFFICIAL DOWNLOAD</span><strong>Fortnite</strong><p>Visit Epic Games for the official game download.</p><a class="store-action" href="https://www.fortnite.com/" target="_blank" rel="noopener noreferrer">OPEN OFFICIAL FORTNITE ▶</a><div class="store-actions"><button type="button" data-add="fortnite">＋ ADD TO LIBRARY</button><button type="button" data-fav="fortnite">♡ FAVORITE</button></div></div></article>
@@ -2272,9 +2301,10 @@ body{background:#050505!important}
         <p class="friend-privacy">Friends beta: only your Ultra ID and display name are searchable. Email addresses are never shown. Please only accept requests from people you know.</p>
       </section>
       <section class="dash-page" id="libraryPage">
-        <div class="store-head"><div><div class="store-tag">YOUR COLLECTION</div><h2>Library</h2><p>Everything you've added to your Ultra collection.</p></div><span class="collection-total" id="libraryTotal">0 ITEMS</span></div>
-        <div class="collection-toolbar"><input class="store-search" id="librarySearch" type="search" placeholder="Search your library..."><span class="collection-hint">Saved on this device</span></div>
-        <div class="store-grid" id="libraryGrid"></div>
+        <div class="vh-page-heading"><div><span class="store-tag">YOUR COLLECTION</span><h2>Game Library</h2><p>Your games and apps, together in one place.</p></div><div class="vh-page-heading-count"><strong id="libraryTotal">0 ITEMS</strong><small>YOUR COLLECTION</small></div></div>
+        <div class="vh-library-summary"><div><span>COLLECTED ITEMS</span><strong id="vhLibraryCollected">0</strong></div><div><span>GAMES</span><strong id="vhLibraryGames">0</strong></div><div><span>APPS</span><strong id="vhLibraryApps">0</strong></div><button type="button" data-go-page="store">＋ ADD TO LIBRARY</button></div>
+        <div class="vh-library-toolbar"><div class="vh-library-filters" role="group" aria-label="Filter library"><button type="button" class="active" data-library-filter="all">All items</button><button type="button" data-library-filter="games">Games</button><button type="button" data-library-filter="apps">Apps</button></div><div class="vh-library-search-sort"><input class="store-search" id="librarySearch" type="search" placeholder="Search your collection..."><select id="librarySort" aria-label="Sort library"><option value="default">Recently added</option><option value="az">Name A–Z</option><option value="za">Name Z–A</option></select></div></div>
+        <div class="store-grid vh-library-grid" id="libraryGrid"></div>
       </section>
 
       <section class="dash-page" id="favoritesPage">
@@ -2323,10 +2353,20 @@ body{background:#050505!important}
       </section>
 
       <section class="dash-page" id="settingsPage">
-        <div class="store-head"><div><div class="store-tag">PREFERENCES</div><h2>Settings</h2><p>Make Ultra Gaming feel like your space.</p></div></div>
-        <div class="settings-card"><div class="settings-card-heading"><div><h3>Player profile</h3><p>Change the display name shown in your Ultra hub.</p></div></div><form id="profileForm" class="settings-form"><label for="settingsDisplayName">DISPLAY NAME</label><input id="settingsDisplayName" maxlength="32" type="text" placeholder="Your player name"><button class="settings-action" type="submit">SAVE PROFILE</button><span class="settings-message" id="profileSaveStatus" aria-live="polite"></span></form></div>
-        <div class="settings-card platform-theme-card"><div class="settings-card-heading"><div><h3>Platform-wide interface</h3><p>Choose a complete interface layout. Your selection updates the dashboard, store, library, social pages, profile, and settings.</p></div></div><label class="platform-theme-label" for="platformThemeSelect">SYSTEM INTERFACE</label><select id="platformThemeSelect" class="platform-theme-select-accessible"><option value="ultra">Ultra</option><option value="ps5">PlayStation-style</option><option value="xbox">Xbox-style</option><option value="wii">Wii-style</option><option value="windows">Windows 11-style</option><option value="switch">Nintendo Switch-style</option></select><div class="platform-theme-grid" role="group" aria-label="Choose a system interface"><button class="platform-theme-option" type="button" data-platform-theme="ultra" aria-pressed="true"><span class="platform-theme-preview preview-ultra"><i></i><i></i><i></i><b></b></span><strong>Ultra</strong><small>Original Ultra workspace</small></button><button class="platform-theme-option" type="button" data-platform-theme="ps5" aria-pressed="false"><span class="platform-theme-preview preview-ps5"><i></i><i></i><i></i><b></b></span><strong>PlayStation</strong><small>Blue console dashboard</small></button><button class="platform-theme-option" type="button" data-platform-theme="xbox" aria-pressed="false"><span class="platform-theme-preview preview-xbox"><i></i><i></i><i></i><b></b></span><strong>Xbox</strong><small>Green gaming home</small></button><button class="platform-theme-option" type="button" data-platform-theme="wii" aria-pressed="false"><span class="platform-theme-preview preview-wii"><i></i><i></i><i></i><b></b></span><strong>Wii</strong><small>Bright blue-and-white UI</small></button><button class="platform-theme-option" type="button" data-platform-theme="windows" aria-pressed="false"><span class="platform-theme-preview preview-windows"><i></i><i></i><i></i><b></b></span><strong>Windows 11</strong><small>Glass desktop layout</small></button><button class="platform-theme-option" type="button" data-platform-theme="switch" aria-pressed="false"><span class="platform-theme-preview preview-switch"><i></i><i></i><i></i><b></b></span><strong>Nintendo Switch</strong><small>Red-accent console UI</small></button></div><span class="settings-message">Select a preview to apply it immediately. Your choice is saved on this browser.</span></div><div class="settings-card"><div class="settings-card-heading"><div><h3>Appearance & workspace</h3><p>Make the desktop launcher feel like your own setup. Changes preview instantly.</p></div></div><div class="settings-form ultra-customizer"><label for="accentSelect">PRESET ACCENT</label><select id="accentSelect"><option value="purple">Ultra Purple</option><option value="red">Ultra Red</option><option value="blue">Electric Blue</option><option value="vice">Vice Sunset</option><option value="ocean">Ocean Drive</option><option value="emerald">Emerald Night</option><option value="gold">Midnight Gold</option><option value="gta6">Vice City Nights · GTA VI inspired</option></select><label for="customAccent">CUSTOM ACCENT COLOR</label><div class="custom-color-row"><input id="customAccent" type="color" value="#a78bfa" aria-label="Choose custom accent color"><span>Pick any color for highlights, active navigation, and interface details.</span></div><label for="workspaceDensity">WORKSPACE SPACING</label><select id="workspaceDensity"><option value="comfortable">Comfortable</option><option value="compact">Compact</option></select><label for="panelStyle">PANEL STYLE</label><select id="panelStyle"><option value="solid">Clean solid panels</option><option value="glass">Soft glass panels</option></select><label for="startPageSelect">OPEN THIS PAGE AFTER SIGN IN</label><select id="startPageSelect"><option value="home">Home</option><option value="store">Store</option><option value="library">Library</option></select><div class="customizer-preview"><span class="preview-dot"></span><div><strong>YOUR ULTRA WORKSPACE</strong><small>Live preview · Saved to this browser</small></div><button type="button" id="resetAppearance" class="settings-action">RESET LOOK</button></div><button class="settings-action" type="button" id="savePreferences">SAVE MY WORKSPACE</button><span class="settings-message" id="preferencesStatus" aria-live="polite"></span></div></div>
-<div class="settings-card ultra-personalization-card"><div class="settings-card-heading"><div><h3>Ultra Personalization Lab</h3><p>Customize your desktop like a full operating system. Settings are saved for your account on this browser.</p></div></div><div class="ultra-personal-grid">
+        <div class="store-head"><div><div class="store-tag">PREFERENCES</div><h2>Settings</h2><p>Make Ultra Gaming feel like your space.</p></div></div><div class="vh-settings-layout"><nav class="vh-settings-subnav" aria-label="Settings categories">
+<div class="vh-settings-group-label">USER</div>
+<button type="button" class="vh-settings-tab active" data-vh-settings="account"><span>♙</span>My Account</button>
+<div class="vh-settings-group-label">APP</div>
+<button type="button" class="vh-settings-tab" data-vh-settings="appearance"><span>◈</span>Appearance</button>
+<button type="button" class="vh-settings-tab" data-vh-settings="backgrounds"><span>▧</span>Backgrounds</button>
+<button type="button" class="vh-settings-tab" data-vh-settings="library"><span>▣</span>Library</button>
+<button type="button" class="vh-settings-tab" data-vh-settings="system"><span>⚙</span>System</button>
+<div class="vh-settings-group-label">INFO</div>
+<button type="button" class="vh-settings-tab" data-vh-settings="about"><span>ⓘ</span>About</button>
+</nav><div class="vh-settings-content">
+        <div class="settings-card" data-vh-setting-card="account"><div class="settings-card-heading"><div><h3>Player profile</h3><p>Change the display name shown in your Ultra hub.</p></div></div><form id="profileForm" class="settings-form"><label for="settingsDisplayName">DISPLAY NAME</label><input id="settingsDisplayName" maxlength="32" type="text" placeholder="Your player name"><button class="settings-action" type="submit">SAVE PROFILE</button><span class="settings-message" id="profileSaveStatus" aria-live="polite"></span></form></div>
+        <div class="settings-card platform-theme-card" data-vh-setting-card="appearance"><div class="settings-card-heading"><div><h3>Platform-wide interface</h3><p>Choose a complete interface layout. Your selection updates the dashboard, store, library, social pages, profile, and settings.</p></div></div><label class="platform-theme-label" for="platformThemeSelect">SYSTEM INTERFACE</label><select id="platformThemeSelect" class="platform-theme-select-accessible"><option value="ultra">Ultra</option><option value="ps5">PlayStation-style</option><option value="xbox">Xbox-style</option><option value="wii">Wii-style</option><option value="windows">Windows 11-style</option><option value="switch">Nintendo Switch-style</option></select><div class="platform-theme-grid" role="group" aria-label="Choose a system interface"><button class="platform-theme-option" type="button" data-platform-theme="ultra" aria-pressed="true"><span class="platform-theme-preview preview-ultra"><i></i><i></i><i></i><b></b></span><strong>Ultra</strong><small>Original Ultra workspace</small></button><button class="platform-theme-option" type="button" data-platform-theme="ps5" aria-pressed="false"><span class="platform-theme-preview preview-ps5"><i></i><i></i><i></i><b></b></span><strong>PlayStation</strong><small>Blue console dashboard</small></button><button class="platform-theme-option" type="button" data-platform-theme="xbox" aria-pressed="false"><span class="platform-theme-preview preview-xbox"><i></i><i></i><i></i><b></b></span><strong>Xbox</strong><small>Green gaming home</small></button><button class="platform-theme-option" type="button" data-platform-theme="wii" aria-pressed="false"><span class="platform-theme-preview preview-wii"><i></i><i></i><i></i><b></b></span><strong>Wii</strong><small>Bright blue-and-white UI</small></button><button class="platform-theme-option" type="button" data-platform-theme="windows" aria-pressed="false"><span class="platform-theme-preview preview-windows"><i></i><i></i><i></i><b></b></span><strong>Windows 11</strong><small>Glass desktop layout</small></button><button class="platform-theme-option" type="button" data-platform-theme="switch" aria-pressed="false"><span class="platform-theme-preview preview-switch"><i></i><i></i><i></i><b></b></span><strong>Nintendo Switch</strong><small>Red-accent console UI</small></button></div><span class="settings-message">Select a preview to apply it immediately. Your choice is saved on this browser.</span></div><div class="settings-card" data-vh-setting-card="appearance"><div class="settings-card-heading"><div><h3>Appearance & workspace</h3><p>Make the desktop launcher feel like your own setup. Changes preview instantly.</p></div></div><div class="settings-form ultra-customizer"><label for="accentSelect">PRESET ACCENT</label><select id="accentSelect"><option value="purple">Ultra Purple</option><option value="red">Ultra Red</option><option value="blue">Electric Blue</option><option value="vice">Vice Sunset</option><option value="ocean">Ocean Drive</option><option value="emerald">Emerald Night</option><option value="gold">Midnight Gold</option><option value="gta6">Vice City Nights · GTA VI inspired</option></select><label for="customAccent">CUSTOM ACCENT COLOR</label><div class="custom-color-row"><input id="customAccent" type="color" value="#a78bfa" aria-label="Choose custom accent color"><span>Pick any color for highlights, active navigation, and interface details.</span></div><label for="workspaceDensity">WORKSPACE SPACING</label><select id="workspaceDensity"><option value="comfortable">Comfortable</option><option value="compact">Compact</option></select><label for="panelStyle">PANEL STYLE</label><select id="panelStyle"><option value="solid">Clean solid panels</option><option value="glass">Soft glass panels</option></select><label for="startPageSelect">OPEN THIS PAGE AFTER SIGN IN</label><select id="startPageSelect"><option value="home">Home</option><option value="store">Store</option><option value="library">Library</option></select><div class="customizer-preview"><span class="preview-dot"></span><div><strong>YOUR ULTRA WORKSPACE</strong><small>Live preview · Saved to this browser</small></div><button type="button" id="resetAppearance" class="settings-action">RESET LOOK</button></div><button class="settings-action" type="button" id="savePreferences">SAVE MY WORKSPACE</button><span class="settings-message" id="preferencesStatus" aria-live="polite"></span></div></div>
+<div class="settings-card ultra-personalization-card" data-vh-setting-card="backgrounds"><div class="settings-card-heading"><div><h3>Ultra Personalization Lab</h3><p>Customize your desktop like a full operating system. Settings are saved for your account on this browser.</p></div></div><div class="ultra-personal-grid">
 <div><label for="ultraFontChoice">INTERFACE FONT</label><select id="ultraFontChoice"><option value="system">System default</option><option value="modern">Modern rounded</option><option value="mono">Monospaced</option></select></div>
 <div><label for="ultraDockChoice">DOCK POSITION</label><select id="ultraDockChoice"><option value="bottom">Bottom</option><option value="left">Left side</option><option value="right">Right side</option></select></div>
 <div><label for="ultraIconChoice">APP ICON SHAPE</label><select id="ultraIconChoice"><option value="rounded">Rounded</option><option value="circle">Circle</option><option value="square">Square</option></select></div>
@@ -2339,10 +2379,10 @@ body{background:#050505!important}
 <div><label for="ultraWallpaperMotion">WALLPAPER MOTION</label><select id="ultraWallpaperMotion"><option value="on">Animated drift</option><option value="off">Still wallpaper</option></select></div>
 <div class="ultra-range-setting"><label for="ultraClockSize">CLOCK SIZE <output id="ultraClockSizeValue">100%</output></label><input id="ultraClockSize" type="range" min="75" max="140" step="5" value="100"></div>
 <div class="ultra-personal-check"><label><input id="ultraShowClock" type="checkbox" checked> Show desktop clock</label><label><input id="ultraReduceMotion" type="checkbox"> Reduce motion</label><label><input id="ultraHighContrast" type="checkbox"> High contrast panels</label><label><input id="ultraShowBoot" type="checkbox" checked> Show boot animation</label><label><input id="ultraShowNotifications" type="checkbox" checked> Show welcome notification</label></div></div>
-<div class="ultra-personal-actions"><button type="button" class="settings-action" id="ultraExportPrefs">EXPORT SETTINGS</button><button type="button" class="settings-action" id="ultraImportPrefs">IMPORT SETTINGS</button><input type="file" id="ultraImportPrefsFile" accept="application/json,.json" hidden><button type="button" class="settings-action danger-action" id="ultraResetPrefs">RESET PERSONALIZATION</button></div><span class="settings-message" id="ultraPersonalStatus" aria-live="polite"></span></div>        <div class="settings-card mobile-customizer-card"><div class="settings-card-heading"><div><h3>Mobile experience</h3><p>Separate controls for smaller screens. These settings only affect the mobile layout.</p></div></div><div class="settings-form ultra-customizer"><label for="mobileDensity">MOBILE SPACING</label><select id="mobileDensity"><option value="comfortable">Comfortable touch spacing</option><option value="compact">Compact mobile layout</option></select><label for="mobileNavigation">MOBILE NAVIGATION</label><select id="mobileNavigation"><option value="scroll">Scrollable navigation tabs</option><option value="grid">Navigation grid</option></select><label for="mobileCards">MOBILE GAME CARDS</label><select id="mobileCards"><option value="two">Two columns</option><option value="one">Single column</option></select><div class="customizer-preview"><span class="preview-dot"></span><div><strong>MOBILE PREVIEW SETTINGS</strong><small>Touch-friendly controls · Saved with your workspace</small></div></div></div></div>
-        <div class="settings-card gta-theme-card"><div class="settings-card-heading"><div><h3>Vice City Nights</h3><p>Unofficial GTA VI-inspired fan theme. Original Ultra styling with coastal neon, sunset tones, and deep midnight surfaces. Not affiliated with Rockstar Games.</p></div></div><div class="gta-theme-swatches"><span></span><span></span><span></span><span></span></div><button class="settings-action" type="button" id="applyGtaTheme">APPLY VICE CITY NIGHTS</button></div>
-        <div class="settings-card danger-card"><div><h3>Collection management</h3><p>Remove games saved in your Library and Favorites on this device. Your account will not be deleted.</p><button class="settings-action danger-action" type="button" id="clearSaved">CLEAR LIBRARY & FAVORITES</button><span class="settings-message" id="settingsStatus" aria-live="polite"></span></div></div>
-      </section>
+<div class="ultra-personal-actions"><button type="button" class="settings-action" id="ultraExportPrefs">EXPORT SETTINGS</button><button type="button" class="settings-action" id="ultraImportPrefs">IMPORT SETTINGS</button><input type="file" id="ultraImportPrefsFile" accept="application/json,.json" hidden><button type="button" class="settings-action danger-action" id="ultraResetPrefs">RESET PERSONALIZATION</button></div><span class="settings-message" id="ultraPersonalStatus" aria-live="polite"></span></div>        <div class="settings-card mobile-customizer-card" data-vh-setting-card="system"><div class="settings-card-heading"><div><h3>Mobile experience</h3><p>Separate controls for smaller screens. These settings only affect the mobile layout.</p></div></div><div class="settings-form ultra-customizer"><label for="mobileDensity">MOBILE SPACING</label><select id="mobileDensity"><option value="comfortable">Comfortable touch spacing</option><option value="compact">Compact mobile layout</option></select><label for="mobileNavigation">MOBILE NAVIGATION</label><select id="mobileNavigation"><option value="scroll">Scrollable navigation tabs</option><option value="grid">Navigation grid</option></select><label for="mobileCards">MOBILE GAME CARDS</label><select id="mobileCards"><option value="two">Two columns</option><option value="one">Single column</option></select><div class="customizer-preview"><span class="preview-dot"></span><div><strong>MOBILE PREVIEW SETTINGS</strong><small>Touch-friendly controls · Saved with your workspace</small></div></div></div></div>
+        <div class="settings-card gta-theme-card" data-vh-setting-card="about"><div class="settings-card-heading"><div><h3>Vice City Nights</h3><p>Unofficial GTA VI-inspired fan theme. Original Ultra styling with coastal neon, sunset tones, and deep midnight surfaces. Not affiliated with Rockstar Games.</p></div></div><div class="gta-theme-swatches"><span></span><span></span><span></span><span></span></div><button class="settings-action" type="button" id="applyGtaTheme">APPLY VICE CITY NIGHTS</button></div>
+        <div class="settings-card danger-card" data-vh-setting-card="library"><div><h3>Collection management</h3><p>Remove games saved in your Library and Favorites on this device. Your account will not be deleted.</p><button class="settings-action danger-action" type="button" id="clearSaved">CLEAR LIBRARY & FAVORITES</button><span class="settings-message" id="settingsStatus" aria-live="polite"></span></div></div>
+      </div></div></section>
 
       <section class="dash-page ultra-network-page" id="networkPage">
         <div class="store-head"><div><div class="store-tag">ULTRA NETWORK</div><h2>Network</h2><p>Connection status and system connectivity for this device.</p></div><button class="settings-action" type="button" id="ultraNetworkRefresh">REFRESH STATUS</button></div>
@@ -2691,7 +2731,15 @@ function playUltraMedia(type,url,save=true){const parsed=ultraMediaParse(type,ur
 document.getElementById("playSpotifyMedia")?.addEventListener("click",()=>playUltraMedia("spotify",document.getElementById("ultraSpotifyUrl").value));
 document.getElementById("playYoutubeMedia")?.addEventListener("click",()=>playUltraMedia("youtube",document.getElementById("ultraYoutubeUrl").value));
 document.getElementById("clearUltraMediaSaved")?.addEventListener("click",()=>{try{localStorage.removeItem("ultra_media_saved")}catch(e){}renderUltraMediaSaved()});
-function showPage(page){if(!pageSections[page])page="home";publishUltraDiscordActivity(page==="home"?"Ultra Launcher":"Ultra Launcher",page==="home"?"Gaming hub":pageNames[page]||"Browsing");dashboardView.classList.toggle("ultra-home-active",page==="home");if(page!=="play"&&drive.running&&!drive.paused){drive.paused=true;if(drive.rafId)cancelAnimationFrame(drive.rafId);drive.rafId=0;const pauseControl=document.getElementById("drivePause");if(pauseControl)pauseControl.textContent="RESUME"}if(page!=="arcade"&&arcadeTimer){clearTimeout(arcadeTimer);arcadeTimer=null}if(page!=="arcade")arcadeState=null;Object.entries(pageSections).forEach(([key,el])=>{el.style.display=key===page?"block":"none"});document.querySelectorAll(".nav[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));document.getElementById("pageKicker").textContent=pageNames[page];document.getElementById("pageHeading").textContent=page==="home"?"Welcome back":page[0].toUpperCase()+page.slice(1);if(page==="library"||page==="favorites")renderSaved(page);if(page==="social"){renderUltraSocial();renderUltraSocialLinks();}if(page==="play"){drawDrive();requestAnimationFrame(()=>resizeDrive3D());loadDriveLeaderboard();}if(page==="city")drawCity();if(page==="friends")loadFriends();if(page==="arcade")renderArcadeHome();if(page==="profile"&&activeUser){renderProfileAvatar();document.getElementById("profileName").textContent=(activeUser.user_metadata&&activeUser.user_metadata.display_name)||"Ultra Player";document.getElementById("profileEmail").textContent=activeUser.email||""}if(page==="settings"&&activeUser){document.getElementById("settingsDisplayName").value=(activeUser.user_metadata&&activeUser.user_metadata.display_name)||"";document.getElementById("accentSelect").value=localStorage.getItem("crimson_accent_"+activeUser.id)||"purple";document.getElementById("startPageSelect").value=localStorage.getItem("crimson_start_"+activeUser.id)||"home";applyAccent(document.getElementById("accentSelect").value);applyWorkspacePrefs()}syncStoreButtons()}
+function syncValorsSidebar(){
+ const name=(activeUser&&activeUser.user_metadata&&activeUser.user_metadata.display_name)||"Ultra Player";
+ const label=document.getElementById("vhSidebarName");if(label)label.textContent=name;
+ const avatar=document.getElementById("vhSidebarAvatar");
+ if(avatar){const photo=activeUser?localStorage.getItem(avatarKey(activeUser)):"";if(photo){avatar.replaceChildren();const img=document.createElement("img");img.alt="Your profile picture";img.src=photo;avatar.append(img)}else avatar.textContent=(name.trim()[0]||"U").toUpperCase()}
+ const libraryCount=document.getElementById("vhHomeLibraryCount");if(libraryCount)libraryCount.textContent=readSaved("library").length;
+ const networkStatus=document.getElementById("vhHomeNetworkStatus");if(networkStatus)networkStatus.textContent=navigator.onLine?"Online":"Offline";
+}
+function showPage(page){if(!pageSections[page])page="home";publishUltraDiscordActivity(page==="home"?"Ultra Launcher":"Ultra Launcher",page==="home"?"Gaming hub":pageNames[page]||"Browsing");dashboardView.classList.toggle("ultra-home-active",page==="home");if(page!=="play"&&drive.running&&!drive.paused){drive.paused=true;if(drive.rafId)cancelAnimationFrame(drive.rafId);drive.rafId=0;const pauseControl=document.getElementById("drivePause");if(pauseControl)pauseControl.textContent="RESUME"}if(page!=="arcade"&&arcadeTimer){clearTimeout(arcadeTimer);arcadeTimer=null}if(page!=="arcade")arcadeState=null;Object.entries(pageSections).forEach(([key,el])=>{el.style.display=key===page?"block":"none"});document.querySelectorAll(".nav[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));document.getElementById("pageKicker").textContent=pageNames[page];document.getElementById("pageHeading").textContent=page==="home"?"Welcome back":page[0].toUpperCase()+page.slice(1);if(page==="library"||page==="favorites")renderSaved(page);if(page==="social"){renderUltraSocial();renderUltraSocialLinks();}if(page==="play"){drawDrive();requestAnimationFrame(()=>resizeDrive3D());loadDriveLeaderboard();}if(page==="city")drawCity();if(page==="friends")loadFriends();if(page==="arcade")renderArcadeHome();if(page==="profile"&&activeUser){renderProfileAvatar();document.getElementById("profileName").textContent=(activeUser.user_metadata&&activeUser.user_metadata.display_name)||"Ultra Player";document.getElementById("profileEmail").textContent=activeUser.email||""}if(page==="settings"&&activeUser){document.getElementById("settingsDisplayName").value=(activeUser.user_metadata&&activeUser.user_metadata.display_name)||"";document.getElementById("accentSelect").value=localStorage.getItem("crimson_accent_"+activeUser.id)||"purple";document.getElementById("startPageSelect").value=localStorage.getItem("crimson_start_"+activeUser.id)||"home";applyAccent(document.getElementById("accentSelect").value);applyWorkspacePrefs()}syncStoreButtons();syncValorsSidebar()}
 function avatarKey(user){return "crimson_avatar_"+user.id}
 function renderProfileAvatar(){const el=document.getElementById("profileAvatar");if(!el||!activeUser)return;const saved=localStorage.getItem(avatarKey(activeUser));if(saved){el.classList.add("has-photo");el.innerHTML="";const img=document.createElement("img");img.alt="Your profile picture";img.src=saved;el.appendChild(img)}else{el.classList.remove("has-photo");el.textContent="U"}}
 function saveProfileImage(file){if(!activeUser||!file)return;const status=document.getElementById("avatarStatus");if(!file.type.startsWith("image/")){status.textContent="Please choose an image file.";return}if(file.size>8*1024*1024){status.textContent="Choose an image smaller than 8 MB.";return}const reader=new FileReader();reader.onload=()=>{const img=new Image();img.onload=()=>{const canvas=document.createElement("canvas");canvas.width=320;canvas.height=320;const ctx=canvas.getContext("2d");const scale=Math.max(320/img.width,320/img.height),sw=320/scale,sh=320/scale,sx=(img.width-sw)/2,sy=(img.height-sh)/2;ctx.drawImage(img,sx,sy,sw,sh,0,0,320,320);try{localStorage.setItem(avatarKey(activeUser),canvas.toDataURL("image/jpeg",.82));renderProfileAvatar();status.textContent="Profile picture saved on this device."}catch(e){status.textContent="This image could not be saved. Try a smaller picture."}};img.onerror=()=>status.textContent="That image could not be opened.";img.src=reader.result};reader.onerror=()=>status.textContent="Could not read that image.";reader.readAsDataURL(file)}
@@ -2705,7 +2753,7 @@ function runUltraBootSequence(){
 }
 document.getElementById("ultraToastDismiss")?.addEventListener("click",()=>document.getElementById("ultraWelcomeToast")?.classList.remove("is-visible"));
 function showDashboard(user){
- activeUser=user;window.activeUser=user;
+ activeUser=user;window.activeUser=user;syncValorsSidebar();
  const safeStep=(label,fn)=>{try{return fn()}catch(error){console.error("Ultra dashboard step failed ("+label+"):",error);return undefined}};
  authView.style.display="none";
  dashboardView.style.display="block";
@@ -3767,4 +3815,245 @@ update();
 .ultra-home-collection-card:hover,.ultra-home-collection-heading>button:hover{border-color:var(--accent);background:var(--theme-glow)}
 @media(max-width:700px){.ultra-home-collection{margin:18px 12px;padding:13px}.ultra-home-collection-grid{grid-template-columns:1fr}.ultra-home-collection-heading h2{font-size:16px}}
 </style>
-</body></html>
+
+<style id="ultra-valorshub-redesign">
+:root{--vh-bg:#080808;--vh-panel:#101010;--vh-panel-2:#151515;--vh-line:#292929;--vh-muted:#969696;--vh-text:#f4f4f4;--vh-accent:#f28b32}
+body:has(#dashboardView[style*="display: block"]){background:var(--vh-bg)!important}
+body:has(#dashboardView[style*="display: block"]) .topbar{display:none!important}
+#dashboardView{min-height:100vh!important;background:var(--vh-bg)!important;color:var(--vh-text)!important}
+#dashboardView .dash-layout.ultra-valorshub-layout{display:grid!important;grid-template-columns:222px minmax(0,1fr)!important;gap:0!important;min-height:100vh;padding:0!important;max-width:none!important}
+#dashboardView .vh-sidebar{position:sticky;top:0;height:100vh;min-height:100vh;display:flex;flex-direction:column;padding:17px 8px 12px;background:#050505;border-right:1px solid #242424;z-index:100}
+.vh-brand{height:42px;width:100%;display:flex;align-items:center;gap:12px;padding:0 12px;margin:0 0 26px;border:0;background:transparent;color:#f6f6f6;text-align:left;font-size:16px;letter-spacing:.2px}
+.vh-brand-mark{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(145deg,#282828,#101010);border:1px solid #393939;color:#fff;font-weight:950;font-size:17px}
+.vh-main-nav{display:grid;gap:5px}
+#dashboardView .vh-nav-item{height:44px;width:100%;display:flex;align-items:center;gap:13px;padding:0 13px;margin:0;border:1px solid transparent;border-radius:9px;background:transparent;color:#a9a9a9;text-align:left;font-size:13px;font-weight:650;transition:background .16s,border-color .16s,color .16s}
+#dashboardView .vh-nav-item .vh-nav-icon{width:19px;text-align:center;font-size:17px;color:#9ca3af}
+#dashboardView .vh-nav-item:hover{background:#151515;color:#fff}
+#dashboardView .vh-nav-item.active{background:#1a1a1a;border-color:#3a3a3a;color:#fff;box-shadow:0 3px 14px #0005}
+#dashboardView .vh-nav-item.active .vh-nav-icon{color:#c9a6ff}
+.vh-sidebar-spacer{flex:1}
+.vh-player-card{display:flex;align-items:center;gap:10px;width:100%;padding:11px 8px;border:0;border-top:1px solid #252525;background:transparent;color:#f3f3f3;text-align:left}
+.vh-player-avatar{width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;border-radius:50%;border:1px solid #565656;background:radial-gradient(circle at 35% 25%,#555,#161616 70%);font-size:18px;font-weight:900;overflow:hidden}
+.vh-player-avatar img{width:100%;height:100%;object-fit:cover}
+.vh-player-copy{display:grid;gap:4px;min-width:0}
+.vh-player-copy strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vh-player-copy small{display:flex;align-items:center;gap:6px;color:#8f8f8f;font-size:10px}
+.vh-player-copy small i{width:7px;height:7px;border-radius:50%;background:#42cf83}
+.vh-player-menu{margin-left:auto;color:#888;font-size:20px}
+#dashboardView .dash-main{min-width:0!important;width:100%;max-width:none!important;padding:25px 30px 45px!important;border:0!important;border-radius:0!important;background:var(--vh-bg)!important;box-shadow:none!important}
+#dashboardView .birthday-banner{display:none!important}
+#dashboardView .workspace-bar{min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 0 17px;margin:0 0 22px;border-bottom:1px solid #252525}
+#dashboardView .workspace-kicker{color:#a8a8a8!important;font-size:9px;letter-spacing:1.8px}
+#dashboardView .workspace-title{color:#f7f7f7;font-size:22px;font-weight:800;letter-spacing:-.4px}
+#dashboardView .workspace-user{gap:12px}
+#dashboardView .workspace-user #userEmail{display:none}
+#dashboardView .workspace-actions{display:flex;align-items:center;gap:8px}
+#dashboardView .workspace-clock{color:#a1a1a1;font-size:11px}
+#dashboardView .workspace-tool{padding:8px 10px;border:1px solid #303030;border-radius:8px;background:#121212;color:#c9c9c9;font-size:10px}
+#dashboardView .signout{padding:8px 11px;border:1px solid #303030;border-radius:8px;background:#171717;color:#d0d0d0}
+#dashboardView .ultra-xbox-rail,#dashboardView .ultra-cine-topline{display:none!important}
+#dashboardView .dash-page{min-width:0}
+#dashboardView .store-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 20px}
+#dashboardView .store-head h2{font-size:28px;letter-spacing:-.8px;color:#f5f5f5;margin:5px 0}
+#dashboardView .store-head p{color:#969696;font-size:13px;margin:0}
+#dashboardView .store-tag{color:#c18b55;font-size:9px;letter-spacing:1.8px;font-weight:900}
+#dashboardView .store-search,#dashboardView .collection-toolbar input{background:#141414!important;border:1px solid #303030!important;border-radius:9px!important;color:#f3f3f3!important}
+#dashboardView .store-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))!important;gap:14px!important}
+#dashboardView .store-card{overflow:hidden;border:1px solid #292929!important;border-radius:13px!important;background:#111!important;box-shadow:none!important}
+#dashboardView .store-art{min-height:145px;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#343434,#171717 66%,#101010)!important;font-size:44px}
+#dashboardView .store-info{padding:15px!important}
+#dashboardView .store-info strong{color:#f6f6f6;font-size:16px}
+#dashboardView .store-info p{color:#a0a0a0}
+#dashboardView .store-actions button,#dashboardView .store-action{border-radius:8px!important}
+#dashboardView .settings-card,#dashboardView .network-card,#dashboardView .ultra-home-collection{border:1px solid #292929!important;border-radius:14px!important;background:#111!important;box-shadow:none!important}
+#dashboardView .ultra-home-collection{margin:20px 0!important}
+#dashboardView .ultra-home-collection-heading h2{color:#f4f4f4}
+#dashboardView .ultra-home-collection-card{background:#171717;border-color:#303030}
+#dashboardView .ultra-social-shell{border:1px solid #2a2a2a;border-radius:14px;overflow:hidden}
+#dashboardView .ultra-social-channels{background:#111!important}
+#dashboardView .ultra-social-chat{background:#0c0c0c!important}
+#dashboardView .ultra-social-rail{background:#080808!important}
+#dashboardView .ultra-profile-cover{border-radius:14px 14px 0 0}
+#dashboardView .profile-card{border-radius:0 0 14px 14px!important}
+#dashboardView .bottom-dock{display:none!important}
+@media(max-width:760px){
+ #dashboardView .dash-layout.ultra-valorshub-layout{display:flex!important;flex-direction:column!important;min-height:100vh;padding-bottom:72px!important}
+ #dashboardView .vh-sidebar{position:fixed;top:auto;bottom:0;left:0;right:0;width:100%;height:auto;min-height:0;padding:7px 8px max(7px,env(safe-area-inset-bottom));border-right:0;border-top:1px solid #292929;background:rgba(5,5,5,.97);backdrop-filter:blur(18px)}
+ .vh-brand,.vh-sidebar-spacer,.vh-player-card{display:none!important}
+ .vh-main-nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:3px}
+ #dashboardView .vh-nav-item{height:52px;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:3px 1px;border-radius:8px;font-size:9px;text-align:center}
+ #dashboardView .vh-nav-item .vh-nav-icon{font-size:17px;width:auto}
+ #dashboardView .dash-main{padding:16px 13px 28px!important}
+ #dashboardView .workspace-bar{align-items:center;margin-bottom:17px;padding-bottom:13px}
+ #dashboardView .workspace-title{font-size:18px}
+ #dashboardView .workspace-clock,#dashboardView #appLibraryOpen,#dashboardView #controlCenterOpen{display:none!important}
+ #dashboardView .workspace-actions{gap:5px}
+ #dashboardView .workspace-tool{padding:7px 8px;font-size:9px}
+ #dashboardView .store-head h2{font-size:23px}
+ #dashboardView .store-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+ #dashboardView .store-art{min-height:100px}
+ #dashboardView .store-info{padding:10px!important}
+ #dashboardView .store-info strong{font-size:13px}
+ #dashboardView .store-info p{font-size:11px}
+ #dashboardView .ultra-home-collection-grid{grid-template-columns:1fr!important}
+}
+@media(max-width:390px){
+ #dashboardView .store-grid{grid-template-columns:1fr!important}
+ #dashboardView .dash-main{padding-left:10px!important;padding-right:10px!important}
+}
+</style>
+
+<style id="ultra-valorshub-home">
+#dashboardView #homePage{position:relative;min-height:calc(100vh - 100px);padding:0 0 26px!important;background:radial-gradient(ellipse at 75% 12%,#252525 0,#121212 32%,#080808 76%)!important}
+#dashboardView #homePage:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.28;background:radial-gradient(circle at 18% 28%,#555 0 1px,transparent 2px),radial-gradient(circle at 80% 62%,#444 0 1px,transparent 2px);background-size:170px 150px,230px 210px}
+#dashboardView #homePage>*{position:relative}
+#dashboardView .ultra-home-welcome,#dashboardView .ultra-xbox-discord-hero,#dashboardView .ultra-xbox-app-strip,#dashboardView .ultra-home-widgets,#dashboardView .ultra-home-collection,#dashboardView .ultra-ps5-info-grid{display:none!important}
+#dashboardView .vh-home-toolbar{display:flex;align-items:center;justify-content:center;gap:18px;position:relative;margin:0 auto 74px;max-width:880px}
+.vh-quick-launch{height:48px;max-width:580px;flex:1;display:flex;align-items:center;gap:12px;padding:0 16px;border:1px solid #343434;border-radius:14px;background:#090909d9;box-shadow:0 12px 45px #0008}
+.vh-quick-launch>span{font-size:22px;color:#a8a8a8}
+.vh-quick-launch input{width:100%;min-width:0;border:0!important;outline:0;background:transparent!important;color:#f5f5f5!important;font-size:13px}
+.vh-quick-launch input::placeholder{color:#888}
+.vh-quick-launch kbd{white-space:nowrap;padding:4px 7px;border:1px solid #393939;border-radius:5px;color:#a6a6a6;font-size:9px}
+.vh-pass-pill{height:40px;display:flex;align-items:center;gap:9px;padding:0 14px;border:1px solid #555;border-radius:24px;background:#161616;color:#eee;font-size:11px;font-weight:800;white-space:nowrap}
+.vh-pass-pill span{color:#d8bd82}
+#dashboardView .vh-home-section-heading{display:flex;align-items:flex-end;justify-content:space-between;margin:0 0 13px}
+.vh-home-section-heading h2{margin:0;color:#f4f4f4;font-size:20px;letter-spacing:-.3px}
+.vh-home-section-heading p{margin:4px 0 0;color:#858585;font-size:11px}
+.vh-home-section-heading button{padding:8px 10px;border:1px solid #333;border-radius:7px;background:#111;color:#bdbdbd;font-size:9px;font-weight:800}
+#dashboardView .ultra-xbox-card-grid{display:flex!important;gap:12px!important;overflow-x:auto!important;overflow-y:hidden!important;padding:0 0 15px!important;margin:0 0 14px!important;scrollbar-width:thin;scrollbar-color:#3d3d3d transparent}
+#dashboardView .ultra-xbox-card{flex:0 0 174px!important;width:174px!important;min-width:174px!important;display:flex!important;flex-direction:column!important;gap:9px!important;padding:0!important;border:0!important;background:transparent!important;color:#f4f4f4!important;text-align:left!important}
+#dashboardView .ultra-xbox-thumb{height:215px!important;position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important;border:1px solid #373737!important;border-radius:13px!important;background:linear-gradient(145deg,#383838,#151515 65%,#090909)!important;box-shadow:0 12px 25px #0008!important;font-size:58px!important;transition:transform .18s,border-color .18s}
+#dashboardView .ultra-xbox-card:nth-child(1) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#5b3821,#1e1a18 55%,#080808)!important}
+#dashboardView .ultra-xbox-card:nth-child(2) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#263f58,#111820 60%,#080808)!important}
+#dashboardView .ultra-xbox-card:nth-child(3) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#4b3b5b,#17131d 60%,#080808)!important}
+#dashboardView .ultra-xbox-card:nth-child(4) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#4d4d4d,#171717 60%,#080808)!important}
+#dashboardView .ultra-xbox-card:nth-child(5) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#1c4939,#111c18 60%,#080808)!important}
+#dashboardView .ultra-xbox-card:nth-child(6) .ultra-xbox-thumb{background:radial-gradient(circle at 50% 20%,#42315b,#17131d 60%,#080808)!important}
+#dashboardView .ultra-xbox-thumb span{position:absolute;left:10px;right:10px;bottom:10px;padding:7px;border-radius:6px;background:#0009;color:#eee;font-size:8px;letter-spacing:1px;text-align:center}
+#dashboardView .ultra-xbox-card>strong{padding:0 3px;color:#ededed;font-size:12px;font-weight:750}
+#dashboardView .ultra-xbox-card:hover .ultra-xbox-thumb{transform:translateY(-3px);border-color:#aaa!important}
+.vh-home-system-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:20px}
+.vh-home-system-card{min-height:128px;display:flex;flex-direction:column;align-items:flex-start;gap:9px;padding:16px;border:1px solid #292929;border-radius:12px;background:linear-gradient(145deg,#151515,#0c0c0c);color:#f1f1f1;text-align:left}
+.vh-home-system-heading{color:#bcbcbc;font-size:11px;font-weight:750}
+.vh-home-system-card>strong{font-size:20px;letter-spacing:-.4px}
+.vh-home-system-card>small{color:#888;font-size:10px}
+.vh-home-system-card:hover{border-color:#666;background:#191919}
+@media(max-width:760px){
+ #dashboardView .vh-home-toolbar{margin:0 0 35px;gap:8px}
+ .vh-quick-launch{height:43px;padding:0 10px}
+ .vh-quick-launch input{font-size:11px}
+ .vh-quick-launch kbd{display:none}
+ .vh-pass-pill{height:36px;padding:0 9px;font-size:9px}
+ #dashboardView .ultra-xbox-card{flex-basis:138px!important;width:138px!important;min-width:138px!important}
+ #dashboardView .ultra-xbox-thumb{height:170px!important;font-size:48px!important}
+ .vh-home-system-grid{grid-template-columns:1fr;gap:8px}
+ .vh-home-system-card{min-height:90px}
+}
+</style>
+<script>
+(function(){
+ const input=document.getElementById("vhQuickLaunchSearch");
+ if(input){
+  const cards=()=>Array.from(document.querySelectorAll("#homePage .ultra-xbox-card"));
+  input.addEventListener("input",()=>{const q=input.value.trim().toLowerCase();cards().forEach(card=>{const match=!q||card.textContent.toLowerCase().includes(q);if(match)card.style.removeProperty("display");else card.style.setProperty("display","none","important")})});
+  input.addEventListener("keydown",event=>{if(event.key==="Enter"){const first=cards().find(card=>card.style.display!=="none");if(first)first.click()}});
+ }
+ const library=document.getElementById("vhHomeLibraryCount");
+ if(library){try{const user=window.activeUser;library.textContent=JSON.parse(localStorage.getItem("crimson_library_"+(user&&user.id||"guest"))||"[]").length}catch{library.textContent="0"}}
+ const network=document.getElementById("vhHomeNetworkStatus");
+ if(network)network.textContent=navigator.onLine?"Online":"Offline";
+ window.addEventListener("online",()=>{if(network)network.textContent="Online"});
+ window.addEventListener("offline",()=>{if(network)network.textContent="Offline"});
+})();
+</script><style id="ultra-valorshub-settings">
+.vh-settings-layout{display:grid;grid-template-columns:205px minmax(0,1fr);gap:16px;align-items:start}
+.vh-settings-subnav{position:sticky;top:16px;display:flex;flex-direction:column;gap:3px;padding:12px 9px;min-height:calc(100vh - 160px);border-right:1px solid #242424;background:#090909}
+.vh-settings-group-label{margin:12px 8px 7px;color:#696969;font-size:8px;font-weight:900;letter-spacing:2px}
+.vh-settings-tab{height:39px;display:flex;align-items:center;gap:11px;padding:0 11px;border:1px solid transparent;border-radius:8px;background:transparent;color:#aaa;text-align:left;font-size:11px;font-weight:650}
+.vh-settings-tab span{width:16px;color:#929292;text-align:center;font-size:15px}
+.vh-settings-tab:hover{background:#161616;color:#fff}
+.vh-settings-tab.active{background:#1b1b1b;border-color:#333;color:#fff}
+.vh-settings-tab.active span{color:#c5a1ff}
+.vh-settings-content{min-width:0;display:grid;gap:13px}
+.vh-settings-content .settings-card{margin:0!important}
+@media(max-width:760px){.vh-settings-layout{grid-template-columns:1fr;gap:10px}.vh-settings-subnav{position:static;min-height:0;display:flex;flex-direction:row;overflow-x:auto;border:1px solid #252525;border-radius:10px;padding:7px;gap:5px}.vh-settings-group-label{display:none}.vh-settings-tab{height:37px;flex:0 0 auto;white-space:nowrap;padding:0 10px}}
+</style>
+<script>
+(function(){
+ const tabs=Array.from(document.querySelectorAll("[data-vh-settings]"));
+ const cards=Array.from(document.querySelectorAll("[data-vh-setting-card]"));
+ function select(key){
+  tabs.forEach(tab=>tab.classList.toggle("active",tab.dataset.vhSettings===key));
+  cards.forEach(card=>{card.hidden=card.dataset.vhSettingCard!==key});
+ }
+ tabs.forEach(tab=>tab.addEventListener("click",()=>select(tab.dataset.vhSettings)));
+ select("account");
+})();
+</script><style id="ultra-valorshub-collection-shop">
+#dashboardView #libraryPage,#dashboardView #storePage{max-width:1400px;margin:0 auto}
+.vh-page-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:0 0 23px}
+.vh-page-heading h2{margin:7px 0 5px;color:#f5f5f5;font-size:clamp(25px,3vw,36px);letter-spacing:-1.1px}
+.vh-page-heading p{margin:0;color:#929292;font-size:12px}
+.vh-page-heading-count{min-width:145px;padding:11px 14px;border:1px solid #292929;border-radius:10px;background:#111;text-align:right}
+.vh-page-heading-count strong,.vh-page-heading-count small{display:block}
+.vh-page-heading-count strong{color:#f0f0f0;font-size:13px}
+.vh-page-heading-count small{margin-top:4px;color:#777;font-size:8px;letter-spacing:1.4px}
+.vh-library-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;align-items:center;gap:10px;margin-bottom:20px;padding:13px;border:1px solid #292929;border-radius:12px;background:linear-gradient(110deg,#17151d,#101010 65%)}
+.vh-library-summary>div{padding:5px 13px;border-right:1px solid #303030}
+.vh-library-summary>div span,.vh-library-summary>div strong{display:block}
+.vh-library-summary>div span{color:#89838f;font-size:8px;font-weight:800;letter-spacing:1.2px}
+.vh-library-summary>div strong{margin-top:5px;color:#f2f2f2;font-size:21px}
+.vh-library-summary>button{height:38px;padding:0 13px;border:1px solid #5a486e;border-radius:7px;background:#2a2035;color:#e8d8ff;font-size:9px;font-weight:850;white-space:nowrap}
+.vh-library-toolbar,.vh-shop-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 17px}
+.vh-library-filters,.vh-shop-categories{display:flex;gap:5px;overflow-x:auto}
+.vh-library-filters button,.vh-shop-categories button{padding:9px 12px;border:1px solid transparent;border-radius:7px;background:transparent;color:#969696;font-size:10px;font-weight:750;white-space:nowrap}
+.vh-library-filters button.active,.vh-shop-categories button.active{border-color:#38313f;background:#211b29;color:#f1e8ff}
+.vh-library-search-sort{display:flex;gap:8px;min-width:0}
+.vh-library-search-sort input{width:min(260px,34vw)}
+.vh-library-search-sort select{min-width:130px;padding:0 10px;border:1px solid #333;border-radius:8px;background:#121212;color:#bbb;font-size:10px}
+.vh-library-grid{grid-template-columns:repeat(auto-fill,minmax(205px,1fr))!important;gap:14px!important}
+.vh-library-grid .store-card,.vh-shop-grid .store-card{min-width:0;overflow:hidden;border:1px solid #292929!important;border-radius:12px!important;background:linear-gradient(155deg,#181818,#101010)!important;transition:transform .18s,border-color .18s,box-shadow .18s}
+.vh-library-grid .store-card:hover,.vh-shop-grid .store-card:hover{transform:translateY(-3px);border-color:#655477!important;box-shadow:0 16px 34px #0008}
+.vh-library-grid .store-art,.vh-shop-grid .store-art{min-height:135px;display:grid;place-items:center;border-bottom:1px solid #292929;background:radial-gradient(circle at 50% 30%,#453a52,#1b1820 65%,#111);font-size:48px}
+.vh-library-grid .store-info,.vh-shop-grid .store-info{padding:14px!important}
+.vh-shop-feature{min-height:205px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden;margin:0 0 23px;padding:25px 30px;border:1px solid #49394e;border-radius:15px;background:radial-gradient(ellipse at 80% 50%,#4a2c55 0,#211927 36%,#111 76%)}
+.vh-shop-feature>div:first-child{position:relative;z-index:1}
+.vh-shop-feature>div:first-child>span{color:#d4b8e8;font-size:8px;font-weight:900;letter-spacing:2px}
+.vh-shop-feature h3{margin:9px 0;color:#fff;font-size:clamp(22px,3vw,32px);line-height:1.08;letter-spacing:-.8px}
+.vh-shop-feature p{max-width:420px;margin:0 0 15px;color:#b5aab9;font-size:11px;line-height:1.6}
+.vh-shop-feature-cta{padding:10px 13px;border:1px solid #9675a4;border-radius:7px;background:#563d60;color:#fff;font-size:9px;font-weight:850}
+.vh-shop-feature-art{position:relative;width:190px;height:155px;flex:0 0 190px;display:grid;place-items:center;transform:rotate(-8deg);border:1px solid #ffffff32;border-radius:23px;background:linear-gradient(145deg,#6e4a79,#241b31 70%);box-shadow:0 18px 50px #0009}
+.vh-shop-feature-art span{color:#fff;font-size:110px;font-weight:950;line-height:1;text-shadow:0 10px 25px #0008}
+.vh-shop-feature-art i{position:absolute;top:14px;right:18px;color:#f6d8ff;font-size:27px}
+.vh-shop-feature-art b{position:absolute;bottom:13px;color:#fff;font-size:9px;letter-spacing:3px}
+#dashboardView #storeGrid.vh-shop-grid{grid-template-columns:repeat(auto-fill,minmax(215px,1fr))!important;gap:15px!important}
+@media(max-width:700px){.vh-page-heading{align-items:flex-start}.vh-page-heading-count{min-width:0}.vh-library-summary{grid-template-columns:repeat(3,minmax(0,1fr));padding:9px}.vh-library-summary>div{padding:4px 7px}.vh-library-summary>div strong{font-size:18px}.vh-library-summary>button{grid-column:1/-1;width:100%}.vh-library-toolbar,.vh-shop-toolbar{align-items:stretch;flex-direction:column}.vh-library-search-sort input{width:100%}.vh-library-search-sort select{min-width:110px}.vh-shop-feature{min-height:190px;padding:20px}.vh-shop-feature-art{width:110px;height:120px;flex-basis:110px}.vh-shop-feature-art span{font-size:76px}.vh-shop-feature-art b{font-size:7px;letter-spacing:1px}.vh-library-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr))!important}}
+</style><script id="ultra-valorshub-collection-behavior">
+(function(){
+ let libraryFilter="all";
+ const libraryGrid=document.getElementById("libraryGrid");
+ const librarySearch=document.getElementById("librarySearch");
+ const librarySort=document.getElementById("librarySort");
+ function applyLibraryView(){
+  if(!libraryGrid)return;
+  const q=(librarySearch&&librarySearch.value||"").trim().toLowerCase();
+  const cards=Array.from(libraryGrid.querySelectorAll(".store-card"));
+  cards.forEach(card=>{const type=card.dataset.category||"games";const matchType=libraryFilter==="all"||type===libraryFilter;const matchText=(card.dataset.name||card.textContent).toLowerCase().includes(q);card.hidden=!(matchType&&matchText)});
+  const visible=cards.filter(card=>!card.hidden);
+  const sort=librarySort&&librarySort.value;
+  if(sort==="az"||sort==="za"){visible.sort((a,b)=>{const cmp=(a.querySelector(".store-info strong")?.textContent||"").localeCompare(b.querySelector(".store-info strong")?.textContent||"");return sort==="az"?cmp:-cmp});const current=Array.from(libraryGrid.querySelectorAll(".store-card")).filter(card=>!card.hidden);if(visible.some((card,index)=>card!==current[index]))visible.forEach(card=>libraryGrid.appendChild(card))}
+  const saved=typeof readSaved==="function"?readSaved("library"):[];
+  const games=saved.filter(id=>{const card=[...document.querySelectorAll("#storeGrid .store-card")].find(c=>c.dataset.name===id);return !card||card.dataset.category==="games"}).length;
+  const apps=saved.length-games;
+  const total=document.getElementById("vhLibraryCollected"),g=document.getElementById("vhLibraryGames"),a=document.getElementById("vhLibraryApps");
+  if(total)total.textContent=saved.length;if(g)g.textContent=games;if(a)a.textContent=apps;
+ }
+ document.querySelectorAll("[data-library-filter]").forEach(btn=>btn.addEventListener("click",()=>{libraryFilter=btn.dataset.libraryFilter;document.querySelectorAll("[data-library-filter]").forEach(b=>b.classList.toggle("active",b===btn));applyLibraryView()}));
+ if(librarySearch)librarySearch.addEventListener("input",applyLibraryView);
+ if(librarySort)librarySort.addEventListener("change",applyLibraryView);
+ document.querySelectorAll(".vh-shop-feature-cta").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".store-filter").forEach(b=>b.classList.toggle("active",b.dataset.filter==="games"));if(typeof filterStore==="function")filterStore()}));
+ const observer=new MutationObserver(applyLibraryView);
+ if(libraryGrid)observer.observe(libraryGrid,{childList:true});
+ window.addEventListener("pageshow",applyLibraryView);
+})();
+</script></body></html>
