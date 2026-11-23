@@ -2696,7 +2696,7 @@ function runUltraBootSequence(){
 }
 document.getElementById("ultraToastDismiss")?.addEventListener("click",()=>document.getElementById("ultraWelcomeToast")?.classList.remove("is-visible"));
 function showDashboard(user){
- activeUser=user;
+ activeUser=user;window.activeUser=user;
  const safeStep=(label,fn)=>{try{return fn()}catch(error){console.error("Ultra dashboard step failed ("+label+"):",error);return undefined}};
  authView.style.display="none";
  dashboardView.style.display="block";
@@ -2958,8 +2958,8 @@ document.getElementById("friendsPage").addEventListener("click",async e=>{
 document.getElementById("librarySearch").addEventListener("input",()=>filterGrid("librarySearch","libraryGrid"));
 document.getElementById("favoritesSearch").addEventListener("input",()=>filterGrid("favoritesSearch","favoritesGrid"));
 document.getElementById("profileSignout").addEventListener("click",()=>document.getElementById("signoutBtn").click());
-document.getElementById("signoutBtn").addEventListener("click",async()=>{const {error}=await client.auth.signOut();if(error){showStatus(error.message,true);return}activeUser=null;showLogin();setMode("login")});
-document.getElementById("profileForm").addEventListener("submit",async e=>{e.preventDefault();const value=document.getElementById("settingsDisplayName").value.trim(),status=document.getElementById("profileSaveStatus"),btn=e.submitter;if(!value){status.textContent="Enter a player name first.";return}if(btn){btn.disabled=true;btn.textContent="SAVING..."}const {data,error}=await client.auth.updateUser({data:{display_name:value}});if(error){status.textContent=error.message;status.style.color="#ff9aaa"}else{activeUser=data.user;document.getElementById("welcomeTitle").textContent="Welcome, "+value+"!";document.getElementById("profileName").textContent=value;status.textContent="Profile saved.";status.style.color="#b8e6cb"}if(btn){btn.disabled=false;btn.textContent="SAVE PROFILE"}});
+document.getElementById("signoutBtn").addEventListener("click",async()=>{const {error}=await client.auth.signOut();if(error){showStatus(error.message,true);return}activeUser=null;window.activeUser=null;showLogin();setMode("login")});
+document.getElementById("profileForm").addEventListener("submit",async e=>{e.preventDefault();const value=document.getElementById("settingsDisplayName").value.trim(),status=document.getElementById("profileSaveStatus"),btn=e.submitter;if(!value){status.textContent="Enter a player name first.";return}if(btn){btn.disabled=true;btn.textContent="SAVING..."}const {data,error}=await client.auth.updateUser({data:{display_name:value}});if(error){status.textContent=error.message;status.style.color="#ff9aaa"}else{activeUser=data.user;window.activeUser=data.user;document.getElementById("welcomeTitle").textContent="Welcome, "+value+"!";document.getElementById("profileName").textContent=value;status.textContent="Profile saved.";status.style.color="#b8e6cb"}if(btn){btn.disabled=false;btn.textContent="SAVE PROFILE"}});
 
 function getPlatformTheme(){const saved=localStorage.getItem("ultra_platform_theme")||"ultra";return ["ultra","ps5","xbox","wii","windows","switch"].includes(saved)?saved:"ultra"}
 function applyPlatformTheme(theme){if(!["ultra","ps5","xbox","wii","windows","switch"].includes(theme))theme="ultra";document.documentElement.dataset.platformTheme=theme;localStorage.setItem("ultra_platform_theme",theme);const select=document.getElementById("platformThemeSelect");if(select&&select.value!==theme)select.value=theme;document.querySelectorAll("[data-platform-theme]").forEach(el=>el.setAttribute("aria-pressed",String(el.dataset.platformTheme===theme)));}
