@@ -4424,4 +4424,11 @@ html[data-platform-theme="windows"] .ultra-win-start-foot button{padding:8px 12p
  document.addEventListener("DOMContentLoaded",sync);sync();
 })();
 </script>
+
+<style id="ultra-windows-shell-theme-visibility">
+.ultra-win-desktop-icons,.ultra-win-taskbar,.ultra-win-startmenu{display:none}
+html[data-platform-theme="windows"] .ultra-win-desktop-icons{display:grid}
+html[data-platform-theme="windows"] .ultra-win-taskbar{display:flex}
+html[data-platform-theme="windows"] .ultra-win-startmenu:not([hidden]){display:block}
+</style>
 </body></html>
