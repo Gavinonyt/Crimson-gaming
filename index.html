@@ -2277,7 +2277,12 @@ body{background:#050505!important}
 
       <section class="dash-page" id="profilePage">
         <div class="store-head"><div><div class="store-tag">PLAYER ACCOUNT</div><h2>Profile</h2><p>Your Ultra Gaming account information.</p></div></div>
-        <div class="settings-card profile-card"><div class="profile-avatar" id="profileAvatar">U</div><div><h3 id="profileName">Ultra Player</h3><p id="profileEmail"></p><span class="account-status"><span class="online-dot"></span> Account connected</span><div class="profile-upload-row"><label class="settings-action" for="profileImageInput">UPLOAD PROFILE PICTURE</label><input id="profileImageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif"><button class="settings-action" type="button" id="removeProfileImage">REMOVE PHOTO</button></div><span class="settings-message" id="avatarStatus" aria-live="polite"></span></div></div>
+        <div class="ultra-profile-cover" id="ultraProfileCover" data-cover="violet"><span class="ultra-profile-cover-label">ULTRA PLAYER PROFILE</span><span class="ultra-profile-cover-mark">U</span></div>
+        <div class="settings-card profile-card ultra-profile-card"><div class="profile-avatar" id="profileAvatar">U</div><div class="ultra-profile-identity"><h3 id="profileName">Ultra Player</h3><p id="profileEmail"></p><span class="account-status"><span class="online-dot"></span> Account connected</span><p class="ultra-profile-status" id="ultraProfileStatusPreview">Ready to play.</p><div class="profile-upload-row"><label class="settings-action" for="profileImageInput">UPLOAD PROFILE PICTURE</label><input id="profileImageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif"><button class="settings-action" type="button" id="removeProfileImage">REMOVE PHOTO</button></div><span class="settings-message" id="avatarStatus" aria-live="polite"></span></div></div>
+        <div class="settings-card ultra-profile-editor"><div class="settings-card-heading"><div><h3>Customize your profile</h3><p>Set a short status and choose the cover color shown on your Ultra profile.</p></div></div>
+          <form id="ultraProfileStatusForm" class="settings-form"><label for="ultraProfileStatusInput">PLAYER STATUS</label><input id="ultraProfileStatusInput" maxlength="80" type="text" placeholder="What are you playing?"><button class="settings-action" type="submit">SAVE STATUS</button><span class="settings-message" id="ultraProfileStatusMessage" aria-live="polite"></span></form>
+          <div class="ultra-cover-picker"><span class="platform-theme-label">PROFILE COVER</span><div class="ultra-cover-options" role="group" aria-label="Choose profile cover"><button type="button" data-profile-cover="violet" aria-pressed="true">Violet</button><button type="button" data-profile-cover="ocean" aria-pressed="false">Ocean</button><button type="button" data-profile-cover="ember" aria-pressed="false">Ember</button><button type="button" data-profile-cover="emerald" aria-pressed="false">Emerald</button></div></div>
+        </div>
         <div class="settings-card"><h3>Account actions</h3><p>Sign out of your Ultra Gaming account on this device.</p><button class="settings-action" type="button" id="profileSignout">SIGN OUT</button></div>
       </section>
 
@@ -3698,4 +3703,44 @@ update();
 })();
 </script>
 
-</body></html>
+
+<style id="ultra-profile-customization-style">
+.ultra-profile-cover{height:156px;position:relative;overflow:hidden;border:1px solid #ffffff20;border-radius:16px 16px 0 0;background:radial-gradient(ellipse at 78% 10%,#bd91ff88,transparent 38%),linear-gradient(115deg,#25143f,#6244a0 55%,#181326);display:flex;align-items:flex-end;justify-content:space-between;padding:18px 22px;margin-top:14px}
+.ultra-profile-cover:before,.ultra-profile-cover:after{content:"";position:absolute;border:1px solid #ffffff22;border-radius:50%;width:240px;height:240px;right:15%;top:-150px}
+.ultra-profile-cover:after{width:340px;height:340px;right:8%;top:-205px}
+.ultra-profile-cover[data-cover="ocean"]{background:radial-gradient(ellipse at 78% 10%,#71d8ff77,transparent 38%),linear-gradient(115deg,#102638,#176c91 55%,#101a2b)}
+.ultra-profile-cover[data-cover="ember"]{background:radial-gradient(ellipse at 78% 10%,#ffbf7477,transparent 38%),linear-gradient(115deg,#3b1c21,#a64c48 55%,#201421)}
+.ultra-profile-cover[data-cover="emerald"]{background:radial-gradient(ellipse at 78% 10%,#74e8a477,transparent 38%),linear-gradient(115deg,#102c25,#267c59 55%,#101b1a)}
+.ultra-profile-cover-label{font-size:9px;letter-spacing:2px;font-weight:900;color:#ffffffb8;position:relative;z-index:1}
+.ultra-profile-cover-mark{font-size:52px;line-height:1;font-weight:950;color:#ffffff24;position:relative;z-index:1}
+.ultra-profile-card{margin-top:0;border-top:0;border-radius:0 0 16px 16px;display:flex;align-items:center;gap:18px;padding:22px;flex-wrap:wrap}
+.ultra-profile-identity{min-width:0;flex:1}
+.ultra-profile-status{font-size:12px;color:#c9b7ed;margin:8px 0 0;overflow-wrap:anywhere}
+.ultra-profile-editor{margin-top:14px}
+.ultra-cover-picker{margin-top:18px}
+.ultra-cover-options{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.ultra-cover-options button{border:1px solid #ffffff20;background:#ffffff08;color:#e8e3f0;border-radius:9px;padding:9px 13px;font-size:11px;font-weight:800}
+.ultra-cover-options button[aria-pressed="true"]{border-color:var(--accent);background:var(--theme-glow);color:#fff}
+.ultra-social-profile .ultra-social-avatar img{width:100%;height:100%;object-fit:cover;border-radius:inherit}
+@media(max-width:600px){.ultra-profile-cover{height:120px}.ultra-profile-card{align-items:flex-start;padding:17px}.ultra-profile-card .profile-avatar{width:64px;height:64px;flex:0 0 64px}}
+</style>
+<script id="ultra-profile-customization-script">
+(()=> {
+ const coverKey=user=>"ultra_profile_cover_"+user.id;
+ const statusKey=user=>"ultra_profile_status_"+user.id;
+ const avatarKey=user=>"crimson_avatar_"+user.id;
+ const $=id=>document.getElementById(id);
+ const current=()=>window.activeUser||null;
+ const read=(key,fallback)=>{const u=current();if(!u)return fallback;try{return localStorage.getItem(key(u))||fallback}catch{return fallback}};
+ const applyCover=value=>{const cover=$("ultraProfileCover");if(!cover)return;const allowed=["violet","ocean","ember","emerald"];value=allowed.includes(value)?value:"violet";cover.dataset.cover=value;document.querySelectorAll("[data-profile-cover]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.profileCover===value)))};
+ const applyStatus=value=>{value=String(value||"Ready to play.").slice(0,80);if($("ultraProfileStatusPreview"))$("ultraProfileStatusPreview").textContent=value;const social=document.querySelector(".ultra-social-profile small");if(social)social.textContent=value};
+ const render=()=>{const u=current();if(!u)return;const status=read(statusKey,"Ready to play.");if($("ultraProfileStatusInput"))$("ultraProfileStatusInput").value=status;applyStatus(status);applyCover(read(coverKey,"violet"));const avatar=document.getElementById("ultraSocialAvatar");if(avatar){avatar.replaceChildren();const src=read(avatarKey,"");if(src){const img=document.createElement("img");img.alt="Your profile picture";img.src=src;avatar.append(img)}else avatar.textContent=((u.user_metadata&&u.user_metadata.display_name)||"U").trim()[0]?.toUpperCase()||"U"}};
+ document.querySelectorAll("[data-profile-cover]").forEach(b=>b.addEventListener("click",()=>{const u=current();if(!u)return;const value=b.dataset.profileCover;try{localStorage.setItem(coverKey(u),value)}catch{}applyCover(value)}));
+ $("ultraProfileStatusForm")?.addEventListener("submit",e=>{e.preventDefault();const u=current();if(!u)return;const value=String($("ultraProfileStatusInput")?.value||"").trim().slice(0,80)||"Ready to play.";try{localStorage.setItem(statusKey(u),value);$("ultraProfileStatusMessage").textContent="Your status was saved on this device.";applyStatus(value)}catch{$("ultraProfileStatusMessage").textContent="Could not save your status on this device."}});
+ document.getElementById("profileImageInput")?.addEventListener("change",()=>setTimeout(render,80));
+ document.getElementById("removeProfileImage")?.addEventListener("click",()=>setTimeout(render,0));
+ const observer=new MutationObserver(()=>{if(document.getElementById("profilePage")?.style.display!=="none")render()});
+ const page=document.getElementById("profilePage");if(page)observer.observe(page,{attributes:true,attributeFilter:["style"]});
+ window.addEventListener("storage",render);render();
+})();
+</script></body></html>
