@@ -3808,7 +3808,7 @@ html[data-platform-theme="xbox"] .ultra-home .os-app-grid .os-app-tile small {
 </style>
 <script id="ultra-network-page-script">
 (()=>{const $=id=>document.getElementById(id);const getConnection=()=>navigator.connection||navigator.mozConnection||navigator.webkitConnection||null;
-const prettyEffective=value=>({slow-2g:'2G (slow)', '2g':'2G','3g':'3G','4g':'4G'}[value]||'Not reported');
+const prettyEffective=value=>({'slow-2g':'2G (slow)','2g':'2G','3g':'3G','4g':'4G'}[value]||'Not reported');
 const update=()=>{
  const online=navigator.onLine!==false,conn=getConnection(),rawType=String(conn?.type||'').toLowerCase(),effective=String(conn?.effectiveType||'').toLowerCase();
  let type='Not exposed by browser',detail='Your browser does not expose the physical network type.';
