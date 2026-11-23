@@ -2064,7 +2064,40 @@ body{background:#050505!important}
 .ultra-blocks-world .arcade-cell{aspect-ratio:1;min-width:0;padding:0;border-radius:5px;font-size:clamp(9px,2vw,17px);background:#1d293b;border:1px solid #ffffff12}
 .ultra-blocks-world .block-grass{background:#245b39}.ultra-blocks-world .block-stone{background:#64748b}.ultra-blocks-world .block-water{background:#155e9a}.ultra-blocks-world .block-wood{background:#80552f}
 @media(max-width:520px){.ultra-blocks-world{gap:2px;padding:5px}.ultra-royale-grid{gap:3px;padding:6px}}
-</style></head>
+</style>
+<style id="ultra-game-world-visual-refresh-v1">
+/* Cinematic, original Ultra game worlds */
+#arcadePage #arcadeStage{position:relative;overflow:hidden}
+#arcadePage #arcadeStage:has(.ultra-blocks-world){background:radial-gradient(ellipse at 50% 0%,#315b70 0,#17283c 48%,#101827 100%);border:1px solid #8ddcff30;border-radius:22px;padding:clamp(12px,2.5vw,24px)}
+#arcadePage #arcadeStage:has(.ultra-blocks-world) .arcade-toolbar strong,
+#arcadePage #arcadeStage:has(.ultra-royale-grid) .arcade-toolbar strong,
+#arcadePage #arcadeStage:has(.ultra-world-room) .arcade-toolbar strong{font-size:clamp(17px,2.4vw,23px);letter-spacing:.02em}
+.ultra-blocks-world{max-width:600px!important;gap:3px!important;padding:12px!important;background:linear-gradient(145deg,#172b3b,#0d1727)!important;border:1px solid #b8e6ff45!important;border-radius:18px!important;box-shadow:0 18px 50px #0008,inset 0 1px #ffffff18}
+.ultra-blocks-world .arcade-cell{border-radius:5px!important;border:1px solid #ffffff20!important;box-shadow:inset 0 2px 4px #ffffff22,inset 0 -5px 8px #0005;transition:transform .12s,filter .12s}
+.ultra-blocks-world .arcade-cell:active{transform:scale(.92);filter:brightness(1.3)}
+.ultra-blocks-world .block-grass{background:linear-gradient(145deg,#62b95e 0 28%,#347e46 29% 100%)!important}
+.ultra-blocks-world .block-stone{background:linear-gradient(145deg,#bdc8d1,#64748b 72%)!important}
+.ultra-blocks-world .block-water{background:repeating-linear-gradient(165deg,#59c7ee 0 5px,#2385c0 6px 12px)!important}
+.ultra-blocks-world .block-wood{background:repeating-linear-gradient(90deg,#b77a43 0 8px,#80502f 9px 13px)!important}
+.ultra-blocks-hotbar{justify-content:center}
+.ultra-blocks-hotbar .arcade-btn{border-radius:12px;min-height:42px}
+#arcadePage #arcadeStage:has(.ultra-royale-grid){background:radial-gradient(ellipse at 50% 0%,#315a72 0,#172b42 45%,#101827 100%);border:1px solid #9ce8ff35;border-radius:22px;padding:clamp(12px,2.5vw,24px)}
+.ultra-royale-grid{max-width:480px!important;padding:12px!important;gap:5px!important;background:linear-gradient(145deg,#153d52,#101c35)!important;border:1px solid #9be8ff55!important;border-radius:20px!important;box-shadow:0 20px 55px #0009}
+.ultra-royale-grid .arcade-tile{border-radius:8px!important;background:linear-gradient(145deg,#4c9b85,#23675f)!important;border:1px solid #c4fff02b;box-shadow:inset 0 2px 5px #ffffff22;font-size:clamp(14px,3.5vw,25px)}
+.ultra-royale-grid .arcade-tile.wall{background:linear-gradient(145deg,#65798c,#26364d)!important;border:1px solid #b7c7d844;box-shadow:inset 0 2px 5px #ffffff25}
+.ultra-royale-grid .arcade-tile.zone-danger{background:repeating-linear-gradient(135deg,#733b64 0 7px,#4b2c55 8px 15px)!important;color:#ffd2e8}
+#arcadePage #arcadeStage:has(.ultra-world-room){background:radial-gradient(ellipse at 50% 0%,#493f73,#1a2038 62%,#101827);border:1px solid #c5b5ff35;border-radius:22px;padding:clamp(12px,2.5vw,24px)}
+.ultra-world-room{position:relative;min-height:270px!important;max-width:760px;margin:16px auto!important;border:8px solid #28364b;border-bottom:18px solid #6b5147;border-radius:18px!important;box-shadow:0 20px 55px #0008,inset 0 0 0 2px #ffffff30;overflow:hidden}
+.ultra-world-room:before{content:"";position:absolute;left:7%;top:9%;width:23%;height:35%;border:7px solid #d6e4f2;border-radius:8px;background:linear-gradient(#9ce2ff 0 55%,#5e9b80 56%);box-shadow:0 0 24px #8bdcff66}
+.ultra-world-room:after{content:"";position:absolute;left:0;right:0;bottom:0;height:18%;background:repeating-linear-gradient(90deg,#805e4b 0 2px,#9a7259 3px 70px);opacity:.9}
+.ultra-world-room .arcade-room-item{position:relative;z-index:1;display:inline-grid;place-items:center;min-width:48px;min-height:48px;margin:8px;padding:8px;border-radius:14px;background:#11182755;border:1px solid #ffffff45;backdrop-filter:blur(5px);font-size:clamp(25px,5vw,42px);filter:drop-shadow(0 6px 5px #0007)}
+#arcadePage #arcadeStage:has(#arcadeRoad){background:linear-gradient(160deg,#132d42,#111827 65%,#263047);border:1px solid #9bdcff38;border-radius:22px;padding:clamp(10px,2vw,20px)}
+#arcadeRoad{display:block;max-width:900px;margin:12px auto;border:1px solid #9bdcff55!important;border-radius:18px!important;box-shadow:0 18px 45px #0009}
+#arcadePage #arcadeStage:has(.ultra-royale-grid) .arcade-controls .arcade-btn,
+#arcadePage #arcadeStage:has(#arcadeRoad) .arcade-controls .arcade-btn{min-height:46px;min-width:100px;border-radius:13px}
+@media(max-width:520px){.ultra-world-room{min-height:220px!important}.ultra-blocks-world{padding:6px!important;gap:2px!important}.ultra-royale-grid{padding:7px!important;gap:3px!important}}
+</style>
+</head>
 <body>
 <div class="ultra-boot" id="ultraBootScreen" hidden aria-label="Starting Ultra OS">
   <div class="ultra-boot-content"><div class="ultra-boot-mark"><img src="./ultra-u-logo.svg" alt="" aria-hidden="true"></div><strong>ULTRA OS</strong><small>ULTRA PLAYER NETWORK</small><div class="ultra-boot-track"><i></i></div></div>
@@ -2934,10 +2967,10 @@ const arcadeGames={
  "crimson quest":{title:"Ultra Quest",emoji:"🗺️",art:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85",desc:"Explore a compact maze, collect the crystal, and find the exit.",kind:"quest",mode:"QUEST",category:"Adventure"},
  "crimson blocks":{title:"Ultra Blocks",emoji:"🧱",art:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=900&q=85",desc:"Complete rows and columns in a quick block puzzle.",kind:"blocks",mode:"BLOCKS",category:"Community"},
  "crimson racing":{title:"Ultra Racing",emoji:"🏁",art:"https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85",desc:"Race the clock through a traffic course and beat your best time.",kind:"drive",mode:"RACE",category:"Racing"},
- "ultra city: street run":{title:"Ultra City: Street Run",emoji:"🌆",art:"",desc:"Playable city-driving prototype. Dodge traffic, steer through neon streets, and build your distance record.",kind:"drive",mode:"CITY DRIVE",category:"Adventure"},
- "ultra blocks: builder":{title:"Ultra Blocks: Builder",emoji:"🧱",art:"",desc:"Playable block puzzle prototype. Place blocks, complete rows and columns, and earn points.",kind:"blocks",mode:"BLOCK BUILDER",category:"Creative"},
- "ultra royale: crystal escape":{title:"Ultra Royale: Crystal Escape",emoji:"🏝️",art:"",desc:"Playable arena-maze prototype. Navigate the island grid, avoid blocked routes, and reach the crystal exit.",kind:"quest",mode:"ARENA ESCAPE",category:"Adventure"},
- "ultra worlds: home life":{title:"Ultra Worlds: Home Life",emoji:"🌎",art:"",desc:"Playable world-customization prototype. Decorate your space and customize its look.",kind:"life",mode:"WORLD BUILDER",category:"Community"},
+ "ultra city: street run":{title:"Ultra City: Street Run",emoji:"🌆",art:"",desc:"Cruise an original coastal metropolis with skyline views, waterfront roads, traffic, and a cinematic night-drive look.",kind:"drive",mode:"CITY DRIVE",category:"Adventure"},
+ "ultra blocks: builder":{title:"Ultra Blocks: Builder",emoji:"🧱",art:"",desc:"Build a colorful block world with terrain, water, wood, and stone. Place tiles and save your creation.",kind:"blocks",mode:"BLOCK BUILDER",category:"Creative"},
+ "ultra royale: crystal escape":{title:"Ultra Royale: Crystal Escape",emoji:"🏝️",art:"",desc:"Drop into a stylized island arena, collect crystals, avoid rival sentries, and survive as the safe zone closes.",kind:"quest",mode:"ARENA ESCAPE",category:"Adventure"},
+ "ultra worlds: home life":{title:"Ultra Worlds: Home Life",emoji:"🌎",art:"",desc:"Create a cozy social-style world: choose an avatar, style your room, and collect furniture for your home.",kind:"life",mode:"WORLD BUILDER",category:"Community"},
  "ultra launcher":{title:"Ultra Launcher",emoji:"⚡",desc:"Your gaming hub for launching your games.",kind:"launcher",mode:"LAUNCHER"}
 };
 let arcadeTimer=null,arcadeState=null;
@@ -3076,7 +3109,7 @@ function startArcadeDrive(id){
   st.seconds++;if(st.seconds%18===0)st.obstacles.push({lane:Math.floor(Math.random()*3),y:-40});
   st.obstacles.forEach(o=>o.y+=5);st.obstacles=st.obstacles.filter(o=>o.y<370);
   const laneX=[230,320,410],px=laneX[st.lane];
-  ctx.clearRect(0,0,640,340);ctx.fillStyle="#123b31";ctx.fillRect(0,0,640,340);ctx.fillStyle="#292735";ctx.fillRect(180,0,280,340);
+  ctx.clearRect(0,0,640,340);ctx.fillStyle="#102b3c";ctx.fillRect(0,0,640,340);ctx.fillStyle="#1b6070";ctx.fillRect(0,0,640,105);ctx.fillStyle="#f7b66d";ctx.beginPath();ctx.arc(520,58,27,0,Math.PI*2);ctx.fill();for(let i=0;i<12;i++){const x=i*57-8,h=45+(i*37%95),w=28+(i*13%20);ctx.fillStyle=i%3===0?"#263c58":i%3===1?"#344b63":"#1c334c";ctx.fillRect(x,105-h,w,h);ctx.fillStyle="#f5c978";for(let wy=110-h+9;wy<100;wy+=14)for(let wx=x+6;wx<x+w-4;wx+=11){ctx.fillRect(wx,wy,4,5)}}ctx.fillStyle="#287c79";ctx.fillRect(0,205,640,135);ctx.fillStyle="#33404a";ctx.fillRect(180,0,280,340);ctx.fillStyle="#3f4d5a";ctx.fillRect(188,0,264,340);
   ctx.strokeStyle="#e8d9a4";ctx.lineWidth=4;ctx.setLineDash([24,20]);ctx.lineDashOffset=-(st.seconds*5)%44;ctx.beginPath();ctx.moveTo(273,0);ctx.lineTo(273,340);ctx.moveTo(367,0);ctx.lineTo(367,340);ctx.stroke();ctx.setLineDash([]);
   ctx.fillStyle="#b98aff";ctx.fillRect(px-18,270,36,52);ctx.fillStyle="#171222";ctx.fillRect(px-12,280,24,13);
   for(const o of st.obstacles){ctx.fillStyle="#ff668d";ctx.fillRect(laneX[o.lane]-17,o.y,34,46);if(o.lane===st.lane&&o.y<322&&o.y+46>270){st.over=true;document.getElementById("driveMessage").textContent="Run over! Press restart to race again.";}}
