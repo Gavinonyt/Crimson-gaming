@@ -2397,9 +2397,35 @@ body{background:#050505!important}
 <div class="ultra-range-setting"><label for="ultraClockSize">CLOCK SIZE <output id="ultraClockSizeValue">100%</output></label><input id="ultraClockSize" type="range" min="75" max="140" step="5" value="100"></div>
 <div class="ultra-personal-check"><label><input id="ultraShowClock" type="checkbox" checked> Show desktop clock</label><label><input id="ultraReduceMotion" type="checkbox"> Reduce motion</label><label><input id="ultraHighContrast" type="checkbox"> High contrast panels</label><label><input id="ultraShowBoot" type="checkbox" checked> Show boot animation</label><label><input id="ultraShowNotifications" type="checkbox" checked> Show welcome notification</label></div></div>
 <div class="ultra-personal-actions"><button type="button" class="settings-action" id="ultraExportPrefs">EXPORT SETTINGS</button><button type="button" class="settings-action" id="ultraImportPrefs">IMPORT SETTINGS</button><input type="file" id="ultraImportPrefsFile" accept="application/json,.json" hidden><button type="button" class="settings-action danger-action" id="ultraResetPrefs">RESET PERSONALIZATION</button></div><span class="settings-message" id="ultraPersonalStatus" aria-live="polite"></span></div>        <div class="settings-card mobile-customizer-card" data-vh-setting-card="system"><div class="settings-card-heading"><div><h3>Mobile experience</h3><p>Separate controls for smaller screens. These settings only affect the mobile layout.</p></div></div><div class="settings-form ultra-customizer"><label for="mobileDensity">MOBILE SPACING</label><select id="mobileDensity"><option value="comfortable">Comfortable touch spacing</option><option value="compact">Compact mobile layout</option></select><label for="mobileNavigation">MOBILE NAVIGATION</label><select id="mobileNavigation"><option value="scroll">Scrollable navigation tabs</option><option value="grid">Navigation grid</option></select><label for="mobileCards">MOBILE GAME CARDS</label><select id="mobileCards"><option value="two">Two columns</option><option value="one">Single column</option></select><div class="customizer-preview"><span class="preview-dot"></span><div><strong>MOBILE PREVIEW SETTINGS</strong><small>Touch-friendly controls · Saved with your workspace</small></div></div></div></div>
-        <div class="settings-card gta-theme-card" data-vh-setting-card="about"><div class="settings-card-heading"><div><h3>Vice City Nights</h3><p>Unofficial GTA VI-inspired fan theme. Original Ultra styling with coastal neon, sunset tones, and deep midnight surfaces. Not affiliated with Rockstar Games.</p></div></div><div class="gta-theme-swatches"><span></span><span></span><span></span><span></span></div><button class="settings-action" type="button" id="applyGtaTheme">APPLY VICE CITY NIGHTS</button></div>
+        <div class="settings-card gta-theme-card" data-vh-setting-card="appearance"><div class="settings-card-heading"><div><h3>Vice City Nights</h3><p>Unofficial GTA VI-inspired fan theme. Original Ultra styling with coastal neon, sunset tones, and deep midnight surfaces. Not affiliated with Rockstar Games.</p></div></div><div class="gta-theme-swatches"><span></span><span></span><span></span><span></span></div><button class="settings-action" type="button" id="applyGtaTheme">APPLY VICE CITY NIGHTS</button></div>
         <div class="settings-card danger-card" data-vh-setting-card="library"><div><h3>Collection management</h3><p>Remove games saved in your Library and Favorites on this device. Your account will not be deleted.</p><button class="settings-action danger-action" type="button" id="clearSaved">CLEAR LIBRARY & FAVORITES</button><span class="settings-message" id="settingsStatus" aria-live="polite"></span></div></div>
-      </div></div></section>
+      
+        <div class="settings-card ultra-about-card" data-vh-setting-card="about">
+          <div class="ultra-about-hero">
+            <div class="ultra-about-logo"><img src="./ultra-u-logo.svg" alt="Ultra Launcher logo"></div>
+            <div><div class="store-tag">SYSTEM INFORMATION</div><h3>Ultra Launcher</h3><p>Your gaming space, all in one place.</p><span class="ultra-about-version">Version <strong id="ultraAboutVersion">2.9.0</strong></span></div>
+          </div>
+          <div class="ultra-about-section-title">Device specifications</div>
+          <div class="ultra-about-specs">
+            <div><span>Device name</span><strong id="ultraAboutDevice">This device</strong></div>
+            <div><span>Operating system</span><strong id="ultraAboutOS">Detecting…</strong></div>
+            <div><span>System type</span><strong id="ultraAboutArchitecture">Browser environment</strong></div>
+            <div><span>Processor</span><strong id="ultraAboutProcessor">Not reported by browser</strong></div>
+            <div><span>Installed memory</span><strong id="ultraAboutMemory">Not reported by browser</strong></div>
+            <div><span>Display</span><strong id="ultraAboutDisplay">Detecting…</strong></div>
+            <div><span>Browser</span><strong id="ultraAboutBrowser">Detecting…</strong></div>
+            <div><span>Language</span><strong id="ultraAboutLanguage">Detecting…</strong></div>
+          </div>
+          <div class="ultra-about-section-title">Ultra Launcher details</div>
+          <div class="ultra-about-details">
+            <div><span>Product</span><strong>Ultra Launcher</strong></div>
+            <div><span>Release channel</span><strong>Web / GitHub Pages</strong></div>
+            <div><span>Update status</span><strong><i class="ultra-about-status-dot"></i> Up to date when this page is refreshed</strong></div>
+          </div>
+          <p class="ultra-about-note">Some device specifications are hidden by your browser for privacy or are not supported on every device. Ultra Launcher does not guess missing hardware details.</p>
+          <div class="ultra-about-actions"><a href="https://github.com/Gavinonyt/Crimson-gaming" target="_blank" rel="noopener noreferrer">Open project on GitHub ↗</a><span>© Ultra Launcher</span></div>
+        </div>
+</div></div></section>
 
       <section class="dash-page ultra-network-page" id="networkPage">
         <div class="store-head"><div><div class="store-tag">ULTRA NETWORK</div><h2>Network</h2><p>Connection status and system connectivity for this device.</p></div><button class="settings-action" type="button" id="ultraNetworkRefresh">REFRESH STATUS</button></div>
@@ -3951,6 +3977,27 @@ body:has(#dashboardView[style*="display: block"]) .topbar{display:none!important
 .vh-settings-content{min-width:0;display:grid;gap:13px}
 .vh-settings-content .settings-card{margin:0!important}
 @media(max-width:760px){.vh-settings-layout{grid-template-columns:1fr;gap:10px}.vh-settings-subnav{position:static;min-height:0;display:flex;flex-direction:row;overflow-x:auto;border:1px solid #252525;border-radius:10px;padding:7px;gap:5px}.vh-settings-group-label{display:none}.vh-settings-tab{height:37px;flex:0 0 auto;white-space:nowrap;padding:0 10px}}
+
+.ultra-about-card{max-width:850px!important}
+.ultra-about-hero{display:flex;align-items:center;gap:18px;padding:6px 2px 23px;border-bottom:1px solid #292929}
+.ultra-about-logo{width:76px;height:76px;flex:0 0 76px;display:grid;place-items:center;border:1px solid #34343a;border-radius:18px;background:linear-gradient(145deg,#1d2230,#101116)}
+.ultra-about-logo img{width:58px;height:58px;object-fit:contain}
+.ultra-about-hero h3{font-size:25px!important;letter-spacing:-.7px;margin:5px 0!important}
+.ultra-about-hero p{margin:0 0 9px!important}
+.ultra-about-version{font-size:11px;color:#aaa}
+.ultra-about-version strong{color:#f4f4f4;font-weight:800}
+.ultra-about-section-title{margin:23px 0 11px;color:#e7e7e7;font-size:12px;font-weight:800}
+.ultra-about-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#292929;border:1px solid #292929;border-radius:10px;overflow:hidden}
+.ultra-about-specs>div,.ultra-about-details>div{min-width:0;padding:13px 14px;background:#111}
+.ultra-about-specs span,.ultra-about-details span{display:block;color:#858585;font-size:10px;margin-bottom:6px}
+.ultra-about-specs strong,.ultra-about-details strong{display:block;color:#ededed;font-size:11px;font-weight:650;overflow-wrap:anywhere}
+.ultra-about-details{display:grid;gap:1px;border:1px solid #292929;border-radius:10px;overflow:hidden;background:#292929}
+.ultra-about-status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#65d99a;margin-right:6px}
+.ultra-about-note{margin:14px 0!important;color:#858585!important;font-size:10px!important;line-height:1.65!important}
+.ultra-about-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:13px;border-top:1px solid #292929}
+.ultra-about-actions a{color:#c7a4ff;font-size:11px;text-decoration:none}
+.ultra-about-actions span{color:#777;font-size:10px}
+@media(max-width:520px){.ultra-about-specs{grid-template-columns:1fr}.ultra-about-hero{align-items:flex-start}.ultra-about-logo{width:62px;height:62px;flex-basis:62px}.ultra-about-logo img{width:48px;height:48px}}
 </style>
 <script>
 (function(){
@@ -3960,6 +4007,29 @@ body:has(#dashboardView[style*="display: block"]) .topbar{display:none!important
   tabs.forEach(tab=>tab.classList.toggle("active",tab.dataset.vhSettings===key));
   cards.forEach(card=>{card.hidden=card.dataset.vhSettingCard!==key});
  }
+
+ function fillAbout(){
+  const ua=navigator.userAgent||"";
+  let os="Unknown operating system";
+  if(/Android/i.test(ua))os="Android";
+  else if(/iPhone|iPad|iPod/i.test(ua))os="iOS / iPadOS";
+  else if(/Windows NT 10/i.test(ua))os="Windows 10 / 11";
+  else if(/Windows/i.test(ua))os="Windows";
+  else if(/CrOS/i.test(ua))os="ChromeOS";
+  else if(/Mac OS X|Macintosh/i.test(ua))os="macOS";
+  else if(/Linux/i.test(ua))os="Linux";
+  const browser=/Edg\//.test(ua)?"Microsoft Edge":/OPR\//.test(ua)?"Opera":/SamsungBrowser\//.test(ua)?"Samsung Internet":/Firefox\//.test(ua)?"Firefox":/CriOS|Chrome\//.test(ua)?"Chrome":/Safari\//.test(ua)?"Safari":"Other / embedded browser";
+  const put=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};
+  put("ultraAboutOS",os);
+  put("ultraAboutBrowser",browser);
+  put("ultraAboutArchitecture",navigator.userAgentData?.architecture||"Not exposed by browser");
+  put("ultraAboutProcessor",navigator.hardwareConcurrency?navigator.hardwareConcurrency+" logical cores reported":"Not reported by browser");
+  put("ultraAboutMemory",navigator.deviceMemory?navigator.deviceMemory+" GB (approximate)":"Not reported by browser");
+  put("ultraAboutDisplay",screen.width+" × "+screen.height+" pixels · "+(window.devicePixelRatio||1)+"× scale");
+  put("ultraAboutLanguage",navigator.language||"Not reported");
+  put("ultraAboutDevice",navigator.userAgentData?.model||(/Android/i.test(ua)?"Android device":/CrOS/i.test(ua)?"Chromebook":"This device"));
+ }
+ fillAbout();
  tabs.forEach(tab=>tab.addEventListener("click",()=>select(tab.dataset.vhSettings)));
   document.getElementById("openUltraPassProfile")?.addEventListener("click",()=>document.querySelector('.bottom-dock .nav[data-page="profile"]')?.click());
  select("account");
