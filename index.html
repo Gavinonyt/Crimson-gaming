@@ -2014,13 +2014,13 @@ body{background:#050505!important}
       <section class="dash-page ultra-home" id="homePage">
   <aside class="ultra-xbox-rail" aria-label="Ultra navigation">
  <div class="ultra-xbox-rail-icons">
-  <button type="button" class="active" data-go-page="home" aria-label="Home">⌂</button><button type="button" data-go-page="library" aria-label="Friends and library">♧</button><button type="button" data-go-page="friends" aria-label="Messages and friends">▤</button><button type="button" data-go-page="updates" aria-label="Network">◉</button><button type="button" data-go-page="settings" aria-label="Settings">⚙</button><button type="button" data-home-action="profile" aria-label="Profile">U</button>
+  <button type="button" class="active" data-go-page="home" aria-label="Home">⌂</button><button type="button" data-go-page="library" aria-label="Friends and library">♧</button><button type="button" data-go-page="friends" aria-label="Messages and friends">▤</button><button type="button" data-go-page="network" aria-label="Network">◉</button><button type="button" data-go-page="settings" aria-label="Settings">⚙</button><button type="button" data-home-action="profile" aria-label="Profile">U</button>
  </div>
  <button type="button" class="ultra-xbox-rail-link active" data-go-page="home">⌂ <span>Home</span></button>
  <button type="button" class="ultra-xbox-rail-link" data-go-page="library">▤ <span>My games &amp; apps</span></button>
  <div class="ultra-xbox-rail-divider"></div>
  <button type="button" class="ultra-xbox-rail-feature" data-go-page="friends"><b>♧</b><span>Social</span></button>
- <button type="button" class="ultra-xbox-rail-feature" data-go-page="updates"><b>◉</b><span>Network test</span></button>
+ <button type="button" class="ultra-xbox-rail-feature" data-go-page="network"><b>◉</b><span>Network test</span></button>
  <button type="button" class="ultra-xbox-rail-feature" data-go-page="settings"><b>⚙</b><span>Settings</span></button>
  <button type="button" class="ultra-xbox-rail-feature" data-go-page="hubs"><b>⬡</b><span>Hubs</span></button>
  <div class="ultra-xbox-rail-bottom"><button type="button" data-home-action="control">♧</button><button type="button" data-home-action="apps">▤</button><button type="button" data-home-action="command">⌕</button><button type="button" data-home-action="profile">U</button></div>
@@ -2057,7 +2057,7 @@ body{background:#050505!important}
     </div>
     <div class="ultra-widget-group">
       <div class="ultra-widget-caption">SYSTEM STATUS</div>
-      <button class="ultra-desktop-card" type="button" data-go-page="updates"><span class="ultra-desktop-icon ultra-icon-update">↗</span><span class="ultra-desktop-copy"><strong>Update Log</strong><small>View the latest patches</small></span><span class="ultra-desktop-arrow">›</span></button>
+      <button class="ultra-desktop-card" type="button" data-go-page="network"><span class="ultra-desktop-icon ultra-icon-update">↗</span><span class="ultra-desktop-copy"><strong>Update Log</strong><small>View the latest patches</small></span><span class="ultra-desktop-arrow">›</span></button>
     </div>
   </aside>
 <div class="ultra-xbox-card-grid" aria-label="Xbox-style horizontal game and app shelf">
@@ -2330,6 +2330,17 @@ body{background:#050505!important}
         <div class="settings-card gta-theme-card"><div class="settings-card-heading"><div><h3>Vice City Nights</h3><p>Unofficial GTA VI-inspired fan theme. Original Ultra styling with coastal neon, sunset tones, and deep midnight surfaces. Not affiliated with Rockstar Games.</p></div></div><div class="gta-theme-swatches"><span></span><span></span><span></span><span></span></div><button class="settings-action" type="button" id="applyGtaTheme">APPLY VICE CITY NIGHTS</button></div>
         <div class="settings-card danger-card"><div><h3>Collection management</h3><p>Remove games saved in your Library and Favorites on this device. Your account will not be deleted.</p><button class="settings-action danger-action" type="button" id="clearSaved">CLEAR LIBRARY & FAVORITES</button><span class="settings-message" id="settingsStatus" aria-live="polite"></span></div></div>
       </section>
+
+      <section class="dash-page ultra-network-page" id="networkPage">
+        <div class="store-head"><div><div class="store-tag">ULTRA NETWORK</div><h2>Network</h2><p>Connection status and system connectivity for this device.</p></div><button class="settings-action" type="button" id="ultraNetworkRefresh">REFRESH STATUS</button></div>
+        <div class="network-overview-grid">
+          <article class="network-status-card"><span class="network-card-label">INTERNET CONNECTION</span><strong id="ultraNetworkState">Checking…</strong><p id="ultraNetworkDetail">Checking this device's online status.</p><span class="network-status-indicator" id="ultraNetworkDot"></span></article>
+          <article class="network-status-card"><span class="network-card-label">CONNECTION TYPE</span><strong id="ultraNetworkType">Not reported</strong><p>Browser-reported connection information, when supported.</p></article>
+          <article class="network-status-card"><span class="network-card-label">LAST CHECK</span><strong id="ultraNetworkChecked">Not checked</strong><p>Status is refreshed when you open this page or press refresh.</p></article>
+        </div>
+        <div class="settings-card network-info-card"><h3>About your connection</h3><p>Ultra Launcher uses your device's existing internet connection. Network details depend on what your browser and device make available; this page does not run hidden speed tests or collect your browsing activity.</p><div class="network-facts"><div><span>Connection status</span><strong id="ultraNetworkOnlineFact">—</strong></div><div><span>Effective connection</span><strong id="ultraNetworkEffective">—</strong></div><div><span>Estimated latency</span><strong id="ultraNetworkRtt">—</strong></div><div><span>Estimated downlink</span><strong id="ultraNetworkDownlink">—</strong></div></div><p class="network-footnote" id="ultraNetworkNote" role="status" aria-live="polite">No network diagnostics have been run.</p></div>
+      </section>
+
     </div>
     <nav class="bottom-dock" aria-label="Main navigation"><button type="button" class="nav active" data-page="home" aria-label="home" title="home"><span class="nav-icon" aria-hidden="true">⌂</span></button><button type="button" class="nav" data-page="store" aria-label="store" title="store"><span class="nav-icon" aria-hidden="true">▣</span></button><button type="button" class="nav" data-page="play" aria-label="play" title="play"><span class="nav-icon" aria-hidden="true">▶</span></button><button type="button" class="nav" data-page="media" aria-label="media" title="media"><span class="nav-icon" aria-hidden="true">♫</span></button><button type="button" class="nav" data-page="arcade" aria-label="arcade" title="arcade"><span class="nav-icon" aria-hidden="true">✦</span></button><button type="button" class="nav" data-page="hubs" aria-label="hubs" title="hubs"><span class="nav-icon" aria-hidden="true">⬡</span></button><button type="button" class="nav" data-page="social" aria-label="social" title="social"><span class="nav-icon" aria-hidden="true">▤</span></button><button type="button" class="nav" data-page="updates" aria-label="updates" title="updates"><span class="nav-icon" aria-hidden="true">✦</span></button><button type="button" class="nav" data-page="library" aria-label="library" title="library"><span class="nav-icon" aria-hidden="true">▦</span></button><button type="button" class="nav" data-page="favorites" aria-label="favorites" title="favorites"><span class="nav-icon" aria-hidden="true">♡</span></button><button type="button" class="nav" data-page="friends" aria-label="friends" title="friends"><span class="nav-icon" aria-hidden="true">♧</span></button><button type="button" class="nav" data-page="profile" aria-label="profile" title="profile"><span class="nav-icon" aria-hidden="true">◉</span></button><button type="button" class="nav" data-page="settings" aria-label="settings" title="settings"><span class="nav-icon" aria-hidden="true">⚙</span></button></nav>
   </div>
@@ -2412,8 +2423,8 @@ function leavePasswordRecovery(){
  document.getElementById("forgotBtn").hidden=false;setMode("login");showLogin();
 }
 function setMode(next){mode=next;const signup=mode==="signup";document.getElementById("loginTab").classList.toggle("active",!signup);document.getElementById("signupTab").classList.toggle("active",signup);document.getElementById("formTitle").textContent=signup?"Create your account":"Welcome back";document.getElementById("formSub").textContent=signup?"Create an Ultra Gaming account with your email.":"Sign in with the email linked to your account.";document.getElementById("nameField").hidden=!signup;document.getElementById("submitBtn").textContent=signup?"CREATE ACCOUNT":"SIGN IN";document.getElementById("forgotBtn").hidden=signup;document.getElementById("password").autocomplete=signup?"new-password":"current-password";showStatus("")}
-const pageSections={media:document.getElementById("mediaPage"),updates:document.getElementById("updatesPage"),home:document.getElementById("homePage"),hubs:document.getElementById("hubsPage"),social:document.getElementById("socialPage"),store:document.getElementById("storePage"),play:document.getElementById("playPage"),arcade:document.getElementById("arcadePage"),city:document.getElementById("cityPage"),friends:document.getElementById("friendsPage"),library:document.getElementById("libraryPage"),favorites:document.getElementById("favoritesPage"),profile:document.getElementById("profilePage"),settings:document.getElementById("settingsPage")};
-const pageNames={media:"ULTRA MEDIA CENTER",updates:"WHAT’S NEW",home:"PLAYER HOME",hubs:"YOUR GAMING HUBS",social:"ULTRA SOCIAL",store:"ULTRA STORE",play:"PLAY ULTRA ORIGINALS",arcade:"ULTRA ARCADE",city:"EXPLORE ULTRA CITY",friends:"ULTRA COMMUNITY",library:"YOUR LIBRARY",favorites:"YOUR FAVORITES",profile:"PLAYER PROFILE",settings:"PREFERENCES"};
+const pageSections={media:document.getElementById("mediaPage"),network:document.getElementById("networkPage"),updates:document.getElementById("updatesPage"),home:document.getElementById("homePage"),hubs:document.getElementById("hubsPage"),social:document.getElementById("socialPage"),store:document.getElementById("storePage"),play:document.getElementById("playPage"),arcade:document.getElementById("arcadePage"),city:document.getElementById("cityPage"),friends:document.getElementById("friendsPage"),library:document.getElementById("libraryPage"),favorites:document.getElementById("favoritesPage"),profile:document.getElementById("profilePage"),settings:document.getElementById("settingsPage")};
+const pageNames={media:"ULTRA MEDIA CENTER",network:"ULTRA NETWORK",updates:"WHAT’S NEW",home:"PLAYER HOME",hubs:"YOUR GAMING HUBS",social:"ULTRA SOCIAL",store:"ULTRA STORE",play:"PLAY ULTRA ORIGINALS",arcade:"ULTRA ARCADE",city:"EXPLORE ULTRA CITY",friends:"ULTRA COMMUNITY",library:"YOUR LIBRARY",favorites:"YOUR FAVORITES",profile:"PLAYER PROFILE",settings:"PREFERENCES"};
 function savedKey(kind){return "crimson_"+kind+"_"+(activeUser&&activeUser.id||"guest")}
 function readSaved(kind){try{const v=JSON.parse(localStorage.getItem(savedKey(kind))||"[]");return Array.isArray(v)?v:[]}catch{return []}}
 function writeSaved(kind,items){try{localStorage.setItem(savedKey(kind),JSON.stringify(items))}catch(e){console.error("Could not save collection",e)}}
@@ -3539,14 +3550,14 @@ html[data-platform-theme="xbox"] .ultra-home .os-app-grid .os-app-tile small {
  <button class="uv-nav" data-uv-page="library"><span class="uv-icon">▤</span><span class="uv-label">Library</span></button>
  <button class="uv-nav" data-uv-page="social"><span class="uv-icon">♧</span><span class="uv-label">Social</span></button>
  <button class="uv-nav" data-uv-page="store"><span class="uv-icon">🛒</span><span class="uv-label">Shop</span></button>
- <button class="uv-nav" data-uv-page="updates"><span class="uv-icon">ϟ</span><span class="uv-label">Network</span></button>
+ <button class="uv-nav" data-uv-page="network"><span class="uv-icon">ϟ</span><span class="uv-label">Network</span></button>
  <button class="uv-nav" data-uv-page="settings"><span class="uv-icon">⚙</span><span class="uv-label">Settings</span></button>
  <div class="uv-spacer"></div>
  <button class="uv-profile" type="button" data-uv-profile><span class="uv-avatar">U</span><span class="uv-user"><strong id="uvSidebarName">Player</strong><small><i class="online-dot"></i>Online</small></span><span class="uv-online"></span></button>
 </aside>
 <script id="ultra-valorshub-redesign-script">
 (()=>{const side=document.getElementById('ultraValorsSidebar');if(!side)return;
-const map={home:'home',library:'library',social:'social',store:'store',updates:'updates',settings:'settings'};
+const map={home:'home',library:'library',social:'social',store:'store',updates:'network',settings:'settings'};
 function syncName(){const email=document.getElementById('userEmail')?.textContent?.trim();const welcome=document.getElementById('welcomeTitle')?.textContent?.trim();const n=(welcome&&welcome!=='Welcome to your world.')?welcome.replace(/^Welcome back[,! ]*/i,''):email?.split('@')[0];if(n)document.getElementById('uvSidebarName').textContent=n;}
 side.addEventListener('click',e=>{const b=e.target.closest('[data-uv-page]');if(b){const p=map[b.dataset.uvPage];const target=document.querySelector('.bottom-dock [data-page="'+p+'"]');if(target)target.click();side.querySelectorAll('.uv-nav').forEach(x=>x.classList.toggle('active',x===b));}if(e.target.closest('[data-uv-profile]')){const profile=document.querySelector('[data-home-action="profile"]');if(profile)profile.click();}});
 const observer=new MutationObserver(syncName);const u=document.getElementById('userEmail');if(u)observer.observe(u,{childList:true,subtree:true,characterData:true});syncName();
@@ -3646,4 +3657,45 @@ const user=document.getElementById('userEmail');if(user){const set=()=>{const t=
 setSettingsRail();
 })();
 </script>
+
+<style id="ultra-network-page-style">
+.ultra-network-page .store-head{align-items:center}
+.network-overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:18px 0}
+.network-status-card{position:relative;min-height:150px;padding:20px;border:1px solid #ffffff19;border-radius:14px;background:linear-gradient(145deg,#191722,#101018);overflow:hidden}
+.network-card-label{display:block;color:#9993a5;font-size:9px;font-weight:900;letter-spacing:1.4px;margin-bottom:17px}
+.network-status-card strong{display:block;font-size:23px;letter-spacing:-.5px;color:#f5f3fa}
+.network-status-card p{font-size:11px;line-height:1.55;color:#9f99aa;margin:8px 0 0;max-width:260px}
+.network-status-indicator{position:absolute;right:18px;top:18px;width:9px;height:9px;border-radius:50%;background:#888;box-shadow:0 0 0 5px #8882}
+.network-status-indicator.online{background:#45d483;box-shadow:0 0 0 5px #45d48322}
+.network-status-indicator.offline{background:#ee6577;box-shadow:0 0 0 5px #ee657722}
+.network-info-card{margin-top:14px}
+.network-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+.network-facts div{padding:13px;border:1px solid #ffffff12;border-radius:10px;background:#ffffff05}
+.network-facts span{display:block;font-size:10px;color:#96909f;margin-bottom:7px}
+.network-facts strong{font-size:13px;color:#f0edf5;overflow-wrap:anywhere}
+.network-footnote{font-size:11px!important;margin-top:18px!important;color:#9b94a5!important}
+@media(max-width:700px){.network-overview-grid{grid-template-columns:1fr}.network-status-card{min-height:120px}.network-facts{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.network-facts{grid-template-columns:1fr}}
+</style>
+<script id="ultra-network-page-script">
+(()=>{const $=id=>document.getElementById(id);const update=()=>{
+ const online=navigator.onLine!==false,conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+ $('ultraNetworkState').textContent=online?'Connected':'Offline';
+ $('ultraNetworkDetail').textContent=online?'Your browser reports an active internet connection.':'Your browser reports that this device is offline.';
+ $('ultraNetworkDot').className='network-status-indicator '+(online?'online':'offline');
+ $('ultraNetworkType').textContent=conn?.type||conn?.effectiveType||'Not reported';
+ $('ultraNetworkChecked').textContent=new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+ $('ultraNetworkOnlineFact').textContent=online?'Online':'Offline';
+ $('ultraNetworkEffective').textContent=conn?.effectiveType||'Not available';
+ $('ultraNetworkRtt').textContent=Number.isFinite(conn?.rtt)?conn.rtt+' ms':'Not available';
+ $('ultraNetworkDownlink').textContent=Number.isFinite(conn?.downlink)?conn.downlink+' Mbps':'Not available';
+ $('ultraNetworkNote').textContent=online?'Status updated from your browser. Detailed connection metrics are shown only when your device provides them.':'Reconnect your device to the internet, then refresh this page.';
+};
+$('ultraNetworkRefresh')?.addEventListener('click',update);
+window.addEventListener('online',update);window.addEventListener('offline',update);
+if(navigator.connection?.addEventListener)navigator.connection.addEventListener('change',update);
+update();
+})();
+</script>
+
 </body></html>
