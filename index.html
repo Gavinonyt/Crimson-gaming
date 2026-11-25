@@ -4672,6 +4672,144 @@ html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-home
 </style>
 
 </style>
+
+<style id="ultra-distinct-platform-identities-v2">
+/* Each platform gets its own silhouette, navigation model, spacing and surface language. */
+html[data-platform-theme="ultra"]{--platform-accent:#a78bfa;--platform-surface:#100d18;--platform-panel:#191423;--platform-text:#f8f5ff;--platform-muted:#a7a0b8}
+html[data-platform-theme="ps5"]{--platform-accent:#83c8ff;--platform-surface:#061326;--platform-panel:#102743;--platform-text:#f4f9ff;--platform-muted:#9cb8d4}
+html[data-platform-theme="xbox"]{--platform-accent:#75e45c;--platform-surface:#101310;--platform-panel:#202520;--platform-text:#f5f7f3;--platform-muted:#aab4a7}
+html[data-platform-theme="wii"]{--platform-accent:#078dbb;--platform-surface:#e8f8ff;--platform-panel:#fff;--platform-text:#28647b;--platform-muted:#63899a}
+html[data-platform-theme="windows"]{--platform-accent:#7bbcff;--platform-surface:#111b2b;--platform-panel:#26384eaa;--platform-text:#f4f8ff;--platform-muted:#b7c9df}
+html[data-platform-theme="switch"]{--platform-accent:#ff4a50;--platform-surface:#f2f2f4;--platform-panel:#fff;--platform-text:#24262b;--platform-muted:#777d86}
+
+/* PLAYSTATION: wide top-level console ribbon, cinematic blue field, large cards. */
+html[data-platform-theme="ps5"] body{background:radial-gradient(ellipse at 78% 10%,#174b7b88,transparent 36%),linear-gradient(145deg,#07182e,#06101f 60%,#0b1b31)!important;color:#f4f9ff}
+html[data-platform-theme="ps5"] .ultra-valorshub-layout{display:flex!important;flex-direction:column!important;min-height:100vh}
+html[data-platform-theme="ps5"] #dashboardView .vh-sidebar{position:sticky!important;top:0!important;z-index:120!important;width:100%!important;height:76px!important;min-height:76px!important;padding:0 28px!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:28px!important;background:#071426ed!important;border:0!important;border-bottom:1px solid #8ccaff35!important;backdrop-filter:blur(24px)}
+html[data-platform-theme="ps5"] .vh-brand{width:auto!important;min-width:125px!important;margin:0!important;color:#fff!important}
+html[data-platform-theme="ps5"] .vh-brand-mark{background:linear-gradient(145deg,#2e80c4,#12406e)!important;border:1px solid #83c8ff66!important}
+html[data-platform-theme="ps5"] .vh-main-nav{display:flex!important;align-items:center!important;gap:7px!important;flex:1!important}
+html[data-platform-theme="ps5"] #dashboardView .vh-nav-item{width:auto!important;height:42px!important;padding:0 15px!important;border-radius:22px!important;color:#b9cce0!important}
+html[data-platform-theme="ps5"] #dashboardView .vh-nav-item.active{background:#1b4269!important;border:1px solid #82c8ff66!important;color:#fff!important;box-shadow:0 0 22px #2489d533!important}
+html[data-platform-theme="ps5"] #dashboardView .vh-nav-item .vh-nav-icon{color:#91ceff!important}
+html[data-platform-theme="ps5"] .vh-sidebar-spacer{display:none!important}
+html[data-platform-theme="ps5"] .vh-player-card{width:auto!important;min-width:145px!important;padding:7px 0 7px 14px!important;border:0!important;border-left:1px solid #8ccaff35!important}
+html[data-platform-theme="ps5"] .vh-player-avatar{border-color:#83c8ff!important;background:#153c60!important}
+html[data-platform-theme="ps5"] .dash-main{width:100%!important;max-width:1500px!important;margin:0 auto!important;padding:26px 32px 70px!important;background:transparent!important;border:0!important}
+html[data-platform-theme="ps5"] .workspace-bar{border-color:#8ccaff35!important}
+html[data-platform-theme="ps5"] .ultra-xbox-rail{display:none!important}
+html[data-platform-theme="ps5"] .dash-page{background:transparent!important}
+html[data-platform-theme="ps5"] .store-card,html[data-platform-theme="ps5"] .settings-card,html[data-platform-theme="ps5"] .quick-card{border-radius:18px!important;background:linear-gradient(145deg,#153454,#0b1c30)!important;border:1px solid #82c8ff30!important}
+html[data-platform-theme="ps5"] .store-card:hover,html[data-platform-theme="ps5"] .quick-card:hover{transform:translateY(-4px);box-shadow:0 16px 38px #0006,0 0 0 1px #83c8ff55}
+
+/* XBOX: left command rail and dense green gaming tiles. */
+html[data-platform-theme="xbox"] body{background:radial-gradient(ellipse at 78% 35%,#1d3822 0,transparent 38%),#101310!important;color:#f5f7f3}
+html[data-platform-theme="xbox"] .ultra-valorshub-layout{display:grid!important;grid-template-columns:264px minmax(0,1fr)!important;min-height:100vh}
+html[data-platform-theme="xbox"] #dashboardView .vh-sidebar{position:sticky!important;top:0!important;height:100vh!important;min-height:100vh!important;padding:22px 14px!important;background:#171c18!important;border-right:1px solid #466044!important;border-radius:0!important}
+html[data-platform-theme="xbox"] .vh-brand{height:56px!important;margin:0 0 28px!important;padding:0 12px!important;font-size:19px!important}
+html[data-platform-theme="xbox"] .vh-brand-mark{width:38px!important;height:38px!important;border-radius:50%!important;background:#107c10!important;border:0!important}
+html[data-platform-theme="xbox"] .vh-main-nav{display:grid!important;gap:9px!important}
+html[data-platform-theme="xbox"] #dashboardView .vh-nav-item{height:55px!important;padding:0 15px!important;border-radius:5px!important;font-size:14px!important;color:#c8d1c7!important}
+html[data-platform-theme="xbox"] #dashboardView .vh-nav-item.active{background:#263629!important;border:0!important;border-left:4px solid #78e45b!important;color:#fff!important;box-shadow:none!important}
+html[data-platform-theme="xbox"] #dashboardView .vh-nav-item .vh-nav-icon{color:#82e66b!important;font-size:20px!important}
+html[data-platform-theme="xbox"] .vh-player-card{border-top:1px solid #3b4b3b!important}
+html[data-platform-theme="xbox"] .vh-player-avatar{border-radius:8px!important;border-color:#65d64c!important}
+html[data-platform-theme="xbox"] .dash-main{min-width:0!important;padding:25px 30px 70px!important;background:transparent!important;border:0!important}
+html[data-platform-theme="xbox"] .workspace-bar{border-color:#354a36!important}
+html[data-platform-theme="xbox"] .ultra-xbox-rail{display:none!important}
+html[data-platform-theme="xbox"] .store-card,html[data-platform-theme="xbox"] .settings-card,html[data-platform-theme="xbox"] .quick-card{border-radius:5px!important;background:#202820!important;border:1px solid #405340!important}
+html[data-platform-theme="xbox"] .store-card:hover,html[data-platform-theme="xbox"] .quick-card:hover{border-color:#7be45b!important;box-shadow:0 0 0 1px #7be45b44!important}
+html[data-platform-theme="xbox"] .hero-button,html[data-platform-theme="xbox"] .primary{background:#107c10!important;border-color:#107c10!important;border-radius:3px!important}
+
+/* WII: bright white-and-cyan channel board with a top navigation strip. */
+html[data-platform-theme="wii"] body{background:linear-gradient(180deg,#f7fdff 0%,#dff5ff 100%)!important;color:#28647b!important}
+html[data-platform-theme="wii"] .ultra-valorshub-layout{display:flex!important;flex-direction:column!important;min-height:100vh}
+html[data-platform-theme="wii"] #dashboardView .vh-sidebar{position:sticky!important;top:0!important;z-index:120!important;width:100%!important;height:auto!important;min-height:92px!important;padding:12px 22px!important;display:grid!important;grid-template-columns:150px 1fr!important;grid-template-rows:32px 40px!important;gap:4px 16px!important;background:linear-gradient(#fff,#e9f8ff)!important;border:0!important;border-bottom:3px solid #b3e8fa!important;box-shadow:0 5px 18px #4aa9c522!important}
+html[data-platform-theme="wii"] .vh-brand{grid-column:1!important;grid-row:1 / 3!important;align-self:center!important;margin:0!important;color:#28728c!important}
+html[data-platform-theme="wii"] .vh-brand-mark{width:42px!important;height:42px!important;border-radius:50%!important;background:linear-gradient(#7ce0ff,#159ac9)!important;border:3px solid #fff!important;box-shadow:0 0 0 2px #9edff2!important}
+html[data-platform-theme="wii"] .vh-main-nav{grid-column:2!important;grid-row:1 / 3!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:9px!important}
+html[data-platform-theme="wii"] #dashboardView .vh-nav-item{height:56px!important;min-width:70px!important;width:auto!important;padding:4px 12px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;gap:2px!important;border-radius:9px!important;background:linear-gradient(#fff,#e8f8ff)!important;border:1px solid #b8e4f3!important;color:#34768c!important;font-size:10px!important;box-shadow:0 2px 4px #3989a51a!important}
+html[data-platform-theme="wii"] #dashboardView .vh-nav-item .vh-nav-icon{font-size:19px!important;color:#159ac9!important}
+html[data-platform-theme="wii"] #dashboardView .vh-nav-item.active{background:linear-gradient(#dff7ff,#b5eaff)!important;border:1px solid #50bce3!important;color:#087cae!important;box-shadow:inset 0 -3px #27a8d3!important}
+html[data-platform-theme="wii"] .vh-sidebar-spacer,html[data-platform-theme="wii"] .vh-player-card{display:none!important}
+html[data-platform-theme="wii"] .dash-main{width:100%!important;max-width:1450px!important;margin:0 auto!important;padding:24px 28px 80px!important;background:transparent!important;border:0!important}
+html[data-platform-theme="wii"] .workspace-bar{padding:15px 18px!important;border:1px solid #c2eaf7!important;border-radius:12px!important;background:#fff!important;box-shadow:0 4px 14px #3989a51a!important}
+html[data-platform-theme="wii"] .store-card,html[data-platform-theme="wii"] .settings-card,html[data-platform-theme="wii"] .quick-card{border-radius:12px!important;background:linear-gradient(#fff,#f1fbff)!important;border:1px solid #b5e4f4!important;box-shadow:0 5px 13px #3989a51a!important}
+html[data-platform-theme="wii"] .store-card:hover,html[data-platform-theme="wii"] .quick-card:hover{transform:translateY(-3px)!important;box-shadow:0 8px 18px #3989a533!important}
+html[data-platform-theme="wii"] .hero-button,html[data-platform-theme="wii"] .primary{background:linear-gradient(#2ab5e5,#078dbb)!important;border:1px solid #087fa8!important;border-radius:20px!important}
+
+/* WINDOWS 11: desktop canvas with a floating centered taskbar and acrylic panels. */
+html[data-platform-theme="windows"] body{background:radial-gradient(ellipse at 50% 0%,#29476a 0%,#17263b 40%,#101827 100%)!important;color:#f4f8ff}
+html[data-platform-theme="windows"] .ultra-valorshub-layout{display:block!important;min-height:100vh}
+html[data-platform-theme="windows"] #dashboardView .vh-sidebar{position:fixed!important;left:50%!important;bottom:14px!important;top:auto!important;z-index:500!important;transform:translateX(-50%)!important;width:max-content!important;max-width:calc(100vw - 24px)!important;height:66px!important;min-height:66px!important;padding:7px 13px!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:10px!important;border:1px solid #ffffff38!important;border-radius:18px!important;background:#1b2a3dcc!important;box-shadow:0 16px 45px #0007!important;backdrop-filter:blur(32px) saturate(1.5)!important}
+html[data-platform-theme="windows"] .vh-brand,html[data-platform-theme="windows"] .vh-sidebar-spacer,html[data-platform-theme="windows"] .vh-player-card{display:none!important}
+html[data-platform-theme="windows"] .vh-main-nav{display:flex!important;align-items:center!important;gap:5px!important}
+html[data-platform-theme="windows"] #dashboardView .vh-nav-item{width:48px!important;height:48px!important;display:grid!important;place-items:center!important;gap:0!important;padding:0!important;border-radius:12px!important;color:#e6f1ff!important}
+html[data-platform-theme="windows"] #dashboardView .vh-nav-item>span:not(.vh-nav-icon){display:none!important}
+html[data-platform-theme="windows"] #dashboardView .vh-nav-item .vh-nav-icon{width:auto!important;font-size:22px!important;color:#d5e9ff!important}
+html[data-platform-theme="windows"] #dashboardView .vh-nav-item.active{background:#ffffff20!important;border:1px solid #ffffff2c!important;box-shadow:inset 0 0 0 1px #ffffff0b!important}
+html[data-platform-theme="windows"] .dash-main{min-height:100vh!important;padding:26px 30px 115px!important;background:transparent!important;border:0!important}
+html[data-platform-theme="windows"] .workspace-bar{padding:17px 20px!important;border:1px solid #ffffff25!important;border-radius:13px!important;background:#dcecff16!important;backdrop-filter:blur(28px)!important;box-shadow:0 12px 35px #0003!important}
+html[data-platform-theme="windows"] .store-card,html[data-platform-theme="windows"] .settings-card,html[data-platform-theme="windows"] .quick-card{border-radius:12px!important;background:#dcecff17!important;border:1px solid #ffffff28!important;backdrop-filter:blur(28px)!important;box-shadow:0 10px 28px #0003!important}
+html[data-platform-theme="windows"] .ultra-xbox-rail{display:none!important}
+html[data-platform-theme="windows"] .ultra-win-start-button{width:46px!important;height:46px!important;border:0!important;border-radius:12px!important;background:transparent!important;color:#8ccaff!important;font-size:25px!important}
+html[data-platform-theme="windows"] .ultra-win-start-menu{bottom:88px!important;top:auto!important;left:50%!important;transform:translateX(-50%)!important;border:1px solid #ffffff36!important;border-radius:18px!important;background:#1c2b40ee!important;backdrop-filter:blur(35px)!important;box-shadow:0 25px 75px #0009!important}
+
+/* SWITCH: light system canvas, compact icon-only rail, red Joy-Con-like accents. */
+html[data-platform-theme="switch"] body{background:linear-gradient(135deg,#fafafa,#e9eaed)!important;color:#25272c!important}
+html[data-platform-theme="switch"] .ultra-valorshub-layout{display:grid!important;grid-template-columns:92px minmax(0,1fr)!important;min-height:100vh}
+html[data-platform-theme="switch"] #dashboardView .vh-sidebar{position:sticky!important;top:0!important;height:100vh!important;min-height:100vh!important;padding:17px 10px!important;align-items:center!important;background:linear-gradient(180deg,#ef444b,#d91f36 48%,#b9162e)!important;border:0!important;border-radius:0 24px 24px 0!important;box-shadow:5px 0 22px #c6203222!important}
+html[data-platform-theme="switch"] .vh-brand{justify-content:center!important;width:62px!important;padding:0!important;margin:0 0 25px!important}
+html[data-platform-theme="switch"] .vh-brand>strong{display:none!important}
+html[data-platform-theme="switch"] .vh-brand-mark{width:46px!important;height:46px!important;border-radius:50%!important;background:#fff!important;color:#df283a!important;border:3px solid #ffb5bd!important}
+html[data-platform-theme="switch"] .vh-main-nav{display:flex!important;flex-direction:column!important;align-items:center!important;gap:13px!important;width:100%!important}
+html[data-platform-theme="switch"] #dashboardView .vh-nav-item{width:62px!important;height:62px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:2px!important;padding:3px!important;border:0!important;border-radius:15px!important;background:transparent!important;color:#fff!important}
+html[data-platform-theme="switch"] #dashboardView .vh-nav-item>span:not(.vh-nav-icon){font-size:9px!important}
+html[data-platform-theme="switch"] #dashboardView .vh-nav-item .vh-nav-icon{font-size:23px!important;color:#fff!important}
+html[data-platform-theme="switch"] #dashboardView .vh-nav-item.active{background:#ffffff25!important;box-shadow:inset 0 0 0 2px #ffffffa0!important}
+html[data-platform-theme="switch"] .vh-sidebar-spacer{display:block!important}
+html[data-platform-theme="switch"] .vh-player-card{width:62px!important;justify-content:center!important;padding:8px 0!important;border:0!important}
+html[data-platform-theme="switch"] .vh-player-copy,html[data-platform-theme="switch"] .vh-player-menu{display:none!important}
+html[data-platform-theme="switch"] .vh-player-avatar{border:3px solid #ffc0c5!important;background:#fff!important;color:#df283a!important}
+html[data-platform-theme="switch"] .dash-main{min-width:0!important;padding:24px 28px 70px!important;background:transparent!important;border:0!important}
+html[data-platform-theme="switch"] .workspace-bar{padding-bottom:17px!important;border-color:#d4d6da!important}
+html[data-platform-theme="switch"] .store-card,html[data-platform-theme="switch"] .settings-card,html[data-platform-theme="switch"] .quick-card{border-radius:18px!important;background:#fff!important;border:1px solid #e0e1e5!important;box-shadow:0 5px 18px #20242b0c!important}
+html[data-platform-theme="switch"] .hero-button,html[data-platform-theme="switch"] .primary{background:#e72e42!important;border-color:#e72e42!important;border-radius:30px!important}
+
+/* Mobile-specific silhouettes remain distinct and usable. */
+@media(max-width:760px){
+ html[data-platform-theme="ps5"] #dashboardView .vh-sidebar{height:auto!important;min-height:0!important;padding:8px 10px!important;gap:5px!important;flex-wrap:wrap!important}
+ html[data-platform-theme="ps5"] .vh-brand{min-width:40px!important;width:42px!important;padding:0!important}
+ html[data-platform-theme="ps5"] .vh-brand>strong{display:none!important}
+ html[data-platform-theme="ps5"] .vh-main-nav{gap:2px!important;overflow-x:auto!important}
+ html[data-platform-theme="ps5"] #dashboardView .vh-nav-item{min-width:43px!important;width:43px!important;height:43px!important;padding:0!important;justify-content:center!important}
+ html[data-platform-theme="ps5"] #dashboardView .vh-nav-item>span:not(.vh-nav-icon){display:none!important}
+ html[data-platform-theme="ps5"] .vh-player-card{min-width:0!important;width:42px!important;padding:0!important;border:0!important}
+ html[data-platform-theme="ps5"] .vh-player-copy,html[data-platform-theme="ps5"] .vh-player-menu{display:none!important}
+ html[data-platform-theme="ps5"] .dash-main,html[data-platform-theme="xbox"] .dash-main,html[data-platform-theme="wii"] .dash-main,html[data-platform-theme="switch"] .dash-main{padding:16px 13px 70px!important}
+ html[data-platform-theme="xbox"] .ultra-valorshub-layout{grid-template-columns:76px minmax(0,1fr)!important}
+ html[data-platform-theme="xbox"] #dashboardView .vh-sidebar{padding:13px 6px!important}
+ html[data-platform-theme="xbox"] .vh-brand{justify-content:center!important;padding:0!important}
+ html[data-platform-theme="xbox"] .vh-brand>strong,html[data-platform-theme="xbox"] #dashboardView .vh-nav-item>span:not(.vh-nav-icon),html[data-platform-theme="xbox"] .vh-player-copy,html[data-platform-theme="xbox"] .vh-player-menu{display:none!important}
+ html[data-platform-theme="xbox"] #dashboardView .vh-nav-item{justify-content:center!important;padding:0!important}
+ html[data-platform-theme="xbox"] .vh-player-card{justify-content:center!important;padding:8px 0!important}
+ html[data-platform-theme="wii"] #dashboardView .vh-sidebar{grid-template-columns:1fr!important;grid-template-rows:auto auto!important;padding:8px!important}
+ html[data-platform-theme="wii"] .vh-brand{display:none!important}
+ html[data-platform-theme="wii"] .vh-main-nav{grid-column:1!important;grid-row:1!important;justify-content:space-around!important;gap:3px!important}
+ html[data-platform-theme="wii"] #dashboardView .vh-nav-item{min-width:0!important;flex:1!important;padding:3px!important}
+ html[data-platform-theme="switch"] .ultra-valorshub-layout{grid-template-columns:66px minmax(0,1fr)!important}
+ html[data-platform-theme="switch"] #dashboardView .vh-sidebar{padding:12px 4px!important;border-radius:0 16px 16px 0!important}
+ html[data-platform-theme="switch"] #dashboardView .vh-nav-item{width:54px!important;height:56px!important}
+ html[data-platform-theme="switch"] #dashboardView .vh-nav-item>span:not(.vh-nav-icon){font-size:8px!important}
+ html[data-platform-theme="windows"] #dashboardView .vh-sidebar{bottom:7px!important;height:57px!important;min-height:57px!important;padding:4px!important;border-radius:14px!important}
+ html[data-platform-theme="windows"] #dashboardView .vh-nav-item{width:42px!important;height:42px!important}
+ html[data-platform-theme="windows"] .dash-main{padding:13px 12px 92px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-platform-theme] *,html[data-platform-theme] *:before,html[data-platform-theme] *:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+</style>
+
 <script id="ultra-systemwide-navigation-2026">
 
 /* System-wide navigation behavior and the Windows 11 Start panel. */
