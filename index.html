@@ -4607,6 +4607,70 @@ html[data-platform-theme="windows"] #dashboardView .vh-page-heading-count,html[d
  #dashboardView *,#authView *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
 
+
+<style id="ultra-systemwide-cascade-fix">
+/* Explicitly beat earlier reference layers where they used high-specificity positioning. */
+html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-cine-topline{
+ position:relative!important;inset:auto!important;display:flex!important;align-items:center!important;
+ justify-content:space-between!important;gap:16px!important;margin:0 0 23px!important;padding:11px 0 16px!important;
+ border:0!important;border-bottom:1px solid var(--ultra-line)!important;background:transparent!important;
+}
+html[data-platform-theme] #dashboardView.ultra-home-active #homePage .os-welcome{
+ position:relative!important;inset:auto!important;display:flex!important;align-items:flex-end!important;
+ justify-content:space-between!important;gap:20px!important;width:100%!important;min-height:190px!important;
+ margin:0 0 20px!important;padding:clamp(22px,4vw,42px)!important;transform:none!important;text-align:left!important;
+ border:1px solid color-mix(in srgb,var(--ultra-accent) 25%,var(--ultra-line))!important;border-radius:22px!important;
+ background:radial-gradient(ellipse at 85% 45%,color-mix(in srgb,var(--ultra-accent) 28%,transparent),transparent 44%),linear-gradient(115deg,var(--ultra-panel-2),var(--ultra-panel))!important;
+}
+html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy{
+ position:relative!important;width:auto!important;height:auto!important;max-width:720px!important;overflow:visible!important;
+ clip:auto!important;white-space:normal!important;text-align:left!important;
+}
+html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy h1{
+ color:var(--ultra-text)!important;font-size:clamp(30px,4vw,51px)!important;line-height:1.04!important;
+ font-weight:780!important;letter-spacing:-1.7px!important;
+}
+html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy p{color:var(--ultra-muted)!important}
+html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-home-date{
+ position:relative!important;inset:auto!important;display:flex!important;flex-direction:column!important;
+ align-items:flex-end!important;min-width:112px!important;text-align:right!important;
+}
+html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-home-widgets{
+ position:relative!important;inset:auto!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ width:100%!important;margin:17px 0!important;
+}
+html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip{
+ position:relative!important;inset:auto!important;display:flex!important;flex-wrap:nowrap!important;
+ width:100%!important;max-width:none!important;margin:17px 0 22px!important;padding:0!important;
+ overflow-x:auto!important;overflow-y:hidden!important;border:0!important;background:transparent!important;
+}
+html[data-platform-theme="ps5"] #dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip,
+html[data-platform-theme="xbox"] #dashboardView.ultra-home-active #homePage .ultra-xbox-app-strip{
+ margin:17px 0 22px!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+}
+html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-ps5-info-grid{
+ position:relative!important;inset:auto!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ grid-auto-rows:minmax(125px,auto)!important;gap:12px!important;margin:16px 0 26px!important;overflow:visible!important;
+}
+html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-ps5-info-card{
+ min-height:125px!important;padding:17px!important;border-radius:15px!important;
+ background:linear-gradient(145deg,var(--ultra-panel-2),var(--ultra-panel))!important;color:var(--ultra-text)!important;
+}
+html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-home-date .ultra-day-label{display:block!important}
+@media(max-width:900px){
+ html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-ps5-info-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-home-widgets{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:600px){
+ html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-cine-topline{align-items:flex-start!important;flex-wrap:wrap!important;padding-top:47px!important}
+ html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-home-welcome-copy{max-width:100%!important}
+ html[data-platform-theme] #dashboardView.ultra-home-active #homePage .os-welcome{min-height:160px!important;align-items:flex-start!important;flex-direction:column!important;padding:20px!important}
+ html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-home-date{align-items:flex-start!important;text-align:left!important}
+ html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-home-widgets{grid-template-columns:1fr!important}
+ html[data-platform-theme] #dashboardView.ultra-home-active #homePage .ultra-ps5-info-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-auto-rows:minmax(118px,auto)!important}
+}
+</style>
+
 </style>
 <script id="ultra-systemwide-navigation-2026">
 
