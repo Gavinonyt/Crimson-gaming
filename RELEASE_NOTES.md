@@ -9,7 +9,7 @@
 - Refined all six selectable platform themes: Ultra, PlayStation-inspired, Xbox-inspired, Wii-inspired, Windows 11-inspired, and Nintendo Switch-inspired.
 - Added a Windows 11-inspired Start menu with searchable app shortcuts and a centered translucent taskbar treatment.
 - Preserved the existing account, game, collection, social, profile, and launcher actions rather than replacing the site with a static mockup.
-- This is a web interface release. It does not turn the browser theme into an official PlayStation, Xbox, Wii, Nintendo, or Microsoft operating system, and it does not rebuild the Android APK or Windows installer.
+- This remains an Ultra browser interface, not an official PlayStation, Xbox, Wii, Nintendo, or Microsoft operating system. The repository's Android workflow packages the updated website into an `Ultra-Launcher-Android-APK` Actions artifact after changes to `index.html` (30-day artifact retention); the APK is not committed as a new repository binary. The separate Windows installer was not rebuilt in this web release.
 
 ---
 
