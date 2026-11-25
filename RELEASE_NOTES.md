@@ -1,23 +1,15 @@
-# Ultra Launcher 5.0.0
-**Release date:** November 21, 2026
+# Ultra Launcher 6.0.0
+**Release date:** November 25, 2026
 
-## 5.0.0 — Ultra Drive & World Update
-
-### Included in this web release
-- Promoted the launcher release identity to 5.0.0 and synchronized the browser title, footer, and in-app changelog.
-- Preserved the V4.0 platform theme experience: Ultra, PlayStation-inspired, Xbox-inspired, Wii-inspired, Nintendo Switch-inspired, and Windows 11-inspired modes.
-- Kept Ultra City: State of Sun and the browser-playable Ultra Sprint experience accessible from the launcher.
-- Carried forward existing game hubs, library, favorites, profiles, friends, social pages, customization, and account sign-in.
-
-### Ultra Drive Connect — in development
-- Established the scope for a future vehicle companion covering Apple CarPlay, Android Auto, and supported-vehicle digital-key experiences.
-- **Not included as working integrations in this release:** CarPlay projection, Android Auto projection, and real vehicle-key pairing. These require compatible devices and vehicles, approved platform integrations, and manufacturer-supported digital-key APIs. The web launcher cannot independently unlock or start a real vehicle.
-- Ultra Drive Connect remains a planned integration area until the required platform and manufacturer access is available.
-
-### Release limitations
-- This commit updates the GitHub Pages website source and release notes. GitHub Pages must finish deploying before the live site reflects the change.
-- The Android APK and Windows companion installer were not rebuilt in this web-only release. Their binaries remain separate deliverables and should not be presented as updated 5.0.0 installers.
-- This release does not claim that third-party gaming-company partnerships exist or that platform interfaces are official software.
+## 6.0.0 — Complete Ultra OS Redesign
+- Reworked the complete signed-in workspace instead of limiting the refresh to one console theme: Home, navigation, Store, Library, Favorites, Settings, Profile, Social, Network, and the account entry screen now share one visual system.
+- Replaced the permanent desktop sidebar with a compact floating circular navigation dock. It hides while scrolling down and returns when scrolling up; the phone layout uses a touch-sized dock.
+- Rebuilt the Home page hierarchy with a featured welcome area, quick-launch apps, player shortcuts, collection panels, and system widgets.
+- Unified page headers, game cards, settings panels, search fields, profile panels, and network cards under responsive design tokens.
+- Refined all six selectable platform themes: Ultra, PlayStation-inspired, Xbox-inspired, Wii-inspired, Windows 11-inspired, and Nintendo Switch-inspired.
+- Added a Windows 11-inspired Start menu with searchable app shortcuts and a centered translucent taskbar treatment.
+- Preserved the existing account, game, collection, social, profile, and launcher actions rather than replacing the site with a static mockup.
+- This is a web interface release. It does not turn the browser theme into an official PlayStation, Xbox, Wii, Nintendo, or Microsoft operating system, and it does not rebuild the Android APK or Windows installer.
 
 ---
 
