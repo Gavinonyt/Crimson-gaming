@@ -2198,6 +2198,91 @@ body{background:#050505!important}
 .preview-switch .theme-mini-body{grid-template-columns:17px minmax(0,1fr)}
 .preview-switch .theme-mini-rail i:first-child{background:#fff}
 @media(max-width:650px){.platform-theme-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.platform-theme-preview{height:106px!important}.theme-mini{padding:6px}.theme-mini-hero{height:43px}.theme-mini-label{font-size:5px}}
+</style><style id="ultra-reference-home-v4">
+/* Dedicated home compositions based on the six-panel user reference. */
+.reference-home{display:none;min-height:calc(100vh - 135px);padding:16px 10px 54px;color:var(--platform-text,#fff)}
+html[data-platform-theme="ps5"] #homePage .reference-home-ps5,
+html[data-platform-theme="xbox"] #homePage .reference-home-xbox,
+html[data-platform-theme="windows"] #homePage .reference-home-windows,
+html[data-platform-theme="wii"] #homePage .reference-home-wii,
+html[data-platform-theme="switch"] #homePage .reference-home-switch,
+html[data-platform-theme="ultra"] #homePage .reference-home-ultra{display:block}
+html[data-platform-theme] #dashboardView .birthday-banner,
+html[data-platform-theme] #dashboardView .workspace-bar{display:none!important}
+html[data-platform-theme] #homePage>.ultra-xbox-rail,
+html[data-platform-theme] #homePage>.ultra-cine-topline,
+html[data-platform-theme] #homePage>.os-welcome,
+html[data-platform-theme] #homePage>.ultra-xbox-discord-hero,
+html[data-platform-theme] #homePage>.ultra-xbox-app-strip,
+html[data-platform-theme] #homePage>.ultra-home-widgets,
+html[data-platform-theme] #homePage>.vh-home-toolbar,
+html[data-platform-theme] #homePage>.vh-home-section-heading,
+html[data-platform-theme] #homePage>.ultra-xbox-card-grid,
+html[data-platform-theme] #homePage>.ultra-home-collection,
+html[data-platform-theme] #homePage>.vh-home-system-grid,
+html[data-platform-theme] #homePage>.ultra-ps5-info-grid,
+html[data-platform-theme] #homePage>.os-section-head,
+html[data-platform-theme] #homePage>.ultra-cine-app-tools,
+html[data-platform-theme] #homePage>#osAppGrid,
+html[data-platform-theme] #homePage>.ultra-valor-dashboard,
+html[data-platform-theme] #homePage>.os-bottom-grid{display:none!important}
+.reference-top{height:52px;display:flex;align-items:center;gap:28px;margin:0 0 18px}
+.reference-top>strong{font-size:21px;letter-spacing:1px;white-space:nowrap}
+.reference-top nav{display:flex;align-items:center;gap:22px;flex:1}
+.reference-top button{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;opacity:.86}
+.reference-top button:hover{opacity:1}
+.reference-top-tools{display:flex;align-items:center;gap:18px}
+.reference-top-tools button{font-size:20px}
+.reference-time{font-size:13px;white-space:nowrap}
+.reference-hero{position:relative;overflow:hidden;min-height:250px;border-radius:15px;display:flex;align-items:center;padding:30px 34px;margin-bottom:23px;background:#182c4d}
+.reference-hero-art{position:absolute;inset:0;background:radial-gradient(ellipse at 78% 45%,#4a9ef277,transparent 40%),linear-gradient(110deg,#0a1c36,#1d5790 58%,#0c1832)}
+.reference-hero-copy{position:relative;z-index:1;max-width:440px}
+.reference-hero-copy small{font-size:11px;font-weight:800;letter-spacing:1.8px;opacity:.8}
+.reference-hero-copy h1{font-size:clamp(26px,4vw,42px);line-height:1.08;margin:12px 0 8px}
+.reference-hero-copy p{font-size:14px;max-width:360px;line-height:1.5;opacity:.82}
+.reference-cta{margin-top:13px;padding:11px 22px;border:0;border-radius:24px;background:#e9f5ff;color:#10243b;font-weight:800;cursor:pointer}
+.reference-shelf-head{display:flex;align-items:center;justify-content:space-between;margin:14px 0 12px}
+.reference-shelf-head h2{font-size:18px;margin:0}
+.reference-shelf-head button{border:0;background:transparent;color:inherit;cursor:pointer}
+.reference-game-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.reference-game-tile{position:relative;min-width:0;min-height:116px;overflow:hidden;border:1px solid #ffffff20;border-radius:10px;padding:15px;text-align:left;color:white;background:linear-gradient(140deg,#273f62,#101a2a);cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end}
+.reference-game-tile:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,#ffffff35,transparent 48%)}
+.reference-game-tile span,.reference-game-tile small{position:relative}
+.reference-game-tile span{font-size:clamp(11px,1.5vw,17px);font-weight:900;letter-spacing:.4px}
+.reference-game-tile small{font-size:9px;opacity:.7;margin-top:5px}
+.ref-tile-2{background:linear-gradient(145deg,#326c9a,#142e48)}
+.ref-tile-3{background:linear-gradient(145deg,#6d4290,#261b3b)}
+.ref-tile-4{background:linear-gradient(145deg,#454e5c,#161d27)}
+.ref-tile-5{background:linear-gradient(145deg,#28744f,#102b27)}
+.reference-home-xbox .reference-top>strong{font-size:22px}
+.reference-home-xbox .reference-hero{border-radius:5px;min-height:250px}
+.reference-home-xbox .reference-hero-art{background:radial-gradient(circle at 82% 40%,#41d24a99,transparent 28%),linear-gradient(110deg,#101a13,#1d4c24 65%,#0d1b10)}
+.reference-home-xbox .reference-cta{background:#70e45d;color:#10210d;border-radius:5px}
+.reference-home-xbox .reference-game-tile{border-radius:3px;min-height:135px}
+.reference-home-windows{color:#f6faff}
+.reference-home-windows .reference-top{padding:0 8px}
+.reference-home-windows .reference-hero{border:1px solid #ffffff35;background:#234d7b;border-radius:12px;min-height:290px;box-shadow:0 20px 50px #0003}
+.reference-home-windows .reference-hero-art{background:radial-gradient(ellipse at 72% 65%,#36a4ffbb,transparent 32%),radial-gradient(ellipse at 65% 20%,#9ed8ff66,transparent 38%),linear-gradient(125deg,#164a7c,#1c78c3 60%,#102e58)}
+.reference-home-windows .reference-hero-copy{backdrop-filter:blur(14px)}
+.reference-home-windows .reference-cta{background:#c6e5ff}
+.reference-home-windows .reference-game-tile{border-radius:12px;background:#d7eaff22;backdrop-filter:blur(18px);border-color:#ffffff35;min-height:95px}
+.reference-home-wii{color:#28647b}
+.reference-home-wii .reference-top{background:#ffffffc9;border:1px solid #b8e6f6;border-radius:12px;padding:0 16px}
+.reference-home-wii .reference-hero{background:#e9faff;border:1px solid #9bd9ee;border-radius:18px;min-height:220px}
+.reference-home-wii .reference-hero-art{background:radial-gradient(circle at 75% 35%,#9feaff,transparent 35%),linear-gradient(110deg,#d4f4ff,#ffffff 55%,#a6e6fa)}
+.reference-home-wii .reference-cta{background:linear-gradient(#fff,#dff5fc);border:1px solid #9bd9ee;color:#24647e}
+.reference-home-wii .reference-game-tile{border-radius:12px;color:#245e76;background:linear-gradient(#fff,#d8f2fa);border:1px solid #a9dce9;min-height:110px}
+.reference-home-wii .reference-game-tile:before{background:radial-gradient(circle at 75% 20%,#61c5e455,transparent 50%)}
+.reference-home-switch{color:#fff}
+.reference-home-switch .reference-top>strong{background:#e72e45;padding:8px 13px;border-radius:4px}
+.reference-home-switch .reference-hero{min-height:230px;border-radius:4px;background:#1b1d25}
+.reference-home-switch .reference-hero-art{background:radial-gradient(circle at 80% 45%,#e52f48aa,transparent 30%),linear-gradient(115deg,#171923,#401a25 58%,#11131a)}
+.reference-home-switch .reference-cta{background:#e7354b;color:white;border-radius:4px}
+.reference-home-switch .reference-game-tile{border-radius:5px;min-height:125px;background:linear-gradient(145deg,#a9273d,#261820)}
+.reference-home-ultra .reference-hero-art{background:radial-gradient(ellipse at 75% 50%,#b445ff99,transparent 35%),linear-gradient(110deg,#100722,#37116b 60%,#100720)}
+.reference-home-ultra .reference-cta{background:#8c37df;color:white}
+.reference-home-ultra .reference-game-tile{background:linear-gradient(145deg,#492078,#140d25)}
+@media(max-width:700px){.reference-home{padding:7px 2px 40px}.reference-top{gap:9px;height:auto;flex-wrap:wrap;margin-bottom:13px}.reference-top>strong{font-size:16px}.reference-top nav{order:3;flex-basis:100%;gap:16px;overflow:auto;padding:8px 0}.reference-top nav button{font-size:12px}.reference-top-tools{margin-left:auto;gap:10px}.reference-hero{min-height:210px;padding:20px 17px}.reference-hero-copy h1{font-size:27px}.reference-game-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.reference-game-tile{min-height:96px}.reference-time{font-size:11px}}
 </style></head>
 <body>
 <div class="ultra-boot" id="ultraBootScreen" hidden aria-label="Starting Ultra OS">
@@ -2263,6 +2348,48 @@ body{background:#050505!important}
  <div class="ultra-xbox-rail-bottom"><button type="button" data-home-action="control">♧</button><button type="button" data-home-action="apps">▤</button><button type="button" data-home-action="command">⌕</button><button type="button" data-home-action="profile">U</button></div>
 </aside>
   <div class="ultra-cine-topline"><div class="ultra-cine-brand"><span class="ultra-cine-mark"><img src="./ultra-u-logo.svg" alt="" aria-hidden="true"></span><span>ULTRA</span></div><div class="ultra-cine-top-actions"><button type="button" data-home-page="home">HOME</button><button type="button" data-home-page="library">LIBRARY</button><button type="button" data-home-page="social">SOCIAL</button><button type="button" data-home-page="hubs">HUBS</button></div><div class="ultra-cine-system-actions"><button type="button" data-home-action="command" aria-label="Search">⌕</button><button type="button" data-home-action="control" aria-label="Control center">⚙</button><button type="button" data-home-action="signout">EXIT</button><span id="ultraHomeClock">--:--</span></div></div>
+
+<div class="reference-home reference-home-ps5" data-reference-home="ps5">
+  <div class="reference-top"><strong>PS5</strong><nav><button data-go-page="home">Home</button><button data-go-page="library">Games</button><button data-go-page="store">Store</button><button data-go-page="social">Friends</button></nav><div class="reference-top-tools"><button data-home-action="command" aria-label="Search">⌕</button><button data-go-page="settings" aria-label="Settings">⚙</button><span class="reference-time" data-reference-clock>10:24</span></div></div>
+  <div class="reference-hero ps5"><div class="reference-hero-art" aria-hidden="true"></div><div class="reference-hero-copy"><small>FEATURED · PLAYSTATION STYLE</small><h1>Grand adventure awaits</h1><p>Discover your next game and jump straight back into play.</p><button class="reference-cta" data-go-page="play">Play Now</button></div></div>
+  <div class="reference-shelf-head"><h2>Recently Played</h2><button data-go-page="library">See all&nbsp; ↗</button></div>
+  <div class="reference-game-row"><button class="reference-game-tile ref-tile-1" data-go-page="library"><span>FORTNITE</span><small>BATTLE ROYALE</small></button><button class="reference-game-tile ref-tile-2" data-go-page="library"><span>MINECRAFT</span><small>BUILD & EXPLORE</small></button><button class="reference-game-tile ref-tile-3" data-go-page="library"><span>ROBLOX</span><small>YOUR WORLD</small></button><button class="reference-game-tile ref-tile-4" data-go-page="library"><span>CALL OF DUTY</span><small>ACTION</small></button><button class="reference-game-tile ref-tile-5" data-go-page="play"><span>ULTRA SPRINT</span><small>RACING</small></button></div>
+</div>
+
+<div class="reference-home reference-home-xbox" data-reference-home="xbox">
+  <div class="reference-top"><strong>XBOX</strong><nav><button data-go-page="home">Home</button><button data-go-page="library">Games</button><button data-go-page="store">Store</button><button data-go-page="social">Friends</button></nav><div class="reference-top-tools"><button data-home-action="command" aria-label="Search">⌕</button><button data-go-page="settings" aria-label="Settings">⚙</button><span class="reference-time" data-reference-clock>10:24</span></div></div>
+  <div class="reference-hero xbox"><div class="reference-hero-art" aria-hidden="true"></div><div class="reference-hero-copy"><small>GAME PASS · DISCOVER</small><h1>Your next favorite game</h1><p>Explore the collection, pick a title, and play with your friends.</p><button class="reference-cta" data-go-page="play">Play Now</button></div></div>
+  <div class="reference-shelf-head"><h2>Game Pass</h2><button data-go-page="library">See all&nbsp; ↗</button></div>
+  <div class="reference-game-row"><button class="reference-game-tile ref-tile-1" data-go-page="library"><span>STARFIELD</span><small>EXPLORE</small></button><button class="reference-game-tile ref-tile-2" data-go-page="library"><span>FORZA</span><small>RACING</small></button><button class="reference-game-tile ref-tile-3" data-go-page="library"><span>MINECRAFT</span><small>BUILD</small></button><button class="reference-game-tile ref-tile-4" data-go-page="library"><span>ROBLOX</span><small>CREATE</small></button><button class="reference-game-tile ref-tile-5" data-go-page="play"><span>ULTRA SPRINT</span><small>RACE</small></button></div>
+</div>
+
+<div class="reference-home reference-home-windows" data-reference-home="windows">
+  <div class="reference-top"><strong>Windows 11</strong><nav><button data-go-page="home">Home</button><button data-go-page="library">Games</button><button data-go-page="store">Store</button><button data-go-page="social">Friends</button></nav><div class="reference-top-tools"><button data-home-action="command" aria-label="Search">⌕</button><button data-go-page="settings" aria-label="Settings">⚙</button><span class="reference-time" data-reference-clock>10:24</span></div></div>
+  <div class="reference-hero windows"><div class="reference-hero-art" aria-hidden="true"></div><div class="reference-hero-copy"><small>YOUR DESKTOP · PINNED</small><h1>A space for everything</h1><p>Your games, apps, and everyday tools—right where you need them.</p><button class="reference-cta" data-go-page="library">Explore</button></div></div>
+  <div class="reference-shelf-head"><h2>Pinned Apps</h2><button data-go-page="library">See all&nbsp; ↗</button></div>
+  <div class="reference-game-row"><button class="reference-game-tile ref-tile-1" data-go-page="store"><span>Edge</span><small>BROWSER</small></button><button class="reference-game-tile ref-tile-2" data-go-page="social"><span>Discord</span><small>COMMUNITY</small></button><button class="reference-game-tile ref-tile-3" data-go-page="library"><span>Steam</span><small>GAMES</small></button><button class="reference-game-tile ref-tile-4" data-go-page="media"><span>Spotify</span><small>MUSIC</small></button><button class="reference-game-tile ref-tile-5" data-go-page="play"><span>Ultra Sprint</span><small>PLAY</small></button></div>
+</div>
+
+<div class="reference-home reference-home-wii" data-reference-home="wii">
+  <div class="reference-top"><strong>Wii</strong><nav><button data-go-page="home">Home</button><button data-go-page="library">Games</button><button data-go-page="store">Store</button><button data-go-page="social">Friends</button></nav><div class="reference-top-tools"><button data-home-action="command" aria-label="Search">⌕</button><button data-go-page="settings" aria-label="Settings">⚙</button><span class="reference-time" data-reference-clock>10:24</span></div></div>
+  <div class="reference-hero wii"><div class="reference-hero-art" aria-hidden="true"></div><div class="reference-hero-copy"><small>WII MENU · CHANNELS</small><h1>Welcome to your channels</h1><p>Choose a channel to jump into games, news, and entertainment.</p><button class="reference-cta" data-go-page="play">Play Now</button></div></div>
+  <div class="reference-shelf-head"><h2>Channels</h2><button data-go-page="library">See all&nbsp; ↗</button></div>
+  <div class="reference-game-row"><button class="reference-game-tile ref-tile-1" data-go-page="store"><span>Wii Shop</span><small>SHOP</small></button><button class="reference-game-tile ref-tile-2" data-go-page="network"><span>Forecast</span><small>WEATHER</small></button><button class="reference-game-tile ref-tile-3" data-go-page="network"><span>News</span><small>UPDATES</small></button><button class="reference-game-tile ref-tile-4" data-go-page="media"><span>Photo</span><small>MEDIA</small></button><button class="reference-game-tile ref-tile-5" data-go-page="library"><span>Game Library</span><small>GAMES</small></button></div>
+</div>
+
+<div class="reference-home reference-home-switch" data-reference-home="switch">
+  <div class="reference-top"><strong>Nintendo Switch</strong><nav><button data-go-page="home">Home</button><button data-go-page="library">Games</button><button data-go-page="store">Store</button><button data-go-page="social">Friends</button></nav><div class="reference-top-tools"><button data-home-action="command" aria-label="Search">⌕</button><button data-go-page="settings" aria-label="Settings">⚙</button><span class="reference-time" data-reference-clock>10:24</span></div></div>
+  <div class="reference-hero switch"><div class="reference-hero-art" aria-hidden="true"></div><div class="reference-hero-copy"><small>PLAYER 1 · GAME SELECT</small><h1>What are we playing?</h1><p>Choose a game and jump into your next adventure.</p><button class="reference-cta" data-go-page="play">Play Now</button></div></div>
+  <div class="reference-shelf-head"><h2>Featured Games</h2><button data-go-page="library">See all&nbsp; ↗</button></div>
+  <div class="reference-game-row"><button class="reference-game-tile ref-tile-1" data-go-page="library"><span>ADVENTURE</span><small>EXPLORE</small></button><button class="reference-game-tile ref-tile-2" data-go-page="play"><span>RACING</span><small>RACE</small></button><button class="reference-game-tile ref-tile-3" data-go-page="arcade"><span>ARCADE</span><small>QUICK PLAY</small></button><button class="reference-game-tile ref-tile-4" data-go-page="library"><span>CREATIVE</span><small>BUILD</small></button><button class="reference-game-tile ref-tile-5" data-go-page="library"><span>COLLECTION</span><small>YOUR GAMES</small></button></div>
+</div>
+
+<div class="reference-home reference-home-ultra" data-reference-home="ultra">
+  <div class="reference-top"><strong>ULTRA</strong><nav><button data-go-page="home">Home</button><button data-go-page="library">Games</button><button data-go-page="store">Store</button><button data-go-page="social">Friends</button></nav><div class="reference-top-tools"><button data-home-action="command" aria-label="Search">⌕</button><button data-go-page="settings" aria-label="Settings">⚙</button><span class="reference-time" data-reference-clock>10:24</span></div></div>
+  <div class="reference-hero ultra"><div class="reference-hero-art" aria-hidden="true"></div><div class="reference-hero-copy"><small>ULTRA PLAYER NETWORK</small><h1>Welcome to Ultra Launcher</h1><p>Your games, apps, and community—all in one place.</p><button class="reference-cta" data-go-page="play">Play Now</button></div></div>
+  <div class="reference-shelf-head"><h2>Featured</h2><button data-go-page="library">See all&nbsp; ↗</button></div>
+  <div class="reference-game-row"><button class="reference-game-tile ref-tile-1" data-go-page="library"><span>ROBLOX</span><small>PLAY</small></button><button class="reference-game-tile ref-tile-2" data-go-page="library"><span>FORTNITE</span><small>PLAY</small></button><button class="reference-game-tile ref-tile-3" data-go-page="library"><span>MINECRAFT</span><small>PLAY</small></button><button class="reference-game-tile ref-tile-4" data-go-page="play"><span>ULTRA SPRINT</span><small>RACE</small></button><button class="reference-game-tile ref-tile-5" data-go-page="city"><span>ULTRA CITY</span><small>EXPLORE</small></button></div>
+</div>
   <div class="os-welcome ultra-home-welcome">
     <div class="ultra-home-welcome-copy"><div class="os-eyebrow"><span class="os-live-dot"></span> ULTRA OS / PLAYER SPACE</div><h1 id="welcomeTitle">Welcome to your world.</h1><p>Your games, apps, and community — all in one place.</p></div>
     <div class="ultra-home-date" aria-label="Current date and time"><div class="ultra-day-label" id="ultraDayLabel">FRIDAY</div><strong id="osTime">--:--</strong><span id="osDate">LOADING DATE</span></div>
